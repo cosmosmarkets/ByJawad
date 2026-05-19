@@ -1,0 +1,5 @@
+temporary screenshots/
+node_modules/
+.next/
+out/
+.env*.local

@@ -949,6 +949,31 @@
       mask-image: radial-gradient(ellipse 70% 90% at 50% 30%, black, transparent);
       -webkit-mask-image: radial-gradient(ellipse 70% 90% at 50% 30%, black, transparent);
     }
+    .hero-halftone-scene {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 88% 44% at 50% 100%, rgba(26, 26, 24, 0.34), transparent 72%),
+        linear-gradient(to bottom, rgba(245, 240, 230, 0.2), rgba(245, 240, 230, 0.78)),
+        radial-gradient(ellipse 120% 55% at 50% -10%, rgba(255, 255, 255, 0.55), transparent 68%),
+        url("brand_assets/hero-illustration.svg");
+      background-position: center, center, center, center;
+      background-size: cover, cover, cover, min(86rem, 110vw);
+      background-repeat: no-repeat;
+      filter: grayscale(1) contrast(1.05);
+    }
+    .hero-halftone-scene::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(27, 67, 50, 0.7) 1px, transparent 1px);
+      background-size: 8px 8px;
+      mix-blend-mode: multiply;
+      opacity: 0.2;
+      mask-image: linear-gradient(to bottom, transparent 5%, black 20%, black 82%, transparent 98%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 5%, black 20%, black 82%, transparent 98%);
+      pointer-events: none;
+    }
 
     .check-item::before {
       content: '✓';
@@ -1022,62 +1047,32 @@
   <main id="main-content">
 
     <!-- Hero § 01 -->
-    <section class="relative min-h-screen flex flex-col justify-center pt-20 pb-24 lg:pb-30 overflow-hidden" aria-label="Hero">
-      <div class="absolute inset-0 halftone-coarse opacity-[0.12] pointer-events-none halftone-fade" aria-hidden="true"></div>
-      <div class="absolute inset-0 halftone-fine opacity-[0.18] pointer-events-none" style="mask-image: radial-gradient(ellipse 80% 60% at 70% 40%, black, transparent);" aria-hidden="true"></div>
-
-      <div class="relative max-w-7xl mx-auto px-6 lg:px-10 w-full">
-        <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          <div class="lg:col-span-7">
-            <p class="type-meta text-ink/50 mb-6 flex flex-wrap gap-x-3 gap-y-1">
-              <span>Portfolio sites</span>
-              <span class="text-riso" aria-hidden="true">·</span>
-              <span>For creative freelancers</span>
-              <span class="text-riso" aria-hidden="true">·</span>
-              <span class="text-forest">Starting at $300</span>
-            </p>
-            <div class="w-16 h-px bg-forest/30 mb-10" aria-hidden="true"></div>
-
-            <h1 class="type-hero mb-8 max-w-2xl">
-              <span class="block text-ink">Your work is <span class="text-forest">great.</span></span>
-              <span class="block text-ink">Your presence <span class="text-riso">isn't.</span></span>
-            </h1>
-
-            <p class="type-lead text-ink/80 max-w-lg mb-4">
-              I build portfolio sites for early-career creatives — photographers, designers, illustrators — who are tired of being overlooked online.
-            </p>
-            <p class="type-body-sm text-forest font-medium mb-10">Built by a 15-year-old who actually ships stuff (3D, brands, and products — not just homework).</p>
-
-            <div class="flex flex-wrap items-center gap-5">
-              <span class="hover-bubble-wrap">
-                <a href="#intake-form" class="btn-primary">Start your project</a>
-                <span class="hover-bubble" aria-hidden="true">click →</span>
-              </span>
-              <a href="#work" class="btn-ghost">See the work ↓</a>
-            </div>
-
-            <p class="mt-16 type-meta text-ink/50 normal-case">
-              Scroll ↓ <span class="text-forest/60">The hard truth</span>
-            </p>
-          </div>
-
-          <div class="lg:col-span-5 relative">
-            <p class="edge-label absolute -right-2 lg:right-0 top-8 hidden lg:block z-10" aria-hidden="true">§ 01 / 10</p>
-            <div class="hero-portrait rounded-sm border border-forest/15 overflow-hidden bg-cream-muted">
-              <img
-                src="brand_assets/hero-illustration.svg"
-                alt="Illustration of portfolio websites on screen"
-                class="w-full h-full object-contain relative z-[1] p-4"
-                width="700"
-                height="875"
-                fetchpriority="high"
-              />
-              <div class="absolute bottom-6 left-6 z-10">
-                <p class="type-logo text-forest">By Jawad</p>
-                <p class="type-meta text-ink/50 mt-0.5 normal-case">2026</p>
-              </div>
-            </div>
-          </div>
+    <section class="relative min-h-screen flex items-center pt-20 pb-24 lg:pb-30 overflow-hidden text-center" aria-label="Hero">
+      <div class="hero-halftone-scene" aria-hidden="true"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-cream/10 via-cream/72 to-cream pointer-events-none" aria-hidden="true"></div>
+      <div class="absolute inset-0 halftone-fine opacity-[0.2] pointer-events-none" style="mask-image: radial-gradient(ellipse 70% 55% at 50% 45%, black, transparent);" aria-hidden="true"></div>
+      <div class="relative max-w-4xl mx-auto px-6 lg:px-10 w-full">
+        <p class="type-meta text-ink/55 mb-6 flex justify-center flex-wrap gap-x-3 gap-y-1">
+          <span>Portfolio sites</span>
+          <span class="text-riso" aria-hidden="true">·</span>
+          <span>For creative freelancers</span>
+          <span class="text-riso" aria-hidden="true">·</span>
+          <span class="text-forest">Starting at $300</span>
+        </p>
+        <h1 class="type-hero mb-8 max-w-3xl mx-auto">
+          <span class="block text-ink">Your work is <span class="text-forest">great.</span></span>
+          <span class="block text-ink">Your website should feel <span class="text-riso">unforgettable.</span></span>
+        </h1>
+        <p class="type-lead text-ink/80 max-w-2xl mx-auto mb-3">
+          I design and build high-conversion portfolio sites for photographers, designers, illustrators, and studios.
+        </p>
+        <p class="type-body-sm text-forest font-medium mb-10">Built with modern stack + clear messaging, so your best work gets seen faster.</p>
+        <div class="flex flex-wrap justify-center items-center gap-5">
+          <span class="hover-bubble-wrap">
+            <a href="#intake-form" class="btn-primary">Start your project</a>
+            <span class="hover-bubble" aria-hidden="true">click →</span>
+          </span>
+          <a href="#proof" class="btn-ghost">See proof ↓</a>
         </div>
       </div>
     </section>
@@ -1149,7 +1144,7 @@
             A portfolio site built to get you hired.
           </h2>
           <p class="type-body text-ink/85">
-            I build custom portfolio sites around your work and personality — not a generic template. Same stack I use on my own products: vanilla JS/CSS, Tailwind, AI-assisted workflow, deployed fast. No agency bloat.
+            I build custom portfolio sites around your work and personality — not generic templates. Production stack: Next.js, Tailwind, and motion systems tuned for conversion and speed.
           </p>
         </div>
 
@@ -1163,9 +1158,9 @@
               <h3 class="type-h3 text-ink mb-3">Most sites are done within two weeks.</h3>
               <p class="type-body text-ink/80">You get something real, quickly.</p>
               <div class="flex flex-wrap gap-2 mt-5">
-                <span class="pill-tag">Vanilla JS/CSS</span>
+                <span class="pill-tag">Next.js</span>
                 <span class="pill-tag">Tailwind</span>
-                <span class="pill-tag">AI-assisted</span>
+                <span class="pill-tag">Framer Motion</span>
               </div>
             </div>
             <div class="lg:col-span-5 flex justify-end" aria-hidden="true">
@@ -1262,71 +1257,71 @@
       <p class="edge-label absolute right-6 top-1/2 -translate-y-1/2 hidden xl:block" aria-hidden="true">§ 05 — Work</p>
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
         <div class="mb-12 lg:mb-16">
-          <p class="section-label mb-4">Recent work</p>
+          <p class="section-label mb-4">Build log</p>
           <h2 class="type-h2 text-ink">
-            Sites that do the talking.
+            Real progress, no fake case studies.
           </h2>
-          <p class="type-meta text-ink/50 mt-4 normal-case">Example layouts — your project replaces these.</p>
+          <p class="type-meta text-ink/50 mt-4 normal-case">Currently shipping stage updates while client builds are in progress.</p>
         </div>
 
         <div class="grid lg:grid-cols-12 gap-8 lg:gap-10">
           <article class="work-card lg:col-span-7 hover-bubble-wrap">
-            <a href="#" class="block group focus-visible:outline-2 focus-visible:outline-forest focus-visible:outline-offset-4">
+            <a href="#process" class="block group focus-visible:outline-2 focus-visible:outline-forest focus-visible:outline-offset-4">
               <div class="halftone-duotone halftone-duotone--forest aspect-[4/5] mb-5">
-                <img src="https://images.unsplash.com/photo-1558591710-4bf4e300d813?w=700&amp;h=875&amp;fit=crop&amp;q=80" alt="Marcus Cole portfolio — motion design homepage preview" class="w-full h-full object-cover relative z-[1]" width="700" height="875" loading="lazy" />
+                <img src="brand_assets/hero-illustration.svg" alt="Current project visual direction with editorial halftone treatment" class="w-full h-full object-cover relative z-[1]" width="700" height="875" loading="lazy" />
               </div>
-              <h3 class="type-h3 text-ink">Marcus Cole</h3>
-              <p class="type-body-sm text-forest font-medium mt-1">Motion Designer</p>
+              <h3 class="type-h3 text-ink">Stage 01 — Direction lock</h3>
+              <p class="type-body-sm text-forest font-medium mt-1">Trust cleanup + hero art direction</p>
               <div class="flex flex-wrap gap-2 mt-4">
-                <span class="pill-tag">Motion Designer</span>
+                <span class="pill-tag">Live now</span>
                 <span class="pill-tag">2026</span>
                 <span class="pill-tag">Next.js</span>
-                <span class="pill-tag">GSAP</span>
-                <span class="pill-tag">Lottie</span>
+                <span class="pill-tag">Tailwind</span>
+                <span class="pill-tag">Framer-ready</span>
               </div>
-              <p class="work-teaser type-body-sm text-ink/65">Concept portfolio built around kinetic type and scroll-driven motion. Designed to feel like a reel, not a brochure.</p>
+              <p class="work-teaser type-body-sm text-ink/65">Centered hero, stronger halftone language, and truthful messaging baseline before migration.</p>
             </a>
-            <span class="hover-bubble" aria-hidden="true">view →</span>
+            <span class="hover-bubble" aria-hidden="true">read →</span>
           </article>
 
           <div class="lg:col-span-5 flex flex-col gap-8 lg:gap-10">
             <article class="work-card hover-bubble-wrap">
-              <a href="#" class="block focus-visible:outline-2 focus-visible:outline-forest focus-visible:outline-offset-4">
+              <a href="#process" class="block focus-visible:outline-2 focus-visible:outline-forest focus-visible:outline-offset-4">
                 <div class="halftone-duotone halftone-duotone--forest aspect-[4/3] mb-4">
-                  <img src="https://images.unsplash.com/photo-1493863641948-86ffdadae4f3?w=600&amp;h=450&amp;fit=crop&amp;q=80" alt="Isla Reid portfolio — brand photography gallery preview" class="w-full h-full object-cover relative z-[1]" width="600" height="450" loading="lazy" />
+                  <img src="brand_assets/jawad-avatar.svg" alt="Component migration planning card" class="w-full h-full object-cover relative z-[1]" width="600" height="450" loading="lazy" />
                 </div>
-                <h3 class="type-h3 text-ink">Isla Reid</h3>
-                <p class="type-body-sm text-forest font-medium mt-1">Brand Photographer</p>
+                <h3 class="type-h3 text-ink">Stage 02 — Migration</h3>
+                <p class="type-body-sm text-forest font-medium mt-1">From single-file HTML to Next components</p>
                 <div class="flex flex-wrap gap-2 mt-3">
-                  <span class="pill-tag">Brand Photographer</span>
+                  <span class="pill-tag">In progress</span>
                   <span class="pill-tag">2026</span>
                   <span class="pill-tag">Next.js</span>
                 </div>
-                <p class="work-teaser type-body-sm text-ink/65">Editorial layout with full-bleed imagery and minimal UI so the photographs stay center stage.</p>
+                <p class="work-teaser type-body-sm text-ink/65">Section-by-section port with design token parity and maintainable architecture.</p>
               </a>
-              <span class="hover-bubble" aria-hidden="true">view →</span>
+              <span class="hover-bubble" aria-hidden="true">read →</span>
             </article>
 
             <article class="work-card hover-bubble-wrap">
-              <a href="#" class="block focus-visible:outline-2 focus-visible:outline-forest focus-visible:outline-offset-4">
+              <a href="#pricing" class="block focus-visible:outline-2 focus-visible:outline-forest focus-visible:outline-offset-4">
                 <div class="halftone-duotone halftone-duotone--riso aspect-[4/3] mb-4">
-                  <img src="https://images.unsplash.com/photo-1578301978693-35eb8c26534f?w=600&amp;h=450&amp;fit=crop&amp;q=80" alt="Lena Park portfolio — illustration and art direction preview" class="w-full h-full object-cover relative z-[1]" width="600" height="450" loading="lazy" />
+                  <img src="brand_assets/hero-illustration.svg" alt="Motion and halftone polish track card" class="w-full h-full object-cover relative z-[1]" width="600" height="450" loading="lazy" />
                 </div>
-                <h3 class="type-h3 text-ink">Lena Park</h3>
-                <p class="type-body-sm text-forest font-medium mt-1">Illustrator and Art Director</p>
+                <h3 class="type-h3 text-ink">Stages 03–04 — Motion + halftone polish</h3>
+                <p class="type-body-sm text-forest font-medium mt-1">Interactivity, responsiveness, and signature visuals</p>
                 <div class="flex flex-wrap gap-2 mt-3">
-                  <span class="pill-tag">Illustrator</span>
+                  <span class="pill-tag">Planned</span>
                   <span class="pill-tag">2026</span>
-                  <span class="pill-tag">Tailwind</span>
+                  <span class="pill-tag">Framer Motion</span>
                 </div>
-                <p class="work-teaser type-body-sm text-ink/65">Bold color blocks and hand-drawn textures with a riso-inspired palette matching her studio brand.</p>
+                <p class="work-teaser type-body-sm text-ink/65">Scroll-aware motion, accessibility-safe animation, and denser halftone treatment.</p>
               </a>
-              <span class="hover-bubble" aria-hidden="true">view →</span>
+              <span class="hover-bubble" aria-hidden="true">read →</span>
             </article>
           </div>
         </div>
 
-        <p class="type-meta text-ink/50 mt-12 pt-8 border-t border-forest/10">Showing 01–03 of 03 projects</p>
+        <p class="type-meta text-ink/50 mt-12 pt-8 border-t border-forest/10">Transparent build log updates replace placeholder projects until client launches are live.</p>
       </div>
     </section>
 
@@ -1572,11 +1567,14 @@
             Ready for a site that works as hard as you do?
           </h2>
           <p class="type-lead text-cream/85 max-w-lg mx-auto">
-            Spots are limited for July. Tell me about your work — takes about 10 minutes. Not sure yet? Email me — I reply fast.
+            I take two builds per month to keep quality high. Tell me about your work — takes about 10 minutes. Not sure yet? Email me — I reply fast.
           </p>
         </div>
 
-        <form id="intake-form" class="intake-form card-floating rounded-sm p-8 lg:p-10" action="#" method="post" novalidate>
+        <form id="intake-form" class="intake-form card-floating rounded-sm p-8 lg:p-10" action="https://formsubmit.co/hello@byjawad.com" method="post">
+          <input type="hidden" name="_subject" value="New By Jawad inquiry" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
           <p class="section-label mb-6">Project intake</p>
           <div class="grid sm:grid-cols-2 gap-5 mb-5">
             <div class="form-field sm:col-span-1">
@@ -1646,13 +1644,9 @@
           <a href="#pricing" class="nav-link">Pricing</a>
           <a href="#intake-form" class="nav-link">Contact</a>
         </nav>
-        <div class="flex justify-start md:justify-end gap-5">
-          <a href="https://x.com/Cosmosfinite" class="text-forest hover:opacity-70 transition-opacity duration-200 focus-visible:outline-2 focus-visible:outline-forest focus-visible:outline-offset-2" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a href="https://www.tiktok.com/@cosmos.models" class="text-forest hover:opacity-70 transition-opacity duration-200 focus-visible:outline-2 focus-visible:outline-forest focus-visible:outline-offset-2" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-          </a>
+        <div class="flex justify-start md:justify-end gap-3 flex-wrap">
+          <a href="https://weldroblox.com" class="pill-tag hover:opacity-80 focus-visible:outline-2 focus-visible:outline-forest focus-visible:outline-offset-2" target="_blank" rel="noopener noreferrer">Weld</a>
+          <a href="https://cosmosmodels.co.uk" class="pill-tag hover:opacity-80 focus-visible:outline-2 focus-visible:outline-forest focus-visible:outline-offset-2" target="_blank" rel="noopener noreferrer">Cosmos Models</a>
         </div>
       </div>
 
@@ -1708,10 +1702,9 @@
 
       var form = document.getElementById('intake-form');
       if (form) {
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
+        form.addEventListener('submit', function () {
           var btn = form.querySelector('.btn-submit');
-          btn.textContent = 'Inquiry received — thank you!';
+          btn.textContent = 'Sending inquiry...';
           btn.disabled = true;
           btn.style.opacity = '0.85';
         });
