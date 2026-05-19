@@ -1,3 +1,8 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { fadeUp } from "./motionConfig";
+
 const includes = [
   "Custom design around your work",
   "Up to 5 pages",
@@ -9,14 +14,24 @@ const includes = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-24 lg:py-28">
+    <motion.section
+      id="pricing"
+      className="py-24 lg:py-28"
+      initial="hidden"
+      animate="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeUp}
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <p className="text-xs uppercase tracking-[0.14em] text-forest mb-4">Pricing</p>
         <h2 className="font-display tracking-[-0.025em] text-[clamp(1.9rem,4vw,3rem)] leading-[1.06] max-w-xl">
           One price. No bloat. No retainers.
         </h2>
 
-        <article className="bg-white border border-forest/12 rounded-sm p-8 mt-10">
+        <motion.article
+          whileHover={{ y: -3 }}
+          className="bg-white border border-forest/12 rounded-sm p-8 mt-10"
+        >
           <div className="flex flex-wrap items-end gap-4">
             <h3 className="font-display text-3xl tracking-[-0.02em]">The Portfolio Site</h3>
             <p className="font-display text-4xl tracking-[-0.03em] text-forest">$300</p>
@@ -28,8 +43,8 @@ export default function Pricing() {
               </li>
             ))}
           </ul>
-        </article>
+        </motion.article>
       </div>
-    </section>
+    </motion.section>
   );
 }

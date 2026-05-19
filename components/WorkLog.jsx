@@ -1,3 +1,8 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { fadeUp, stagger } from "./motionConfig";
+
 const items = [
   {
     title: "Stage 01 — Direction lock",
@@ -21,7 +26,13 @@ const items = [
 
 export default function WorkLog() {
   return (
-    <section id="work" className="py-24 lg:py-28">
+    <motion.section
+      id="work"
+      className="py-24 lg:py-28"
+      initial="hidden"
+      animate="visible"
+      variants={fadeUp}
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <p className="text-xs uppercase tracking-[0.14em] text-forest mb-4">Build log</p>
         <h2 className="font-display tracking-[-0.025em] text-[clamp(1.9rem,4vw,3rem)] leading-[1.06] max-w-2xl">
@@ -31,9 +42,15 @@ export default function WorkLog() {
           Transparent stage updates until client launches go live.
         </p>
 
-        <div className="grid lg:grid-cols-3 gap-6 mt-10">
+        <motion.div className="grid lg:grid-cols-3 gap-6 mt-10" variants={stagger}>
           {items.map((item) => (
-            <article key={item.title} className="relative bg-white border border-forest/10 rounded-sm p-6 halftone-card overflow-hidden">
+            <motion.article
+              variants={fadeUp}
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.25 }}
+              key={item.title}
+              className="relative bg-white border border-forest/10 rounded-sm p-6 halftone-card overflow-hidden"
+            >
               <h3 className="font-display text-2xl tracking-[-0.02em] relative z-10">{item.title}</h3>
               <p className="text-sm text-forest font-semibold mt-1 relative z-10">{item.subtitle}</p>
               <p className="text-sm text-ink/75 leading-relaxed mt-4 relative z-10">{item.body}</p>
@@ -42,10 +59,10 @@ export default function WorkLog() {
                   <span className="pill-tag" key={tag}>{tag}</span>
                 ))}
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

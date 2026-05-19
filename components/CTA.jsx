@@ -1,6 +1,18 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { fadeUp } from "./motionConfig";
+
 export default function CTA() {
   return (
-    <section id="start" className="relative py-24 lg:py-32 bg-forest text-cream overflow-hidden">
+    <motion.section
+      id="start"
+      className="relative py-24 lg:py-32 bg-forest text-cream overflow-hidden"
+      initial="hidden"
+      animate="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeUp}
+    >
       <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, rgba(245, 240, 230, 0.6) 1px, transparent 1px)", backgroundSize: "10px 10px" }} aria-hidden="true" />
       <div className="relative max-w-2xl mx-auto px-6 lg:px-10">
         <div className="text-center mb-10">
@@ -23,11 +35,16 @@ export default function CTA() {
             <input className="border border-forest/20 rounded-sm p-3" type="email" name="email" placeholder="you@studio.com" required />
           </div>
           <textarea className="border border-forest/20 rounded-sm p-3 w-full mt-4 min-h-28" name="message" placeholder="What should your site do?" required />
-          <button className="mt-5 w-full bg-forest text-cream font-semibold text-sm py-3 rounded-sm" type="submit">
+          <motion.button
+            whileHover={{ y: -2, scale: 1.01 }}
+            whileTap={{ y: 0, scale: 0.99 }}
+            className="mt-5 w-full bg-forest text-cream font-semibold text-sm py-3 rounded-sm"
+            type="submit"
+          >
             Send inquiry
-          </button>
+          </motion.button>
         </form>
       </div>
-    </section>
+    </motion.section>
   );
 }
