@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { fadeUp, stagger } from "./motionConfig";
+import HeroShader from "./HeroShader";
 
 export default function Hero() {
   return (
@@ -11,6 +12,7 @@ export default function Hero() {
       aria-label="Hero"
     >
       <div className="hero-halftone-scene" aria-hidden="true" />
+      <HeroShader />
       <div className="absolute inset-0 bg-gradient-to-b from-cream/10 via-cream/72 to-cream pointer-events-none" aria-hidden="true" />
       <motion.div
         className="relative max-w-4xl mx-auto px-6 lg:px-10"
