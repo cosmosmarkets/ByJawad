@@ -2,94 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --cream: #f5f0e6;
-  --cream-deep: #e5dfd2;
-  --forest: #1b4332;
-  --forest-rich: #153528;
-  --ink: #1a1a18;
-  --riso: #e94b3c;
-}
+@layer base {
+  :root {
+    /* Layout tokens */
+    --space-section: 6rem;
+    --space-container: 2rem;
+    --width-prose: 65ch;
+    /* Brand accent */
+    --brand: 250 65% 52%;
+    --brand-muted: 250 40% 40%;
 
-html {
-  scroll-behavior: smooth;
-}
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 250 55% 45%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 12%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 250 30% 94%;
+    --accent-foreground: 250 40% 25%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 250 55% 45%;
+    --radius: 0.625rem;
+  }
 
-@media (prefers-reduced-motion: reduce) {
+  .dark {
+    --background: 0 0% 6%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 250 60% 62%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 250 25% 18%;
+    --accent-foreground: 0 0% 96%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 250 55% 55%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    line-height: 1.7;
+  }
+
   html {
-    scroll-behavior: auto;
+    @apply scroll-smooth;
   }
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading), Georgia, serif;
   }
 }
 
-body {
-  font-family: Satoshi, system-ui, sans-serif;
-  background-color: var(--cream);
-  color: var(--ink);
-}
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 
-.grain::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 50;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-.hero-halftone-scene {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 85% 36% at 50% 102%, rgba(26, 26, 24, 0.38), transparent 72%),
-    radial-gradient(ellipse 88% 42% at 50% -6%, rgba(255, 255, 255, 0.45), transparent 68%),
-    linear-gradient(170deg, rgba(229, 223, 210, 0.78), rgba(245, 240, 230, 0.82)),
-    radial-gradient(ellipse 120% 55% at 50% -10%, rgba(255, 255, 255, 0.55), transparent 68%),
-    url("/brand_assets/hero-illustration.svg");
-  background-position: center;
-  background-size: cover, cover, cover, min(86rem, 110vw);
-  background-repeat: no-repeat;
-  filter: grayscale(1) contrast(1.08);
-}
-
-.hero-halftone-scene::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(27, 67, 50, 0.7) 1px, transparent 1px);
-  background-size: 8px 8px;
-  mix-blend-mode: multiply;
-  opacity: 0.2;
-  pointer-events: none;
-}
-
-.hero-shader-layer {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  opacity: 0.56;
-  mix-blend-mode: multiply;
-}
-
-.halftone-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(27, 67, 50, 0.45) 1px, transparent 1px);
-  background-size: 10px 10px;
-  mix-blend-mode: multiply;
-  opacity: 0.16;
-  pointer-events: none;
-}
-
-.pill-tag {
-  @apply inline-block text-xs uppercase tracking-[0.14em] px-2.5 py-1 border border-forest/20 rounded-sm text-forest bg-cream/80;
+  .font-heading {
+    font-family: var(--font-heading), Georgia, serif;
+  }
 }

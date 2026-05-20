@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
-  <rect width="1200" height="630" fill="#F5F0E6"/>
-  <circle cx="900" cy="200" r="180" fill="#1B4332" opacity="0.08"/>
-  <circle cx="200" cy="500" r="120" fill="#E94B3C" opacity="0.12"/>
-  <text x="80" y="280" font-family="system-ui,sans-serif" font-size="72" font-weight="700" fill="#1A1A18" letter-spacing="-2">By Jawad</text>
-  <text x="80" y="360" font-family="system-ui,sans-serif" font-size="32" fill="#1B4332" opacity="0.85">Portfolio sites for creative freelancers</text>
-  <text x="80" y="420" font-family="system-ui,sans-serif" font-size="24" fill="#E94B3C">Starting at $300</text>
-</svg>
