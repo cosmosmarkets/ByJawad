@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero prototype — halftone spaceman</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #fafafa;
+      --muted: #a3a3a3;
+      --cta-fill: #fafafa;
+      --cta-text: #000000;
+      --scrim: linear-gradient(90deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.12) 45%, transparent 62%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: #000;
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      transition: background 0.35s ease, padding 0.35s ease, backdrop-filter 0.35s ease;
+    }
+    .nav.scrolled {
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(12px);
+      padding: 0.65rem 1.5rem;
+    }
+    .nav-logo { font-weight: 700; letter-spacing: -0.03em; color: var(--ink); text-decoration: none; }
+    .nav-cta {
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      background: var(--cta-fill);
+      color: var(--cta-text);
+      border-radius: 999px;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .nav-cta:hover { transform: translateY(-1px); background: #e5e5e5; }
+    .nav-cta:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow: hidden;
+    }
+
+    /* L0 — halftone poster (primary) */
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: right center;
+      animation: kenBurns 22s ease-in-out infinite alternate;
+    }
+    @keyframes kenBurns {
+      from { transform: scale(1); }
+      to { transform: scale(1.03); }
+    }
+
+    /* L0b — video (Phase 2, over image when ready) */
+    .hero-media video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: right center;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .hero-media video.is-active { opacity: 1; }
+    .hero-media video.is-active + picture img { opacity: 0; }
+
+    /* L1 — orbit in left void */
+    .hero-orbit {
+      position: absolute;
+      left: 12%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+    .orbit-system {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      transform-style: preserve-3d;
+      animation: system-tilt 24s ease-in-out infinite alternate;
+    }
+    @keyframes system-tilt {
+      from { transform: rotateX(14deg) rotateZ(0deg); }
+      to { transform: rotateX(20deg) rotateZ(6deg); }
+    }
+    .orbit-sun {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 20px;
+      height: 20px;
+      margin: -10px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fafafa, #737373);
+      box-shadow: 0 0 24px rgba(250, 250, 250, 0.35);
+    }
+    .orbit-ring {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      border: 1px solid rgba(250, 250, 250, 0.15);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .orbit-ring-1 { width: 80px; height: 80px; animation: spin 18s linear infinite; }
+    .orbit-ring-2 { width: 130px; height: 130px; animation: spin 28s linear infinite reverse; }
+    .orbit-planet {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #d4d4d4;
+      top: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+
+    @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+    .hero-scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: var(--scrim);
+      pointer-events: none;
+    }
+
+    /* L3 — left content column */
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 7rem 1.5rem 4rem;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .hero-column {
+      max-width: 36rem;
+      width: 100%;
+    }
+
+    .kicker {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero-column h1 {
+      font-family: Syne, system-ui, sans-serif;
+      font-size: clamp(2.25rem, 5.5vw, 4.25rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      text-align: left;
+      text-shadow: 0 2px 32px rgba(0, 0, 0, 0.9);
+      margin-bottom: 1.25rem;
+      transform-origin: left center;
+      animation: headlinePull 5s ease-in-out infinite;
+    }
+    @keyframes headlinePull {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(4px, -2px); }
+    }
+
+    .subhead {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.8);
+    }
+    .audience {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+    }
+    .audience span {
+      font-size: 0.75rem;
+      padding: 0.35rem 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      color: var(--muted);
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.35rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .btn-primary { background: var(--cta-fill); color: var(--cta-text); }
+    .btn-primary:hover { background: #e5e5e5; transform: translateY(-2px); }
+    .btn-ghost {
+      color: var(--ink);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: transparent;
+    }
+    .btn-ghost:hover { border-color: var(--ink); transform: translateY(-2px); }
+    .btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+    .qa-badge {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 200;
+      font-size: 0.7rem;
+      padding: 0.5rem 0.75rem;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid #525252;
+      border-radius: 6px;
+      color: #a3a3a3;
+    }
+    .qa-badge.pass { border-color: #22c55e; color: #86efac; }
+
+    @media (max-width: 768px) {
+      .hero-media img,
+      .hero-media video { object-position: 72% 35%; }
+      .hero-content { align-items: center; text-align: center; padding-top: 5.5rem; }
+      .hero-column { max-width: 100%; }
+      .hero-column h1 { text-align: center; transform-origin: center; }
+      .audience { justify-content: center; }
+      .cta-row { justify-content: center; }
+      .hero-orbit { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-media img,
+      .orbit-ring,
+      .orbit-system,
+      .hero-column h1 { animation: none !important; }
+      .hero-orbit { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <a class="nav-logo" href="/">Jawad</a>
+    <a class="nav-cta" href="/contact#book">Book a Call</a>
+  </header>
+
+  <section class="hero" id="hero" aria-label="Hero">
+    <div class="hero-media" aria-hidden="true">
+      <video id="heroVideo" muted loop playsinline preload="none">
+        <source src="../brand_assets/hero/spaceman-grab-headline.webm" type="video/webm" />
+        <source src="../brand_assets/hero/spaceman-grab-headline.mp4" type="video/mp4" />
+      </video>
+      <picture>
+        <source
+          media="(max-width: 768px)"
+          srcset="../brand_assets/hero/spaceman-grab-mobile.webp"
+          type="image/webp"
+        />
+        <source
+          srcset="../brand_assets/hero/spaceman-grab-poster@2x.webp 2x, ../brand_assets/hero/spaceman-grab-poster.webp 1x"
+          type="image/webp"
+        />
+        <img
+          src="../brand_assets/hero/spaceman-grab-poster.jpg"
+          alt=""
+          width="1920"
+          height="823"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+    </div>
+
+    <div class="hero-orbit" id="heroOrbit" aria-hidden="true">
+      <div class="orbit-system" id="orbitSystem">
+        <div class="orbit-sun"></div>
+        <div class="orbit-ring orbit-ring-1"><span class="orbit-planet"></span></div>
+        <div class="orbit-ring orbit-ring-2"><span class="orbit-planet"></span></div>
+      </div>
+    </div>
+
+    <div class="hero-scrim" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <div class="hero-column">
+        <p class="kicker">Orbit-ready web design</p>
+        <h1 id="headlineGrab">Landing pages.<br />Out of this world.</h1>
+        <p class="subhead">I design and build high-converting landing pages, portfolio websites, and modern web experiences for brands and creators.</p>
+        <div class="audience">
+          <span>Creative freelancers</span>
+          <span>SaaS founders</span>
+          <span>Brands & agencies</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/contact">Launch Your Website</a>
+          <a class="btn btn-ghost" href="/work">Explore Missions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="qa-badge" id="qaBadge" aria-live="polite">Contrast QA…</p>
+
+  <script>
+    (function () {
+      var nav = document.getElementById("nav");
+      var video = document.getElementById("heroVideo");
+      var headline = document.getElementById("headlineGrab");
+      var qa = document.getElementById("qaBadge");
+      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      window.addEventListener("scroll", function () {
+        nav.classList.toggle("scrolled", window.scrollY > 40);
+      }, { passive: true });
+
+      if (video && !reduced) {
+        video.addEventListener("loadeddata", function () {
+          video.classList.add("is-active");
+          video.play().catch(function () {});
+        });
+        video.addEventListener("error", function () {
+          video.remove();
+        });
+        fetch("../brand_assets/hero/spaceman-grab-headline.webm", { method: "HEAD" })
+          .then(function (r) {
+            if (r.ok) video.load();
+          })
+          .catch(function () {});
+      } else if (video) {
+        video.remove();
+      }
+
+      function luminance(r, g, b) {
+        var a = [r, g, b].map(function (c) {
+          c /= 255;
+          return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+        });
+        return 0.2126 * a[0] + 0.7152 * a[1] + 0.0722 * a[2];
+      }
+
+      function contrastRatio(l1, l2) {
+        var light = Math.max(l1, l2);
+        var dark = Math.min(l1, l2);
+        return (light + 0.05) / (dark + 0.05);
+      }
+
+      requestAnimationFrame(function () {
+        var color = getComputedStyle(headline).color;
+        var m = color.match(/[\d.]+/g);
+        if (!m || m.length < 3) return;
+        var textL = luminance(+m[0], +m[1], +m[2]);
+        var bgL = 0.05;
+        var ratio = contrastRatio(textL, bgL);
+        var pass = ratio >= 4.5;
+        qa.textContent = "Headline contrast ~" + ratio.toFixed(1) + ":1 " + (pass ? "PASS" : "WARN — tighten scrim");
+        qa.classList.toggle("pass", pass);
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>By Jawad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: #000;
+      min-height: 100vh;
+    }
+
+    .brand {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      padding: 1rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #fafafa;
+      text-decoration: none;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow: hidden;
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: right center;
+      animation: kenBurns 22s ease-in-out infinite alternate;
+    }
+    @keyframes kenBurns {
+      from { transform: scale(1); }
+      to { transform: scale(1.03); }
+    }
+
+    @media (max-width: 768px) {
+      .hero-media img { object-position: 72% 35%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-media img { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="brand" href="#">By Jawad</a>
+
+  <section class="hero" aria-label="Hero">
+    <div class="hero-media" aria-hidden="true">
+      <picture>
+        <source
+          media="(max-width: 768px)"
+          srcset="../brand_assets/hero/spaceman-grab-mobile.webp"
+          type="image/webp"
+        />
+        <source
+          srcset="../brand_assets/hero/spaceman-grab-poster@2x.webp 2x, ../brand_assets/hero/spaceman-grab-poster.webp 1x"
+          type="image/webp"
+        />
+        <img
+          src="../brand_assets/hero/spaceman-grab-poster.jpg"
+          alt=""
+          width="1920"
+          height="823"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+    </div>
+  </section>
+</body>
+</html>
