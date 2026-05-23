@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Kitchen — Hero Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper-cream: #FCEAD4;
+      --ink: #000000;
+      --red: #E63946;
+      --mustard: #F4B942;
+      --card: #FFFFFF;
+      --shadow: 4px 4px 0 #000;
+      --shadow-sm: 2px 2px 0 #000;
+      --max: 1280px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Inter, system-ui, sans-serif; color: var(--ink); background: var(--paper-cream); }
+    .display { font-family: Fredoka, sans-serif; }
+    .mono {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .red-grid {
+      background-color: var(--red);
+      background-image:
+        linear-gradient(rgba(193, 18, 31, 0.35) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(193, 18, 31, 0.35) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+  </style>
+</head>
+<body>
+  <nav aria-label="Site" style="padding:1rem 0;border-bottom:2px solid var(--ink);background:var(--paper-cream)">
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:center">
+      <span class="display" style="font-weight:700;font-size:1.25rem">Jawad</span>
+      <a href="#" style="display:inline-flex;padding:0.5rem 1rem;border-radius:9999px;border:3px solid var(--ink);background:var(--card);font-family:Fredoka,sans-serif;font-weight:600;font-size:0.85rem;text-decoration:none;color:var(--ink);box-shadow:var(--shadow-sm)">Book a Call</a>
+    </div>
+  </nav>
+
+  <header class="hero red-grid" id="hero" style="min-height:90vh;display:flex;align-items:center;padding:6rem 0 4rem">
+    <div class="wrap" style="display:grid;grid-template-columns:1fr;gap:2rem;align-items:center;width:100%">
+      <style>
+        @media (min-width: 900px) {
+          .hero-grid { grid-template-columns: 1.1fr 0.9fr !important; }
+        }
+        .btn {
+          display: inline-flex; align-items: center; justify-content: center;
+          padding: 0.75rem 1.5rem; border-radius: 9999px; border: 3px solid var(--ink);
+          font-family: Fredoka, sans-serif; font-weight: 600; font-size: 0.95rem;
+          cursor: pointer; text-decoration: none;
+          transition: transform 150ms ease, box-shadow 150ms ease;
+        }
+        .btn-mustard { background: var(--mustard); color: var(--ink); box-shadow: var(--shadow); }
+        .btn-white { background: var(--card); color: var(--ink); box-shadow: var(--shadow); }
+        .btn:hover { transform: translate(1px, 1px); box-shadow: var(--shadow-sm); }
+        .btn:active { transform: translate(4px, 4px); box-shadow: none; }
+        .btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+        .rotate-word { display: inline-block; min-width: 9ch; transition: opacity 400ms ease; }
+      </style>
+      <div class="hero-grid" style="display:grid;grid-template-columns:1fr;gap:2rem;align-items:center">
+        <div>
+          <p class="mono" style="margin-bottom:0.5rem">Portfolio &amp; landing page studio</p>
+          <h1 class="display" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;letter-spacing:-0.02em;font-weight:700">
+            The kitchen for mouth-watering
+            <span class="rotate-word" id="rotate" aria-live="polite">portfolios</span>
+          </h1>
+          <p style="margin-top:1rem;max-width:36rem;line-height:1.6;font-size:1.05rem">
+            I design and build portfolio websites and landing pages that look incredible and convert — for creatives, founders, and brands.
+          </p>
+          <p style="margin-top:0.75rem;font-size:0.875rem;opacity:0.85">
+            Creative freelancers · SaaS founders · Brands &amp; agencies
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.5rem;align-items:center">
+            <a class="btn btn-mustard" href="#">Place your order</a>
+            <a class="btn btn-white" href="#">See what's cooking</a>
+          </div>
+        </div>
+        <div style="aspect-ratio:4/3;border:3px solid var(--ink);border-radius:20px;background:var(--card);display:flex;align-items:center;justify-content:center;font-family:Fredoka;font-size:1.25rem;font-weight:600;box-shadow:var(--shadow)">
+          Kitchen illustration (TBD)
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <p style="text-align:center;padding:2rem;font-size:0.875rem;color:#5C4A3A">
+    Hero prototype only — see <a href="design-token-showcase-v3.html">design-token-showcase-v3.html</a> for full page specimens.
+  </p>
+
+  <script>
+    (function () {
+      var words = ["portfolios", "landing pages"];
+      var i = 0;
+      var el = document.getElementById("rotate");
+      if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        if (el) el.textContent = "portfolios and landing pages";
+        return;
+      }
+      setInterval(function () {
+        i = (i + 1) % words.length;
+        el.style.opacity = "0";
+        setTimeout(function () {
+          el.textContent = words[i];
+          el.style.opacity = "1";
+        }, 400);
+      }, 4000);
+    })();
+  </script>
+</body>
+</html>

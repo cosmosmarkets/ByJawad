@@ -1,9 +1,11 @@
 # Design Build Roadmap — Wireframe to Production
 
 **Project:** Jawad Jalal — Portfolio & Landing Page Specialist  
-**Brand:** Cinematic Mission (dark-first · strict monochrome · editorial halftone)  
-**Status:** Planning locked · Pre-build implementation  
+**Brand:** Studio Kitchen (copy + visual locked)  
+**Status:** Copy + visual docs locked · Code implementation pending  
 **Last updated:** May 2026
+
+**Copy canonical:** [voice-and-copy-framework.md](./voice-and-copy-framework.md)
 
 **Companion deliverable:** [Design_Build_Roadmap.docx](./Design_Build_Roadmap.docx) (stakeholder review format)
 
@@ -26,11 +28,13 @@ This roadmap defines a **six-stage pipeline** from low-fidelity wireframes throu
 
 **Source of truth (read before any stage):**
 
-1. [design-token-system.md](./design-token-system.md)
-2. [homepage-content-hierarchy.md](./homepage-content-hierarchy.md)
-3. [cta-messaging-matrix.md](./cta-messaging-matrix.md)
-4. [ia-sitemap.md](./ia-sitemap.md)
-5. [launch-strategy-v1.md](./launch-strategy-v1.md)
+1. [voice-and-copy-framework.md](./voice-and-copy-framework.md)
+2. [studio-kitchen-visual-direction.md](./studio-kitchen-visual-direction.md)
+3. [design-token-system.md](./design-token-system.md)
+4. [homepage-content-hierarchy.md](./homepage-content-hierarchy.md)
+5. [cta-messaging-matrix.md](./cta-messaging-matrix.md)
+6. [ia-sitemap.md](./ia-sitemap.md)
+7. [launch-strategy-v1.md](./launch-strategy-v1.md)
 
 ---
 
@@ -85,7 +89,7 @@ Wireframe v1 (structure)
 
 **Visual rules for all wireframe passes:**
 
-- Grayscale blocks only (no chromatic accents)
+- Grayscale blocks + accent tier labels (ink / spectral / flare per design-token-system.md v2)
 - Locked copy pasted verbatim (no rewrites)
 - Do not add sections not in [ia-sitemap.md](./ia-sitemap.md)
 
@@ -129,7 +133,7 @@ nav -> hero -> trust -> work -> process -> tools -> cta -> footer
 | Journal index | Hero · featured · grid · newsletter · CTA |
 | Journal article | Hero · body · related · CTA |
 | Contact | Hero · Calendly block · form · response promise · FAQ |
-| 404 | Headline · Return to Base · Explore Missions · Launch Your Website · quick links |
+| 404 | Headline · Return home · See what's cooking · Place your order · quick links |
 
 #### Wireframe v1 exit checklist
 
@@ -225,7 +229,7 @@ Alternatively: promote v2 files in place with a **v3 changelog** block in each H
 
 ## Stage 1 — Mid-fi (bulk of the build)
 
-**Purpose:** Real site in Next.js — monochrome tokens, all sections, all routes, locked copy, real hero poster. **Experience tier intentionally thin.**
+**Purpose:** Real site in Next.js — Studio Kitchen tokens (paper + ink + heat), all sections, all routes, locked copy, red hero + cream body. **Experience tier intentionally thin.**
 
 ### Tech stack mapping (mid-fi)
 
@@ -312,7 +316,7 @@ docs/wireframes-v3/      # Approved handoff
 ### Mid-fi exit checklist
 
 - [ ] All routes render at 375px and 1200px with locked copy
-- [ ] Marketing UI is monochrome (no violet `--primary`)
+- [ ] Marketing UI uses v2 accent tiers only (no violet `--primary`, no unapproved chromatic)
 - [ ] Screenshot compare passes vs wireframe v3
 - [ ] Lighthouse accessibility baseline pass
 - [ ] `npm run build` succeeds
@@ -332,7 +336,7 @@ docs/wireframes-v3/      # Approved handoff
 
 ## Stage 2 — Hi-fi (experience tier)
 
-**Purpose:** Cinematic Mission craft — motion, depth, halftone, optional 3D/video. Backend may remain stubbed.
+**Purpose:** Studio Kitchen visual craft (TBD) — motion, illustration, bold type. Copy locked per [voice-and-copy-framework.md](./voice-and-copy-framework.md). Backend may remain stubbed.
 
 ### Tech stack mapping (hi-fi)
 

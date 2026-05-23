@@ -1,359 +1,307 @@
-# Design Token System — Cinematic Mission
+# Design Token System — Studio Kitchen
 
 **Brand:** Jawad Jalal · Portfolio & Landing Page Specialist  
-**Direction:** Dark-first · Strict monochrome · Editorial halftone  
-**Last updated:** May 2026  
-**Companion:** [design-token-showcase.html](./design-token-showcase.html) — visual swatches, specimens, components
+**Direction:** Warm paper studio · red poster bookends · mustard CTAs · Steak-inspired chunky UI  
+**Last updated:** May 2026
+
+**Visual brief:** [studio-kitchen-visual-direction.md](./studio-kitchen-visual-direction.md)  
+**Copy:** [voice-and-copy-framework.md](./voice-and-copy-framework.md)  
+**Showcase:** [design-token-showcase-v3.html](./design-token-showcase-v3.html)
 
 ---
 
-## POSITIONING
+## Positioning
 
-> Agency-level output with AI-assisted precision — every interaction, every scroll, every breakpoint considered. I only build portfolios and landing pages — the two highest-stakes pages on the internet.
-
-**3-second emotion:** *"This person is operating at a different level."*
+**3-second emotion:** *Clear, confident, easy to work with.*
 
 | Pillar | Token implication |
 |--------|-------------------|
-| **Confident** | Sharp black/white contrast; white primary CTAs on black; headline scale dominates |
-| **Intentional** | Zero chromatic accent in UI; halftone and typography carry personality |
-| **Energetic** | Kinetic motion + halftone texture at section edges; mono kickers, not colored text |
-| **Cinematic** | Layered neutral surfaces; grain + halftone overlays; scroll-paced rhythm |
+| **Warm** | Cream paper default; brown-muted secondary text |
+| **Bold** | Fredoka display; 2–3px black borders; offset shadows |
+| **Clear** | Red reserved for hero + reservation; proof cards stay white |
+| **Conversion** | Mustard primary on red; plain header/footer CTAs on cream |
 
-**Visual north star:** Editorial print meets mission-control UI — Swiss poster restraint, halftone dot texture, typographic authority. "Space" = contrast and texture, not nebula color.
+**Accent budget:**
 
-**Accent budget:** **0% chromatic** in marketing UI. Semantic colors only for forms and system feedback.
+| Tier | Share | Tokens | Allowed on |
+|------|-------|--------|------------|
+| **Paper** | ~70% | `paper.*`, `surface.card` | Section backgrounds, cards |
+| **Ink** | ~25% | `ink.*`, borders | Type, strokes, shadows |
+| **Heat** | ~5% | `heat.*`, `accent.mustard` | Hero, poster, primary CTA on red |
 
-**Decision filters (apply to every token choice):**
-1. Does this feel like 1% craft?
-2. Does it support conversion (CTA hierarchy readable in 3s)?
-3. Would an art director stop scrolling?
+Semantic colors: forms and system feedback only.
 
 ---
 
-## COLOR PALETTE
+## Color palette
 
-### 1. Ink (monochrome core)
+### Paper
 
 | Token | Hex | Usage |
-|-------|-----|-------|
-| `color.ink.white` | `#FAFAFA` | Primary CTA fill, primary text (dark mode), active nav, links on dark |
-| `color.ink.black` | `#000000` | Canvas, CTA label text, inverted mode background |
+|-------|-----|--------|
+| `color.paper.cream` | `#FCEAD4` | Default page/section bg |
+| `color.paper.cream.dark` | `#F5DFC4` | Alternating section (optional) |
+| `color.surface.card` | `#FFFFFF` | Cards on cream |
 
-**Why no chromatic primary:** Memorable through contrast and texture, not another violet SaaS palette. White ink on black reads instantly as premium and editorial.
-
-**CTA spec (dark-first):**
-- Fill: `ink.white` `#FAFAFA`
-- Label: `ink.black` `#000000`
-- Hover: `#E5E5E5` fill, no glow
-- Focus: `2px solid #FAFAFA` outline, `2px` offset
-
----
-
-### 2. Neutral — True Gray (warm-neutral, no blue cast)
+### Ink
 
 | Token | Hex | Usage |
-|-------|-----|-------|
-| `color.neutral.50` | `#FAFAFA` | Light mode page bg |
-| `color.neutral.100` | `#F5F5F5` | Light mode elevated |
-| `color.neutral.200` | `#E5E5E5` | Borders (light), CTA hover |
-| `color.neutral.300` | `#D4D4D4` | Disabled (light) |
-| `color.neutral.400` | `#A3A3A3` | Muted text, placeholders |
-| `color.neutral.500` | `#737373` | Secondary text (dark) |
-| `color.neutral.600` | `#525252` | Subtle borders |
-| `color.neutral.700` | `#404040` | Input borders, dividers |
-| `color.neutral.800` | `#262626` | Card borders, elevated edges |
-| `color.neutral.900` | `#171717` | Deep panels |
-| `color.neutral.950` | `#0A0A0A` | Near-black surfaces |
+|-------|-----|--------|
+| `color.ink.black` | `#000000` | Headlines, borders, CTA labels |
+| `color.ink.muted` | `#5C4A3A` | Secondary body on cream |
+| `color.ink.subtle` | `#8B7355` | Placeholders, disabled |
+| `color.ink.white` | `#FFFFFF` | Script on red, inverse text |
 
-**Text hierarchy (dark-first default):**
-
-| Role | Token | Hex |
-|------|-------|-----|
-| Primary | `color.text.primary` | `#FAFAFA` |
-| Secondary | `color.text.secondary` | `#A3A3A3` |
-| Muted | `color.text.muted` | `#737373` |
-| Inverse | `color.text.inverse` | `#000000` |
-
-**Surface hierarchy (dark-first):**
-
-| Layer | Token | Hex |
-|-------|-------|-----|
-| Base | `color.surface.base` | `#000000` |
-| Elevated | `color.surface.elevated` | `#0A0A0A` |
-| Floating | `color.surface.floating` | `#141414` |
-| Overlay | `color.surface.overlay` | `rgba(0, 0, 0, 0.72)` |
-
-**Border tokens:**
+### Heat
 
 | Token | Hex | Usage |
-|-------|-----|-------|
-| `color.border.subtle` | `#262626` | Cards, sections |
-| `color.border.default` | `#404040` | Inputs, ghost buttons |
+|-------|-----|--------|
+| `color.heat.red` | `#E63946` | Hero bg, reservation poster, contact hero |
+| `color.heat.red.dark` | `#C1121F` | Grid overlay on red |
+| `color.accent.mustard` | `#F4B942` | Primary CTA fill on red |
+| `color.accent.mustard.hover` | `#F7C948` | Mustard hover |
+| `color.accent.mustard.active` | `#EAB308` | Mustard pressed |
+
+### Semantic (forms only)
+
+| Token | Hex |
+|-------|-----|
+| `color.success.500` | `#22C55E` |
+| `color.error.500` | `#EF4444` |
+| `color.warning.500` | `#F59E0B` |
+| `color.info.500` | `#3B82F6` |
+
+### Borders
+
+| Token | Value | Usage |
+|-------|-------|--------|
+| `color.border.default` | `#000000` | Cards, buttons, inputs |
+| `color.border.subtle` | `rgba(0,0,0,0.15)` | Dividers on cream |
 
 ---
 
-### 3. Semantic (forms & system only)
+## Typography
 
-Never use for decoration, kickers, or marketing accents.
+### Families
 
-| Role | Base token | Hex (500) | Usage |
-|------|------------|-----------|-------|
-| Success | `color.success.500` | `#34D399` | Form success, positive validation |
-| Warning | `color.warning.500` | `#FBBF24` | Alerts, budget notes |
-| Error | `color.error.500` | `#F87171` | Validation, destructive actions |
-| Info | `color.info.500` | `#60A5FA` | Tooltips, neutral info |
+| Token | Stack | Role |
+|-------|-------|------|
+| `font.display` | `'Fredoka', system-ui, sans-serif` | Headlines, logo, buttons, poster caps |
+| `font.script` | `'Caveat', cursive` | Poster script only |
+| `font.body` | `'Inter', system-ui, sans-serif` | Body, forms |
+| `font.mono` | `'JetBrains Mono', monospace` | Kickers, metadata |
 
----
+### Scale
 
-### 4. Dark Mode & Light Mode Mapping
+| Token | Size | Line height | Weight | Letter-spacing |
+|-------|------|-------------|--------|--------------|
+| `font.size.display` | clamp(2.75rem, 8vw, 5.5rem) | 1.05 | 700 | -0.02em |
+| `font.size.h1` | clamp(2.25rem, 6vw, 4rem) | 1.08 | 700 | -0.02em |
+| `font.size.h2` | clamp(1.75rem, 4vw, 3rem) | 1.1 | 700 | -0.015em |
+| `font.size.h3` | 1.5rem | 1.2 | 600 | -0.01em |
+| `font.size.script` | clamp(2rem, 5vw, 3.5rem) | 1.1 | 700 | 0 |
+| `font.size.body-lg` | 1.25rem | 1.6 | 400 | 0 |
+| `font.size.body` | 1rem | 1.6 | 400 | 0 |
+| `font.size.small` | 0.875rem | 1.5 | 400 | 0 |
+| `font.size.kicker` | 0.75rem | 1.4 | 500 | 0.08em |
 
-**Default theme:** Dark-first (`data-theme="dark"`).
-
-| Element | Dark (default) | Light (`data-theme="light"`) |
-|---------|----------------|------------------------------|
-| Page background | `surface.base` `#000000` | `neutral.50` `#FAFAFA` |
-| Card background | `surface.elevated` `#0A0A0A` | `#FFFFFF` |
-| Primary text | `text.primary` `#FAFAFA` | `ink.black` `#000000` |
-| Primary CTA | White fill / black text | Black fill / white text |
-| Secondary CTA | `border.default` outline | `border.default` outline |
-| Border | `#262626` / `#404040` | `neutral.200` `#E5E5E5` |
-
----
-
-## TYPOGRAPHY
-
-### 1. Display / Heading — Space Grotesk
-
-**Stack:** `'Space Grotesk', system-ui, sans-serif`  
-**Why:** Geometric, sharp, editorial — carries personality without color.
-
-**Usage:** Display, H1–H4, nav labels, CTA button text, section headings.
-
----
-
-### 2. Body — Inter
-
-**Stack:** `'Inter', system-ui, sans-serif`  
-**Why:** Maximum readability at 16px for case studies, journal, service bullets.
-
-**Usage:** Body, small, captions, form labels, FAQ answers.
-
----
-
-### 3. Accent / Mono — JetBrains Mono
-
-**Stack:** `'JetBrains Mono', ui-monospace, monospace`  
-**Why:** Mission-log kickers, stats, category labels — technical credibility in monochrome.
-
-**Usage:** Kickers (uppercase, `neutral.400` — not colored), metadata, timeline markers.
-
----
-
-### 4. Type Scale (1.25 major third)
-
-| Token | Size | Line-height | Letter-spacing | Weight | CSS variable |
-|-------|------|-------------|----------------|--------|--------------|
-| `font.size.display` | 96px | 1.0 | −0.025em | 800 | `--font-display` |
-| `font.size.h1` | 72px | 1.05 | −0.02em | 700 | `--font-h1` |
-| `font.size.h2` | 48px | 1.1 | −0.015em | 700 | `--font-h2` |
-| `font.size.h3` | 36px | 1.15 | −0.01em | 600 | `--font-h3` |
-| `font.size.h4` | 24px | 1.25 | 0 | 600 | `--font-h4` |
-| `font.size.body-lg` | 20px | 1.5 | 0 | 400 | `--font-body-lg` |
-| `font.size.body` | 16px | 1.5 | 0 | 400 | `--font-body` |
-| `font.size.small` | 14px | 1.4 | 0 | 400 | `--font-small` |
-| `font.size.caption` | 12px | 1.4 | 0.02em | 500 | `--font-caption` |
-
-**Responsive clamp (recommended):**
+### Script treatment
 
 ```css
---font-display: clamp(3rem, 8vw, 6rem);
---font-h1: clamp(2.5rem, 6vw, 4.5rem);
---font-h2: clamp(2rem, 4vw, 3rem);
-```
-
----
-
-## SPACING SYSTEM
-
-**Base unit:** `4px` (`--space-unit`)
-
-| Token | Value | px |
-|-------|-------|-----|
-| `space.0` | 0 | 0 |
-| `space.1` | 1× | 4 |
-| `space.2` | 2× | 8 |
-| `space.3` | 3× | 12 |
-| `space.4` | 4× | 16 |
-| `space.5` | 5× | 20 |
-| `space.6` | 6× | 24 |
-| `space.8` | 8× | 32 |
-| `space.10` | 10× | 40 |
-| `space.12` | 12× | 48 |
-| `space.16` | 16× | 64 |
-| `space.20` | 20× | 80 |
-| `space.24` | 24× | 96 |
-
-**Layout tokens:**
-
-| Token | Value |
-|-------|-------|
-| `layout.section-y.desktop` | 120px |
-| `layout.section-y.tablet` | 80px |
-| `layout.section-y.mobile` | 48px |
-| `layout.content-max` | 1280px |
-| `layout.grid.columns` | 12 |
-| `layout.grid.gutter` | 24px |
-
----
-
-## SHADOW SYSTEM
-
-Pure black alpha only — no chromatic tint.
-
-| Token | Value | Usage |
-|-------|-------|-------|
-| `shadow.1` | `0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08)` | Cards |
-| `shadow.2` | `0 4px 6px rgba(0,0,0,0.14), 0 2px 4px rgba(0,0,0,0.1)` | Dropdowns |
-| `shadow.3` | `0 10px 15px rgba(0,0,0,0.16), 0 4px 8px rgba(0,0,0,0.12)` | Modals |
-| `shadow.4` | `0 20px 25px rgba(0,0,0,0.2), 0 8px 16px rgba(0,0,0,0.14)` | Toasts |
-
----
-
-## BORDER RADIUS
-
-| Token | Value | Usage |
-|-------|-------|-------|
-| `radius.none` | 0px | Editorial images, full-bleed media |
-| `radius.sm` | 4px | Inputs, small chips |
-| `radius.md` | 8px | Buttons |
-| `radius.lg` | 12px | Cards |
-| `radius.xl` | 16px | Large cards, modals |
-| `radius.2xl` | 24px | Feature sections |
-| `radius.full` | 999px | Pills, badges |
-
----
-
-## EFFECTS
-
-| Token | Value | Usage |
-|-------|-------|-------|
-| `effect.grain` | SVG noise @ 3% opacity | Global filmic texture |
-| `effect.halftone` | Dot grid SVG, 6px pitch, 10% opacity, `mix-blend-mode: overlay` | Section corners, card accents |
-| `effect.halftone.hero` | Dot grid 8px pitch, 12% opacity, edge/corner only | Hero bands, large feature blocks |
-| `effect.halftone.image` | Halftone on image overlay, `soft-light` | Project thumbnails |
-| `effect.blur.nav` | `backdrop-filter: blur(12px)` | Sticky header |
-| `effect.blur.overlay` | `backdrop-filter: blur(20px)` | Modals, mobile menu |
-| `effect.gradient.subtle` | `radial-gradient(ellipse 80% 50% at 50% -20%, rgba(250,250,250,0.02), transparent)` | Optional hero depth — max 2% white |
-| `effect.image-overlay` | `linear-gradient(to top, rgba(0,0,0,0.65), transparent)` | Project thumbnails |
-
-**Halftone SVG pattern (reference):**
-
-```svg
-<pattern id="halftone" width="6" height="6" patternUnits="userSpaceOnUse">
-  <circle cx="3" cy="3" r="1.2" fill="white"/>
-</pattern>
-```
-
----
-
-## TRANSITIONS
-
-| Token | Value |
-|-------|-------|
-| `motion.easing.default` | `cubic-bezier(0.4, 0, 0.2, 1)` |
-| `motion.easing.enter` | `cubic-bezier(0, 0, 0.2, 1)` |
-| `motion.easing.exit` | `cubic-bezier(0.4, 0, 1, 1)` |
-| `motion.easing.bounce` | `cubic-bezier(0.34, 1.56, 0.64, 1)` |
-| `motion.duration.75` | 75ms |
-| `motion.duration.150` | 150ms |
-| `motion.duration.200` | 200ms |
-| `motion.duration.300` | 300ms |
-| `motion.duration.500` | 500ms |
-| `motion.duration.700` | 700ms |
-
-**Rules:** Animate only `transform` and `opacity`. Never `transition-all`. Hover: 150ms default; enter animations: 300ms enter easing.
-
----
-
-## CSS CUSTOM PROPERTIES (copy-paste)
-
-```css
-:root {
-  /* Ink */
-  --color-ink-white: #FAFAFA;
-  --color-ink-black: #000000;
-  /* Surfaces (dark-first) */
-  --color-surface-base: #000000;
-  --color-surface-elevated: #0A0A0A;
-  --color-surface-floating: #141414;
-  /* Text */
-  --color-text-primary: #FAFAFA;
-  --color-text-secondary: #A3A3A3;
-  --color-text-muted: #737373;
-  /* Borders */
-  --color-border-subtle: #262626;
-  --color-border-default: #404040;
-  /* Typography */
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  /* Space */
-  --space-unit: 4px;
-  --layout-max: 1280px;
-  /* Motion */
-  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
-  --duration-fast: 150ms;
-  /* Halftone */
-  --halftone-opacity: 0.1;
-  --halftone-opacity-hero: 0.12;
+.text-script {
+  font-family: var(--font-script);
+  font-weight: 700;
+  color: var(--color-ink-white);
+  -webkit-text-stroke: 1.5px var(--color-ink-black);
+  paint-order: stroke fill;
 }
 ```
 
 ---
 
-## ADOPTION — Page Section Mapping
+## Spacing (4px base)
 
-| Page / section | Tokens to apply |
-|----------------|-----------------|
-| **Hero** (`#hero`) | `font.display`, mono kicker `text.secondary`, `surface.base`, `effect.halftone.hero` corner, white CTA (`ink.white` / `ink.black`) |
-| **Trust strip** (`#trust`) | `font.body` primary line, `font.body` or `text.muted` supporting; `space.8` padding; copy-only v1 |
-| **Selected work** (`#work`) | `radius.lg` cards, `shadow.1` → `shadow.2` hover, `effect.halftone.image` on thumbnails, `radius.none` images |
-| **Process** (`#process`) | White timeline nodes, `font.mono` day labels, `border.subtle` connectors |
-| **Tools** (`#tools`) | `surface.elevated` cards, `font.mono` tool names in `neutral.400`, grayscale logos, `radius.lg` |
-| **Testimonials** (v2) | `surface.elevated`, `radius.xl`, `font.body` quotes — deferred v1 |
-| **Final CTA** (`#cta`) | `surface.floating`, white primary + outline secondary |
-| **Header** | `effect.blur.nav`, `border.subtle` bottom, white CTA |
-| **Contact form** | `radius.sm` inputs, `border.default` borders, `error.500` validation only |
-| **Journal cards** | `radius.lg`, `font.mono` category in `neutral.400`, link hover underline white |
+| Token | Value |
+|-------|-------|
+| `space.1` | 4px |
+| `space.2` | 8px |
+| `space.3` | 12px |
+| `space.4` | 16px |
+| `space.6` | 24px |
+| `space.8` | 32px |
+| `space.12` | 48px |
+| `space.16` | 64px |
+| `space.24` | 96px |
+| `layout.max` | 1280px |
+| `layout.gutter` | 24px (mobile) / 48px (desktop) |
 
 ---
 
-## TAILWIND EXTENSION (future build)
+## Radius
 
-```js
-// tailwind.config extend snippet
-colors: {
-  ink: { white: '#FAFAFA', black: '#000000' },
-  neutral: {
-    50: '#FAFAFA', 100: '#F5F5F5', 200: '#E5E5E5', 300: '#D4D4D4',
-    400: '#A3A3A3', 500: '#737373', 600: '#525252', 700: '#404040',
-    800: '#262626', 900: '#171717', 950: '#0A0A0A',
+| Token | Value | Usage |
+|-------|-------|--------|
+| `radius.sm` | 8px | Inputs |
+| `radius.md` | 12px | Small cards |
+| `radius.lg` | 16px | Dish/ingredient cards |
+| `radius.xl` | 20px | Poster container |
+| `radius.pill` | 9999px | Buttons |
+
+---
+
+## Border & shadow
+
+| Token | Value | Usage |
+|-------|-------|--------|
+| `border.width.default` | 2px | Cards on cream |
+| `border.width.bold` | 3px | Buttons, poster |
+| `shadow.sticker` | 4px 4px 0 #000000 | Primary/secondary pills |
+| `shadow.sticker.hover` | 2px 2px 0 #000000 | Button hover |
+| `shadow.poster` | 8px 8px 0 #000000 | Reservation band |
+
+---
+
+## Motion
+
+| Token | Value |
+|-------|-------|
+| `motion.duration.fast` | 150ms |
+| `motion.duration.base` | 300ms |
+| `motion.duration.rotate` | 400ms |
+| `motion.duration.hold` | 4000ms |
+| `motion.easing.default` | cubic-bezier(0.4, 0, 0.2, 1) |
+
+**Allowed properties:** `transform`, `opacity` only. Never `transition-all`.
+
+**Reduced motion:** static headline; no suffix rotation; buttons skip translate.
+
+---
+
+## Section surface map
+
+| Section / route | Background | Text |
+|-----------------|------------|------|
+| Homepage hero | `heat.red` | `ink.black` (headline), Inter subhead |
+| Homepage body | `paper.cream` | `ink.black` / `ink.muted` |
+| Homepage `#cta` | `heat.red` poster | script white, shout black |
+| `/contact` hero | `heat.red` | same as homepage hero |
+| Inner page heroes | `paper.cream` | `ink.black` |
+| Footer | `paper.cream` | `ink.muted` |
+
+---
+
+## Component tokens (summary)
+
+| Component | Key tokens |
+|-----------|------------|
+| Nav | Fredoka logo; ghost/white CTA by scroll surface |
+| Hero | `heat.red` bg; `.btn-mustard` + `.btn-white` |
+| Trust strip | `paper.cream`; Inter centered |
+| Dish card | `surface.card`, `border.default`, `radius.lg` |
+| Recipe step | icon + Fredoka title + Inter desc |
+| Ingredient card | white card, mono kicker, grayscale logo |
+| Poster CTA | tilt, `shadow.poster`, script + caps |
+| Input | white bg, 2px black border, `radius.sm` |
+
+Full mapping: [portfolio-component-token-spec.md](./portfolio-component-token-spec.md)
+
+---
+
+## CSS variables (`globals.css` target)
+
+```css
+:root {
+  --color-paper-cream: #FCEAD4;
+  --color-paper-cream-dark: #F5DFC4;
+  --color-surface-card: #FFFFFF;
+  --color-ink-black: #000000;
+  --color-ink-muted: #5C4A3A;
+  --color-ink-white: #FFFFFF;
+  --color-heat-red: #E63946;
+  --color-heat-red-dark: #C1121F;
+  --color-accent-mustard: #F4B942;
+  --color-accent-mustard-hover: #F7C948;
+  --font-display: 'Fredoka', system-ui, sans-serif;
+  --font-script: 'Caveat', cursive;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --shadow-sticker: 4px 4px 0 #000000;
+  --radius-pill: 9999px;
+  --layout-max: 1280px;
+}
+```
+
+---
+
+## Tailwind extension (`tailwind.config.ts` target)
+
+```typescript
+theme: {
+  extend: {
+    colors: {
+      paper: { cream: '#FCEAD4', 'cream-dark': '#F5DFC4' },
+      surface: { card: '#FFFFFF' },
+      ink: { black: '#000000', muted: '#5C4A3A', white: '#FFFFFF' },
+      heat: { red: '#E63946', 'red-dark': '#C1121F' },
+      accent: { mustard: '#F4B942', 'mustard-hover': '#F7C948' },
+    },
+    fontFamily: {
+      display: ['Fredoka', 'system-ui', 'sans-serif'],
+      script: ['Caveat', 'cursive'],
+      body: ['Inter', 'system-ui', 'sans-serif'],
+      mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+    },
+    boxShadow: {
+      sticker: '4px 4px 0 #000000',
+      'sticker-sm': '2px 2px 0 #000000',
+      poster: '8px 8px 0 #000000',
+    },
+    borderWidth: {
+      bold: '3px',
+    },
   },
-  surface: { base: '#000000', elevated: '#0A0A0A', floating: '#141414' },
-},
-fontFamily: {
-  display: ['Space Grotesk', 'sans-serif'],
-  body: ['Inter', 'sans-serif'],
-  mono: ['JetBrains Mono', 'monospace'],
 },
 ```
 
 ---
 
-## RELATED DOCUMENTS
+## Utility classes (showcase reference)
 
-- [Personal Brand Strategy North Star](../About%20Me/Personal_Brand_Strategy_North_Star.md)
-- [CTA & Messaging Matrix](./cta-messaging-matrix.md)
-- [Page Content Briefs](./page-briefs.md)
-- [IA Sitemap](./ia-sitemap.md)
+```css
+.btn-mustard {
+  background: var(--color-accent-mustard);
+  color: var(--color-ink-black);
+  border: 3px solid var(--color-ink-black);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sticker);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+.btn-white {
+  background: var(--color-surface-card);
+  color: var(--color-ink-black);
+  border: 3px solid var(--color-ink-black);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sticker);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+.surface-red-grid {
+  background-color: var(--color-heat-red);
+  background-image:
+    linear-gradient(var(--color-heat-red-dark) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-heat-red-dark) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.poster-tilt {
+  transform: rotate(2deg);
+}
+```
+
+---
+
+## Changelog
+
+| Date | Change |
+|------|--------|
+| May 2026 | Studio Kitchen regen — replaces Mission Control Monochrome |

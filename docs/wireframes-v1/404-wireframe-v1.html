@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Production: noindex — do not index 404 page -->
+  <title>404 Wireframe v1 — Jawad Jalal</title>
+  <style>
+    :root { --bg: #f4f4f5; --surface: #fff; --border: #a1a1aa; --text: #18181b; --muted: #71717a; --accent: #3f3f46; --cta: #27272a; --placeholder: #d4d4d8; --annotation: #2563eb; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: ui-monospace, Consolas, monospace; font-size: 11px; line-height: 1.4; color: var(--text); background: var(--bg); padding: 24px 16px 48px; }
+    h1 { font-family: system-ui, sans-serif; font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+    .meta { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); margin-bottom: 32px; max-width: 720px; }
+    .meta a { color: var(--annotation); }
+    .frames { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; }
+    .frame-wrap { flex: 0 0 auto; }
+    .frame-label { font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+    .frame { background: var(--surface); border: 2px solid var(--accent); overflow: hidden; position: relative; }
+    .frame.desktop { width: 1200px; }
+    .frame.mobile { width: 375px; }
+    .section-id { position: absolute; left: 0; top: 0; bottom: 0; width: 28px; background: #eff6ff; border-right: 1px dashed var(--annotation); writing-mode: vertical-rl; transform: rotate(180deg); font-size: 9px; color: var(--annotation); display: flex; align-items: center; justify-content: center; z-index: 2; }
+    .frame.mobile .section-id { width: 22px; font-size: 8px; }
+    .block { border: 1px dashed var(--border); background: var(--placeholder); }
+    .block.light { background: #e4e4e7; }
+    .block.white { background: var(--surface); border-style: solid; }
+    .block.dark { background: var(--cta); border-color: var(--cta); }
+    .label { font-size: 9px; color: var(--muted); padding: 2px 4px; }
+    .copy { font-size: 10px; padding: 4px 8px; }
+    .copy.bold { font-weight: 700; font-size: 11px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px 12px 36px; border-bottom: 1px solid var(--border); min-height: 52px; }
+    .frame.mobile .nav { padding-left: 30px; }
+    .nav-links { display: flex; gap: 16px; flex: 1; justify-content: center; }
+    .frame.mobile .nav-links { display: none; }
+    .nav-logo { width: 80px; height: 24px; }
+    .nav-cta { width: 100px; height: 32px; background: var(--cta); border: none; }
+    .nav-hamburger { display: none; width: 32px; height: 32px; border: 1px dashed var(--border); }
+    .frame.mobile .nav-hamburger { display: block; }
+    .frame.mobile .nav-cta { width: 72px; height: 28px; }
+    .recovery-center {
+      min-height: 420px;
+      padding: 80px 48px 64px 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .frame.mobile .recovery-center { padding: 64px 16px 48px 30px; min-height: 360px; }
+    .cta-stack { display: flex; flex-direction: column; gap: 12px; align-items: center; margin-top: 32px; width: 100%; max-width: 280px; }
+    .frame.mobile .cta-stack { max-width: none; padding: 0 16px; }
+    .btn { height: 44px; width: 100%; max-width: 240px; }
+    .btn.primary { background: var(--cta); }
+    .btn.secondary { background: #fafafa; border: 1px solid var(--accent); }
+    .btn.tertiary { background: transparent; border: 1px dashed var(--border); height: 32px; }
+    .quick-links { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; margin-top: 32px; }
+    .frame.mobile .quick-links { flex-direction: column; gap: 8px; }
+    .quick-links a { font-size: 10px; color: var(--annotation); text-decoration: underline; padding: 4px 8px; }
+    .footer { padding: 40px 24px 24px 36px; border-top: 1px solid var(--border); background: #fafafa; }
+    .frame.mobile .footer { padding-left: 30px; }
+    .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 16px; }
+    .frame.mobile .footer-cols { grid-template-columns: 1fr 1fr; }
+    .footer-col h4 { font-size: 9px; color: var(--muted); margin-bottom: 8px; }
+    .legend { margin-top: 48px; max-width: 1200px; margin: 48px auto 0; font-family: system-ui, sans-serif; font-size: 12px; padding: 16px; background: var(--surface); border: 1px solid var(--border); }
+    .legend ul { margin-left: 20px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <h1>404 Wireframe v1</h1>
+  <p class="meta">
+    Route: <code>/404</code> · Recovery layout · SEO: <code>noindex</code> at production.<br />
+    Quick links: Home, Work, Services, Contact (IA) + Services · About · Journal (CTA matrix tertiary row)<br />
+    <a href="./index.html">← All v1 frames</a>
+  </p>
+
+  <div class="frames">
+    <div class="frame-wrap">
+      <div class="frame-label">Desktop <span>1200 × scroll</span></div>
+      <div class="frame desktop">
+        <div style="position:relative"><div class="section-id">nav</div>
+          <header class="nav white">
+            <div class="block nav-logo light"><span class="label">Jawad → /</span></div>
+            <nav class="nav-links"><span class="copy">Work</span><span class="copy">About</span><span class="copy">Services</span><span class="copy">Journal</span><span class="copy">Contact</span></nav>
+            <div class="block nav-cta dark"><span class="label" style="color:#fff">Book a Call</span></div>
+          </header>
+        </div>
+
+        <div style="position:relative"><div class="section-id">recovery</div>
+          <section class="recovery-center">
+            <p class="copy" style="color:var(--muted);font-size:12px">404</p>
+            <p class="copy bold" style="font-size:28px;margin-top:16px">Signal lost — this page isn't in orbit.</p>
+            <p class="copy" style="margin-top:12px;max-width:480px">The link may be broken or the page moved. Head back to mission control.</p>
+            <div class="cta-stack">
+              <div class="block btn primary"><span class="label" style="color:#fff">Return to Base → /</span></div>
+              <div class="block btn secondary"><span class="label">Explore Missions → /work</span></div>
+              <div class="block btn tertiary"><span class="label">Launch Your Website → /contact</span></div>
+            </div>
+            <div class="quick-links">
+              <span class="copy" style="color:var(--muted)">Quick links:</span>
+              <span class="copy">Home</span>
+              <span class="copy">Work</span>
+              <span class="copy">Services</span>
+              <span class="copy">Contact</span>
+              <span class="copy">About</span>
+              <span class="copy">Journal</span>
+            </div>
+          </section>
+        </div>
+
+        <div style="position:relative"><div class="section-id">footer</div>
+          <footer class="footer">
+            <p class="copy bold">Landing pages and portfolio websites — designed to stand out and convert.</p>
+            <div class="footer-cols">
+              <div class="footer-col"><h4>Work</h4></div>
+              <div class="footer-col"><h4>Services</h4></div>
+              <div class="footer-col"><h4>Journal</h4></div>
+              <div class="footer-col"><h4>Connect</h4></div>
+            </div>
+            <p class="copy" style="margin-top:16px;font-size:9px;color:var(--muted)">© 2026 Jawad Jalal · London, UK</p>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <div class="frame-wrap">
+      <div class="frame-label">Mobile <span>375 × scroll</span></div>
+      <div class="frame mobile">
+        <div style="position:relative"><div class="section-id">nav</div>
+          <header class="nav white"><div class="block nav-logo light"></div><div class="block nav-cta dark"></div><div class="nav-hamburger block light"></div></header>
+        </div>
+        <div style="position:relative"><div class="section-id">recovery</div>
+          <section class="recovery-center">
+            <p class="copy bold" style="font-size:18px">Signal lost — this page isn't in orbit.</p>
+            <p class="copy" style="margin-top:8px">Head back to mission control.</p>
+            <div class="cta-stack">
+              <div class="block btn primary"></div>
+              <div class="block btn secondary"></div>
+              <div class="block btn tertiary"></div>
+            </div>
+            <div class="quick-links" style="margin-top:24px">
+              <p class="copy">Services · About · Journal</p>
+            </div>
+          </section>
+        </div>
+        <div style="position:relative"><div class="section-id">footer</div>
+          <footer class="footer"><p class="copy bold">Footer</p></footer>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend"><h2>Legend</h2><ul><li>Add <code>&lt;meta name="robots" content="noindex"&gt;</code> in production Next.js metadata.</li></ul></div>
+</body>
+</html>

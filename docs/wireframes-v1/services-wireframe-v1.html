@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services Wireframe v1 — Jawad Jalal</title>
+  <style>
+    :root { --bg: #f4f4f5; --surface: #fff; --border: #a1a1aa; --text: #18181b; --muted: #71717a; --accent: #3f3f46; --cta: #27272a; --placeholder: #d4d4d8; --annotation: #2563eb; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: ui-monospace, Consolas, monospace; font-size: 11px; line-height: 1.4; color: var(--text); background: var(--bg); padding: 24px 16px 48px; }
+    h1 { font-family: system-ui, sans-serif; font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+    .meta { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); margin-bottom: 32px; max-width: 720px; }
+    .meta a { color: var(--annotation); }
+    .frames { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; }
+    .frame-wrap { flex: 0 0 auto; }
+    .frame-label { font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+    .frame { background: var(--surface); border: 2px solid var(--accent); overflow: hidden; position: relative; }
+    .frame.desktop { width: 1200px; }
+    .frame.mobile { width: 375px; }
+    .section-id { position: absolute; left: 0; top: 0; bottom: 0; width: 28px; background: #eff6ff; border-right: 1px dashed var(--annotation); writing-mode: vertical-rl; transform: rotate(180deg); font-size: 9px; color: var(--annotation); display: flex; align-items: center; justify-content: center; z-index: 2; }
+    .frame.mobile .section-id { width: 22px; font-size: 8px; }
+    .block { border: 1px dashed var(--border); background: var(--placeholder); }
+    .block.light { background: #e4e4e7; }
+    .block.white { background: var(--surface); border-style: solid; }
+    .block.dark { background: var(--cta); border-color: var(--cta); }
+    .block.cta-band { background: #e4e4e7; border: 2px solid var(--accent); }
+    .label { font-size: 9px; color: var(--muted); padding: 2px 4px; }
+    .copy { font-size: 10px; padding: 4px 8px; }
+    .copy.bold { font-weight: 700; font-size: 11px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px 12px 36px; border-bottom: 1px solid var(--border); min-height: 52px; }
+    .frame.mobile .nav { padding-left: 30px; }
+    .nav-links { display: flex; gap: 16px; flex: 1; justify-content: center; }
+    .frame.mobile .nav-links { display: none; }
+    .nav-logo { width: 80px; height: 24px; }
+    .nav-cta { width: 100px; height: 32px; background: var(--cta); border: none; }
+    .nav-hamburger { display: none; width: 32px; height: 32px; border: 1px dashed var(--border); }
+    .frame.mobile .nav-hamburger { display: block; }
+    .frame.mobile .nav-cta { width: 72px; height: 28px; }
+    .page-hero { padding: 64px 48px 48px 64px; border-bottom: 1px solid var(--border); background: #fafafa; }
+    .frame.mobile .page-hero { padding: 48px 16px 32px 30px; text-align: center; }
+    .cta-row { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+    .frame.mobile .cta-row { flex-direction: column; }
+    .btn { height: 40px; min-width: 120px; max-width: 180px; }
+    .frame.mobile .btn { max-width: none; }
+    .btn.primary { background: var(--cta); }
+    .btn.secondary { background: #fafafa; border: 1px solid var(--accent); }
+    .section-pad { padding: 48px 24px 48px 36px; }
+    .frame.mobile .section-pad { padding: 32px 16px 32px 30px; }
+    .packages-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .frame.mobile .packages-row { grid-template-columns: 1fr; }
+    .package-card { padding: 24px; border: 2px solid var(--border); background: #fafafa; min-height: 280px; }
+    .package-card ul { margin: 12px 0 0 20px; font-size: 10px; }
+    .package-card li { margin-bottom: 4px; }
+    .pricing-note { margin-top: 16px; padding: 12px; border: 1px dashed var(--annotation); background: #eff6ff; font-size: 10px; }
+    .addons-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 10px; }
+    .addons-table th, .addons-table td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; }
+    .addons-table th { background: #e4e4e7; font-size: 9px; text-transform: uppercase; }
+    .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 16px; }
+    .frame.mobile .process-steps { grid-template-columns: 1fr; }
+    .step-card { padding: 12px; min-height: 80px; border: 1px dashed var(--border); background: #fafafa; }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+    .faq-item { padding: 12px; border: 1px dashed var(--border); background: #fafafa; }
+    .final-cta { padding: 56px 24px; text-align: center; margin-left: 28px; }
+    .frame.mobile .final-cta { margin-left: 22px; padding: 40px 16px; }
+    .final-cta .cta-row { justify-content: center; }
+    .footer { padding: 40px 24px 24px 36px; border-top: 1px solid var(--border); background: #fafafa; }
+    .frame.mobile .footer { padding-left: 30px; }
+    .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 16px; }
+    .frame.mobile .footer-cols { grid-template-columns: 1fr 1fr; }
+    .footer-col h4 { font-size: 9px; color: var(--muted); margin-bottom: 8px; }
+    .legend { margin-top: 48px; max-width: 1200px; margin: 48px auto 0; font-family: system-ui, sans-serif; font-size: 12px; padding: 16px; background: var(--surface); border: 1px solid var(--border); }
+    .legend ul { margin-left: 20px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <h1>Services Wireframe v1</h1>
+  <p class="meta">
+    Route: <code>/services</code> · Pricing: Portfolio £500–£1k · Landing £1k–£3k<br />
+    <a href="../cta-messaging-matrix.md">cta-messaging-matrix.md</a> · <a href="./index.html">← All v1 frames</a>
+  </p>
+
+  <div class="frames">
+    <div class="frame-wrap">
+      <div class="frame-label">Desktop <span>1200 × scroll</span></div>
+      <div class="frame desktop">
+        <div style="position:relative"><div class="section-id">nav</div>
+          <header class="nav white">
+            <div class="block nav-logo light"><span class="label">Jawad → /</span></div>
+            <nav class="nav-links"><span class="copy">Work</span><span class="copy">About</span><span class="copy bold">Services</span><span class="copy">Journal</span><span class="copy">Contact</span></nav>
+            <div class="block nav-cta dark"><span class="label" style="color:#fff">Book a Call</span></div>
+          </header>
+        </div>
+
+        <div style="position:relative"><div class="section-id">#hero</div>
+          <section class="page-hero">
+            <p class="copy" style="color:var(--muted)">Kicker: Mission packages</p>
+            <p class="copy bold" style="font-size:22px;margin-top:8px">Portfolio and landing page packages, built to convert.</p>
+            <p class="copy" style="margin-top:8px">Clear scope, fast timelines, and cinematic quality — without agency bloat.</p>
+            <div class="cta-row">
+              <div class="block btn primary"><span class="label" style="color:#fff">Book a Call</span></div>
+              <div class="block btn secondary"><span class="label">Start an Inquiry</span></div>
+            </div>
+          </section>
+        </div>
+
+        <div style="position:relative"><div class="section-id">packages</div>
+          <section class="section-pad">
+            <div class="packages-row">
+              <div class="package-card">
+                <p class="copy bold" style="font-size:16px">Portfolio package</p>
+                <p class="copy" style="color:var(--muted);margin-top:4px">For: Photographers, designers, illustrators, videographers, writers, architects</p>
+                <ul>
+                  <li>Discovery + positioning workshop</li>
+                  <li>Custom design (not template)</li>
+                  <li>Up to X project case studies</li>
+                  <li>Mobile-responsive build</li>
+                  <li>Basic SEO + performance optimization</li>
+                  <li>Launch support</li>
+                </ul>
+                <p class="copy bold" style="margin-top:16px">~1 week · £500 – £1,000</p>
+                <div class="block btn secondary" style="margin-top:12px;max-width:160px;height:32px"><span class="label">Start an Inquiry</span></div>
+              </div>
+              <div class="package-card">
+                <p class="copy bold" style="font-size:16px">Landing page package</p>
+                <p class="copy" style="color:var(--muted);margin-top:4px">For: SaaS founders, brands, agencies, product launches</p>
+                <ul>
+                  <li>Conversion brief + competitor review</li>
+                  <li>Single high-converting page</li>
+                  <li>Copy support / CTA strategy</li>
+                  <li>Analytics-ready structure</li>
+                  <li>Fast load + responsive</li>
+                </ul>
+                <p class="copy bold" style="margin-top:16px">3–5 days · £1,000 – £3,000</p>
+                <div class="block btn secondary" style="margin-top:12px;max-width:160px;height:32px"><span class="label">Start an Inquiry</span></div>
+              </div>
+            </div>
+            <p class="pricing-note copy">Starter rates for early clients. Review after first 3 completed projects.</p>
+          </section>
+        </div>
+
+        <div style="position:relative"><div class="section-id">addons</div>
+          <section class="section-pad light" style="background:#f4f4f5">
+            <p class="copy bold" style="font-size:14px">Add-ons</p>
+            <table class="addons-table">
+              <thead><tr><th>Add-on</th><th>Description</th></tr></thead>
+              <tbody>
+                <tr><td>CMS setup</td><td>Client can update projects/content (Supabase or similar)</td></tr>
+                <tr><td>3D elements</td><td>Spline / WebGL hero or section accents</td></tr>
+                <tr><td>Animation package</td><td>Scroll storytelling, GSAP, micro-interactions</td></tr>
+                <tr><td>Copywriting</td><td>Full page copy pass</td></tr>
+                <tr><td>Ongoing support</td><td>Post-launch tweaks (monthly retainer)</td></tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+
+        <div style="position:relative"><div class="section-id">#process</div>
+          <section class="section-pad">
+            <p class="copy bold" style="font-size:14px">From brief to launch in 5 days</p>
+            <p class="copy" style="color:var(--muted)">Same 5-day visual as homepage — horizontal desktop</p>
+            <div class="process-steps">
+              <div class="step-card"><p class="copy bold">Day 1</p><p class="copy">Discovery & strategy</p></div>
+              <div class="step-card"><p class="copy bold">Day 2</p><p class="copy">Wireframe & prototype</p></div>
+              <div class="step-card"><p class="copy bold">Day 3</p><p class="copy">Visual design</p></div>
+              <div class="step-card"><p class="copy bold">Day 4</p><p class="copy">Build & polish</p></div>
+              <div class="step-card"><p class="copy bold">Day 5</p><p class="copy">QA & launch</p></div>
+            </div>
+          </section>
+        </div>
+
+        <div style="position:relative"><div class="section-id">faq</div>
+          <section class="section-pad light" style="background:#f4f4f5">
+            <p class="copy bold" style="font-size:14px">FAQ</p>
+            <div class="faq-list">
+              <div class="faq-item"><p class="copy bold">What's included in each package?</p></div>
+              <div class="faq-item"><p class="copy bold">How many revision rounds?</p></div>
+              <div class="faq-item"><p class="copy bold">Do I own the site/code?</p></div>
+              <div class="faq-item"><p class="copy bold">What do you need from me to start?</p></div>
+              <div class="faq-item"><p class="copy bold">Payment structure?</p></div>
+              <div class="faq-item"><p class="copy bold">What if I need more pages later?</p></div>
+            </div>
+          </section>
+        </div>
+
+        <div style="position:relative"><div class="section-id">#cta</div>
+          <section class="final-cta cta-band">
+            <div class="cta-row">
+              <div class="block btn primary"><span class="label" style="color:#fff">Book a Call</span></div>
+              <div class="block btn secondary"><span class="label">Start an Inquiry</span></div>
+            </div>
+          </section>
+        </div>
+
+        <div style="position:relative"><div class="section-id">footer</div>
+          <footer class="footer">
+            <p class="copy bold">Landing pages and portfolio websites — designed to stand out and convert.</p>
+            <div class="footer-cols">
+              <div class="footer-col"><h4>Work</h4></div>
+              <div class="footer-col"><h4>Services</h4></div>
+              <div class="footer-col"><h4>Journal</h4></div>
+              <div class="footer-col"><h4>Connect</h4></div>
+            </div>
+            <p class="copy" style="margin-top:16px;font-size:9px;color:var(--muted)">© 2026 Jawad Jalal · London, UK</p>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <div class="frame-wrap">
+      <div class="frame-label">Mobile <span>375 × scroll</span></div>
+      <div class="frame mobile">
+        <div style="position:relative"><div class="section-id">nav</div>
+          <header class="nav white"><div class="block nav-logo light"></div><div class="block nav-cta dark"></div><div class="nav-hamburger block light"></div></header>
+        </div>
+        <div style="position:relative"><div class="section-id">#hero</div>
+          <section class="page-hero">
+            <p class="copy" style="color:var(--muted)">Mission packages</p>
+            <p class="copy bold" style="font-size:16px">Portfolio and landing page packages, built to convert.</p>
+            <div class="cta-row"><div class="block btn primary"></div><div class="block btn secondary"></div></div>
+          </section>
+        </div>
+        <div style="position:relative"><div class="section-id">packages</div>
+          <section class="section-pad">
+            <div class="package-card"><p class="copy bold">Portfolio · £500–1k</p></div>
+            <div class="package-card" style="margin-top:12px"><p class="copy bold">Landing · £1k–3k</p></div>
+          </section>
+        </div>
+        <div style="position:relative"><div class="section-id">#process</div>
+          <section class="section-pad"><p class="copy bold">5 days — vertical</p><div class="process-steps"><div class="step-card"></div><div class="step-card"></div></div></section>
+        </div>
+        <div style="position:relative"><div class="section-id">faq</div>
+          <section class="section-pad light" style="background:#f4f4f5"><p class="copy bold">FAQ ×6 stacked</p></section>
+        </div>
+        <div style="position:relative"><div class="section-id">#cta</div>
+          <section class="final-cta cta-band"><div class="cta-row"><div class="block btn primary"></div><div class="block btn secondary"></div></div></section>
+        </div>
+        <div style="position:relative"><div class="section-id">footer</div>
+          <footer class="footer"><p class="copy bold">Footer</p></footer>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend"><h2>Legend</h2><ul><li>#process anchor matches homepage bridge → /services#process</li></ul></div>
+</body>
+</html>

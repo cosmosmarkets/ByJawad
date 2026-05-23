@@ -1,3 +1,4 @@
+<!-- Superseded: Legacy spaceman halftone hero. Use studio-kitchen-hero-prototype.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +12,13 @@
     :root {
       --ink: #fafafa;
       --muted: #a3a3a3;
-      --cta-fill: #fafafa;
+      --spectral: #22d3ee;
+      --cta-fill: #fbbf24;
+      --cta-hover: #fcd34d;
       --cta-text: #000000;
       --scrim: linear-gradient(90deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.12) 45%, transparent 62%);
+      --atmosphere: radial-gradient(ellipse 70% 50% at 85% 15%, rgba(34, 211, 238, 0.04), transparent),
+        radial-gradient(ellipse 60% 40% at 15% 50%, rgba(250, 250, 250, 0.02), transparent);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -51,8 +56,8 @@
       text-decoration: none;
       transition: transform 0.2s ease, background 0.2s ease;
     }
-    .nav-cta:hover { transform: translateY(-1px); background: #e5e5e5; }
-    .nav-cta:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+    .nav-cta:hover { transform: translateY(-1px); background: var(--cta-hover); }
+    .nav-cta:focus-visible { outline: 2px solid var(--spectral); outline-offset: 2px; }
 
     .hero {
       position: relative;
@@ -153,7 +158,7 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      background: var(--scrim);
+      background: var(--atmosphere), var(--scrim);
       pointer-events: none;
     }
 
@@ -180,7 +185,7 @@
       font-size: 0.75rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--spectral);
       margin-bottom: 1rem;
     }
 
@@ -233,7 +238,7 @@
       transition: transform 0.2s ease, background 0.2s ease;
     }
     .btn-primary { background: var(--cta-fill); color: var(--cta-text); }
-    .btn-primary:hover { background: #e5e5e5; transform: translateY(-2px); }
+    .btn-primary:hover { background: var(--cta-hover); transform: translateY(-2px); }
     .btn-ghost {
       color: var(--ink);
       border: 1px solid rgba(255, 255, 255, 0.35);

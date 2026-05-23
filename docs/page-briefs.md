@@ -1,8 +1,10 @@
 # Page Content Briefs
 
 **Purpose:** Section-by-section content requirements for wireframing and copywriting.  
-**Brand:** Cinematic Mission · Web design / landing pages / portfolios specialist  
+**Brand:** Studio Kitchen · Web design / landing pages / portfolios specialist  
 **Last updated:** May 2026
+
+**Copy canonical:** [voice-and-copy-framework.md](./voice-and-copy-framework.md)
 
 ---
 
@@ -15,18 +17,18 @@ Position Jawad as a **landing page and portfolio website specialist** within 10 
 `Book a Call` (header, final CTA band)
 
 ### Secondary conversion
-`Explore Missions` (hero) → `/work`
+`See what's cooking` (hero) → `/work`
 
 ### Sections
 
 #### 1.1 Hero
-- **Kicker:** Orbit-ready web design
-- **Headline:** Landing pages. Out of this world.
-- **Subheadline:** I design and build high-converting landing pages, portfolio websites, and modern web experiences for brands and creators.
+- **Kicker:** Portfolio & landing page studio
+- **Headline:** The kitchen for mouth-watering [portfolios | landing pages] (suffix rotates)
+- **Subheadline:** I design and build portfolio websites and landing pages that look incredible and convert — for creatives, founders, and brands.
 - **Who it's for (inline or sub-bullets):** Creative freelancers · SaaS founders · Brands & agencies
-- **CTAs:** Launch Your Website · Explore Missions
-- **Visual:** 3D spaceman (future) interacting with headline; cosmic background; restrained motion
-- **Notes:** Service clarity first; space is visual layer only
+- **CTAs:** Place your order · See what's cooking
+- **Visual:** Studio Kitchen — red hero, cream body, Fredoka + Caveat type
+- **Notes:** Service clarity first; kitchen metaphor supports process story
 
 #### 1.2 Trust strip
 - **Content:** Copy-only — no logos (logos in §1.5 Tools)
@@ -34,30 +36,31 @@ Position Jawad as a **landing page and portfolio website specialist** within 10 
 - **Supporting:** Specialist in portfolios and landing pages only.
 - **No CTA** — pure credibility
 
-#### 1.3 Selected work (Option B — v1)
-- **Kicker:** Mission log
-- **Heading:** Featured missions
-- **Live card:** By Jawad · Portfolio · `The site you're on — halftone, monochrome, conversion-first`
-- **Coming soon panel:** More missions launching soon · Case studies added as projects ship.
+#### 1.3 My dishes (Option B — v1)
+- **Kicker:** From the pass
+- **Heading:** My dishes
+- **Live card:** By Jawad · Portfolio · `The site you're on — Studio Kitchen voice, conversion-first`
+- **Coming soon panel:** Next out of the kitchen · Case studies added as projects ship.
 - **CTA per live card:** View project → `/work/by-jawad`
 - **Section CTA:** Explore work → `/work`
 - **Note:** Expand to multi-card grid when client case studies exist
 
 #### 1.4 Process (5-day timeline)
-- **Heading:** From brief to launch in 5 days
-- **Steps (example — align with actual process):**
-  1. Day 1 — Discovery & strategy
-  2. Day 2 — Wireframe & interactive prototype
-  3. Day 3 — Visual design & assets
-  4. Day 4 — Build & responsive polish
-  5. Day 5 — QA, launch & handoff
-- **Visual:** Horizontal timeline with orbit/connecting line motif
+- **Kicker:** The recipe
+- **Heading:** Five courses. Five days.
+- **Steps:**
+  1. Prep the brief
+  2. First taste
+  3. Plate the design
+  4. In the oven
+  5. Serve & hand off
+- **Visual:** Horizontal timeline with recipe connector line
 - **CTA:** See full process → `/services#process`
 - **Bridge:** View Services → `/services`
 
 #### 1.5 Tools showcase
-- **Kicker:** Mission stack
-- **Heading:** Tools I build with
+- **Kicker:** The pantry
+- **Heading:** My ingredients
 - **Subheadline:** AI-assisted precision — human-led strategy and craft.
 - **Tools:** Cursor · Claude · Figma · Next.js · Tailwind CSS · Spline · GSAP · Supabase
 - **Each card:** Logo + name + one-line role
@@ -66,9 +69,11 @@ Position Jawad as a **landing page and portfolio website specialist** within 10 
 #### 1.6 Testimonials
 - **Deferred v1** — add when 2+ authentic client quotes exist
 
-#### 1.7 Final CTA band
-- **Headline:** Ready for your new portfolio or landing page?
-- **Subheadline:** Tell me about your project — I'll reply within 24 hours.
+#### 1.7 Final CTA band (reservation poster)
+- **Script:** Ready to order?
+- **Shout:** PLACE YOUR ORDER
+- **Subline:** Tell me about your project — I'll reply within 24 hours.
+- **Visual:** Tilted red poster; mustard Book a Call + white Start an Inquiry; OR between
 - **CTAs:** Book a Call · Start an Inquiry
 
 #### 1.8 Footer
@@ -94,7 +99,7 @@ Prove outcomes; encourage case study depth or direct project inquiry.
 ### Sections
 
 #### 2.1 Hero
-- Kicker: Mission log
+- Kicker: From the pass
 - Headline + subheadline (see CTA matrix)
 - CTA: Start a Project
 
@@ -234,7 +239,7 @@ Build trust and differentiation; humanize the brand before conversion.
 `Work With Me` → `/contact`
 
 ### Secondary conversion
-`Explore Missions` → `/work`
+`See what's cooking` → `/work`
 
 ### Sections
 
@@ -250,24 +255,24 @@ Build trust and differentiation; humanize the brand before conversion.
 
 #### 5.3 Stack
 - Tool grid with one-line "why I use it" per tool
-- Optional: orbiting icons visual (homepage trust strip echo)
+- Optional: simple icon grid visual (homepage tools echo)
 
 #### 5.4 Process
 - Vibe-coding workflow: prototype-first, AI-accelerated, human-led strategy
 - 3–4 step simplified version of 5-day process
 
 #### 5.5 Photo / avatar
-- Professional or brand-consistent avatar (space-themed treatment OK)
+- Professional or brand-consistent avatar (Studio Kitchen treatment OK)
 
 #### 5.6 Personal touches
 - 3D art, Roblox/marketing background, London, interests — 2–3 short bullets
 
 #### 5.7 CTA band
-- Work With Me · Explore Missions
+- Work With Me · See what's cooking
 
 ### SEO
 - **Title:** About Jawad Jalal — Portfolio & Landing Page Designer, London
-- **Meta:** Story, process, and tools behind cinematic portfolio and landing page design.
+- **Meta:** Story, process, and tools behind Studio Kitchen portfolio and landing page design.
 
 ---
 
@@ -277,7 +282,7 @@ Build trust and differentiation; humanize the brand before conversion.
 SEO authority; funnel readers to work and contact.
 
 ### Primary conversion
-`Explore Missions` → `/work`
+`See what's cooking` → `/work`
 
 ### Secondary conversion
 `Book a Call`
@@ -294,10 +299,10 @@ SEO authority; funnel readers to work and contact.
 - Categories: Process · Case study · Tools · Industry
 
 #### 6.4 Newsletter
-- Stay in orbit — email capture
+- Get the recipe — email capture
 
 #### 6.5 CTA band
-- Explore Missions · Book a Call
+- See what's cooking · Book a Call
 
 ### Seed content (launch)
 1. How to build a portfolio website that converts (long-tail SEO)
@@ -345,7 +350,7 @@ Capture leads with minimal friction; offer call booking alternative.
 #### 8.2 Two-column or stacked layout
 - **Left / top:** Calendly — 15-min discovery call
 - **Right / bottom:** Inquiry form (fields in IA sitemap)
-- **Submit button label:** Send Mission Brief
+- **Submit button label:** Send project brief
 
 #### 8.3 Response promise
 - Prominent: I reply within 24 hours
@@ -382,7 +387,7 @@ Recover lost visitors; route to high-value pages.
 2. **Never lead with "software engineer"** — lead with web design / conversion outcomes.
 3. **Every long page** ends with Book a Call + Start an Inquiry.
 4. **Metrics over adjectives** where possible: signups, hires, load time, timeline.
-5. **Cinematic language** lives in kickers, section titles, and visuals — not in core service description.
+5. **Kitchen language** lives in kickers, section titles, and hero — not in core service description or SEO meta.
 
 ---
 

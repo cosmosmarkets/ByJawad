@@ -1,9 +1,11 @@
 # Information Architecture & Sitemap
 
 **Project:** Jawad Jalal — Portfolio & Landing Page Specialist  
-**Direction:** Cinematic Mission (cosmic visual language, service-first copy)  
+**Direction:** Studio Kitchen (warm kitchen metaphor, service-first copy)  
 **Conversion goals:** Book a call · Start an inquiry  
 **Last updated:** May 2026
+
+**Copy canonical:** [voice-and-copy-framework.md](./voice-and-copy-framework.md)
 
 ---
 
@@ -33,15 +35,15 @@ Move visitors from **discovery → trust → proof → offer → action** with m
 
 | URL | Page name | Role in funnel | Primary CTA | Secondary CTA |
 |-----|-----------|---------------|-------------|---------------|
-| `/` | Homepage | Pitch + trust + proof teaser | Book a Call | Explore Missions (hero) / View Work |
+| `/` | Homepage | Pitch + trust + proof teaser | Book a Call | See what's cooking (hero) / View Work |
 | `/work` | Work | Proof catalog | View Case Study | Start a Project |
 | `/work/[slug]` | Case study | Deep proof | Book a Call | Start an Inquiry |
 | `/services` | Services | Offer + qualification | Book a Call | Start an Inquiry |
-| `/about` | About | Trust + personality | Work With Me | Explore Missions |
-| `/journal` | Journal | SEO + authority | Explore Missions | Book a Call |
+| `/about` | About | Trust + personality | Work With Me | See what's cooking |
+| `/journal` | Journal | SEO + authority | See what's cooking | Book a Call |
 | `/journal/[slug]` | Article | Education → conversion | Book a Call | View Services |
 | `/contact` | Contact | Conversion | Submit Inquiry / Book a Call | — |
-| `/404` | Not found | Recovery | Return to Base | Explore Missions |
+| `/404` | Not found | Recovery | Return home | See what's cooking |
 
 ---
 
@@ -69,7 +71,7 @@ Proof-first order (v1). See [homepage-content-hierarchy.md](./homepage-content-h
 
 | Order | Section | Purpose |
 |-------|---------|---------|
-| 1 | Hero | Frame as mission log / proof |
+| 1 | Hero | Frame as kitchen intro / proof |
 | 2 | Filter or group | By type: Portfolio · Landing page · SaaS · Brand |
 | 3 | Project grid | Cards with industry, type, result tag |
 | 4 | CTA band | Start a project | `/contact` |
@@ -178,10 +180,10 @@ Proof-first order (v1). See [homepage-content-hierarchy.md](./homepage-content-h
 
 | Element | Action |
 |---------|--------|
-| On-brand headline | Signal lost messaging |
-| Primary | Return to Base → `/` |
-| Secondary | Explore Missions → `/work` |
-| Tertiary | Launch Your Website → `/contact` |
+| On-brand headline | Wrong table — this page isn't on the menu |
+| Primary | Return home → `/` |
+| Secondary | See what's cooking → `/work` |
+| Tertiary | Place your order → `/contact` |
 | Quick links | Services, About, Journal |
 
 ---

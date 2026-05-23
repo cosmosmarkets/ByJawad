@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Kitchen — Design Token Showcase v3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper-cream: #FCEAD4; --paper-dark: #F5DFC4; --card: #FFFFFF; --ink: #000000;
+      --muted: #5C4A3A; --red: #E63946; --mustard: #F4B942;
+      --shadow: 4px 4px 0 #000; --shadow-sm: 2px 2px 0 #000; --shadow-poster: 8px 8px 0 #000; --max: 1200px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Inter, system-ui, sans-serif; color: var(--ink); background: var(--paper-cream); }
+    .display { font-family: Fredoka, sans-serif; }
+    .script { font-family: Caveat, cursive; font-weight: 700; }
+    .mono { font-family: "JetBrains Mono", monospace; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    .red-grid {
+      background-color: var(--red);
+      background-image: linear-gradient(rgba(193,18,31,0.35) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(193,18,31,0.35) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem;
+      border-radius: 9999px; border: 3px solid var(--ink); font-family: Fredoka, sans-serif;
+      font-weight: 600; font-size: 0.95rem; cursor: pointer; text-decoration: none;
+      transition: transform 150ms, box-shadow 150ms;
+    }
+    .btn-mustard { background: var(--mustard); color: var(--ink); box-shadow: var(--shadow); }
+    .btn-white { background: var(--card); color: var(--ink); box-shadow: var(--shadow); }
+    .btn:hover { transform: translate(1px, 1px); box-shadow: var(--shadow-sm); }
+    .btn:active { transform: translate(4px, 4px); box-shadow: none; }
+    .card { background: var(--card); border: 2px solid var(--ink); border-radius: 16px; padding: 1.25rem; }
+    .kicker { color: var(--muted); margin-bottom: 0.5rem; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 4rem 0; }
+    .hero { min-height: 90vh; display: flex; align-items: center; padding: 6rem 0 4rem; }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
+    @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.1fr 0.9fr; } }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.05; letter-spacing: -0.02em; }
+    .rotate-word { display: inline-block; min-width: 9ch; transition: opacity 400ms ease; }
+    .hero-sub { margin-top: 1rem; max-width: 36rem; line-height: 1.6; font-size: 1.05rem; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; align-items: center; }
+    .illus {
+      aspect-ratio: 4/3; border: 3px solid var(--ink); border-radius: 20px; background: var(--card);
+      display: flex; align-items: center; justify-content: center; font-family: Fredoka; font-size: 1.25rem; box-shadow: var(--shadow);
+    }
+    .section-title { font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 1.5rem; }
+    .grid-2 { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .ingredient { text-align: center; padding: 1rem; }
+    .ingredient .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .thumb { aspect-ratio: 16/10; background: #eee; border: 2px solid #000; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: var(--muted); }
+    .poster-wrap { display: flex; justify-content: center; padding: 2rem 0; }
+    .poster { background: var(--red); border: 3px solid var(--ink); box-shadow: var(--shadow-poster); transform: rotate(2deg); padding: 2.5rem 2rem; max-width: 640px; width: 100%; text-align: center; }
+    .poster .script { font-size: clamp(2rem, 5vw, 3rem); color: #fff; -webkit-text-stroke: 1px #000; margin-bottom: 0.5rem; }
+    .poster .shout { font-family: Fredoka; font-weight: 700; font-size: clamp(1.75rem, 4vw, 2.75rem); letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .poster .sub { color: #fff; margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .poster .cta-row { justify-content: center; }
+    .or { font-family: Fredoka; font-weight: 600; }
+    .swatch-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+    .swatch { width: 100px; height: 64px; border: 2px solid var(--ink); border-radius: 8px; display: flex; align-items: end; padding: 4px; font-size: 10px; font-weight: 600; }
+    .type-specimen { margin-bottom: 1rem; }
+    nav.demo-nav { padding: 1rem 0; border-bottom: 2px solid var(--ink); background: var(--paper-cream); }
+    nav.demo-nav .wrap { display: flex; justify-content: space-between; align-items: center; }
+    .badge { display: inline-block; padding: 0.25rem 0.5rem; background: var(--ink); color: #fff; font-size: 0.7rem; font-family: Fredoka; border-radius: 4px; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <nav class="demo-nav" aria-label="Showcase">
+    <div class="wrap">
+      <span class="display" style="font-weight:700;font-size:1.25rem">Jawad</span>
+      <a class="btn btn-white" href="#poster" style="padding:0.5rem 1rem;font-size:0.85rem">Book a Call</a>
+    </div>
+  </nav>
+
+  <header class="hero red-grid" id="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="mono kicker" style="color:var(--ink)">Portfolio &amp; landing page studio</p>
+        <h1 class="display">The kitchen for mouth-watering <span class="rotate-word" id="rotate" aria-live="polite">portfolios</span></h1>
+        <p class="hero-sub">I design and build portfolio websites and landing pages that look incredible and convert — for creatives, founders, and brands.</p>
+        <div class="cta-row">
+          <a class="btn btn-mustard" href="#">Place your order</a>
+          <a class="btn btn-white" href="#">See what's cooking</a>
+        </div>
+      </div>
+      <div class="illus">Kitchen illustration (TBD)</div>
+    </div>
+  </header>
+
+  <section id="dishes">
+    <div class="wrap">
+      <p class="mono kicker">From the pass</p>
+      <h2 class="display section-title">My dishes</h2>
+      <div class="grid-2">
+        <article class="card">
+          <div class="thumb">Screenshot</div>
+          <h3 class="display" style="font-size:1.25rem">By Jawad</h3>
+          <p style="color:var(--muted);font-size:0.9rem;margin-top:0.25rem">Portfolio · The site you're on</p>
+        </article>
+        <article class="card" style="opacity:0.85">
+          <h3 class="display" style="font-size:1.25rem">Next out of the kitchen</h3>
+          <p style="color:var(--muted);font-size:0.9rem;margin-top:0.25rem">Case studies added as projects ship.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="ingredients" style="background:var(--paper-dark)">
+    <div class="wrap">
+      <p class="mono kicker">The pantry</p>
+      <h2 class="display section-title">My ingredients</h2>
+      <div class="grid-2">
+        <div class="card ingredient"><div class="icon">N</div><p class="display" style="font-weight:600">Next.js</p><p class="mono" style="font-size:0.65rem;margin-top:0.25rem">Production build</p></div>
+        <div class="card ingredient"><div class="icon">F</div><p class="display" style="font-weight:600">Figma</p><p class="mono" style="font-size:0.65rem;margin-top:0.25rem">UI design</p></div>
+        <div class="card ingredient"><div class="icon">C</div><p class="display" style="font-weight:600">Cursor</p><p class="mono" style="font-size:0.65rem;margin-top:0.25rem">AI-native dev</p></div>
+        <div class="card ingredient"><div class="icon">G</div><p class="display" style="font-weight:600">GSAP</p><p class="mono" style="font-size:0.65rem;margin-top:0.25rem">Scroll motion</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="poster" class="red-grid" style="padding:5rem 0">
+    <div class="wrap poster-wrap">
+      <div class="poster">
+        <p class="script">Ready to order?</p>
+        <p class="shout">PLACE YOUR ORDER</p>
+        <p class="sub">Tell me about your project — I'll reply within 24 hours.</p>
+        <div class="cta-row">
+          <a class="btn btn-mustard" href="#">Book a Call</a>
+          <span class="or">OR</span>
+          <a class="btn btn-white" href="#">Start an Inquiry</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tokens">
+    <div class="wrap">
+      <span class="badge">Token specimens</span>
+      <h2 class="display section-title">Color &amp; type</h2>
+      <div class="swatch-row">
+        <div class="swatch" style="background:#E63946">red</div>
+        <div class="swatch" style="background:#F4B942">mustard</div>
+        <div class="swatch" style="background:#FCEAD4">cream</div>
+        <div class="swatch" style="background:#FFFFFF">card</div>
+        <div class="swatch" style="background:#000;color:#fff">ink</div>
+      </div>
+      <div class="type-specimen display" style="font-size:2.5rem;font-weight:700">Fredoka Display 700</div>
+      <div class="type-specimen script" style="font-size:2.5rem">Caveat script 700</div>
+      <div class="type-specimen" style="font-size:1rem">Inter body 400 — portfolio websites and landing pages.</div>
+      <p class="mono type-specimen">JetBrains Mono kicker</p>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var words = ["portfolios", "landing pages"];
+      var i = 0;
+      var el = document.getElementById("rotate");
+      if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        if (el) el.textContent = "portfolios and landing pages";
+        return;
+      }
+      setInterval(function () {
+        i = (i + 1) % words.length;
+        el.style.opacity = "0";
+        setTimeout(function () {
+          el.textContent = words[i];
+          el.style.opacity = "1";
+        }, 400);
+      }, 4000);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Study Wireframe v1 — Jawad Jalal</title>
+  <style>
+    :root { --bg: #f4f4f5; --surface: #fff; --border: #a1a1aa; --text: #18181b; --muted: #71717a; --accent: #3f3f46; --cta: #27272a; --placeholder: #d4d4d8; --annotation: #2563eb; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: ui-monospace, Consolas, monospace; font-size: 11px; line-height: 1.4; color: var(--text); background: var(--bg); padding: 24px 16px 48px; }
+    h1 { font-family: system-ui, sans-serif; font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+    .meta { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); margin-bottom: 32px; max-width: 720px; }
+    .meta a { color: var(--annotation); }
+    .frames { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; }
+    .frame-wrap { flex: 0 0 auto; }
+    .frame-label { font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+    .frame { background: var(--surface); border: 2px solid var(--accent); overflow: hidden; position: relative; }
+    .frame.desktop { width: 1200px; }
+    .frame.mobile { width: 375px; }
+    .section-id { position: absolute; left: 0; top: 0; bottom: 0; width: 28px; background: #eff6ff; border-right: 1px dashed var(--annotation); writing-mode: vertical-rl; transform: rotate(180deg); font-size: 9px; color: var(--annotation); display: flex; align-items: center; justify-content: center; z-index: 2; }
+    .frame.mobile .section-id { width: 22px; font-size: 8px; }
+    .block { border: 1px dashed var(--border); background: var(--placeholder); }
+    .block.light { background: #e4e4e7; }
+    .block.white { background: var(--surface); border-style: solid; }
+    .block.dark { background: var(--cta); border-color: var(--cta); }
+    .block.cta-band { background: #e4e4e7; border: 2px solid var(--accent); }
+    .label { font-size: 9px; color: var(--muted); padding: 2px 4px; }
+    .copy { font-size: 10px; padding: 4px 8px; }
+    .copy.bold { font-weight: 700; font-size: 11px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px 12px 36px; border-bottom: 1px solid var(--border); min-height: 52px; }
+    .frame.mobile .nav { padding-left: 30px; }
+    .nav-links { display: flex; gap: 16px; flex: 1; justify-content: center; }
+    .frame.mobile .nav-links { display: none; }
+    .nav-logo { width: 80px; height: 24px; }
+    .nav-cta { width: 100px; height: 32px; background: var(--cta); border: none; }
+    .nav-hamburger { display: none; width: 32px; height: 32px; border: 1px dashed var(--border); }
+    .frame.mobile .nav-hamburger { display: block; }
+    .frame.mobile .nav-cta { width: 72px; height: 28px; }
+    .content-block { padding: 48px 48px 48px 64px; border-bottom: 1px solid var(--border); max-width: 720px; margin-left: 28px; }
+    .frame.mobile .content-block { padding: 32px 16px 32px 30px; margin-left: 22px; max-width: none; }
+    .content-block.wide { max-width: none; margin-left: 28px; padding-right: 48px; }
+    .hero-banner { height: 280px; background: var(--placeholder); margin-bottom: 24px; }
+    .frame.mobile .hero-banner { height: 180px; }
+    .screenshot-inline { height: 120px; margin: 16px 0; background: var(--placeholder); border: 1px dashed var(--border); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
+    .frame.mobile .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-cell { aspect-ratio: 4/3; background: var(--placeholder); border: 1px dashed var(--border); }
+    .related-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+    .frame.mobile .related-row { grid-template-columns: 1fr; }
+    .related-card { min-height: 100px; border: 1px solid var(--border); padding: 12px; background: #fafafa; }
+    .cta-row { display: flex; gap: 12px; margin-top: 16px; justify-content: center; }
+    .frame.mobile .cta-row { flex-direction: column; }
+    .btn { height: 40px; min-width: 140px; max-width: 180px; }
+    .frame.mobile .btn { max-width: none; }
+    .btn.primary { background: var(--cta); }
+    .btn.secondary { background: #fafafa; border: 1px solid var(--accent); }
+    .final-cta { padding: 56px 24px; text-align: center; margin-left: 28px; }
+    .frame.mobile .final-cta { margin-left: 22px; padding: 40px 16px; }
+    .footer { padding: 40px 24px 24px 36px; border-top: 1px solid var(--border); background: #fafafa; }
+    .frame.mobile .footer { padding-left: 30px; }
+    .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 16px; }
+    .frame.mobile .footer-cols { grid-template-columns: 1fr 1fr; }
+    .footer-col h4 { font-size: 9px; color: var(--muted); margin-bottom: 8px; }
+    .legend { margin-top: 48px; max-width: 1200px; margin: 48px auto 0; font-family: system-ui, sans-serif; font-size: 12px; padding: 16px; background: var(--surface); border: 1px solid var(--border); }
+    .legend ul { margin-left: 20px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <h1>Case Study Wireframe v1</h1>
+  <p class="meta">
+    Route: <code>/work/[slug]</code> · 8-block template (generic placeholders).<br />
+    Launch slug: <code>by-jawad</code> · <a href="../ia-sitemap.md">ia-sitemap.md</a> · <a href="./index.html">← All v1 frames</a>
+  </p>
+
+  <div class="frames">
+    <div class="frame-wrap">
+      <div class="frame-label">Desktop <span>1200 × scroll</span></div>
+      <div class="frame desktop">
+        <div style="position:relative"><div class="section-id">nav</div>
+          <header class="nav white">
+            <div class="block nav-logo light"><span class="label">Jawad → /</span></div>
+            <nav class="nav-links"><span class="copy">Work</span><span class="copy">About</span><span class="copy">Services</span><span class="copy">Journal</span><span class="copy">Contact</span></nav>
+            <div class="block nav-cta dark"><span class="label" style="color:#fff">Book a Call</span></div>
+          </header>
+        </div>
+
+        <div style="position:relative"><div class="section-id">1 hero</div>
+          <section class="content-block wide" style="padding-top:48px">
+            <div class="block hero-banner"></div>
+            <p class="copy bold" style="font-size:20px">[Project name]</p>
+            <p class="copy" style="color:var(--muted)">Type: Portfolio / Landing page · Hero result tag (e.g. +40% signups)</p>
+          </section>
+        </div>
+
+        <div style="position:relative"><div class="section-id">2 overview</div>
+          <section class="content-block">
+            <p class="copy bold" style="font-size:14px">Overview</p>
+            <p class="copy" style="margin-top:8px">Client · Timeline · Your role · Tech stack (50–80 words placeholder)</p>
+            <p class="copy" style="color:var(--annotation);margin-top:12px">Live link → external URL (new tab)</p>
+          </section>
+        </div>
+
+        <div style="position:relative"><div class="section-id">3 problem</div>
+          <section class="content-block light" style="background:#f4f4f5">
+            <p class="copy bold" style="font-size:14px">The Problem</p>
+            <p class="copy" style="margin-top:8px">Pain before the project (100–150 words placeholder)</p>
+          </section>
+        </div>
+
+        <div style="position:relative"><div class="section-id">4 approach</div>
+          <section class="content-block">
+            <p class="copy bold" style="font-size:14px">My Approach</p>
+            <p class="copy" style="margin-top:8px">Strategy, design, build (150–250 words placeholder)</p>
+            <div class="block screenshot-inline"></div>
+            <div class="block screenshot-inline"></div>
+          </section>
+        </div>
+
+        <div style="position:relative"><div class="section-id">5 result</div>
+          <section class="content-block light" style="background:#f4f4f5">
+            <p class="copy bold" style="font-size:14px">The Result</p>
+            <p class="copy" style="margin-top:8px">Metrics or qualitative wins (80–120 words placeholder)</p>
+          </section>
+        </div>
+
+        <div style="position:relative"><div class="section-id">6 gallery</div>
+          <section class="content-block wide">
+            <p class="copy bold" style="font-size:14px">Gallery</p>
+            <p class="copy" style="color:var(--muted)">4–8 screens · optional video embed (v2/hi-fi)</p>
+            <div class="gallery-grid">
+              <div class="gallery-cell"></div><div class="gallery-cell"></div><div class="gallery-cell"></div><div class="gallery-cell"></div>
+              <div class="gallery-cell"></div><div class="gallery-cell"></div><div class="gallery-cell"></div><div class="gallery-cell"></div>
+            </div>
+          </section>
+        </div>
+
+        <div style="position:relative"><div class="section-id">7 related</div>
+          <section class="content-block">
+            <p class="copy bold" style="font-size:14px">Related projects</p>
+            <div class="related-row">
+              <div class="related-card"><p class="copy bold">Project 2</p></div>
+              <div class="related-card"><p class="copy bold">Project 3</p></div>
+              <div class="related-card"><p class="copy bold">Coming soon</p></div>
+            </div>
+          </section>
+        </div>
+
+        <div style="position:relative"><div class="section-id">8 cta</div>
+          <section class="final-cta cta-band">
+            <div class="cta-row">
+              <div class="block btn primary"><span class="label" style="color:#fff">Book a Call</span></div>
+              <div class="block btn secondary"><span class="label">Start an Inquiry</span></div>
+            </div>
+          </section>
+        </div>
+
+        <div style="position:relative"><div class="section-id">footer</div>
+          <footer class="footer">
+            <p class="copy bold">Landing pages and portfolio websites — designed to stand out and convert.</p>
+            <div class="footer-cols">
+              <div class="footer-col"><h4>Work</h4></div>
+              <div class="footer-col"><h4>Services</h4></div>
+              <div class="footer-col"><h4>Journal</h4></div>
+              <div class="footer-col"><h4>Connect</h4></div>
+            </div>
+            <p class="copy" style="margin-top:16px;font-size:9px;color:var(--muted)">© 2026 Jawad Jalal · London, UK</p>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <div class="frame-wrap">
+      <div class="frame-label">Mobile <span>375 × scroll</span></div>
+      <div class="frame mobile">
+        <div style="position:relative"><div class="section-id">nav</div>
+          <header class="nav white"><div class="block nav-logo light"></div><div class="block nav-cta dark"></div><div class="nav-hamburger block light"></div></header>
+        </div>
+        <div style="position:relative"><div class="section-id">1-8</div>
+          <section class="content-block">
+            <div class="block hero-banner"></div>
+            <p class="copy bold">[Project name]</p>
+            <p class="copy" style="margin-top:16px">Overview · Problem · Approach · Result — stacked</p>
+            <div class="gallery-grid" style="margin-top:16px"><div class="gallery-cell"></div><div class="gallery-cell"></div></div>
+            <p class="copy bold" style="margin-top:16px">Related (stacked)</p>
+            <div class="related-card" style="margin-top:8px"></div>
+            <div class="cta-row" style="margin-top:24px"><div class="block btn primary"></div><div class="block btn secondary"></div></div>
+          </section>
+        </div>
+        <div style="position:relative"><div class="section-id">footer</div>
+          <footer class="footer"><p class="copy bold">Footer</p></footer>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend"><h2>Legend</h2><ul><li>Template only — not By Jawad–specific copy in v1.</li><li>8 blocks per ia-sitemap case study structure.</li></ul></div>
+</body>
+</html>

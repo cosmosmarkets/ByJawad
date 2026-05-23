@@ -1,10 +1,13 @@
 export const siteConfig = {
-  name: "Jawad",
-  title: "Jawad — Portfolio",
+  name: "Jawad Jalal",
+  shortName: "Jawad",
+  title: "Jawad Jalal — Landing Page & Portfolio Website Designer",
   description:
-    "Portfolio of Jawad — product design, brand systems, and digital experiences.",
+    "I design and build high-converting landing pages and portfolio websites for creatives, SaaS founders, and brands. Based in London. Book a call.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  ogImage: "/images/og-default.jpg",
+  ogImage: "/og-image.png",
+  ogImageWidth: 1672,
+  ogImageHeight: 941,
   links: {
     github: "https://github.com/cosmosmarkets",
     linkedin: "https://linkedin.com",

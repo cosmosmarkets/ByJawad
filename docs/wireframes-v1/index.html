@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wireframes v1 — Review Hub</title>
+  <style>
+    :root { --bg: #f4f4f5; --surface: #fff; --border: #a1a1aa; --text: #18181b; --muted: #71717a; --annotation: #2563eb; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      padding: 48px 24px 80px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    h1 { font-size: 28px; font-weight: 600; margin-bottom: 8px; }
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      background: #e4e4e7;
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+    p.lead { color: var(--muted); margin-bottom: 32px; }
+    h2 { font-size: 18px; margin: 32px 0 12px; }
+    ul { list-style: none; }
+    li { margin-bottom: 8px; }
+    a {
+      color: var(--annotation);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    a:hover { text-decoration: underline; }
+    .route { font-family: ui-monospace, Consolas, monospace; font-size: 13px; color: var(--muted); margin-left: 8px; }
+    .done { color: #166534; }
+    .pending { color: var(--muted); }
+    .note {
+      margin-top: 32px;
+      padding: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .note strong { color: var(--text); }
+    .checklist { margin-top: 16px; font-size: 14px; }
+    .checklist li { padding: 4px 0; padding-left: 24px; position: relative; }
+    .checklist li::before { content: '☐'; position: absolute; left: 0; color: var(--muted); }
+    .checklist li.done::before { content: '☑'; color: #166534; }
+  </style>
+</head>
+<body>
+  <span class="badge">Stage 0a · Wireframe v1</span>
+  <h1>Wireframes v1 — Funnel Slice</h1>
+  <p class="lead">
+    Grayscale structure pass · Desktop 1200px + Mobile 375px per frame.<br />
+    Pipeline: <a href="../design-build-roadmap.md">design-build-roadmap.md</a>
+  </p>
+
+  <h2>Complete (funnel slice)</h2>
+  <ul>
+    <li><a href="../homepage-wireframe-spec.html">Homepage</a> <span class="route">/</span> <span class="done">done (review only)</span></li>
+    <li><a href="./contact-wireframe-v1.html">Contact</a> <span class="route">/contact</span> <span class="done">v1</span></li>
+    <li><a href="./work-wireframe-v1.html">Work</a> <span class="route">/work</span> <span class="done">v1 · Option B</span></li>
+    <li><a href="./case-study-wireframe-v1.html">Case study template</a> <span class="route">/work/[slug]</span> <span class="done">v1</span></li>
+    <li><a href="./services-wireframe-v1.html">Services</a> <span class="route">/services</span> <span class="done">v1</span></li>
+    <li><a href="./404-wireframe-v1.html">404 recovery</a> <span class="route">/404</span> <span class="done">v1</span></li>
+  </ul>
+
+  <h2>Deferred (follow-up plan)</h2>
+  <ul>
+    <li><span class="pending">About</span> <span class="route">/about</span></li>
+    <li><span class="pending">Journal index</span> <span class="route">/journal</span></li>
+    <li><span class="pending">Journal article</span> <span class="route">/journal/[slug]</span></li>
+  </ul>
+
+  <h2>Review at</h2>
+  <ul>
+    <li>Desktop viewport: <strong>1200px</strong> width</li>
+    <li>Mobile viewport: <strong>375px</strong> width</li>
+  </ul>
+
+  <div class="note">
+    <strong>v1 exit checklist (funnel slice)</strong>
+    <ul class="checklist">
+      <li class="done">Funnel routes have desktop + mobile frames</li>
+      <li class="done">Locked copy from CTA matrix + page briefs</li>
+      <li class="done">Global header + footer on every frame</li>
+      <li class="done">Work Option B: 1 card + coming-soon</li>
+    </ul>
+    <p style="margin-top:16px"><strong>Not in v1:</strong> interactions, hover states, tokens, halftone — see Wireframe v2 in roadmap.</p>
+    <p style="margin-top:8px"><strong>Note:</strong> Nav order in wireframes is Work · About · Services · Journal · Contact. CTA matrix lists a different order — flag for content sync.</p>
+  </div>
+
+  <p style="margin-top:32px;font-size:13px;color:var(--muted)">
+    Source docs:
+    <a href="../design-token-system.md">tokens</a> ·
+    <a href="../cta-messaging-matrix.md">CTAs</a> ·
+    <a href="../launch-strategy-v1.md">launch scope</a>
+  </p>
+</body>
+</html>

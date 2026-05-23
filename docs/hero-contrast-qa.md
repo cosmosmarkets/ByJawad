@@ -1,4 +1,6 @@
-# Hero contrast QA — halftone spaceman
+> **Superseded:** Legacy Mission Control halftone contrast QA. Studio Kitchen uses black type on red hero — see [studio-kitchen-visual-direction.md](./studio-kitchen-visual-direction.md).
+
+# Hero contrast QA — halftone spaceman (legacy)
 
 **Prototype:** [hero-prototype.html](./hero-prototype.html)  
 **Asset:** `brand_assets/hero/spaceman-grab-poster.webp` (1024×439 source)

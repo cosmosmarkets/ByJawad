@@ -8,10 +8,10 @@ Persistent context for AI agents working in this repository.
 
 | Attribute | Value |
 |-----------|-------|
-| Brand direction | **Cinematic Mission** — editorial print meets mission-control UI |
-| Visual system | **Dark-first · strict monochrome · editorial halftone** (black/white only in marketing UI) |
+| Brand direction | **Studio Kitchen** — warm kitchen metaphor · Steak-inspired chunky UI |
+| Visual system | **Studio Kitchen** — cream body · red hero/poster · mustard CTAs · Fredoka + Caveat |
 | Business goal | Convert visitors into **booked calls** or **project inquiries** |
-| 3-second emotion | *"This person is operating at a different level."* |
+| 3-second emotion | *Clear, confident, easy to work with.* |
 
 **Positioning (locked):** Agency-level output with AI-assisted precision. Jawad only builds portfolios and landing pages — the two highest-stakes pages on the internet.
 
@@ -22,13 +22,13 @@ Persistent context for AI agents working in this repository.
 | Done | Not done yet |
 |------|--------------|
 | Next.js 14 scaffold pushed to GitHub | Full visual design / UI implementation |
-| Design token system documented | Design tokens wired into Tailwind / `globals.css` |
-| Copy framework + CTA matrix locked | Wireframes finalized and approved |
-| IA sitemap + page briefs | Case studies, testimonials, tool logos |
+| Studio Kitchen voice + copy framework locked | Tokens wired into Tailwind / `globals.css` |
+| Studio Kitchen visual direction + tokens locked | Kitchen hero illustration in `brand_assets/` |
+| IA sitemap + page briefs | Wireframes finalized and approved |
 | Homepage content hierarchy + v1 wireframe spec | Custom monogram logo file |
 | Tier 2 launch strategy locked | Client case studies, testimonials |
-| Hero halftone poster assets (`brand_assets/hero/`) | Hero video loop (Phase 2), Spline orbit (optional) |
-| HTML prototypes + wireframe specs in `docs/` | Production homepage sections beyond scaffold |
+| HTML prototypes + token showcase v3 in `docs/` | Production homepage sections beyond scaffold |
+| Legacy hero assets (`brand_assets/hero/`) — retired | Kitchen hero art (replaces spaceman) |
 
 **You are pre-build.** The app is a scaffold with placeholder content. Do not invent new sections, copy, or brand colors. Implement from the docs — do not freestyle the product direction.
 
@@ -40,19 +40,20 @@ Consult these in order when planning or building:
 
 | Priority | Document | Purpose |
 |----------|----------|---------|
-| 1 | [`docs/design-token-system.md`](docs/design-token-system.md) | Colors, type, spacing, motion, halftone effects |
-| 2 | [`docs/homepage-content-hierarchy.md`](docs/homepage-content-hierarchy.md) | Locked homepage sections, copy blocks, schemas |
-| 3 | [`docs/cta-messaging-matrix.md`](docs/cta-messaging-matrix.md) | Locked labels and CTA destinations |
-| 4 | [`docs/ia-sitemap.md`](docs/ia-sitemap.md) | Routes, section maps, global chrome |
-| 5 | [`docs/page-briefs.md`](docs/page-briefs.md) | Per-page content requirements |
-| 6 | [`docs/homepage-conversion-flow.md`](docs/homepage-conversion-flow.md) | Funnel goals and proof-first rationale |
-| 7 | [`docs/portfolio-component-token-spec.md`](docs/portfolio-component-token-spec.md) | Component → token mapping for build |
-| 8 | [`docs/design-token-showcase.html`](docs/design-token-showcase.html) | Visual token reference (open in browser) |
-| 9 | [`docs/homepage-wireframe-spec.html`](docs/homepage-wireframe-spec.html) | Low-fi wireframe frames |
-| 10 | [`docs/hero-prototype.html`](docs/hero-prototype.html) | Hero layer stack + halftone reference |
+| 1 | [`docs/voice-and-copy-framework.md`](docs/voice-and-copy-framework.md) | Voice, metaphor glossary, locked copy, hero rotation |
+| 2 | [`docs/studio-kitchen-visual-direction.md`](docs/studio-kitchen-visual-direction.md) | Visual north star — color, type, poster, rhythm |
+| 3 | [`docs/homepage-content-hierarchy.md`](docs/homepage-content-hierarchy.md) | Locked homepage sections, copy blocks, schemas |
+| 4 | [`docs/cta-messaging-matrix.md`](docs/cta-messaging-matrix.md) | Locked labels and CTA destinations |
+| 5 | [`docs/design-token-system.md`](docs/design-token-system.md) | Colors, type, spacing, motion, Tailwind snippet |
+| 6 | [`docs/portfolio-component-token-spec.md`](docs/portfolio-component-token-spec.md) | Component → token mapping |
+| 7 | [`docs/design-token-showcase-v3.html`](docs/design-token-showcase-v3.html) | Visual token reference v3 |
+| 8 | [`docs/studio-kitchen-hero-prototype.html`](docs/studio-kitchen-hero-prototype.html) | Hero layer stack reference |
+| 9 | [`docs/ia-sitemap.md`](docs/ia-sitemap.md) | Routes, section maps, global chrome |
+| 10 | [`docs/page-briefs.md`](docs/page-briefs.md) | Per-page content requirements |
+| 11 | [`docs/homepage-conversion-flow.md`](docs/homepage-conversion-flow.md) | Funnel goals and proof-first rationale |
 | — | [`docs/launch-strategy-v1.md`](docs/launch-strategy-v1.md) | v1 constraints: pricing, Option B work, deferred sections |
 
-Supporting: [`docs/seo-page-map.md`](docs/seo-page-map.md) · [`docs/homepage-hero-interaction-audit.md`](docs/homepage-hero-interaction-audit.md) · [`docs/hero-contrast-qa.md`](docs/hero-contrast-qa.md)
+Supporting: [`docs/seo-page-map.md`](docs/seo-page-map.md) · [`docs/homepage-wireframe-spec.html`](docs/homepage-wireframe-spec.html)
 
 ---
 
@@ -95,40 +96,40 @@ Services snapshot is **not** on the homepage. Use a text bridge: `View Services`
 
 | Element | Copy |
 |---------|------|
-| Kicker | Orbit-ready web design |
-| Headline | Landing pages. Out of this world. |
-| Subheadline | I design and build high-converting landing pages, portfolio websites, and modern web experiences for brands and creators. |
-| Primary CTA | Launch Your Website → `/contact` |
-| Secondary CTA | Explore Missions → `/work` |
+| Kicker | Portfolio & landing page studio |
+| Headline | The kitchen for mouth-watering **[portfolios \| landing pages]** (suffix rotates) |
+| Subheadline | I design and build portfolio websites and landing pages that look incredible and convert — for creatives, founders, and brands. |
+| Primary CTA | Place your order → `/contact` |
+| Secondary CTA | See what's cooking → `/work` |
 
 ---
 
-## Design system rules (non-negotiable)
+## Design system rules (Studio Kitchen — locked)
 
-### Color
-- **0% chromatic accent** in marketing UI — no violet SaaS palette, no Tailwind default blue/indigo
-- Core: `ink.white` `#FAFAFA` · `ink.black` `#000000`
-- Surfaces: `#000000` base · `#0A0A0A` elevated · `#141414` floating
-- Semantic colors (success, error, warning, info) **only** for forms and system feedback
+### Color (three tiers)
+- **Paper (~70%):** `paper.cream` `#FCEAD4` · `surface.card` `#FFFFFF` — body, cards
+- **Ink (~25%):** `ink.black` `#000000` · `ink.muted` `#5C4A3A` — type, borders, shadows
+- **Heat (~5%):** `heat.red` `#E63946` · `accent.mustard` `#F4B942` — hero, poster, primary CTA on red only
+- No legacy spectral cyan, flare gold, halftone, or spaceman assets
 
 ### Typography
-- **Display / headings:** Space Grotesk
+- **Display / headings / CTAs:** Fredoka
+- **Script (poster only):** Caveat
 - **Body:** Inter
-- **Kickers / metadata:** JetBrains Mono in `neutral.400` — never colored
+- **Kickers / metadata:** JetBrains Mono in `ink.muted` — never colored on cream
 
-### Effects
-- Halftone dot texture at section edges and on images
-- SVG grain overlay (~3% opacity)
-- Pure black-alpha shadows only
+### Section labels (locked)
+- **My dishes** (`#work`) · **My ingredients** (`#tools`, kicker The pantry)
+- Final CTA: reservation poster — *Ready to order?* + **PLACE YOUR ORDER**
 
 ### Motion
 - Animate **only** `transform` and `opacity`
 - Never use `transition-all`
 - Respect `prefers-reduced-motion`
 
-### CTAs (dark-first)
-- Primary: white fill `#FAFAFA` · black label `#000000` · hover `#E5E5E5`
-- Focus: `2px solid #FAFAFA` outline, `2px` offset
+### CTAs on red hero
+- Primary: mustard `#F4B942` · black label · 3px black border · sticker shadow
+- Secondary: white pill · black border
 
 ---
 
@@ -170,9 +171,7 @@ scripts/          Asset tooling (e.g. export-hero-assets.mjs)
 
 Check `brand_assets/` before using placeholders.
 
-**Hero (ready):** `brand_assets/hero/spaceman-grab-poster.webp` (+ mobile, @2x, JPG fallbacks)  
-**Composition:** Spaceman anchors **right**; headline + CTAs sit **left**.  
-**Regenerate:** `node scripts/export-hero-assets.mjs`
+**Hero (legacy — pending Studio Kitchen art):** Legacy spaceman assets in `brand_assets/hero/` are retired for copy direction; new kitchen illustration TBD.
 
 **Still needed for launch:** logo/monogram, tool logos (6–8), project screenshots, testimonial photos, case study content.
 
@@ -182,23 +181,23 @@ Check `brand_assets/` before using placeholders.
 
 The scaffold predates the token system. When implementing design:
 
-1. Replace generic shadcn violet `--primary` in `app/globals.css` with monochrome tokens from `docs/design-token-system.md`
+1. Replace generic shadcn violet `--primary` in `app/globals.css` with Studio Kitchen tokens from `docs/design-token-system.md`
 2. Extend `tailwind.config.ts` per the Tailwind snippet in the design token doc
-3. Update `lib/site.ts` copy to match locked messaging (currently generic placeholder)
-4. Build homepage sections per `docs/homepage-content-hierarchy.md`, not the current placeholder in `app/page.tsx`
+3. Wire Fredoka, Caveat, Inter, JetBrains Mono in `app/layout.tsx`
+4. Update `lib/site.ts` copy to match locked messaging (currently generic placeholder)
+5. Build homepage sections per `docs/homepage-content-hierarchy.md`, not the current placeholder in `app/page.tsx`
 
 ---
 
 ## Agent workflow
 
 ### Before wireframing
-- Read homepage content hierarchy + conversion flow + wireframe spec HTML
-- Use existing hero assets and halftone direction — do not introduce color accents
+- Read voice framework + visual direction + homepage content hierarchy + conversion flow
 
 ### Before building UI
-- Read design token system + component token spec
-- Match prototypes in `docs/hero-prototype.html` and `prototypes/hero-halftone.html` for hero behavior
-- Use locked copy from CTA matrix — do not rewrite headlines
+- Read design token system + component token spec + showcase v3
+- Match [`docs/studio-kitchen-hero-prototype.html`](docs/studio-kitchen-hero-prototype.html) for hero behavior
+- Use locked copy from voice doc / CTA matrix — do not rewrite headlines
 
 ### Before adding sections or pages
 - Check IA sitemap and page briefs — if it's not listed, don't add it
@@ -215,7 +214,7 @@ The scaffold predates the token system. When implementing design:
 1. Does this feel like 1% craft?
 2. Does it support conversion (CTA hierarchy readable in 3s)?
 3. Would an art director stop scrolling?
-4. Is it monochrome in marketing UI?
+4. Does color use follow the three-tier accent budget (paper / ink / heat)?
 5. Is it documented in `docs/`?
 
 If any answer is no, stop and consult the relevant doc.

@@ -1,0 +1,325 @@
+<!-- Superseded: Legacy Mission Control Monochrome showcase. Use design-token-showcase-v3.html -->
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Token System — Mission Control Monochrome v2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: { white: '#FAFAFA', black: '#000000' },
+            neutral: {
+              50: '#FAFAFA', 100: '#F5F5F5', 200: '#E5E5E5', 300: '#D4D4D4',
+              400: '#A3A3A3', 500: '#737373', 600: '#525252', 700: '#404040',
+              800: '#262626', 900: '#171717', 950: '#0A0A0A',
+            },
+            surface: { base: '#000000', elevated: '#0A0A0A', floating: '#141414' },
+            spectral: { 400: '#67E8F9', 500: '#22D3EE', 600: '#06B6D4' },
+            flare: { 400: '#FCD34D', 500: '#FBBF24', 600: '#F59E0B', label: '#000000' },
+            success: { 500: '#34D399' },
+            warning: { 500: '#FBBF24' },
+            error: { 500: '#F87171' },
+            info: { 500: '#60A5FA' },
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+          },
+          boxShadow: {
+            '1': '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08)',
+            '2': '0 4px 6px rgba(0,0,0,0.14), 0 2px 4px rgba(0,0,0,0.1)',
+            'telemetry': '0 0 24px rgba(34, 211, 238, 0.15)',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    :root {
+      --color-ink-white: #FAFAFA;
+      --color-ink-black: #000000;
+      --color-surface-base: #000000;
+      --color-surface-elevated: #0A0A0A;
+      --color-surface-floating: #141414;
+      --color-text-primary: #FAFAFA;
+      --color-text-secondary: #A3A3A3;
+      --color-border-subtle: #262626;
+      --color-border-default: #404040;
+      --color-spectral-500: #22D3EE;
+      --color-spectral-border: rgba(34, 211, 238, 0.15);
+      --color-flare-400: #FCD34D;
+      --color-flare-500: #FBBF24;
+      --color-flare-600: #F59E0B;
+      --color-flare-label: #000000;
+      --halftone-opacity: 0.1;
+      --halftone-opacity-hero: 0.12;
+      --halftone-spectral-opacity: 0.08;
+      --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+      --duration-150: 150ms;
+      --duration-300: 300ms;
+      --layout-max: 1280px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--color-surface-base);
+      color: var(--color-text-primary);
+    }
+    .grain::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .effect-atmosphere-hero {
+      background:
+        radial-gradient(ellipse 70% 50% at 85% 15%, rgba(34, 211, 238, 0.04), transparent),
+        radial-gradient(ellipse 60% 40% at 15% 50%, rgba(250, 250, 250, 0.02), transparent),
+        var(--color-surface-base);
+    }
+    .halftone-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='3' cy='3' r='1.2' fill='white'/%3E%3C/svg%3E");
+      background-size: 6px 6px;
+    }
+    .halftone-pattern-spectral {
+      background-image: url("data:image/svg+xml,%3Csvg width='8' height='8' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='4' cy='4' r='1.5' fill='%2322D3EE'/%3E%3C/svg%3E");
+      background-size: 8px 8px;
+      opacity: var(--halftone-spectral-opacity);
+      mix-blend-mode: overlay;
+    }
+    .halftone-pattern-lg {
+      background-image: url("data:image/svg+xml,%3Csvg width='8' height='8' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='4' cy='4' r='1.5' fill='white'/%3E%3C/svg%3E");
+      background-size: 8px 8px;
+    }
+    .halftone-overlay { opacity: var(--halftone-opacity); mix-blend-mode: overlay; pointer-events: none; }
+    .halftone-overlay-hero { opacity: var(--halftone-opacity-hero); mix-blend-mode: overlay; pointer-events: none; }
+    .type-display { font-family: 'Space Grotesk', sans-serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; line-height: 1; letter-spacing: -0.025em; }
+    .type-h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; }
+    .type-h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.015em; }
+    .type-h4 { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; line-height: 1.25; }
+    .type-body-lg { font-size: 1.25rem; line-height: 1.5; }
+    .type-body { font-size: 1rem; line-height: 1.5; }
+    .type-small { font-size: 0.875rem; line-height: 1.4; }
+    .kicker-mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-spectral-500);
+    }
+    .btn-primary {
+      background: var(--color-flare-500);
+      color: var(--color-flare-label);
+      transition: transform var(--duration-150) var(--ease-default), background var(--duration-150) var(--ease-default);
+    }
+    .btn-primary:hover { background: var(--color-flare-400); transform: translateY(-1px); }
+    .btn-primary:focus-visible { outline: 2px solid var(--color-spectral-500); outline-offset: 2px; }
+    .btn-primary:active { background: var(--color-flare-600); transform: translateY(0); }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--color-border-default);
+      color: var(--color-text-primary);
+      transition: border-color var(--duration-150) var(--ease-default), color var(--duration-150) var(--ease-default), transform var(--duration-150) var(--ease-default);
+    }
+    .btn-secondary:hover { border-color: var(--color-ink-white); color: var(--color-ink-white); transform: translateY(-1px); }
+    .btn-secondary:focus-visible { outline: 2px solid var(--color-spectral-500); outline-offset: 2px; }
+    .btn-ghost {
+      background: rgba(250, 250, 250, 0.06);
+      color: var(--color-text-secondary);
+      border: 1px solid var(--color-border-subtle);
+      transition: background var(--duration-150) var(--ease-default), color var(--duration-150) var(--ease-default), transform var(--duration-150) var(--ease-default);
+    }
+    .btn-ghost:hover { background: rgba(250, 250, 250, 0.1); color: var(--color-ink-white); transform: translateY(-1px); }
+    .nav-link-active { color: var(--color-ink-white); border-bottom: 2px solid var(--color-spectral-500); padding-bottom: 2px; }
+    .card-mission {
+      transition: box-shadow var(--duration-300) var(--ease-default), transform var(--duration-300) var(--ease-default), border-color var(--duration-300) var(--ease-default);
+    }
+    .card-mission:hover {
+      border-color: var(--color-spectral-border);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.14), 0 0 24px rgba(34, 211, 238, 0.15);
+      transform: translateY(-2px);
+    }
+    .nav-blur {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.72);
+    }
+    .input-field {
+      background: var(--color-surface-elevated);
+      border: 1px solid var(--color-border-default);
+      border-radius: 4px;
+      transition: border-color var(--duration-150) var(--ease-default), box-shadow var(--duration-150) var(--ease-default);
+    }
+    .input-field:focus { outline: none; border-color: var(--color-spectral-500); box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12); }
+    .swatch { transition: transform var(--duration-150) var(--ease-default); }
+    .swatch:hover { transform: scale(1.05); }
+    .telemetry-value { font-family: 'JetBrains Mono', monospace; color: var(--color-spectral-500); font-size: 1.5rem; font-weight: 500; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body class="grain effect-atmosphere-hero min-h-screen">
+  <header class="nav-blur fixed top-0 left-0 right-0 z-50 border-b border-neutral-800">
+    <div class="mx-auto max-w-[1280px] px-6 py-4 flex items-center justify-between">
+      <span class="font-display font-bold text-lg tracking-tight text-ink-white">Mission Control</span>
+      <nav class="hidden md:flex gap-8 font-display text-sm text-neutral-500">
+        <a href="#accent" class="nav-link-active">Accent tiers</a>
+        <a href="#colors" class="hover:text-ink-white transition-colors duration-150">Ink</a>
+        <a href="#components" class="hover:text-ink-white transition-colors duration-150">Components</a>
+      </nav>
+      <button type="button" class="btn-primary font-display text-sm font-semibold px-5 py-2 rounded-lg">Book a Call</button>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-[1280px] px-6 pt-28 pb-24">
+    <section class="relative py-20 md:py-[120px] overflow-hidden">
+      <div class="absolute top-0 right-0 w-1/2 h-full halftone-pattern-lg halftone-overlay-hero rounded-none" aria-hidden="true"></div>
+      <div class="absolute top-0 right-0 w-1/3 h-full halftone-pattern-spectral pointer-events-none" aria-hidden="true"></div>
+      <p class="kicker-mono mb-4 relative z-10">Orbit-ready web design</p>
+      <h1 class="type-display text-ink-white mb-6 relative z-10">Landing pages.<br />Out of this world.</h1>
+      <p class="type-body-lg text-neutral-400 max-w-2xl mb-8 relative z-10">
+        Black-and-white editorial core. Cyan telemetry accents. Gold launch CTAs only.
+      </p>
+      <div class="flex flex-wrap gap-4 relative z-10">
+        <button type="button" class="btn-primary font-display font-semibold px-8 py-3 rounded-lg">Launch Your Website</button>
+        <button type="button" class="btn-secondary font-display font-semibold px-8 py-3 rounded-lg">Explore Missions</button>
+      </div>
+      <p class="type-small text-neutral-500 mt-6 relative z-10">Flare CTA: #FBBF24 on #000000 — WCAG AA for UI components</p>
+    </section>
+
+    <section id="accent" class="py-16 border-t border-neutral-800">
+      <h2 class="type-h2 font-display text-ink-white mb-2">Accent tiers</h2>
+      <p class="type-body text-neutral-400 mb-12 max-w-xl">~85% ink · ~10% spectral telemetry · ~5% flare (primary CTA only)</p>
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div>
+          <h3 class="type-h4 font-display text-neutral-200 mb-4">Spectral — telemetry</h3>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="swatch rounded-xl overflow-hidden border border-neutral-800">
+              <div class="h-14 bg-[#67E8F9]"></div>
+              <div class="p-3 bg-surface-elevated"><p class="font-mono text-[10px] text-neutral-500">400</p></div>
+            </div>
+            <div class="swatch rounded-xl overflow-hidden border border-spectral-500/30">
+              <div class="h-14 bg-[#22D3EE]"></div>
+              <div class="p-3 bg-surface-elevated"><p class="font-mono text-[10px] text-spectral-500">500 · kickers</p></div>
+            </div>
+            <div class="swatch rounded-xl overflow-hidden border border-neutral-800">
+              <div class="h-14 bg-[#06B6D4]"></div>
+              <div class="p-3 bg-surface-elevated"><p class="font-mono text-[10px] text-neutral-500">600</p></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="type-h4 font-display text-neutral-200 mb-4">Flare — launch CTA only</h3>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="swatch rounded-xl overflow-hidden border border-neutral-800">
+              <div class="h-14 bg-[#FCD34D]"></div>
+              <div class="p-3 bg-surface-elevated"><p class="font-mono text-[10px] text-neutral-500">400 hover</p></div>
+            </div>
+            <div class="swatch rounded-xl overflow-hidden border border-flare-500/40">
+              <div class="h-14 bg-[#FBBF24]"></div>
+              <div class="p-3 bg-surface-elevated"><p class="font-mono text-[10px] text-flare-500">500 · .btn-primary</p></div>
+            </div>
+            <div class="swatch rounded-xl overflow-hidden border border-neutral-800">
+              <div class="h-14 bg-[#F59E0B]"></div>
+              <div class="p-3 bg-surface-elevated"><p class="font-mono text-[10px] text-neutral-500">600 active</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="colors" class="py-16 border-t border-neutral-800">
+      <h2 class="type-h2 font-display text-ink-white mb-2">Ink palette (unchanged)</h2>
+      <div class="grid grid-cols-2 gap-4 max-w-lg mb-12">
+        <div class="swatch rounded-xl overflow-hidden border border-neutral-800">
+          <div class="h-20 bg-[#FAFAFA]"></div>
+          <div class="p-4 bg-surface-elevated"><p class="font-mono text-xs text-neutral-300">ink.white · headlines</p></div>
+        </div>
+        <div class="swatch rounded-xl overflow-hidden border border-neutral-800">
+          <div class="h-20 bg-[#000000] border-b border-neutral-800"></div>
+          <div class="p-4 bg-surface-elevated"><p class="font-mono text-xs text-neutral-300">ink.black · canvas</p></div>
+        </div>
+      </div>
+      <p class="type-small text-neutral-500">Semantic colors (success, error, info) — forms only, not decorative.</p>
+    </section>
+
+    <section class="py-16 border-t border-neutral-800">
+      <h2 class="type-h2 font-display text-ink-white mb-8">Telemetry strip</h2>
+      <div class="telemetry-strip flex flex-wrap gap-12 py-8 border-y border-neutral-800">
+        <div>
+          <p class="telemetry-value">24h</p>
+          <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mt-1">Response window</p>
+        </div>
+        <div>
+          <p class="telemetry-value">100%</p>
+          <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mt-1">Custom build</p>
+        </div>
+        <div>
+          <p class="telemetry-value">2</p>
+          <p class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mt-1">Page types only</p>
+        </div>
+      </div>
+      <p class="type-body text-neutral-400 mt-4">Specialist in portfolios and landing pages only.</p>
+    </section>
+
+    <section id="components" class="py-16 border-t border-neutral-800">
+      <h2 class="type-h2 font-display text-ink-white mb-12">Components</h2>
+      <h3 class="type-h4 font-display text-neutral-200 mb-6">Buttons</h3>
+      <div class="flex flex-wrap gap-4 mb-16">
+        <button type="button" class="btn-primary font-display font-semibold px-6 py-3 rounded-lg">Launch Your Website</button>
+        <button type="button" class="btn-secondary font-display font-semibold px-6 py-3 rounded-lg">Explore Missions</button>
+        <button type="button" class="btn-ghost font-display font-semibold px-6 py-3 rounded-lg">Start an Inquiry</button>
+      </div>
+
+      <h3 class="type-h4 font-display text-neutral-200 mb-6">Mission card</h3>
+      <article class="card-mission max-w-md bg-surface-elevated rounded-xl overflow-hidden border border-neutral-800 shadow-1 mb-16">
+        <div class="relative h-48 bg-neutral-900">
+          <img src="https://placehold.co/600x400/141414/FAFAFA?text=Mission" alt="" class="w-full h-full object-cover grayscale" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+          <span class="kicker-mono absolute top-4 left-4 text-[10px]">Portfolio</span>
+        </div>
+        <div class="p-6">
+          <h4 class="font-display font-semibold text-lg text-ink-white">By Jawad</h4>
+          <p class="type-small text-neutral-400 mt-2">Hover for spectral border + telemetry glow</p>
+        </div>
+      </article>
+
+      <h3 class="type-h4 font-display text-neutral-200 mb-6">Launch panel</h3>
+      <div class="launch-panel relative bg-surface-floating rounded-2xl p-10 border border-neutral-800 overflow-hidden mb-16">
+        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 40% at 50% 100%, rgba(34,211,238,0.06), transparent);" aria-hidden="true"></div>
+        <p class="kicker-mono mb-4 relative z-10">Final CTA</p>
+        <h4 class="type-h4 font-display text-ink-white mb-2 relative z-10">Ready for your new portfolio?</h4>
+        <p class="type-body text-neutral-400 mb-6 relative z-10">Tell me about your project.</p>
+        <div class="flex gap-3 relative z-10">
+          <button type="button" class="btn-primary font-display text-sm font-semibold px-5 py-2.5 rounded-lg">Book a Call</button>
+          <button type="button" class="btn-secondary font-display text-sm font-semibold px-5 py-2.5 rounded-lg">Start an Inquiry</button>
+        </div>
+      </div>
+
+      <h3 class="type-h4 font-display text-neutral-200 mb-6">Form focus (spectral)</h3>
+      <div class="max-w-md">
+        <label class="type-small text-neutral-300 block mb-2">Email</label>
+        <input type="email" class="input-field w-full px-4 py-3 text-ink-white font-body" placeholder="you@example.com" />
+      </div>
+    </section>
+
+    <footer class="pt-12 border-t border-neutral-800 text-center">
+      <p class="font-mono text-neutral-500 text-sm">v2 · <a href="./design-token-system.md" class="text-ink-white hover:underline">design-token-system.md</a></p>
+      <p class="type-small text-neutral-600 mt-2">Mission Control Monochrome · Jawad Jalal</p>
+    </footer>
+  </main>
+</body>
+</html>

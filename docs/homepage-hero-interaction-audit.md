@@ -1,3 +1,5 @@
+> **Superseded for copy and visual:** Use [voice-and-copy-framework.md](./voice-and-copy-framework.md) and [studio-kitchen-visual-direction.md](./studio-kitchen-visual-direction.md). This audit covers **legacy spaceman/orbit visuals** only.
+
 # Homepage Hero — Space Interaction Audit
 
 **Audited against:** [homepage-content-hierarchy.md](./homepage-content-hierarchy.md) · [homepage-conversion-flow.md](./homepage-conversion-flow.md) · [page-briefs.md](./page-briefs.md)  

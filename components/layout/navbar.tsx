@@ -19,7 +19,7 @@ export function Navbar() {
           href="/"
           className="font-heading text-lg font-semibold tracking-tight text-foreground transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
-          {siteConfig.name}
+          {siteConfig.shortName}
         </Link>
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
           {navLinks.map((link) => (

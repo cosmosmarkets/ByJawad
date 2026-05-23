@@ -1,9 +1,11 @@
 # About Page Copy
 
 **Page:** `/about`  
-**Brand:** Cinematic Mission  
+**Brand:** Studio Kitchen  
 **Status:** Outline for wireframing — body copy TBD  
 **Last updated:** May 2026
+
+**Copy canonical:** [voice-and-copy-framework.md](./voice-and-copy-framework.md)
 
 ---
 
@@ -11,11 +13,11 @@
 
 | Element | Copy |
 |---------|------|
-| Kicker | The person behind the craft |
+| Kicker | Behind the pass |
 | Headline | I build portfolios and landing pages that change trajectories. |
 | Subheadline | Freelance web designer in London — specialist in the two pages that matter most. |
 | Primary CTA | Work With Me → `/contact` |
-| Secondary CTA | Explore Missions → `/work` |
+| Secondary CTA | See what's cooking → `/work` |
 
 ---
 
@@ -40,7 +42,7 @@ Short rationale per tool optional in wireframe.
 
 ## Process section
 
-Mirror homepage 5-day timeline or link to `/services#process`.
+Mirror homepage 5-day kitchen timeline or link to `/services#process`.
 
 ---
 
@@ -61,4 +63,4 @@ Interests outside work — 1–2 lines if desired for human trust.
 | Element | Copy |
 |---------|------|
 | Primary CTA | Work With Me → `/contact` |
-| Secondary | Explore Missions → `/work` |
+| Secondary | See what's cooking → `/work` |

@@ -47,7 +47,7 @@ No client case studies at launch.
 | Slot | Title | Type | Status | Slug |
 |------|-------|------|--------|------|
 | 1 | By Jawad | Portfolio | live | `by-jawad` |
-| — | More missions launching soon | — | coming-soon | — |
+| — | Next out of the kitchen | — | coming-soon | — |
 
 - Homepage: 1 featured card + coming-soon panel
 - Card CTA: **View project** (not "View case study" until real client work)

@@ -29,6 +29,9 @@ yarn-error.log*
 .env
 .env*.local
 
+# MCP config (may contain API keys)
+.cursor/mcp.json
+
 # legacy / local artifacts
 /output/
 /temporary screenshots/

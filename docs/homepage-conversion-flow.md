@@ -1,10 +1,12 @@
 # Homepage Conversion Flow
 
 **Page:** `/` (Homepage — The Pitch)  
-**Brand:** Cinematic Mission  
+**Brand:** Studio Kitchen  
 **Goals:** (A) View work — build trust · (B) Contact — hire  
 **Macro-conversions:** Form submitted · Calendly call booked  
 **Last updated:** May 2026
+
+**Copy canonical:** [voice-and-copy-framework.md](./voice-and-copy-framework.md)
 
 ---
 
@@ -31,19 +33,20 @@ Within the first viewport, a visitor must understand:
 
 | Element | Copy |
 |---------|------|
-| Kicker | Orbit-ready web design |
-| Headline | Landing pages. Out of this world. |
-| Subheadline | I design and build high-converting landing pages, portfolio websites, and modern web experiences for brands and creators. |
-| Primary CTA | Launch Your Website → `/contact` |
-| Secondary CTA | Explore Missions → `/work` |
+| Kicker | Portfolio & landing page studio |
+| Headline | The kitchen for mouth-watering [portfolios \| landing pages] (suffix rotates) |
+| Headline (reduced motion) | The kitchen for mouth-watering portfolios and landing pages |
+| Subheadline | I design and build portfolio websites and landing pages that look incredible and convert — for creatives, founders, and brands. |
+| Primary CTA | Place your order → `/contact` |
+| Secondary CTA | See what's cooking → `/work` |
 
 ### Micro-conversions (homepage)
 
 | Event | Meaning |
 |-------|---------|
-| `explore_missions_click` | Hero or section CTA to work |
+| `see_whats_cooking_click` | Hero or section CTA to work |
 | `case_study_click` | Selected work card → `/work/[slug]` |
-| `launch_website_click` | Hero primary → contact |
+| `place_your_order_click` | Hero primary → contact |
 | `book_call_click` | Header or final CTA → contact |
 
 ### Macro-conversions (cross-page)
@@ -59,14 +62,14 @@ Within the first viewport, a visitor must understand:
 
 ## Conversion Glossary
 
-Maps generic portfolio labels to locked Cinematic Mission CTAs.
+Maps generic portfolio labels to locked Studio Kitchen CTAs.
 
 | Generic / test label | Locked label | Destination |
 |---------------------|--------------|-------------|
-| View Work | Explore Missions | `/work` |
-| View My Work | Explore Missions (A/B: CTA1) | `/work` |
-| See Recent Projects | Explore Missions (A/B: CTA2) | `/work` |
-| Get in Touch | Launch Your Website / Book a Call | `/contact` |
+| View Work | See what's cooking | `/work` |
+| View My Work | See what's cooking (A/B: CTA1) | `/work` |
+| See Recent Projects | See what's cooking (A/B: CTA2) | `/work` |
+| Get in Touch | Place your order / Book a Call | `/contact` |
 | View case study | View Case Study | `/work/[slug]` |
 | Ready to work together? | Ready for your new portfolio or landing page? | Final CTA band |
 
@@ -157,7 +160,7 @@ flowchart TD
 | Step | Section | User mental state | CTA(s) | Destination | Intent |
 |------|---------|-------------------|--------|-------------|--------|
 | 1 | Entry | "Who is this?" | — | — | Low |
-| 2 | Hero | "Do they do what I need?" | Launch Your Website · Explore Missions | `/contact` · `/work` | Low–medium |
+| 2 | Hero | "Do they do what I need?" | Place your order · See what's cooking | `/contact` · `/work` | Low–medium |
 | 3 | Trust bar | "Are they legit?" | None (scan only) | — | Medium |
 | 4 | Selected work | "Can they actually design?" | View case study (per card) | `/work/[slug]` | Medium–high |
 | 5 | Case study | "Would I trust them with my site?" | Book a Call · Start an Inquiry | `/contact` | High |
@@ -198,7 +201,7 @@ Visitors who skip proof — optimize for speed, not friction.
 
 | Entry | Trigger | Path | Conversion point |
 |-------|---------|------|------------------|
-| Hero primary | Already decided to hire | Launch Your Website → `/contact` | Form or Calendly |
+| Hero primary | Already decided to hire | Place your order → `/contact` | Form or Calendly |
 | Header CTA | Wants to talk now | Book a Call → `/contact#book` | Calendly |
 | Footer | Finished scanning elsewhere | Book a Call / Start an Inquiry | Contact |
 | Nav Contact | Direct navigation | `/contact` | Form or Calendly |
@@ -214,8 +217,8 @@ Visitors who skip proof — optimize for speed, not friction.
 | Attribute | Spec |
 |-----------|------|
 | Time budget | 3 seconds to value clarity |
-| Primary CTA | Launch Your Website |
-| Secondary CTA | Explore Missions |
+| Primary CTA | Place your order |
+| Secondary CTA | See what's cooking |
 | Persistent | Header Book a Call |
 | Visual | Halftone spaceman poster (L0); hand reaches left toward headline; optional Blender loop Phase 2 |
 | Failure mode | Bounce if service type unclear |
@@ -236,7 +239,7 @@ Visitors who skip proof — optimize for speed, not friction.
 | Count | 3–4 best projects |
 | Interaction | Hover preview (image or metric reveal) |
 | Card CTA | View project → `/work/by-jawad` (v1); View case study when client work exists |
-| Section CTA | Explore Missions → `/work` |
+| Section CTA | See what's cooking → `/work` |
 | Failure mode | Scroll past without click — triggers alternate path |
 
 ### 4. Process (`#process`)
@@ -285,7 +288,7 @@ Visitors who skip proof — optimize for speed, not friction.
 
 1. **Where do users drop off?** — Compare `section_view` funnel: hero → trust → work → process → tools → cta
 2. **Scroll depth before bounce?** — Benchmark buckets: 25% / 50% / 75% / 100%
-3. **Which hero CTA wins?** — `Explore Missions` vs `Launch Your Website` click share
+3. **Which hero CTA wins?** — `See what's cooking` vs `Place your order` click share
 4. **How many visit multiple case studies?** — Sessions with 2+ `project_card_click` or case study pageviews
 5. **Assisted conversions?** — Homepage entry → case study → contact within 7 days
 
@@ -313,8 +316,8 @@ Visitors who skip proof — optimize for speed, not friction.
 | `project_card_click` | Selected work card click | `project_slug`, `position`, `source` (homepage) |
 | `project_hover` | Card hover ≥ 1s | `project_slug`, `position` |
 | `section_view` | Section enters viewport (50%) | `section_name`, `scroll_depth_pct` |
-| `explore_missions_click` | Explore Missions anywhere on homepage | `source_section` |
-| `launch_website_click` | Launch Your Website on homepage | `source_section` |
+| `see_whats_cooking_click` | See what's cooking anywhere on homepage | `source_section` |
+| `place_your_order_click` | Place your order on homepage | `source_section` |
 | `final_cta_click` | Final CTA band button | `cta_label` |
 | `view_services_click` | Services bridge link | `source_section` |
 | `contact_form_submit` | Form success | `source_page`, `project_type`, `budget_range` |
@@ -336,7 +339,7 @@ hero → trust → work → process → tools → cta
 | Work path rate | Sessions with ≥1 case study view / homepage sessions | Increase | TBD |
 | Homepage → contact rate | Contact pageviews or conversions from homepage entry / homepage sessions | Increase | TBD |
 | Case study → contact rate | Conversions with prior case study / case study views | &gt; 8% | TBD |
-| Hero CTA preference index | `explore_missions_click` / `launch_website_click` | Monitor | TBD |
+| Hero CTA preference index | `see_whats_cooking_click` / `place_your_order_click` | Monitor | TBD |
 | Avg max scroll depth | Mean highest scroll % per session | 75%+ engaged | TBD |
 | Multi-project view rate | Sessions with 2+ case studies / sessions with 1+ case study | Monitor | TBD |
 | Final CTA vs header | `final_cta_click` / `book_call_click` | Monitor | TBD |
@@ -359,10 +362,10 @@ hero → trust → work → process → tools → cta
 
 | Test ID | Element | Control (A) | Challenger (B) | Primary metric | Secondary metric |
 |---------|---------|-------------|----------------|----------------|------------------|
-| **H1** | Headline | Landing pages. Out of this world. | Portfolio websites for creative professionals | Bounce rate | Scroll depth |
+| **H1** | Headline | The kitchen for mouth-watering portfolios and landing pages | Portfolio websites for creative professionals | Bounce rate | Scroll depth |
 | **H2** | Headline | Control (H1 winner) | Your work deserves a website that sells itself | Hero CTA CTR | Work path rate |
-| **CTA1** | Hero secondary | Explore Missions | View My Work | `hero_cta_click` → work | Case study CTR |
-| **CTA2** | Hero secondary | Explore Missions | See Recent Projects | Case study CTR | Work path rate |
+| **CTA1** | Hero secondary | See what's cooking | View My Work | `hero_cta_click` → work | Case study CTR |
+| **CTA2** | Hero secondary | See what's cooking | See Recent Projects | Case study CTR | Work path rate |
 | **TR1** | Trust bar | Copy-only (v1 control) | Logo row in trust (challenger) | Scroll past trust | Work CTR |
 | **TR2** | Trust bar | Tool logos | Client logos (when available) | Work CTR | Contact rate |
 | **ORD1** | Section order | Proof-first (work before process) | IA brief order (services snapshot before work) | Case study CTR | Homepage → contact rate |
@@ -404,7 +407,7 @@ hero → trust → work → process → tools → cta
 
 ### Accessibility and motion
 
-- [ ] `prefers-reduced-motion`: disable orbit/parallax; keep CTAs static
+- [ ] `prefers-reduced-motion`: static headline (no suffix rotation); keep CTAs static
 - [ ] Focus states on all CTAs and project cards
 - [ ] Hover previews have keyboard/focus alternative (visible metric text)
 

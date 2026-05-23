@@ -30,8 +30,8 @@
 | **Primary keyword** | landing page designer, portfolio website designer |
 | **Title tag** | Jawad Jalal — Landing Page & Portfolio Website Designer |
 | **Meta description** | I design and build high-converting landing pages and portfolio websites for creatives, SaaS founders, and brands. Based in London. Book a call. |
-| **H1** | Landing pages. Out of this world. |
-| **H2 examples** | What I build · Featured work · From brief to launch |
+| **H1** | The kitchen for mouth-watering portfolios and landing pages |
+| **H2 examples** | My dishes · Five courses in five days · My ingredients |
 | **Internal links** | `/services`, `/work`, `/contact`, top 3 case studies |
 | **Schema** | `Person`, `WebSite`, `ProfessionalService` (optional) |
 
@@ -44,7 +44,7 @@
 | **Primary keyword** | portfolio website designer freelance |
 | **Secondary keywords** | landing page designer, freelance web designer portfolio |
 | **Title tag** | Portfolio & Landing Page Design Services — Freelance \| Jawad Jalal |
-| **Meta description** | Freelance portfolio and landing page packages for creatives and founders. Clear pricing, 5-day process, cinematic quality. London & remote. |
+| **Meta description** | Freelance portfolio and landing page packages for creatives and founders. Clear pricing, 5-day process, studio-quality craft. London & remote. |
 | **H1** | Portfolio and landing page packages, built to convert. |
 | **H2 examples** | Portfolio website package · Landing page package · Add-ons · FAQ |
 | **Internal links** | `/work`, `/contact`, `/about`, relevant case studies |
@@ -123,7 +123,7 @@
 | **Primary keyword** | hire portfolio website designer, landing page designer hire |
 | **Title tag** | Contact — Hire a Portfolio & Landing Page Designer |
 | **Meta description** | Book a 15-minute call or send a project brief. Portfolio and landing page design for creatives and founders. Reply within 24 hours. |
-| **H1** | Start your next website mission. |
+| **H1** | Start your next site in the kitchen. |
 
 ---
 
@@ -142,11 +142,11 @@ Map each article to a keyword cluster and conversion path.
 | # | Target keyword | Suggested slug | Funnel CTA |
 |---|----------------|----------------|------------|
 | 1 | how to build a portfolio website | `how-to-build-portfolio-website` | View Services |
-| 2 | best portfolio design 2026 | `best-portfolio-design-2026` | Explore Missions |
+| 2 | best portfolio design 2026 | `best-portfolio-design-2026` | See what's cooking |
 | 3 | portfolio website designer freelance | `why-hire-freelance-portfolio-designer` | Book a Call |
 | 4 | landing page designer | `what-makes-a-high-converting-landing-page` | Book a Call |
 | 5 | SaaS landing page | `saas-landing-page-design-guide` | View Services |
-| 6 | creative portfolio design | `portfolio-design-for-creatives` | Explore Missions |
+| 6 | creative portfolio design | `portfolio-design-for-creatives` | See what's cooking |
 | 7 | portfolio designer London | `portfolio-designer-london` | Contact |
 | 8 | Cursor AI web design | `cursor-claude-web-design-workflow` | About / Services |
 
@@ -216,7 +216,7 @@ flowchart LR
 Track rankings later for:
 
 - conversion-focused portfolio designer
-- cinematic portfolio website
+- studio kitchen portfolio website
 - 5 day landing page design
 - framer / webflow alternative freelance designer
 - AI-assisted web design freelance
@@ -239,4 +239,5 @@ Track rankings later for:
 
 - [IA Sitemap](./ia-sitemap.md)
 - [Page Briefs](./page-briefs.md)
+- [Voice & Copy Framework](./voice-and-copy-framework.md)
 - [CTA & Messaging Matrix](./cta-messaging-matrix.md)

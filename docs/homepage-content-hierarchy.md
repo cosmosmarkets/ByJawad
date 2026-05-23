@@ -2,11 +2,11 @@
 
 **Project:** Jawad Jalal — Portfolio & Landing Page Specialist  
 **Page:** `/` (Homepage — The Pitch)  
-**Brand:** Cinematic Mission  
+**Brand:** Studio Kitchen  
 **Status:** Locked for wireframing (v1 proof-first · Option B work · no testimonials)  
 **Last updated:** May 2026
 
-**Related docs:** [homepage-conversion-flow.md](./homepage-conversion-flow.md) · [page-briefs.md](./page-briefs.md) · [cta-messaging-matrix.md](./cta-messaging-matrix.md) · [homepage-wireframe-spec.html](./homepage-wireframe-spec.html) · [launch-strategy-v1.md](./launch-strategy-v1.md)
+**Related docs:** [voice-and-copy-framework.md](./voice-and-copy-framework.md) · [homepage-conversion-flow.md](./homepage-conversion-flow.md) · [page-briefs.md](./page-briefs.md) · [cta-messaging-matrix.md](./cta-messaging-matrix.md) · [homepage-wireframe-spec.html](./homepage-wireframe-spec.html) · [launch-strategy-v1.md](./launch-strategy-v1.md)
 
 ---
 
@@ -78,85 +78,72 @@ hero → trust → work → process → tools → cta
 
 ### SECTION 2: HERO (`#hero`)
 
-**Interaction audit:** [homepage-hero-interaction-audit.md](./homepage-hero-interaction-audit.md)  
-**Prototype:** [hero-prototype.html](./hero-prototype.html)
+**Visual:** [studio-kitchen-visual-direction.md](./studio-kitchen-visual-direction.md) · [design-token-showcase-v3.html](./design-token-showcase-v3.html)
 
 | Attribute | Spec |
 |-----------|------|
-| **Wireframe** | `Immersive full-viewport hero — layered (see stack below)` |
-| **Layout model** | Immersive full-bleed; spaceman **right** (halftone poster); **left column** = headline grab + copy + CTAs |
-| **Visual hierarchy** | 1) Headline (grab anchor, left) 2) Subheadline + audience 3) Dual CTAs — kicker above headline |
-| **Headline placement** | **Upper-left / center-left** (where spaceman hand reaches); left-aligned desktop; centered mobile |
-| **CTA placement** | Same left column, below subheadline (two-button row) |
-| **Background** | **L0** `hero.image` halftone poster (now) · optional `hero.video` Phase 2 · **L1** orbit · **L2** light scrim |
-| **Headline interaction** | Subtle pull toward hand (right); Ken Burns on poster until video ships |
+| **Surface** | `heat.red` with grid texture |
+| **Typography** | Fredoka 700 headline (black on red); Inter subhead |
+| **Primary CTA** | Mustard pill — Place your order |
+| **Secondary CTA** | White pill — See what's cooking |
+| **Wireframe** | Full-viewport red hero — copy left, kitchen illustration right (TBD) |
+| **Layout model** | Full-bleed; **left column** = kicker → rotating headline → subhead → audience → CTAs |
+| **Visual hierarchy** | 1) Rotating headline 2) Subheadline + audience 3) Dual CTAs — kicker above headline |
+| **Headline interaction** | Suffix crossfade: `portfolios` ↔ `landing pages` every ~4s; prefix static |
 | **Social proof** | Optional one-line under CTAs; full trust in `#trust` |
-| **Purpose** | 3-second clarity: what you do, who it's for, what to do next — halftone is visual layer only |
-| **Priority** | Must-have (poster + copy); orbit = nice-to-have v1; video loop = Phase 2 |
-| **Mobile stack** | `spaceman-grab-mobile.webp` → kicker → headline → subhead → audience → CTAs; orbit off |
-| **Exit rate** | **High** — bounce if service type unclear or headline low contrast on halftone |
-
-#### Hero layer stack (z-index)
-
-| Layer | ID | Content |
-|-------|-----|---------|
-| L0 | `hero.image` | `spaceman-grab-poster.webp` full bleed, `object-position: right` |
-| L0b | `hero.video` | Phase 2: same composition loop; poster = reduced-motion fallback |
-| L1 | `hero.orbitScene` | Solar orbit in **left void** (Spline/WebGL); optional |
-| L2 | `hero.cosmos` | Light left scrim + grain (only if contrast QA requires) |
-| L3 | `hero.content` | Left column: kicker → **headline** → subhead → audience → CTAs |
+| **Purpose** | 3-second clarity: what you do, who it's for, what to do next |
+| **Priority** | Must-have (copy + red hero + CTAs); kitchen illustration TBD |
+| **Mobile stack** | kicker → headline → subhead → audience → CTAs |
+| **Exit rate** | **High** — bounce if service type unclear |
 
 #### Reduced motion (`prefers-reduced-motion`)
 
-- Static `spaceman-grab-poster.webp` only (no Ken Burns)
-- Static headline; no orbit drag / parallax
+- Static combined headline: *The kitchen for mouth-watering portfolios and landing pages*
+- No suffix rotation or decorative motion
 - Keep all copy and CTAs identical
 
 #### Copy blocks (locked)
 
 | Element | Copy |
 |---------|------|
-| Kicker | Orbit-ready web design |
-| Headline | Landing pages. Out of this world. |
-| Subheadline | I design and build high-converting landing pages, portfolio websites, and modern web experiences for brands and creators. |
+| Kicker | Portfolio & landing page studio |
+| Headline prefix | The kitchen for mouth-watering |
+| Headline variants | portfolios · landing pages (rotate) |
+| Headline (reduced motion) | The kitchen for mouth-watering portfolios and landing pages |
+| Subheadline | I design and build portfolio websites and landing pages that look incredible and convert — for creatives, founders, and brands. |
 | Audience chips | Creative freelancers · SaaS founders · Brands & agencies |
-| Primary CTA | Launch Your Website |
-| Secondary CTA | Explore Missions |
-| Optional trust line | Trusted tools. Proven process. |
+| Primary CTA | Place your order |
+| Secondary CTA | See what's cooking |
+| Optional trust line | Trusted tools. A proven recipe. |
 
 | CTA | Destination |
 |-----|-------------|
-| Launch Your Website | `/contact` |
-| Explore Missions | `/work` |
+| Place your order | `/contact` |
+| See what's cooking | `/work` |
 
 #### Component fields
 
 | Field | Type | Required |
 |-------|------|----------|
 | `kicker` | string | yes |
-| `headline` | string | yes |
+| `headlinePrefix` | string | yes |
+| `headlineVariants` | string[] | yes |
+| `headlineRotateMs` | number | yes (default 4000) |
+| `headlineCrossfadeMs` | number | yes (default 400) |
+| `headlineReducedMotion` | string | yes |
 | `subheadline` | string | yes |
 | `audience[]` | string[] | yes (3) |
 | `primaryCta` | `{ label, href }` | yes |
 | `secondaryCta` | `{ label, href }` | yes |
-| `heroImage` | `{ src, srcset, alt }` | yes |
-| `heroImageMobile` | `{ src, alt }` | yes |
-| `heroVideoDesktop` | video/webm | Phase 2 |
-| `heroVideoMobile` | video/webm | Phase 2 |
-| `heroOrbitScene` | Spline embed URL or `.splinecode` | no |
-| `headlineGrabAnchor` | left column; tune per breakpoint | yes |
+| `heroImage` | `{ src, srcset, alt }` | yes (TBD Studio Kitchen) |
+| `heroImageMobile` | `{ src, alt }` | yes (TBD) |
 | `trustLine` | string | no |
 
-#### Hero assets (`brand_assets/hero/`)
+#### Hero assets
 
-| File | Use |
-|------|-----|
-| `spaceman-grab-poster.webp` | Desktop L0 (1×) |
-| `spaceman-grab-poster@2x.webp` | Retina |
-| `spaceman-grab-poster.jpg` | Fallback |
-| `spaceman-grab-mobile.webp` | Mobile crop |
-| `spaceman-grab-headline.webm` | Phase 2 loop; hand reaches left |
-| `solar-orbit.splinecode` or embed | Optional orbit sphere (see audit) |
+Kitchen illustration TBD in `brand_assets/`. Legacy spaceman files in `brand_assets/hero/` are **retired**.
+
+**Prototype:** [studio-kitchen-hero-prototype.html](./studio-kitchen-hero-prototype.html)
 
 ---
 
@@ -177,8 +164,8 @@ hero → trust → work → process → tools → cta
 
 | Element | Copy |
 |---------|------|
-| Primary line | Agency-level craft. Days-not-months delivery. |
-| Supporting line | Specialist in portfolios and landing pages only. |
+| Primary line | Same quality every time: strategy, design, build, launch. |
+| Supporting line | Agency-level craft. Days-not-months delivery. Specialist in portfolios and landing pages only. |
 
 **No CTA** in this section. **No logo row** in v1.
 
@@ -210,11 +197,11 @@ hero → trust → work → process → tools → cta
 
 | Element | Copy |
 |---------|------|
-| Section kicker | Mission log |
-| Section heading | Featured missions |
+| Section kicker | From the pass |
+| Section heading | My dishes |
 | Live card title | By Jawad |
-| Live card line | The site you're on — halftone, monochrome, conversion-first |
-| Coming soon heading | More missions launching soon |
+| Live card line | The site you're on — Studio Kitchen voice, conversion-first |
+| Coming soon heading | Next out of the kitchen |
 | Coming soon subline | Case studies added as projects ship. |
 | Card CTA | View project |
 | Section CTA | Explore work |
@@ -236,8 +223,8 @@ hero → trust → work → process → tools → cta
 
 | # | Title | Type | Status | Result line |
 |---|-------|------|--------|-------------|
-| 1 | By Jawad | Portfolio | live | The site you're on — halftone, monochrome, conversion-first |
-| — | More missions launching soon | — | coming-soon | Case studies added as projects ship. |
+| 1 | By Jawad | Portfolio | live | The site you're on — Studio Kitchen voice, conversion-first |
+| — | Next out of the kitchen | — | coming-soon | Case studies added as projects ship. |
 
 | CTA | Destination |
 |-----|-------------|
@@ -250,7 +237,7 @@ hero → trust → work → process → tools → cta
 
 | Attribute | Spec |
 |-----------|------|
-| **Wireframe** | `5-step strip with orbit connector; horizontal desktop, vertical mobile` |
+| **Wireframe** | `5-step strip with recipe connector line; horizontal desktop, vertical mobile` |
 | **Steps** | 5 (minimum 3 if space constrained) |
 | **Layout** | Timeline + cards hybrid |
 | **Depth** | Icon + title + 1–2 sentence description (no accordion on homepage) |
@@ -263,16 +250,17 @@ hero → trust → work → process → tools → cta
 
 | Element | Copy |
 |---------|------|
-| Section heading | From brief to launch in 5 days |
+| Section kicker | The recipe |
+| Section heading | Five courses. Five days. |
 | Section CTA | See full process |
 
 | Step | Title | Description (wireframe placeholder) |
 |------|-------|-------------------------------------|
-| 1 | Day 1 — Discovery & strategy | Align on goals, audience, and conversion targets. |
-| 2 | Day 2 — Wireframe & prototype | Interactive structure before visual polish. |
-| 3 | Day 3 — Visual design & assets | Brand-aligned UI, typography, and imagery. |
-| 4 | Day 4 — Build & responsive polish | Production build, motion, and device QA. |
-| 5 | Day 5 — QA, launch & handoff | Final checks, deploy, and handover docs. |
+| 1 | Prep the brief | Align on goals, audience, and what "done" looks like. |
+| 2 | First taste | Interactive structure before visual polish. |
+| 3 | Plate the design | Brand-aligned UI, typography, and imagery. |
+| 4 | In the oven | Production build, motion, and device QA. |
+| 5 | Serve & hand off | Final checks, deploy, and handover docs. |
 
 | CTA | Destination |
 |-----|-------------|
@@ -306,8 +294,8 @@ hero → trust → work → process → tools → cta
 
 | Element | Copy |
 |---------|------|
-| Kicker | Mission stack |
-| Section heading | Tools I build with |
+| Kicker | The pantry |
+| Section heading | My ingredients |
 | Subheadline | AI-assisted precision — human-led strategy and craft. |
 
 #### Tool list (locked v1)
@@ -336,27 +324,29 @@ hero → trust → work → process → tools → cta
 
 ---
 
-### SECTION 7: FINAL CTA (`#cta`)
+### SECTION 7: FINAL CTA (`#cta`) — Reservation poster
 
 | Attribute | Spec |
 |-----------|------|
-| **Wireframe** | `Full-width contrasting band: headline + subheadline + 2 CTAs` |
-| **Closing argument** | Ready for new portfolio or landing page + 24h reply promise |
-| **Layout** | High-contrast background (rhythm break) |
-| **CTAs** | Book a Call (primary) · Start an Inquiry (secondary) |
+| **Wireframe** | `Tilted red poster: script + shout + subline + dual CTAs with OR` |
+| **Surface** | `heat.red` with grid texture; ~2° tilt; `shadow.poster` |
+| **Closing argument** | Ready to order + 24h reply promise |
+| **CTAs** | Book a Call (mustard) · OR · Start an Inquiry (white) |
 | **Purpose** | Last-chance conversion for scroll-without-click path |
 | **Priority** | Must-have |
-| **Mobile stack** | Centered copy → full-width buttons (stacked) |
+| **Mobile stack** | Centered poster → stacked buttons |
 | **Exit rate** | Low if upstream sections landed; higher if trust weak |
 
 #### Copy blocks (locked)
 
 | Element | Copy |
 |---------|------|
-| Headline | Ready for your new portfolio or landing page? |
-| Subheadline | Tell me about your project — I'll reply within 24 hours. |
+| Script | Ready to order? |
+| Shout | PLACE YOUR ORDER |
+| Subline | Tell me about your project — I'll reply within 24 hours. |
 | Primary CTA | Book a Call |
 | Secondary CTA | Start an Inquiry |
+| Separator | OR |
 
 | CTA | Destination |
 |-----|-------------|
@@ -385,7 +375,7 @@ hero → trust → work → process → tools → cta
 | Tagline | Landing pages and portfolio websites — designed to stand out and convert. |
 | Primary CTA | Book a Call |
 | Secondary CTA | Start an Inquiry |
-| Newsletter heading | Stay in orbit |
+| Newsletter heading | Get the recipe |
 | Newsletter subtext | Occasional updates on web design, tools, and new case studies. |
 | Newsletter button | Subscribe (or Join) |
 | Legal | © 2026 Jawad Jalal · London, UK |
@@ -473,3 +463,4 @@ Not on homepage for v1 launch. Add when 2+ authentic client quotes exist.
 |------|--------|
 | May 2026 | Initial hierarchy locked (proof-first) per conversion flow plan |
 | May 2026 | v1 update: Option B work, #tools section, testimonials deferred, slim trust |
+| May 2026 | Studio Kitchen voice lock: hero rotation, kitchen CTAs, section copy |

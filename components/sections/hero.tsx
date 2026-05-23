@@ -3,39 +3,39 @@ import { MotionWrapper } from "@/components/animations/motion-wrapper";
 import { Container } from "@/components/layout/container";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { siteConfig } from "@/lib/site";
-
 export function Hero() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-32">
-      <div
-        className="pointer-events-none absolute inset-0 -z-10 opacity-40"
-        aria-hidden
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 50% at 50% -20%, oklch(0.45 0.12 250 / 0.35), transparent), radial-gradient(ellipse 60% 40% at 100% 0%, oklch(0.55 0.08 180 / 0.2), transparent)",
-        }}
-      />
+    <section className="relative overflow-hidden bg-[#E63946] py-24 text-white md:py-32">
       <Container>
         <MotionWrapper>
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-muted-foreground">
-            Portfolio
+          <p className="mb-4 font-mono text-xs uppercase tracking-widest text-white/80">
+            Portfolio &amp; landing page studio
           </p>
-          <h1 className="font-heading max-w-3xl text-4xl font-semibold tracking-[-0.03em] text-foreground md:text-6xl md:leading-[1.05]">
-            Design systems & digital experiences by {siteConfig.name}
+          <h1 className="font-heading max-w-3xl text-4xl font-semibold tracking-[-0.03em] md:text-6xl md:leading-[1.05]">
+            The kitchen for mouth-watering portfolios and landing pages
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            {siteConfig.description}
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/90">
+            I design and build portfolio websites and landing pages that look
+            incredible and convert — for creatives, founders, and brands.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Link href="/work" className={cn(buttonVariants())}>
-              View work
-            </Link>
             <Link
               href="/contact"
-              className={cn(buttonVariants({ variant: "outline" }))}
+              className={cn(
+                buttonVariants(),
+                "border-[3px] border-black bg-[#F4B942] text-black shadow-[4px_4px_0_#000] hover:bg-[#F4B942]/90"
+              )}
             >
-              Get in touch
+              Place your order
+            </Link>
+            <Link
+              href="/work"
+              className={cn(
+                buttonVariants({ variant: "outline" }),
+                "border-2 border-black bg-white text-black hover:bg-white/90"
+              )}
+            >
+              See what&apos;s cooking
             </Link>
           </div>
         </MotionWrapper>
