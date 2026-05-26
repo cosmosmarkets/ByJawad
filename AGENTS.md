@@ -23,7 +23,7 @@ Persistent context for AI agents working in this repository.
 |------|--------------|
 | Next.js 14 scaffold pushed to GitHub | Full visual design / UI implementation |
 | Studio Kitchen voice + copy framework locked | Tokens wired into Tailwind / `globals.css` |
-| Studio Kitchen visual direction + tokens locked | Kitchen hero illustration in `brand_assets/` |
+| Studio Kitchen visual direction + tokens locked | Centered mega-type hero (no hero illustration) |
 | IA sitemap + page briefs | Wireframes finalized and approved |
 | Homepage content hierarchy + v1 wireframe spec | Custom monogram logo file |
 | Tier 2 launch strategy locked | Client case studies, testimonials |
@@ -98,7 +98,7 @@ Services snapshot is **not** on the homepage. Use a text bridge: `View Services`
 |---------|------|
 | Kicker | Portfolio & landing page studio |
 | Headline | The kitchen for mouth-watering **[portfolios \| landing pages]** (suffix rotates) |
-| Subheadline | I design and build portfolio websites and landing pages that look incredible and convert — for creatives, founders, and brands. |
+| Subheadline | I cook portfolio websites and landing pages that taste incredible and convert for creatives, founders, and brands. |
 | Primary CTA | Place your order → `/contact` |
 | Secondary CTA | See what's cooking → `/work` |
 
@@ -171,7 +171,7 @@ scripts/          Asset tooling (e.g. export-hero-assets.mjs)
 
 Check `brand_assets/` before using placeholders.
 
-**Hero (legacy — pending Studio Kitchen art):** Legacy spaceman assets in `brand_assets/hero/` are retired for copy direction; new kitchen illustration TBD.
+**Hero:** Centered Steak-inspired mega type — no hero illustration. Legacy spaceman assets in `brand_assets/hero/` are retired.
 
 **Still needed for launch:** logo/monogram, tool logos (6–8), project screenshots, testimonial photos, case study content.
 

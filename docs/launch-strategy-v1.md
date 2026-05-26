@@ -82,8 +82,14 @@ Trust bar (`#trust`) is copy-only — no logos there.
 
 ## Trust strip copy (locked)
 
-- Primary: Agency-level craft. Days-not-months delivery.
-- Supporting: Specialist in portfolios and landing pages only.
+Dual poster blocks on `#trust` (cream):
+
+| Block | Script | Display | Support |
+|-------|--------|---------|---------|
+| A — speed | I cook | FAST FOOD | Dishes delivered in days not months. |
+| B — quality & value | Agency-level | DISHES | at takeaway prices. |
+
+**Footnote:** Specialist in portfolios and landing pages only.
 
 ---
 

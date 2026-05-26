@@ -24,7 +24,7 @@ Position Jawad as a **landing page and portfolio website specialist** within 10 
 #### 1.1 Hero
 - **Kicker:** Portfolio & landing page studio
 - **Headline:** The kitchen for mouth-watering [portfolios | landing pages] (suffix rotates)
-- **Subheadline:** I design and build portfolio websites and landing pages that look incredible and convert — for creatives, founders, and brands.
+- **Subheadline:** I cook portfolio websites and landing pages that taste incredible and convert for creatives, founders, and brands.
 - **Who it's for (inline or sub-bullets):** Creative freelancers · SaaS founders · Brands & agencies
 - **CTAs:** Place your order · See what's cooking
 - **Visual:** Studio Kitchen — red hero, cream body, Fredoka + Caveat type
@@ -32,8 +32,10 @@ Position Jawad as a **landing page and portfolio website specialist** within 10 
 
 #### 1.2 Trust strip
 - **Content:** Copy-only — no logos (logos in §1.5 Tools)
-- **Primary line:** Agency-level craft. Days-not-months delivery.
-- **Supporting:** Specialist in portfolios and landing pages only.
+- **Layout:** Dual poster blocks on cream (diagonal desktop · stacked mobile)
+- **Block A:** Script *I cook* · Display **FAST FOOD** · Support: Dishes delivered in days not months.
+- **Block B:** Script *Agency-level* · Display **DISHES** · Support: at takeaway prices.
+- **Footnote:** Specialist in portfolios and landing pages only.
 - **No CTA** — pure credibility
 
 #### 1.3 My dishes (Option B — v1)

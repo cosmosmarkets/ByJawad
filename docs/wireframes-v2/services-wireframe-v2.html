@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-nav-surface="cream">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services Wireframe v2 — Studio Kitchen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="_chrome.css" />
+  <style>
+    .why-panel {
+      border: 3px solid var(--ink-black);
+      border-radius: var(--radius-lg);
+      background: var(--surface-card);
+      box-shadow: var(--shadow-sticker);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .why-panel ul { margin: 0.75rem 0; padding-left: 1.25rem; color: var(--ink-muted); }
+    .why-panel li { margin-bottom: 0.35rem; }
+    .addons-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .addons-table th, .addons-table td { border: 2px solid var(--ink-black); padding: 0.65rem 0.75rem; text-align: left; }
+    .addons-table th { font-family: var(--font-display); background: var(--paper-cream-dark); }
+    @media (max-width: 599px) {
+      .addons-table thead { display: none; }
+      .addons-table tr { display: block; margin-bottom: 0.75rem; border: 2px solid var(--ink-black); }
+      .addons-table td { display: block; border: none; border-bottom: 1px dashed var(--ink-muted); }
+    }
+    .process-steps { display: grid; gap: 1rem; }
+    @media (min-width: 900px) {
+      .process-steps { grid-template-columns: repeat(5, 1fr); }
+    }
+    .step-card {
+      background: var(--surface-card);
+      border: 2px solid var(--ink-black);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      box-shadow: var(--shadow-sticker-hover);
+    }
+    .step-card__title { font-family: var(--font-display); font-weight: 600; font-size: 0.9rem; }
+    .step-card__desc { font-size: 0.8rem; color: var(--ink-muted); margin-top: 0.35rem; }
+  </style>
+</head>
+<body>
+  <nav class="site-nav is-scrolled" id="site-nav" aria-label="Site">
+    <div class="wrap site-nav__inner">
+      <a class="site-nav__logo" href="/"><img id="nav-logo" src="../../brand_assets/logo/jawad-design-lockup-black.svg" alt="Jawad" width="140" height="32" /></a>
+      <ul class="site-nav__links">
+        <li><a href="/work">Work</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/journal">Journal</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <a class="btn btn-white site-nav__cta" href="/order">Chat to the chef</a>
+        <button type="button" class="site-nav__menu-btn" id="menu-open" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer__backdrop" id="menu-backdrop"></div>
+    <div class="mobile-drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
+      <button type="button" class="mobile-drawer__close" id="menu-close" aria-label="Close menu">×</button>
+      <a class="btn btn-white" href="/order" style="width:100%">Chat to the chef</a>
+      <ul class="mobile-drawer__nav">
+        <li><a href="/work">Work</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/journal">Journal</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <main id="main">
+    <header class="page-hero--cream" id="hero">
+      <div class="wrap">
+        <p class="kicker">The menu</p>
+        <h1 class="page-hero__title">Portfolio and landing page packages, built to convert.</h1>
+        <p class="page-hero__sub">Clear scope, fast timelines, and studio quality craft without agency bloat.</p>
+        <div class="cta-row">
+          <a class="btn btn-white" href="/order">Chat to the chef</a>
+          <a class="btn btn-white" href="/work">See what's cooking</a>
+        </div>
+        <p class="section-bridge" style="margin-top:1rem"><a class="text-link" href="#portfolio">Jump to packages</a></p>
+      </div>
+    </header>
+
+    <section class="section" id="why" aria-labelledby="why-title">
+      <div class="wrap">
+        <p class="kicker">Why order?</p>
+        <h2 id="why-title" class="display section-title">The full menu.</h2>
+        <p style="color:var(--ink-muted);max-width:40rem;margin-bottom:1.5rem">Same three orders as the homepage. Here is what each one means, what you get, and which package fits.</p>
+
+        <article class="why-panel" id="why-portfolio">
+          <p class="kicker">The empty plate · Creative freelancers</p>
+          <h3 class="display" style="font-size:1.25rem">A portfolio website plates your best work so art directors stop scrolling and start hiring.</h3>
+          <ul>
+            <li>You need a home for case studies, not a link in bio</li>
+            <li>Your work is strong but your site looks like a template</li>
+            <li>You want inquiries from the right clients</li>
+          </ul>
+          <p><strong>Portfolio package</strong> · ~1 week · £500–£1,000</p>
+          <p><a class="text-link" href="#portfolio">See portfolio package</a></p>
+        </article>
+
+        <article class="why-panel" id="why-landing">
+          <p class="kicker">One dish, one goal · SaaS founders</p>
+          <h3 class="display" style="font-size:1.25rem">One landing page, one job: explain your product in seconds and turn visitors into demo requests.</h3>
+          <ul>
+            <li>Paid traffic goes to a page that does too many jobs</li>
+            <li>Visitors bounce before they get the offer</li>
+            <li>You need one clear CTA: signup, demo, or waitlist</li>
+          </ul>
+          <p><strong>Landing page package</strong> · 3–5 days · £1,000–£3,000</p>
+          <p><a class="text-link" href="#landing">See landing page package</a></p>
+        </article>
+
+        <article class="why-panel" id="why-brands">
+          <p class="kicker">Front of house · Brands &amp; agencies</p>
+          <h3 class="display" style="font-size:1.25rem">A premium first impression, served fast. Look agency level without the long wait.</h3>
+          <ul>
+            <li>Your brand outgrew a generic builder look</li>
+            <li>You need polish and speed, not a long agency timeline</li>
+            <li>You want one specialist who owns design and build</li>
+          </ul>
+          <p><strong>Portfolio or landing page</strong> · format chosen on a quick call</p>
+          <p><a class="btn btn-white" href="/order">Chat to the chef</a></p>
+        </article>
+
+        <p class="band-cta" style="margin-top:1.5rem;padding:1.25rem;border:2px solid var(--ink-black);border-radius:var(--radius-lg);text-align:center">
+          Still deciding? <a class="btn btn-white" href="/order">Chat to the chef</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="portfolio" aria-labelledby="portfolio-title">
+      <div class="wrap packages-row">
+        <article class="panel-card" id="portfolio-card">
+          <p class="kicker">For creatives</p>
+          <h2 id="portfolio-title" class="display section-title" style="font-size:1.5rem">Portfolio package</h2>
+          <p style="color:var(--ink-muted);margin-bottom:0.75rem">For photographers, designers, illustrators, videographers, writers, architects.</p>
+          <p style="font-size:0.9rem;line-height:1.5">Discovery and positioning workshop · Custom design, not a template · Up to X project case studies · Mobile responsive build · Basic SEO and performance optimization · Launch support</p>
+          <p style="margin-top:1rem"><strong>~1 week</strong> · <strong>£500–£1,000</strong></p>
+          <div class="cta-row">
+            <a class="btn btn-white" href="/order">Chat to the chef</a>
+            <a class="text-link" href="/work">See what's cooking</a>
+          </div>
+        </article>
+        <article class="panel-card" id="landing">
+          <p class="kicker">For founders and launches</p>
+          <h2 class="display section-title" style="font-size:1.5rem">Landing page package</h2>
+          <p style="color:var(--ink-muted);margin-bottom:0.75rem">For SaaS founders, brands, agencies, product launches.</p>
+          <p style="font-size:0.9rem;line-height:1.5">Conversion brief and competitor review · Single high converting page · Copy support and CTA strategy · Analytics ready structure · Fast load and responsive build</p>
+          <p style="margin-top:1rem"><strong>3–5 days</strong> · <strong>£1,000–£3,000</strong></p>
+          <a class="btn btn-white" href="/order">Chat to the chef</a>
+        </article>
+      </div>
+      <p class="wrap" style="margin-top:1.5rem;color:var(--ink-muted);font-size:0.9rem">Starter rates for early clients. Review after first 3 completed projects.</p>
+    </section>
+
+    <section class="section section--recessed" id="addons" aria-labelledby="addons-title">
+      <div class="wrap">
+        <p class="kicker">Extra toppings</p>
+        <h2 id="addons-title" class="display section-title">Add-ons</h2>
+        <table class="addons-table">
+          <thead><tr><th>Add-on</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>CMS setup</td><td>Update projects and content yourself (Supabase or similar)</td></tr>
+            <tr><td>3D elements</td><td>Spline or WebGL hero and section accents</td></tr>
+            <tr><td>Animation package</td><td>Scroll storytelling, GSAP, micro interactions</td></tr>
+            <tr><td>Copywriting</td><td>Full page copy pass</td></tr>
+            <tr><td>Ongoing support</td><td>Post launch tweaks (monthly retainer)</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:1rem;color:var(--ink-muted);font-size:0.9rem">Add-ons quoted after we scope your project.</p>
+      </div>
+    </section>
+
+    <section class="section" id="process" aria-labelledby="process-title">
+      <div class="wrap">
+        <p class="kicker">The recipe</p>
+        <h2 id="process-title" class="display section-title">Five courses. Five days.</h2>
+        <p style="color:var(--ink-muted);margin-bottom:1.25rem">From brief to launch without the agency wait.</p>
+        <div class="process-steps">
+          <article class="step-card"><p class="step-card__title">Prep the brief</p><p class="step-card__desc">Discovery, goals, audience, and scope</p></article>
+          <article class="step-card"><p class="step-card__title">First taste</p><p class="step-card__desc">Wireframe or prototype for early feedback</p></article>
+          <article class="step-card"><p class="step-card__title">Plate the design</p><p class="step-card__desc">Brand aligned UI, type, and imagery</p></article>
+          <article class="step-card"><p class="step-card__title">In the oven</p><p class="step-card__desc">Build, responsive polish, performance pass</p></article>
+          <article class="step-card"><p class="step-card__title">Serve &amp; hand off</p><p class="step-card__desc">QA, launch, and handover</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--recessed" id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <p class="kicker">Before you order</p>
+        <h2 id="faq-title" class="display section-title">FAQ</h2>
+        <div class="faq-accordion" data-faq-accordion>
+          <div class="faq-item">
+            <button type="button" class="faq-item__trigger" aria-expanded="false">What's included in each package? <span class="faq-item__icon">+</span></button>
+            <div class="faq-item__panel">Portfolio package (~1 week, £500–£1,000): Discovery and positioning, custom design, up to X case study slots, mobile responsive build, basic SEO and performance, and launch support. Landing page package (3–5 days, £1,000–£3,000): Conversion brief, competitor review, one high converting page, copy and CTA support, analytics ready structure, and a fast responsive build. Add-ons quoted separately.</div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-item__trigger" aria-expanded="false">How many revision rounds? <span class="faq-item__icon">+</span></button>
+            <div class="faq-item__panel">Each package includes two structured revision rounds after you see the first taste (wireframe or prototype, then design). Small tweaks at launch are included. Larger scope changes are quoted before extra work starts.</div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-item__trigger" aria-expanded="false">Do I own the site and code? <span class="faq-item__icon">+</span></button>
+            <div class="faq-item__panel">Yes. When the project is paid in full, you own the site, design, and code built for you. Hosting and domain stay in your accounts.</div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-item__trigger" aria-expanded="false">What do you need from me to start? <span class="faq-item__icon">+</span></button>
+            <div class="faq-item__panel">A short brief: what you are building, who it is for, timeline, and budget band. Links to brands or sites you like help.</div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-item__trigger" aria-expanded="false">How does payment work? <span class="faq-item__icon">+</span></button>
+            <div class="faq-item__panel">50% to book your slot, 50% before launch. Starter rates apply for early clients.</div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-item__trigger" aria-expanded="false">What if I need more pages later? <span class="faq-item__icon">+</span></button>
+            <div class="faq-item__panel">Extra pages are scoped as phase two or a new package — usually without rebuilding from scratch.</div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-item__trigger" aria-expanded="false">Which package should I pick? <span class="faq-item__icon">+</span></button>
+            <div class="faq-item__panel">Need to show work and win clients? Portfolio package. Need one page to convert traffic? Landing page package. Unsure? Chat to the chef on /order.</div>
+          </div>
+        </div>
+        <p style="margin-top:1.5rem">Still have questions? <a class="btn btn-white" href="/order">Chat to the chef</a></p>
+      </div>
+    </section>
+
+    <section class="band-cta" id="cta" aria-labelledby="cta-title">
+      <div class="wrap">
+        <p class="kicker">Ready to order?</p>
+        <h2 id="cta-title" class="display section-title">Tell me what you are building.</h2>
+        <p style="color:var(--ink-muted);margin-bottom:1rem">Book a quick chat or send a brief. I reply within 24 hours.</p>
+        <div class="cta-row" style="justify-content:center">
+          <a class="btn btn-white" href="/order">Chat to the chef</a>
+          <a class="btn btn-white" href="/work">See what's cooking</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <a href="/"><img src="../../brand_assets/logo/jawad-design-lockup-black.svg" alt="Jawad" width="140" height="32" /></a>
+        <p class="footer-tagline">Landing pages and portfolio websites — designed to stand out and convert.</p>
+      </div>
+      <div class="footer-col"><h3>Work</h3><ul class="footer-links"><li><a href="/work">Work index</a></li></ul></div>
+      <div class="footer-col"><h3>Services</h3><ul class="footer-links"><li><a href="/services">Services</a></li></ul></div>
+      <div class="footer-col"><h3>Journal</h3><ul class="footer-links"><li><a href="/journal">Journal</a></li></ul></div>
+      <div class="footer-col"><h3>Connect</h3><ul class="footer-links"><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div>
+    </div>
+    <div class="wrap footer-bottom">© 2026 Jawad Jalal · London, UK</div>
+  </footer>
+
+  <aside class="spec-footer" aria-label="Wireframe v2 annotations">
+    <div class="wrap">
+      <span class="spec-badge">Wireframe v2 · /services</span>
+      <h2>Behaviors</h2>
+      <ul>
+        <li>Hash highlight on <code>#why-portfolio</code> etc. via <code>_chrome.js</code></li>
+        <li>FAQ accordion · package card hover</li>
+        <li>No mustard · Chat → <code>/order</code> only</li>
+      </ul>
+    </div>
+  </aside>
+
+  <script src="_chrome.js" defer></script>
+</body>
+</html>

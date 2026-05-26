@@ -17,9 +17,13 @@ export interface BlogPost {
   coverImage?: string;
 }
 
+import type { BudgetRange, ProjectType, Timeline } from "./database";
+
 export interface ContactFormData {
   name: string;
   email: string;
-  subject?: string;
+  project_type: ProjectType;
+  budget_range: BudgetRange;
+  timeline: Timeline;
   message: string;
 }

@@ -36,7 +36,7 @@ Within the first viewport, a visitor must understand:
 | Kicker | Portfolio & landing page studio |
 | Headline | The kitchen for mouth-watering [portfolios \| landing pages] (suffix rotates) |
 | Headline (reduced motion) | The kitchen for mouth-watering portfolios and landing pages |
-| Subheadline | I design and build portfolio websites and landing pages that look incredible and convert — for creatives, founders, and brands. |
+| Subheadline | I cook portfolio websites and landing pages that taste incredible and convert for creatives, founders, and brands. |
 | Primary CTA | Place your order → `/contact` |
 | Secondary CTA | See what's cooking → `/work` |
 
@@ -227,7 +227,7 @@ Visitors who skip proof — optimize for speed, not friction.
 
 | Attribute | Spec |
 |-----------|------|
-| Content (v1) | Copy-only: Agency-level craft. Days-not-months delivery. + Specialist in portfolios and landing pages only. |
+| Content (v1) | Copy-only dual poster blocks: **A** I cook · FAST FOOD · Dishes delivered in days not months. **B** Agency-level · DISHES · at takeaway prices. Footnote: Specialist in portfolios and landing pages only. |
 | Tools | Full showcase in `#tools` section (not trust bar) |
 | CTA | None — credibility only |
 | Failure mode | Ignored scroll; no impact on trust |

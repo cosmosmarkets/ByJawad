@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Wireframe v1 — Jawad Jalal</title>
+  <style>
+    :root { --bg: #f4f4f5; --surface: #fff; --border: #a1a1aa; --text: #18181b; --muted: #71717a; --accent: #3f3f46; --cta: #27272a; --placeholder: #d4d4d8; --annotation: #2563eb; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: ui-monospace, Consolas, monospace; font-size: 11px; line-height: 1.4; color: var(--text); background: var(--bg); padding: 24px 16px 48px; }
+    h1 { font-family: system-ui, sans-serif; font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+    .meta { font-family: system-ui, sans-serif; font-size: 13px; color: var(--muted); margin-bottom: 32px; max-width: 720px; }
+    .meta a { color: var(--annotation); }
+    .frames { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; justify-content: center; }
+    .frame-wrap { flex: 0 0 auto; }
+    .frame-label { font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+    .frame { background: var(--surface); border: 2px solid var(--accent); overflow: hidden; position: relative; }
+    .frame.desktop { width: 1200px; }
+    .frame.mobile { width: 375px; }
+    .section-id { position: absolute; left: 0; top: 0; bottom: 0; width: 28px; background: #eff6ff; border-right: 1px dashed var(--annotation); writing-mode: vertical-rl; transform: rotate(180deg); font-size: 9px; color: var(--annotation); display: flex; align-items: center; justify-content: center; z-index: 2; }
+    .frame.mobile .section-id { width: 22px; font-size: 8px; }
+    .block { border: 1px dashed var(--border); background: var(--placeholder); }
+    .block.light { background: #e4e4e7; }
+    .block.white { background: var(--surface); border-style: solid; }
+    .block.dark { background: var(--cta); border-color: var(--cta); }
+    .label { font-size: 9px; color: var(--muted); padding: 2px 4px; }
+    .copy { font-size: 10px; padding: 4px 8px; }
+    .copy.bold { font-weight: 700; font-size: 11px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px 12px 36px; border-bottom: 1px solid var(--border); min-height: 52px; }
+    .frame.mobile .nav { padding-left: 30px; }
+    .nav-links { display: flex; gap: 16px; flex: 1; justify-content: center; }
+    .frame.mobile .nav-links { display: none; }
+    .nav-logo { width: 80px; height: 24px; }
+    .nav-cta { width: 110px; height: 32px; background: var(--cta); border: none; }
+    .nav-hamburger { display: none; width: 32px; height: 32px; border: 1px dashed var(--border); }
+    .frame.mobile .nav-hamburger { display: block; }
+    .page-hero { padding: 48px 48px 40px 64px; border-bottom: 1px solid var(--border); background: #fafafa; }
+    .frame.mobile .page-hero { padding: 40px 16px 32px 30px; text-align: center; }
+    .section-pad { padding: 48px 24px 48px 36px; }
+    .frame.mobile .section-pad { padding: 32px 16px 32px 30px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+    .frame.mobile .two-col { grid-template-columns: 1fr; }
+    .form-card { padding: 24px; border: 2px solid var(--border); background: #fafafa; max-width: 480px; }
+    .field { height: 36px; margin-bottom: 10px; background: var(--surface); border: 1px dashed var(--border); }
+    .field.tall { height: 80px; }
+    .social-row { display: flex; gap: 12px; margin-top: 12px; }
+    .social-icon { width: 40px; height: 40px; border: 1px dashed var(--border); background: var(--surface); }
+    .book-block { padding: 24px; border: 2px dashed var(--border); background: #f4f4f5; min-height: 200px; text-align: center; }
+    .cal-embed { height: 140px; margin: 16px 0; background: var(--placeholder); border: 1px dashed var(--border); }
+    .btn { height: 40px; min-width: 140px; display: inline-block; margin-top: 8px; }
+    .btn.primary { background: var(--cta); }
+    .footer { padding: 40px 24px 24px 36px; border-top: 1px solid var(--border); background: #fafafa; }
+    .frame.mobile .footer { padding-left: 30px; }
+    .legend { margin-top: 48px; max-width: 1200px; margin: 48px auto 0; font-family: system-ui, sans-serif; font-size: 12px; padding: 16px; background: var(--surface); border: 1px solid var(--border); }
+    .legend ul { margin-left: 20px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <h1>Order Wireframe v1</h1>
+  <p class="meta">
+    Route: <code>/order</code> · Global conversion hub<br />
+    <a href="./order-wireframe-v1.md">order-wireframe-v1.md</a> · <a href="./index.html">← All v1 frames</a>
+  </p>
+
+  <div class="frames">
+    <div class="frame-wrap">
+      <div class="frame-label">Desktop <span>1200 × scroll</span></div>
+      <div class="frame desktop">
+        <div style="position:relative"><div class="section-id">nav</div>
+          <header class="nav white">
+            <div class="block nav-logo light"><span class="label">Jawad → /</span></div>
+            <nav class="nav-links"><span class="copy">Work</span><span class="copy">Services</span><span class="copy">About</span><span class="copy">Journal</span><span class="copy">Contact</span></nav>
+            <div class="block nav-cta dark"><span class="label" style="color:#fff">Chat to the chef</span></div>
+          </header>
+        </div>
+
+        <div style="position:relative"><div class="section-id">#hero</div>
+          <section class="page-hero">
+            <p class="copy" style="color:var(--muted)">Kicker: Pull up a chair</p>
+            <p class="copy bold" style="font-size:22px;margin-top:8px">Chat to the chef</p>
+            <p class="copy" style="margin-top:8px">Send a quick message, connect on socials, or book a 15-minute call. I reply within 24 hours.</p>
+          </section>
+        </div>
+
+        <div style="position:relative"><div class="section-id">#form</div>
+          <section class="section-pad">
+            <div class="two-col">
+              <div class="form-card">
+                <p class="copy bold" style="font-size:14px;margin-bottom:12px">Send project brief</p>
+                <div class="field block light"><span class="label">Name *</span></div>
+                <div class="field block light"><span class="label">Email *</span></div>
+                <div class="field block light"><span class="label">Project type (select)</span></div>
+                <div class="field tall block light"><span class="label">Message *</span></div>
+                <div class="block btn primary" style="width:100%;max-width:none;height:40px;margin-top:12px"><span class="label" style="color:#fff">Send project brief</span></div>
+                <p class="copy" style="margin-top:12px;color:var(--muted)">I reply within 24 hours.</p>
+              </div>
+              <div>
+                <div style="position:relative;margin-bottom:24px">
+                  <p class="copy" style="color:var(--muted)">Elsewhere</p>
+                  <p class="copy bold" style="font-size:14px">Find me online</p>
+                  <div class="social-row">
+                    <div class="social-icon"></div>
+                    <div class="social-icon"></div>
+                    <div class="social-icon"></div>
+                  </div>
+                  <p class="copy" style="margin-top:8px">LinkedIn · Email · Discord</p>
+                </div>
+                <div class="book-block">
+                  <p class="copy" style="color:var(--muted)">Prefer a call?</p>
+                  <p class="copy bold" style="font-size:14px">Call the chef</p>
+                  <p class="copy" style="margin-top:4px">15-minute discovery call. No pressure, just clarity.</p>
+                  <div class="cal-embed block"><span class="label">Calendly / Cal.com embed</span></div>
+                  <div class="block btn primary"><span class="label" style="color:#fff">Call the chef</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div style="position:relative"><div class="section-id">footer</div>
+          <footer class="footer">
+            <p class="copy bold">Landing pages and portfolio websites designed to stand out and convert.</p>
+            <p class="copy" style="margin-top:8px;color:var(--annotation)">Chat to the chef · See what's cooking · © 2026 Jawad Jalal</p>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <div class="frame-wrap">
+      <div class="frame-label">Mobile <span>375 × scroll</span></div>
+      <div class="frame mobile">
+        <div style="position:relative"><div class="section-id">nav</div>
+          <header class="nav white"><div class="block nav-logo light"></div><div class="block nav-cta dark"></div><div class="nav-hamburger block light"></div></header>
+        </div>
+        <div style="position:relative"><div class="section-id">#hero</div>
+          <section class="page-hero">
+            <p class="copy bold">Chat to the chef</p>
+            <p class="copy">Pull up a chair · reply within 24h</p>
+          </section>
+        </div>
+        <div style="position:relative"><div class="section-id">#form</div>
+          <section class="section-pad">
+            <div class="form-card" style="max-width:none">
+              <p class="copy bold">Form stacked</p>
+              <div class="field block light" style="margin-top:8px"></div>
+              <div class="field block light"></div>
+              <div class="field tall block light"></div>
+              <div class="block btn primary" style="width:100%;height:40px;margin-top:8px"></div>
+            </div>
+          </section>
+        </div>
+        <div style="position:relative"><div class="section-id">#socials</div>
+          <section class="section-pad light" style="background:#f4f4f5"><p class="copy bold">Socials row</p></section>
+        </div>
+        <div style="position:relative"><div class="section-id">#book</div>
+          <section class="section-pad"><div class="book-block"><p class="copy bold">Call the chef · Calendly</p></div></section>
+        </div>
+        <div style="position:relative"><div class="section-id">footer</div>
+          <footer class="footer"><p class="copy bold">Footer</p></footer>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <h2>Legend</h2>
+    <ul>
+      <li>Target for header <strong>Chat to the chef</strong> and homepage poster CTAs</li>
+      <li><strong>Call the chef</strong> → Calendly (external)</li>
+      <li>Full brief on <code>/contact</code> may remain separate red-hero page (v2)</li>
+    </ul>
+  </div>
+</body>
+</html>

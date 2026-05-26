@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-nav-surface="cream">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Study Wireframe v2 — Studio Kitchen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="_chrome.css" />
+  <style>
+    .cs-hero-thumb {
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, var(--paper-cream-dark), var(--heat-red));
+      border: 3px solid var(--ink-black);
+      border-radius: var(--radius-lg);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+    .cs-block { margin-bottom: 2.5rem; max-width: 40rem; }
+    .cs-block h2 { font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 0.5rem; }
+    .cs-block p { color: var(--ink-muted); line-height: 1.55; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+    @media (min-width: 900px) {
+      .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .gallery-cell {
+      aspect-ratio: 4/3;
+      background: var(--paper-cream-dark);
+      border: 2px dashed var(--ink-black);
+      border-radius: var(--radius-sm);
+    }
+    .related-row { display: grid; gap: 1rem; }
+    @media (min-width: 600px) { .related-row { grid-template-columns: repeat(3, 1fr); } }
+    .related-card {
+      padding: 1rem;
+      border: 2px solid var(--ink-black);
+      border-radius: var(--radius-lg);
+      background: var(--surface-card);
+      font-family: var(--font-display);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav is-scrolled" id="site-nav" aria-label="Site">
+    <div class="wrap site-nav__inner">
+      <a class="site-nav__logo" href="/"><img id="nav-logo" src="../../brand_assets/logo/jawad-design-lockup-black.svg" alt="Jawad" width="140" height="32" /></a>
+      <ul class="site-nav__links">
+        <li><a href="/work">Work</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/journal">Journal</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <a class="btn btn-white site-nav__cta" href="/order">Chat to the chef</a>
+        <button type="button" class="site-nav__menu-btn" id="menu-open" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer__backdrop" id="menu-backdrop"></div>
+    <div class="mobile-drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
+      <button type="button" class="mobile-drawer__close" id="menu-close" aria-label="Close menu">×</button>
+      <a class="btn btn-white" href="/order" style="width:100%">Chat to the chef</a>
+      <ul class="mobile-drawer__nav">
+        <li><a href="/work">Work</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/journal">Journal</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <main id="main" class="section" style="padding-top:calc(var(--nav-height) + 2rem)">
+    <div class="wrap">
+      <p class="kicker"><a class="text-link" href="/work">← Work</a></p>
+      <header id="hero">
+        <div class="cs-hero-thumb">Hero · full-width screenshot</div>
+        <h1 class="display section-title">By Jawad</h1>
+        <p class="kicker">Portfolio · 2026</p>
+      </header>
+
+      <article class="cs-block" id="overview">
+        <h2>Overview</h2>
+        <p>Portfolio and landing page studio site — Studio Kitchen brand, proof-first homepage, conversion hub at /order.</p>
+      </article>
+      <article class="cs-block" id="problem">
+        <h2>Problem</h2>
+        <p>Generic scaffold did not communicate specialist positioning or drive inquiries.</p>
+      </article>
+      <article class="cs-block" id="approach">
+        <h2>Approach</h2>
+        <p>Locked IA, kitchen metaphor, Steak-inspired editorial UI, wireframe-first pipeline before Next.js build.</p>
+      </article>
+      <article class="cs-block" id="result">
+        <h2>Result</h2>
+        <p>Scrollable v2 wireframes with demonstrated behaviors for mid-fi handoff.</p>
+      </article>
+
+      <section class="cs-block" id="gallery" aria-labelledby="gallery-title">
+        <h2 id="gallery-title">Gallery</h2>
+        <div class="gallery-grid">
+          <div class="gallery-cell"></div><div class="gallery-cell"></div><div class="gallery-cell"></div><div class="gallery-cell"></div>
+          <div class="gallery-cell"></div><div class="gallery-cell"></div><div class="gallery-cell"></div><div class="gallery-cell"></div>
+        </div>
+      </section>
+
+      <section class="cs-block" id="related">
+        <h2>Related projects</h2>
+        <div class="related-row">
+          <div class="related-card">Coming soon</div>
+          <div class="related-card">Coming soon</div>
+          <div class="related-card">Coming soon</div>
+        </div>
+      </section>
+    </div>
+
+    <section class="band-cta" id="cta">
+      <div class="wrap">
+        <div class="cta-row" style="justify-content:center">
+          <a class="btn btn-white" href="/order">Chat to the chef</a>
+          <a class="btn btn-white" href="/order">Make an order</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap footer-bottom">© 2026 Jawad Jalal · London, UK</div></footer>
+
+  <aside class="spec-footer" aria-label="Wireframe v2 annotations">
+    <div class="wrap">
+      <span class="spec-badge">Wireframe v2 · /work/[slug]</span>
+      <ul>
+        <li>8 blocks: <code>#hero</code> · overview · problem · approach · result · gallery · related · cta</li>
+        <li>Gallery placeholders · related row deferred content</li>
+      </ul>
+    </div>
+  </aside>
+
+  <script src="_chrome.js" defer></script>
+</body>
+</html>

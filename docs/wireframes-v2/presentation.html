@@ -1,0 +1,2357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Kitchen — Wireframe v2 Presentation & Spec Hub</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  
+  <style>
+    :root {
+      --paper-cream: #FCEAD4;
+      --paper-cream-dark: #F5DFC4;
+      --surface-card: #FFFFFF;
+      --ink-black: #000000;
+      --ink-muted: #5C4A3A;
+      --ink-subtle: #8B7355;
+      --ink-white: #FFFFFF;
+      --heat-red: #E63946;
+      --heat-red-dark: #C1121F;
+      --accent-mustard: #F4B942;
+      --accent-mustard-hover: #F7C948;
+      --accent-mustard-active: #EAB308;
+      
+      --border-default: 2px solid var(--ink-black);
+      --border-bold: 3px solid var(--ink-black);
+      --shadow-sticker: 4px 4px 0 var(--ink-black);
+      --shadow-sticker-hover: 2px 2px 0 var(--ink-black);
+      --shadow-poster: 8px 8px 0 var(--ink-black);
+      
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --radius-pill: 9999px;
+      
+      --font-display: 'Fredoka', system-ui, sans-serif;
+      --font-script: 'Caveat', cursive;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink-black);
+      background: var(--paper-cream-dark);
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Presentation Layout */
+    header.deck-header {
+      background: var(--paper-cream);
+      border-bottom: var(--border-default);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .deck-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+
+    .deck-logo span {
+      background: var(--heat-red);
+      color: var(--ink-white);
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      border: 1px solid var(--ink-black);
+    }
+
+    .deck-title-mini {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .doc-badge {
+      background: var(--surface-card);
+      border: 1.5px solid var(--ink-black);
+      padding: 0.1rem 0.4rem;
+      font-size: 0.65rem;
+      border-radius: var(--radius-sm);
+      font-weight: bold;
+      color: var(--ink-black);
+    }
+
+    .main-container {
+      flex: 1;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Sidebar Navigation Outline */
+    .deck-sidebar {
+      width: 280px;
+      background: var(--paper-cream);
+      border-right: var(--border-default);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 1.5rem 1rem;
+      gap: 0.5rem;
+      z-index: 5;
+    }
+
+    .sidebar-heading {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-muted);
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .sidebar-btn {
+      background: transparent;
+      border: 2px solid transparent;
+      padding: 0.6rem 0.85rem;
+      border-radius: var(--radius-md);
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: all 150ms;
+      color: var(--ink-muted);
+    }
+
+    .sidebar-btn:hover {
+      background: rgba(0, 0, 0, 0.04);
+      color: var(--ink-black);
+    }
+
+    .sidebar-btn.active {
+      background: var(--surface-card);
+      border-color: var(--ink-black);
+      color: var(--ink-black);
+      box-shadow: 2px 2px 0 var(--ink-black);
+    }
+
+    .sidebar-btn-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: rgba(0, 0, 0, 0.08);
+      width: 22px;
+      height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: var(--ink-black);
+      flex-shrink: 0;
+    }
+
+    .sidebar-btn.active .sidebar-btn-num {
+      background: var(--heat-red);
+      color: var(--ink-white);
+    }
+
+    /* Slide Deck */
+    .slides-wrapper {
+      flex: 1;
+      position: relative;
+      background: var(--paper-cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      padding: 2.5rem 3rem;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.98) translateY(10px);
+      transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow-y: auto;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1) translateY(0);
+    }
+
+    /* Typography */
+    h1.slide-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 3px dashed var(--ink-muted);
+      padding-bottom: 0.5rem;
+    }
+
+    h1.slide-title .slide-num {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      background: var(--ink-black);
+      color: var(--paper-cream);
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-pill);
+    }
+
+    .lead-text {
+      font-size: 1rem;
+      color: var(--ink-muted);
+      max-width: 900px;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .kicker {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      margin-bottom: 0.25rem;
+      font-weight: bold;
+    }
+
+    .text-script {
+      font-family: var(--font-script);
+      font-weight: 700;
+      color: var(--ink-white);
+      -webkit-text-stroke: 1.5px var(--ink-black);
+      paint-order: stroke fill;
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+    }
+
+    /* Red Grid Pattern Class */
+    .red-grid {
+      background-color: var(--heat-red);
+      background-image:
+        linear-gradient(rgba(193, 18, 31, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(193, 18, 31, 0.3) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Bottom Control Panel */
+    .deck-controls {
+      background: var(--paper-cream);
+      border-top: var(--border-default);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .btn-nav {
+      background: var(--surface-card);
+      border: var(--border-default);
+      color: var(--ink-black);
+      padding: 0.5rem 1.25rem;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      box-shadow: 2px 2px 0 var(--ink-black);
+      transition: transform 100ms, box-shadow 100ms;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      user-select: none;
+    }
+
+    .btn-nav:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 var(--ink-black);
+    }
+
+    .btn-nav:active {
+      transform: translate(2px, 2px);
+      box-shadow: none;
+    }
+
+    .btn-nav:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 8px;
+      background: rgba(0,0,0,0.1);
+      margin: 0 2rem;
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background: var(--heat-red);
+      width: 0%;
+      transition: width 300ms ease;
+    }
+
+    .slide-indicator {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Layout Grids */
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .spec-card {
+      background: var(--surface-card);
+      border: var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      box-shadow: 3px 3px 0 var(--ink-black);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      position: relative;
+    }
+
+    .spec-group {
+      margin-bottom: 0.5rem;
+    }
+
+    .spec-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      margin-bottom: 0.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .spec-value {
+      font-size: 0.875rem;
+      line-height: 1.45;
+    }
+
+    /* Highlight badges */
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.4rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: bold;
+      border: 1px solid var(--ink-black);
+    }
+    
+    .badge-status { background: var(--accent-mustard); color: var(--ink-black); }
+    .badge-route { background: var(--paper-cream); color: var(--ink-muted); }
+    .badge-gate { background: var(--heat-red); color: var(--ink-white); }
+    .badge-success { background: #56AE57; color: var(--ink-white); }
+
+    /* Interactive Status Grid (Slide 2) */
+    .status-matrix-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      overflow-y: auto;
+      max-height: 360px;
+      padding-right: 0.5rem;
+      border: var(--border-default);
+      background: var(--surface-card);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+    }
+
+    .status-row {
+      display: grid;
+      grid-template-columns: 140px 1.5fr 1fr 1fr;
+      align-items: center;
+      padding: 0.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      font-size: 0.8rem;
+    }
+
+    .status-row.header {
+      font-family: var(--font-display);
+      font-weight: 700;
+      border-bottom: 2px solid var(--ink-black);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: bold;
+      border: 1px solid var(--ink-black);
+      text-transform: uppercase;
+      cursor: pointer;
+      user-select: none;
+      transition: all 150ms;
+    }
+    .status-pill:hover {
+      transform: translateY(-1px);
+    }
+    
+    .status-pill.not-started { background: #E0E0E0; color: #666; }
+    .status-pill.scaffold { background: var(--paper-cream); color: var(--ink-muted); }
+    .status-pill.in-review { background: var(--accent-mustard); color: var(--ink-black); }
+    .status-pill.done { background: #A2E3C4; color: #1B4D3E; }
+    .status-pill.approved { background: var(--heat-red); color: var(--ink-white); }
+
+    /* Interactive Pipeline Cards (Slide 3) */
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .pipeline-card {
+      background: var(--surface-card);
+      border: var(--border-default);
+      border-radius: var(--radius-md);
+      padding: 0.75rem;
+      cursor: pointer;
+      transition: all 150ms;
+      box-shadow: 2px 2px 0 var(--ink-black);
+    }
+
+    .pipeline-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 4px 4px 0 var(--ink-black);
+    }
+
+    .pipeline-card.active {
+      background: var(--accent-mustard);
+      border-color: var(--ink-black);
+      box-shadow: 4px 4px 0 var(--ink-black);
+    }
+
+    .pipeline-card-title {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .pipeline-card-stage {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--ink-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .pipeline-card.active .pipeline-card-stage {
+      color: var(--ink-black);
+      opacity: 0.8;
+    }
+
+    /* Interactive Behavior Simulator (Slide 4) */
+    .simulator-container {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 1.25rem;
+      height: 100%;
+    }
+
+    .sim-selector {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      overflow-y: auto;
+    }
+
+    .sim-btn {
+      background: var(--surface-card);
+      border: var(--border-default);
+      border-radius: var(--radius-md);
+      padding: 0.5rem 0.75rem;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: all 150ms;
+      box-shadow: 2px 2px 0 var(--ink-black);
+    }
+
+    .sim-btn:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 var(--ink-black);
+    }
+
+    .sim-btn.active {
+      background: var(--ink-black);
+      color: var(--paper-cream);
+      box-shadow: none;
+      transform: none;
+    }
+
+    .sim-viewport {
+      background: var(--paper-cream-dark);
+      border: var(--border-bold);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 220px;
+      box-shadow: var(--shadow-sticker);
+    }
+
+    /* CSS elements for simulations */
+    .sim-nav-header {
+      width: 100%;
+      height: 64px;
+      background: transparent;
+      border: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+      z-index: 2;
+      transition: all 300ms ease;
+    }
+
+    .sim-nav-header.is-scrolled {
+      height: 52px;
+      background: rgba(252, 234, 212, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--ink-black);
+    }
+
+    .sim-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--ink-white);
+      transition: color 300ms ease;
+    }
+    .sim-nav-header.is-scrolled .sim-logo {
+      color: var(--ink-black);
+    }
+
+    .sim-menu-links {
+      display: flex;
+      gap: 0.75rem;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ink-white);
+    }
+    .sim-nav-header.is-scrolled .sim-menu-links {
+      color: var(--ink-muted);
+    }
+
+    .sim-nav-cta {
+      background: var(--surface-card);
+      border: 1.5px solid var(--ink-black);
+      padding: 0.3rem 0.75rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.7rem;
+      border-radius: var(--radius-pill);
+      box-shadow: 2px 2px 0 var(--ink-black);
+      cursor: pointer;
+    }
+
+    .sim-drawer-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: 5;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 300ms ease;
+    }
+    .sim-drawer-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .sim-drawer-panel {
+      position: absolute;
+      top: 0;
+      right: -160px;
+      width: 160px;
+      height: 100%;
+      background: var(--paper-cream);
+      border-left: var(--border-bold);
+      z-index: 6;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      gap: 0.75rem;
+      transition: right 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .sim-drawer-panel.is-open {
+      right: 0;
+    }
+
+    .drawer-close-btn {
+      align-self: flex-end;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: bold;
+      border: 1px solid var(--ink-black);
+      background: var(--surface-card);
+      padding: 0.15rem 0.35rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Rotator demo */
+    .sim-rotator-text {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .sim-rotator-word {
+      display: inline-block;
+      min-width: 110px;
+      border-bottom: 3px solid var(--accent-mustard);
+      transition: opacity 200ms ease;
+    }
+
+    /* Button states demo */
+    .sim-chunky-btn {
+      background: var(--accent-mustard);
+      border: var(--border-bold);
+      border-radius: var(--radius-pill);
+      padding: 0.6rem 1.25rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-sticker);
+      transition: transform 150ms ease, box-shadow 150ms ease;
+      outline: none;
+      position: relative;
+    }
+
+    .sim-chunky-btn:hover {
+      transform: translate(1px, 1px);
+      box-shadow: var(--shadow-sticker-hover);
+      background: var(--accent-mustard-hover);
+    }
+
+    .sim-chunky-btn:active {
+      transform: translate(4px, 4px);
+      box-shadow: none;
+      background: var(--accent-mustard-active);
+    }
+
+    .sim-chunky-btn:focus-visible::after {
+      content: "";
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      right: -6px;
+      bottom: -6px;
+      border: 2px solid var(--ink-black);
+      border-radius: var(--radius-pill);
+      pointer-events: none;
+    }
+
+    /* Form states simulation */
+    .sim-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      width: 180px;
+      font-size: 0.75rem;
+    }
+
+    .sim-input {
+      border: var(--border-default);
+      padding: 0.35rem 0.5rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      outline: none;
+    }
+
+    .sim-field.error .sim-input {
+      border-color: #EF4444;
+      background: #FEF2F2;
+    }
+    .sim-field.success .sim-input {
+      border-color: #22C55E;
+      background: #F0FDF4;
+    }
+
+    .sim-error-msg {
+      color: #EF4444;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: bold;
+    }
+    .sim-success-msg {
+      color: #22C55E;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: bold;
+    }
+
+    /* Interactive Tokens Swatches Grid (Slide 5) */
+    .token-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.75rem;
+      overflow-y: auto;
+      max-height: 250px;
+      padding: 0.5rem;
+    }
+
+    .token-card {
+      background: var(--surface-card);
+      border: var(--border-default);
+      border-radius: var(--radius-md);
+      padding: 0.4rem;
+      cursor: pointer;
+      transition: all 150ms;
+      text-align: center;
+    }
+    .token-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 2px 2px 0 var(--ink-black);
+    }
+    .token-card-color {
+      height: 40px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(0,0,0,0.1);
+      margin-bottom: 0.25rem;
+    }
+    .token-card-name {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .token-card-hex {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: var(--ink-muted);
+    }
+
+    /* Interactive Route Visualizer (Slide 6) */
+    .matrix-selector {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .matrix-btn {
+      background: var(--surface-card);
+      border: var(--border-default);
+      border-radius: var(--radius-pill);
+      padding: 0.35rem 0.85rem;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 100ms;
+    }
+    .matrix-btn.active {
+      background: var(--heat-red);
+      color: var(--ink-white);
+      box-shadow: 1px 1px 0 var(--ink-black);
+    }
+
+    .wire-canvas {
+      border: var(--border-bold);
+      border-radius: var(--radius-lg);
+      background: var(--paper-cream);
+      padding: 1rem;
+      height: 100%;
+      min-height: 280px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      box-shadow: var(--shadow-sticker);
+    }
+
+    .wire-strip {
+      border: 2px dashed var(--ink-muted);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: bold;
+      text-align: center;
+      background: rgba(0,0,0,0.02);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .wire-strip.red {
+      background-color: var(--heat-red);
+      background-image:
+        linear-gradient(rgba(193, 18, 31, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(193, 18, 31, 0.2) 1px, transparent 1px);
+      background-size: 12px 12px;
+      border-color: var(--ink-black);
+      color: var(--ink-white);
+      -webkit-text-stroke: 0.5px var(--ink-black);
+    }
+
+    .wire-strip-id {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: normal;
+      opacity: 0.8;
+    }
+
+    /* Checklist Progress (Slide 7) */
+    .checklist-progress-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--surface-card);
+      border: var(--border-default);
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-md);
+      margin-bottom: 0.75rem;
+    }
+
+    .checklist-count {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .checklist-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      overflow-y: auto;
+      max-height: 250px;
+      padding-right: 0.5rem;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      cursor: pointer;
+      user-select: none;
+      padding: 0.2rem;
+      border-radius: var(--radius-sm);
+      transition: background 150ms;
+    }
+
+    .checklist-item:hover {
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    .checklist-checkbox {
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--ink-black);
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface-card);
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-weight: bold;
+      font-size: 0.75rem;
+      color: var(--heat-red);
+    }
+
+    .checklist-item.checked .checklist-checkbox::after {
+      content: "✓";
+    }
+
+    /* Tabs for Deferral Ledger (Slide 8) */
+    .tab-header-row {
+      display: flex;
+      border-bottom: 2px solid var(--ink-black);
+      margin-bottom: 0.75rem;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all 150ms;
+    }
+
+    .tab-btn.active {
+      color: var(--ink-black);
+      border-bottom-color: var(--heat-red);
+    }
+
+    .tab-pane {
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      overflow-y: auto;
+      height: 180px;
+    }
+    .tab-pane.active {
+      display: flex;
+    }
+
+    .ledger-row {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      padding: 0.4rem 0;
+      border-bottom: 1px dashed rgba(0,0,0,0.1);
+      font-size: 0.8rem;
+    }
+
+    .ledger-feature {
+      font-weight: bold;
+      font-family: var(--font-display);
+    }
+
+    .ledger-desc {
+      color: var(--ink-muted);
+      line-height: 1.3;
+    }
+
+    /* Help tooltips */
+    .nav-tip {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      text-align: right;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .split-layout, .simulator-container {
+        grid-template-columns: 1fr;
+        height: auto;
+        overflow-y: visible;
+      }
+      body {
+        overflow-y: auto;
+        height: auto;
+      }
+      .slide {
+        position: relative;
+        height: auto;
+        opacity: 0;
+        display: none;
+        padding: 1.5rem;
+      }
+      .slide.active {
+        opacity: 1;
+        display: flex;
+      }
+      .main-container {
+        height: auto;
+        overflow: visible;
+        flex-direction: column;
+      }
+      .deck-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: var(--border-default);
+        height: 150px;
+        flex-shrink: 0;
+        padding: 1rem;
+      }
+      .slides-wrapper {
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="deck-header">
+    <div class="deck-logo" onclick="goToSlide(0)">
+      Jawad <span>Studio Kitchen</span>
+    </div>
+    <div class="deck-title-mini">
+      <span>Wireframe v2 Spec Deck</span>
+      <span class="doc-badge">Stage 0b → 0c Gate</span>
+    </div>
+  </header>
+
+  <!-- MAIN PRESENTATION AREA -->
+  <main class="main-container">
+    
+    <!-- LEFT SIDEBAR OUTLINE -->
+    <nav class="deck-sidebar">
+      <div class="sidebar-heading">Presentation Map</div>
+      <button class="sidebar-btn active" onclick="goToSlide(0)">
+        <span class="sidebar-btn-num">01</span> Cover &amp; Project Info
+      </button>
+      <button class="sidebar-btn" onclick="goToSlide(1)">
+        <span class="sidebar-btn-num">02</span> README: Status &amp; Hub
+      </button>
+      <button class="sidebar-btn" onclick="goToSlide(2)">
+        <span class="sidebar-btn-num">03</span> Pipeline: v1 → v2 → v3
+      </button>
+      <button class="sidebar-btn" onclick="goToSlide(3)">
+        <span class="sidebar-btn-num">04</span> Annotation: Behaviors
+      </button>
+      <button class="sidebar-btn" onclick="goToSlide(4)">
+        <span class="sidebar-btn-num">05</span> Chrome: Design Tokens
+      </button>
+      <button class="sidebar-btn" onclick="goToSlide(5)">
+        <span class="sidebar-btn-num">06</span> Matrix: Section Order
+      </button>
+      <button class="sidebar-btn" onclick="goToSlide(6)">
+        <span class="sidebar-btn-num">07</span> Exit Checklist: Gates
+      </button>
+      <button class="sidebar-btn" onclick="goToSlide(7)">
+        <span class="sidebar-btn-num">08</span> Handoff: Promotion
+      </button>
+      <button class="sidebar-btn" onclick="goToSlide(8)">
+        <span class="sidebar-btn-num">09</span> Summary &amp; Handoff
+      </button>
+    </nav>
+
+    <!-- RIGHT SLIDE VIEWPORT -->
+    <div class="slides-wrapper">
+
+      <!-- SLIDE 1: COVER -->
+      <section class="slide active red-grid" id="slide-1" style="justify-content: center; align-items: center; text-align: center;">
+        <div style="max-width: 780px; background: var(--paper-cream); border: var(--border-bold); border-radius: var(--radius-xl); padding: 3rem 2.5rem; box-shadow: var(--shadow-poster); position: relative;">
+          <div class="kicker" style="margin-bottom: 0.75rem; font-size: 0.8rem; color: var(--ink-black);">Interactive Guide</div>
+          
+          <h1 style="font-family: var(--font-display); font-size: clamp(2.25rem, 5.5vw, 3.75rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.25rem;">
+            Completing <span style="color: var(--heat-red)">Wireframe v2</span><br/>
+            <span class="text-script" style="font-size: clamp(2.25rem, 5.5vw, 3.75rem); color: var(--accent-mustard); -webkit-text-stroke: 2px var(--ink-black);">Interaction Pass</span>
+          </h1>
+          
+          <p style="font-size: 1.05rem; line-height: 1.5; margin-bottom: 2rem; color: var(--ink-muted); font-weight: 500;">
+            A detailed, styled walk-through of the Studio Kitchen Stage 0b wireframe documents. Understand the interaction specifications, exit checklist gates, and promotion criteria for the v3 handoff.
+          </p>
+
+          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.75rem;">
+            <button class="btn-nav" style="background: var(--accent-mustard); padding: 0.65rem 1.75rem; font-size: 0.95rem;" onclick="nextSlide()">
+              Start the review →
+            </button>
+          </div>
+
+          <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-subtle);">
+            Press <span style="background:rgba(0,0,0,0.06); padding:1px 4px; border:1px solid #ccc; border-radius:3px;">SPACEBAR</span>, <span style="background:rgba(0,0,0,0.06); padding:1px 4px; border:1px solid #ccc; border-radius:3px;">→</span> Arrow, or Sidebar links to navigate.
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 2: README.MD HUB & HUB STATUS -->
+      <section class="slide" id="slide-2">
+        <h1 class="slide-title"><span class="slide-num">02</span> README.md: Documentation Hub &amp; Status</h1>
+        <p class="lead-text">
+          The hub file index (<code>docs/wireframes-v2/README.md</code>) establishes the current state of each route and outlines instructions for local stakeholder review.
+        </p>
+
+        <div class="split-layout">
+          <!-- Interactive Status Matrix -->
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <div class="kicker">Interactive Status Dashboard</div>
+            <p style="font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 0.25rem;">Click status pills to cycle through lifecycle phases:</p>
+            
+            <div class="status-matrix-container">
+              <div class="status-row header">
+                <div>Route</div>
+                <div>v2 Target File</div>
+                <div>Status</div>
+                <div>Blocker</div>
+              </div>
+              
+              <div class="status-row">
+                <div style="font-weight:bold;">/ (Homepage)</div>
+                <div style="font-family:var(--font-mono);">homepage-wireframe-v2.html</div>
+                <div><span class="status-pill scaffold" onclick="cycleStatus(this)">scaffold</span></div>
+                <div style="color:var(--ink-muted);">Art placeholders</div>
+              </div>
+
+              <div class="status-row">
+                <div style="font-weight:bold;">/order</div>
+                <div style="font-family:var(--font-mono);">order-wireframe-v2.html</div>
+                <div><span class="status-pill not-started" onclick="cycleStatus(this)">not started</span></div>
+                <div style="color:var(--ink-subtle);">—</div>
+              </div>
+
+              <div class="status-row">
+                <div style="font-weight:bold;">/contact</div>
+                <div style="font-family:var(--font-mono);">contact-wireframe-v2.html</div>
+                <div><span class="status-pill not-started" onclick="cycleStatus(this)">not started</span></div>
+                <div style="color:var(--ink-subtle);">—</div>
+              </div>
+
+              <div class="status-row">
+                <div style="font-weight:bold;">/services</div>
+                <div style="font-family:var(--font-mono);">services-wireframe-v2.html</div>
+                <div><span class="status-pill not-started" onclick="cycleStatus(this)">not started</span></div>
+                <div style="color:var(--ink-subtle);">—</div>
+              </div>
+
+              <div class="status-row">
+                <div style="font-weight:bold;">/work</div>
+                <div style="font-family:var(--font-mono);">work-wireframe-v2.html</div>
+                <div><span class="status-pill not-started" onclick="cycleStatus(this)">not started</span></div>
+                <div style="color:var(--ink-subtle);">—</div>
+              </div>
+
+              <div class="status-row">
+                <div style="font-weight:bold;">/work/[slug]</div>
+                <div style="font-family:var(--font-mono);">case-study-wireframe-v2.html</div>
+                <div><span class="status-pill not-started" onclick="cycleStatus(this)">not started</span></div>
+                <div style="color:var(--ink-subtle);">—</div>
+              </div>
+
+              <div class="status-row">
+                <div style="font-weight:bold;">/404</div>
+                <div style="font-family:var(--font-mono);">404-wireframe-v2.html</div>
+                <div><span class="status-pill not-started" onclick="cycleStatus(this)">not started</span></div>
+                <div style="color:var(--ink-subtle);">—</div>
+              </div>
+
+              <div class="status-row">
+                <div style="font-weight:bold; color:var(--ink-subtle);">/about</div>
+                <div style="font-family:var(--font-mono); color:var(--ink-subtle);">about-wireframe-v2.html</div>
+                <div><span class="status-pill not-started" onclick="cycleStatus(this)">not started</span></div>
+                <div style="color:var(--heat-red); font-weight:bold;">v1 structure blocked</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Specifications and Review details -->
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; overflow-y: auto;">
+            <div class="kicker">Review &amp; Format Shift</div>
+            
+            <div class="spec-card">
+              <div class="spec-group">
+                <div class="spec-label">Format Shift: Scrollable HTML</div>
+                <div class="spec-value">
+                  Unlike v1 (which used side-by-side static 1200px and 375px dual frames), v2 uses <strong>one responsive scrollable page</strong> per route. This allows reviewer-interaction simulation.
+                </div>
+              </div>
+            </div>
+
+            <div class="spec-card">
+              <div class="spec-group">
+                <div class="spec-label">Step-by-Step Review Guide</div>
+                <div class="spec-value">
+                  <ol style="margin-left:1.1rem; margin-top:0.25rem;">
+                    <li>Serve locally: <code>npx --yes serve "docs/wireframes-v2" -p 3000</code></li>
+                    <li>Verify at key viewports: <strong>375px</strong> (mobile) · <strong>900px</strong> (tablet) · <strong>1200px</strong> (desktop).</li>
+                    <li>Exercise scroll height shrinks, drawer panel escape keys, button active presses, and accordion toggles.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            <!-- Viewport Simulator Widget -->
+            <div class="spec-card" style="background:var(--paper-cream-dark); border-style:dashed;">
+              <div class="spec-label">Viewport Breakpoint Spec Cheat Sheet</div>
+              <div style="display:flex; gap:0.5rem; margin-top:0.25rem; margin-bottom:0.5rem;">
+                <button class="matrix-btn active" style="font-size:0.65rem; padding:0.2rem 0.5rem;" onclick="setViewportText('375px', 'Mobile drawer collapses global nav. Process steps stack vertically with left connector line. Tools grid shows 2x4 layout.', this)">375px</button>
+                <button class="matrix-btn" style="font-size:0.65rem; padding:0.2rem 0.5rem;" onclick="setViewportText('900px', 'Intermediate tablet layout. Navbar collapses to hamburger drawer. Process timeline switches flex-direction. Tools grid converts to 4x2 grid.', this)">900px</button>
+                <button class="matrix-btn" style="font-size:0.65rem; padding:0.2rem 0.5rem;" onclick="setViewportText('1200px', 'Desktop full-width layout. Fixed navigation shows transparent over red hero, transitioning to cream sticky background upon scroll.', this)">1200px</button>
+              </div>
+              <div style="font-size:0.8rem; line-height:1.4;" id="viewport-spec-text">
+                Select a viewport breakpoint above to inspect the specific responsive behavior requirements.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3: PIPELINE-OVERVIEW.MD NARRATIVE -->
+      <section class="slide" id="slide-3">
+        <h1 class="slide-title"><span class="slide-num">03</span> pipeline-overview.md: v1 → v2 → v3 Narrative</h1>
+        <p class="lead-text">
+          The pipeline acts as a series of iteration gates. Each version solidifies separate aspects of the UX before handing off a clean layout schema to the Next.js developer.
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem; height: 100%;">
+          <!-- Pipeline stage selectors -->
+          <div class="pipeline-grid">
+            <div class="pipeline-card active" onclick="setPipelineStage('v1', this)">
+              <div class="pipeline-card-title">Wireframe v1</div>
+              <div class="pipeline-card-stage">Stage 0a (Done)</div>
+              <div style="font-size:0.7rem; color:var(--ink-muted);">Structure &amp; Section Order</div>
+            </div>
+
+            <div class="pipeline-card" onclick="setPipelineStage('v2', this)">
+              <div class="pipeline-card-title">Wireframe v2</div>
+              <div class="pipeline-card-stage">Stage 0b (In Progress)</div>
+              <div style="font-size:0.7rem; color:var(--ink-muted);">Tokens &amp; Interaction Demo</div>
+            </div>
+
+            <div class="pipeline-card" onclick="setPipelineStage('v3', this)">
+              <div class="pipeline-card-title">Wireframe v3</div>
+              <div class="pipeline-card-stage">Stage 0c (Not Started)</div>
+              <div style="font-size:0.7rem; color:var(--ink-muted);">Spacing &amp; Specs Label Layer</div>
+            </div>
+
+            <div class="pipeline-card" onclick="setPipelineStage('midfi', this)">
+              <div class="pipeline-card-title">Mid-Fi Code</div>
+              <div class="pipeline-card-stage">Stage 1 Build</div>
+              <div style="font-size:0.7rem; color:var(--ink-muted);">Next.js React Scaffold</div>
+            </div>
+          </div>
+
+          <!-- Dynamic Stage Output Split -->
+          <div class="split-layout">
+            <div class="spec-card">
+              <h3 class="display" style="font-size:1.1rem;" id="pipe-stage-title">Wireframe v1: Structure &amp; Section Order</h3>
+              <p style="font-size:0.85rem; color:var(--ink-muted); font-family:var(--font-mono);" id="pipe-stage-subtitle">Format: Grayscale dual static frames (1200px + 375px)</p>
+              <div style="border-bottom:1px solid #ccc; margin:0.25rem 0;"></div>
+              
+              <div class="spec-group">
+                <div class="spec-label">Locked Deliverables</div>
+                <div class="spec-value" id="pipe-stage-locked">
+                  Section order, anchor structures, verbatim copy lines from markdown briefs, dual-frame layouts, and base CTA directions (e.g. order flow redirecting to /order).
+                </div>
+              </div>
+
+              <div class="spec-group">
+                <div class="spec-label">Deferred / Ignored Features</div>
+                <div class="spec-value" id="pipe-stage-deferred">
+                  All color variables, font families, scrolling states (sticky headers, drop blur), animation crossfades, form validation styles, accordion toggling.
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:0.75rem;">
+              <div class="spec-card">
+                <div class="spec-label">Pipeline Gate Rule</div>
+                <div class="spec-value" style="font-weight:500;">
+                  "Do not start the next stage until the current stage passes its exit checklist."
+                </div>
+                <div class="spec-value" style="color:var(--ink-muted);">
+                  This prevents layout regression and prevents developers from guessing scroll and hover interactions during mid-fi construction.
+                </div>
+              </div>
+
+              <div class="spec-card" style="background:var(--paper-cream-dark);">
+                <div class="spec-label">Tooling Environment Map</div>
+                <div class="spec-value" style="font-size:0.8rem; line-height:1.4;">
+                  <ul>
+                    <li><strong>design-token-system.md:</strong> Canonical color hex and size map source.</li>
+                    <li><strong>portfolio-component-token-spec.md:</strong> Element-to-token definitions.</li>
+                    <li><strong>brand_assets/logo/:</strong> Image logo lockups source.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4: V2-ANNOTATION-SPEC.MD BEHAVIOR CATALOG -->
+      <section class="slide" id="slide-4">
+        <h1 class="slide-title"><span class="slide-num">04</span> v2-annotation-spec.md: Behavior Catalog</h1>
+        <p class="lead-text">
+          The behavior spec documents the exact interactive animations, form fields, and scroll transitions that the mid-fi developer must build.
+        </p>
+
+        <div class="simulator-container">
+          <!-- Left selectors -->
+          <div class="sim-selector">
+            <button class="sim-btn active" onclick="activateSimulation('nav-scroll', this)">1. Nav Scroll height</button>
+            <button class="sim-btn" onclick="activateSimulation('logo-swap', this)">2. Logo Surface Swap</button>
+            <button class="sim-btn" onclick="activateSimulation('mobile-drawer', this)">3. Mobile Nav Drawer</button>
+            <button class="sim-btn" onclick="activateSimulation('suffix-rotation', this)">4. Suffix Rotator</button>
+            <button class="sim-btn" onclick="activateSimulation('button-press', this)">5. Button Shadow Press</button>
+            <button class="sim-btn" onclick="activateSimulation('form-states', this)">6. Form Field Validation</button>
+          </div>
+
+          <!-- Right simulation box -->
+          <div style="display:flex; flex-direction:column; gap:0.75rem;">
+            <div class="sim-viewport" id="sim-canvas">
+              <!-- Default: Nav scroll simulation visualizer -->
+              <div class="sim-nav-header" id="demo-nav-header">
+                <span class="sim-logo" id="demo-logo-span">JAWAD</span>
+                <div class="sim-menu-links" id="demo-menu-links">
+                  <span>Work</span> · <span>Services</span>
+                </div>
+                <button class="sim-nav-cta">Chat chef</button>
+              </div>
+              <div style="text-align:center; padding-top:40px;" id="sim-instructions-box">
+                <p style="font-size:0.85rem; font-weight:bold; margin-bottom:0.5rem;">Scroll simulation</p>
+                <button class="btn-nav" style="font-size:0.75rem; padding:0.3rem 0.85rem;" onclick="toggleSimScroll()">Toggle Scroll State</button>
+              </div>
+            </div>
+
+            <!-- Behavior description -->
+            <div class="spec-card">
+              <div class="spec-label" id="sim-spec-title">Nav Scroll Shrink &amp; Blur</div>
+              <div class="spec-value" id="sim-spec-desc">
+                Starts transparent/minimal over red hero. After ~64px scroll, nav receives <code>paper.cream</code> background with 12px backdrop blur, 2px black bottom border, height shrinks 64px → 56px.
+              </div>
+              <div class="spec-value" style="font-family:var(--font-mono); font-size:0.7rem; color:var(--ink-subtle);" id="sim-spec-source">
+                Source: v2-annotation-spec.md §1 · shared-chrome-spec.md
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: SHARED-CHROME-SPEC.MD DESIGN SYSTEM TOKENS -->
+      <section class="slide" id="slide-5">
+        <h1 class="slide-title"><span class="slide-num">05</span> shared-chrome-spec.md: Shared Chrome &amp; Tokens</h1>
+        <p class="lead-text">
+          A shared design foundation ensures consistency. Wireframe v2 implements the Studio Kitchen colors, typographic scales, and chunky physical buttons.
+        </p>
+
+        <div class="split-layout">
+          <!-- System Tokens Grid -->
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <div class="kicker">Canonical Color System</div>
+            <p style="font-size:0.8rem; color:var(--ink-muted); margin-bottom:0.25rem;">Hover color cards to inspect variables:</p>
+            
+            <div class="token-grid">
+              <div class="token-card" title="Primary background canvas surface">
+                <div class="token-card-color" style="background:#FCEAD4;"></div>
+                <div class="token-card-name">paper-cream</div>
+                <div class="token-card-hex">#FCEAD4</div>
+              </div>
+              
+              <div class="token-card" title="Darker cream for outlines and margins">
+                <div class="token-card-color" style="background:#F5DFC4;"></div>
+                <div class="token-card-name">cream-dark</div>
+                <div class="token-card-hex">#F5DFC4</div>
+              </div>
+
+              <div class="token-card" title="White box background for cards">
+                <div class="token-card-color" style="background:#FFFFFF; border:1px solid #ddd;"></div>
+                <div class="token-card-name">surface-card</div>
+                <div class="token-card-hex">#FFFFFF</div>
+              </div>
+
+              <div class="token-card" title="Primary typography color">
+                <div class="token-card-color" style="background:#000000;"></div>
+                <div class="token-card-name">ink-black</div>
+                <div class="token-card-hex">#000000</div>
+              </div>
+
+              <div class="token-card" title="Secondary typography color on cream">
+                <div class="token-card-color" style="background:#5C4A3A;"></div>
+                <div class="token-card-name">ink-muted</div>
+                <div class="token-card-hex">#5C4A3A</div>
+              </div>
+
+              <div class="token-card" title="Red hero grid background">
+                <div class="token-card-color" style="background:#E63946;"></div>
+                <div class="token-card-name">heat-red</div>
+                <div class="token-card-hex">#E63946</div>
+              </div>
+
+              <div class="token-card" title="Mustard color for high-contrast primary CTA">
+                <div class="token-card-color" style="background:#F4B942;"></div>
+                <div class="token-card-name">accent-mustard</div>
+                <div class="token-card-hex">#F4B942</div>
+              </div>
+            </div>
+
+            <!-- Typography specifications -->
+            <div class="spec-card" style="margin-top:0.25rem;">
+              <div class="spec-label">Studio Kitchen Typography Matrix</div>
+              <div style="font-size:0.75rem; line-height:1.4;">
+                <table style="width:100%; border-collapse:collapse; text-align:left;">
+                  <tr style="border-bottom:1px solid #ddd;"><th style="padding:0.2rem 0;">Role</th><th>Family</th><th>Target Style</th></tr>
+                  <tr><td style="padding:0.2rem 0; font-weight:bold;">Display</td><td>Fredoka</td><td>600/700, Logo fallback, Headings</td></tr>
+                  <tr><td style="padding:0.2rem 0; font-weight:bold;">Script</td><td style="font-family:var(--font-script);">Caveat</td><td>700, Poster script accent titles</td></tr>
+                  <tr><td style="padding:0.2rem 0; font-weight:bold;">Body</td><td>Inter</td><td>400/500, Paragraphs, forms, FAQs</td></tr>
+                  <tr><td style="padding:0.2rem 0; font-weight:bold;">Kicker</td><td style="font-family:var(--font-mono);">JetBrains</td><td>500, Metadata &amp; Section labels</td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Buttons & logo maps -->
+          <div style="display:flex; flex-direction:column; gap:0.75rem;">
+            <!-- Logo map -->
+            <div class="spec-card">
+              <h3 class="display" style="font-size:1rem; margin-bottom:0.25rem;">Logo Surface Mapping</h3>
+              <p style="font-size:0.8rem; color:var(--ink-muted);">Lockups are dynamically swapped depending on scroll or section color:</p>
+              <div style="font-size:0.75rem; line-height:1.45; margin-top:0.25rem;">
+                <ul style="padding-left:1rem;">
+                  <li><strong>Red Hero Nav (Top):</strong> <code>jawad-design-lockup-nav.svg</code> (white outline text)</li>
+                  <li><strong>Cream Nav (Scrolled):</strong> <code>jawad-design-lockup-black.svg</code> (solid black text)</li>
+                  <li><strong>Footers &amp; Cream sections:</strong> <code>jawad-design-lockup-black.svg</code> (always black)</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Button Sandbox -->
+            <div class="spec-card">
+              <h3 class="display" style="font-size:1.1rem; margin-bottom:0.25rem;">Button Sandbox</h3>
+              <p style="font-size:0.8rem; color:var(--ink-muted); margin-bottom:0.5rem;">Hover and click the buttons to test the physical press offset transitions:</p>
+              
+              <div style="display:flex; gap:0.75rem; align-items:center; margin-bottom:0.5rem;">
+                <button class="sim-chunky-btn">Mustard Primary</button>
+                <button class="sim-chunky-btn" style="background:#FFFFFF; color:#000;">White Secondary</button>
+              </div>
+
+              <div style="font-size:0.75rem; line-height:1.45; border-top:1px dashed #ccc; padding-top:0.5rem;">
+                <ul>
+                  <li><strong>Default shadow:</strong> 4px 4px 0 #000 (<code>shadow.sticker</code>)</li>
+                  <li><strong>Hover shift:</strong> <code>translate(1px, 1px)</code> with 2px offset shadow</li>
+                  <li><strong>Active press:</strong> <code>translate(4px, 4px)</code> with no shadow</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: PAGE-MATRIX.MD PER-ROUTE SCOPE -->
+      <section class="slide" id="slide-6">
+        <h1 class="slide-title"><span class="slide-num">06</span> page-matrix.md: Route Scope &amp; Section Order</h1>
+        <p class="lead-text">
+          The page matrix maps out the exact sequence of content blocks for all routes. It defines content anchors, visual surfaces, and local navigation relationships.
+        </p>
+
+        <div class="split-layout">
+          <!-- Route selector and wire canvas -->
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <div class="kicker">Interactive Route Layout Canvas</div>
+            
+            <div class="matrix-selector">
+              <button class="matrix-btn active" onclick="selectRouteWire('home', this)">/ Homepage</button>
+              <button class="matrix-btn" onclick="selectRouteWire('order', this)">/order</button>
+              <button class="matrix-btn" onclick="selectRouteWire('contact', this)">/contact</button>
+              <button class="matrix-btn" onclick="selectRouteWire('services', this)">/services</button>
+              <button class="matrix-btn" onclick="selectRouteWire('work', this)">/work index</button>
+            </div>
+
+            <!-- Mock layout wire canvas -->
+            <div class="wire-canvas" id="route-wire-canvas">
+              <!-- Will be populated dynamically -->
+            </div>
+          </div>
+
+          <!-- Description and order spec details -->
+          <div style="display:flex; flex-direction:column; gap:0.75rem; overflow-y:auto;">
+            <div class="spec-card">
+              <h3 class="display" style="font-size:1.1rem; color:var(--heat-red);" id="matrix-route-title">/ Homepage</h3>
+              <p style="font-size:0.8rem; color:var(--ink-muted); font-family:var(--font-mono);" id="matrix-route-anchors">Anchors: #hero, #trust, #why-order, #work, #process, #tools, #cta</p>
+              <div style="border-bottom:1px solid #ccc; margin:0.25rem 0;"></div>
+              
+              <div class="spec-group">
+                <div class="spec-label">Wave ordering ( funnel first )</div>
+                <div class="spec-value" id="matrix-route-purpose">
+                  Funnel pages are wave 1 &amp; 2 (Homepage, /order, /contact). Route matrix blocks v1 deferrals (About, Journal) to wave 5.
+                </div>
+              </div>
+
+              <div class="spec-group">
+                <div class="spec-label">Special Scope Notes</div>
+                <div class="spec-value" id="matrix-route-scope">
+                  Includes the new <code>#why-order</code> segment consisting of three clickable teaser tiles that link to services sub-anchors.
+                </div>
+              </div>
+            </div>
+
+            <div class="spec-card" style="background:var(--paper-cream-dark);">
+              <h4 class="display" style="font-size:0.9rem; margin-bottom:0.25rem;">The /order &amp; #why-order Funnel Link</h4>
+              <p style="font-size:0.8rem; line-height:1.4;">
+                The three tiles under <code>#why-order</code> are block links targeting services: <code>/services#why-portfolio</code>, <code>#why-landing</code>, and <code>#why-brands</code>. Clicking global CTAs ("Chat to the chef") routes directly to the <code>/order</code> cream page where visitors initiate their project requests.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 7: V2-EXIT-CHECKLIST.MD GATES -->
+      <section class="slide" id="slide-7">
+        <h1 class="slide-title"><span class="slide-num">07</span> v2-exit-checklist.md: Gate to Wireframe v3</h1>
+        <p class="lead-text">
+          No route may be promoted to v3 unless it passes all exit criteria. Run through the interactive checklist below to track review progress.
+        </p>
+
+        <div style="display:flex; flex-direction:column; gap:0.75rem; height:100%;">
+          <!-- Progress Tracker -->
+          <div class="checklist-progress-container">
+            <span class="checklist-count" id="checklist-progress-count">0 of 12 completed</span>
+            <div class="progress-track" style="margin:0 1rem; height:10px;">
+              <div class="progress-bar" id="checklist-progress-bar" style="width: 0%;"></div>
+            </div>
+            <button class="btn-nav" style="font-size:0.7rem; padding:0.25rem 0.65rem;" onclick="resetChecklist()">Reset</button>
+          </div>
+
+          <div class="split-layout">
+            <!-- Global Checklist (Left) -->
+            <div class="spec-card" style="height:270px; overflow-y:auto;">
+              <h3 class="display" style="font-size:1rem; border-bottom:1px dashed #ccc; padding-bottom:0.25rem;">Global Gates (All Funnel Routes)</h3>
+              
+              <div class="checklist-list">
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                  <span class="checklist-checkbox"></span>
+                  <span>Responsive, scrollable HTML file exists.</span>
+                </div>
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                  <span class="checklist-checkbox"></span>
+                  <span>Section order matches specs (no additions or reordering).</span>
+                </div>
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                  <span class="checklist-checkbox"></span>
+                  <span>Locked copywriting matches verbatim (no draft edits).</span>
+                </div>
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                  <span class="checklist-checkbox"></span>
+                  <span>Studio Kitchen tokens wired (cream, ink, heat).</span>
+                </div>
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                  <span class="checklist-checkbox"></span>
+                  <span>Global navbar &amp; footer present per shared chrome.</span>
+                </div>
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                  <span class="checklist-checkbox"></span>
+                  <span>Header primary CTA links to <code>/order</code> ("Chat to chef").</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Per-Route Checklist (Right) -->
+            <div class="spec-card" style="height:270px; overflow-y:auto;">
+              <h3 class="display" style="font-size:1rem; border-bottom:1px dashed #ccc; padding-bottom:0.25rem;">Homepage &amp; Funnel gates</h3>
+              
+              <div class="checklist-list">
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                  <span class="checklist-checkbox"></span>
+                  <span>Navbar scroll transitions, blur, and logo swap.</span>
+                </div>
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                  <span class="checklist-checkbox"></span>
+                  <span>Rotator suffix works &amp; prefers-reduced-motion falls back.</span>
+                </div>
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                  <span class="checklist-checkbox"></span>
+                  <span>Option B work grid configured (1 live + 1 coming soon).</span>
+                </div>
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                  <span class="checklist-checkbox"></span>
+                  <span>Process timeline connectors (horiz. desktop, vert. mobile).</span>
+                </div>
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                  <span class="checklist-checkbox"></span>
+                  <span>Tools 4x2 / 2x4 grids styled correctly.</span>
+                </div>
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                  <span class="checklist-checkbox"></span>
+                  <span>Reservation poster angled tilt (2deg) &amp; shadow applied.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 8: V3-HANDOFF-SPEC.MD PROMOTION -->
+      <section class="slide" id="slide-8">
+        <h1 class="slide-title"><span class="slide-num">08</span> v3-handoff-spec.md: Promotion &amp; Deferrals</h1>
+        <p class="lead-text">
+          Stage 0c marks the final wireframe gate. In v3, we label what v2 already shows, appending token variables and outlining deferred assets for production.
+        </p>
+
+        <div class="split-layout">
+          <!-- Promotion flow -->
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <div class="kicker">Promotion Workflow Steps</div>
+            
+            <div class="spec-card" style="padding:0.75rem;">
+              <div style="display:flex; flex-direction:column; gap:0.4rem; font-size:0.8rem;">
+                <div style="display:flex; align-items:center; gap:0.5rem;">
+                  <span class="badge badge-gate">Step 1</span>
+                  <span><strong>Copy HTML</strong> from <code>wireframes-v2</code> to <code>wireframes-v3</code></span>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.5rem; border-top:1px dashed #ccc; padding-top:0.4rem;">
+                  <span class="badge badge-gate">Step 2</span>
+                  <span><strong>Overlay Labels</strong> (Section IDs, tokens, spacing variables)</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.5rem; border-top:1px dashed #ccc; padding-top:0.4rem;">
+                  <span class="badge badge-gate">Step 3</span>
+                  <span><strong>Changelog Entry</strong> (Appended to spec footer with date/name)</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.5rem; border-top:1px dashed #ccc; padding-top:0.4rem;">
+                  <span class="badge badge-gate">Step 4</span>
+                  <span><strong>Hub Upgrade</strong> (Mark status <code>approved</code> in README)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Read order -->
+            <div class="spec-card" style="padding:0.75rem;">
+              <div class="spec-label">Mid-Fi Dev Read Order Priority</div>
+              <ol style="margin-left:1.1rem; font-size:0.75rem; line-height:1.4;">
+                <li><code>docs/wireframes-v3/homepage-wireframe-v3.html</code></li>
+                <li>Other approved <code>wireframe-v3</code> route files</li>
+                <li><code>docs/design-token-system.md</code> (Tailwind hexes)</li>
+                <li><code>docs/portfolio-component-token-spec.md</code></li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Tabbed Deferral Ledger -->
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <div class="kicker">Handoff Deferral Ledger</div>
+            
+            <div class="spec-card">
+              <div class="tab-header-row">
+                <button class="tab-btn active" onclick="selectLedgerTab('hifi', this)">Deferred to Hi-Fi (2)</button>
+                <button class="tab-btn" onclick="selectLedgerTab('prod', this)">Deferred to Prod (3)</button>
+                <button class="tab-btn" onclick="selectLedgerTab('post', this)">Deferred Post-Launch</button>
+              </div>
+
+              <!-- Hi-fi Tab -->
+              <div class="tab-pane active" id="ledger-hifi">
+                <div class="ledger-row">
+                  <div class="ledger-feature">Kitchen Art</div>
+                  <div class="ledger-desc">Replace line placeholders with final brand illustration assets.</div>
+                </div>
+                <div class="ledger-row">
+                  <div class="ledger-feature">Video Loop</div>
+                  <div class="ledger-desc">Video backdrops or hero loop overlays.</div>
+                </div>
+                <div class="ledger-row">
+                  <div class="ledger-feature">Spline / GSAP</div>
+                  <div class="ledger-desc">Custom 3D elements or scroll-trigger scroll timeline animations.</div>
+                </div>
+              </div>
+
+              <!-- Prod Tab -->
+              <div class="tab-pane" id="ledger-prod">
+                <div class="ledger-row">
+                  <div class="ledger-feature">Calendly Link</div>
+                  <div class="ledger-desc">Wiring live Calendly scheduler to `#book` anchors.</div>
+                </div>
+                <div class="ledger-row">
+                  <div class="ledger-feature">Supabase POST</div>
+                  <div class="ledger-desc">Wiring Resend and Supabase backend to form endpoints.</div>
+                </div>
+                <div class="ledger-row">
+                  <div class="ledger-feature">Tool Logos</div>
+                  <div class="ledger-desc">Real branding logo SVG replacements for emoji placeholders.</div>
+                </div>
+              </div>
+
+              <!-- Post-Launch Tab -->
+              <div class="tab-pane" id="ledger-post">
+                <div class="ledger-row">
+                  <div class="ledger-feature">Testimonials</div>
+                  <div class="ledger-desc">Section remains hidden until 2+ authentic quotes are locked.</div>
+                </div>
+                <div class="ledger-row">
+                  <div class="ledger-feature">Work filter/tags</div>
+                  <div class="ledger-desc">Disabled until work portfolio has N &gt; 1 project items.</div>
+                </div>
+                <div class="ledger-row">
+                  <div class="ledger-feature">Journal Posts</div>
+                  <div class="ledger-desc">MDX article rendering can display empty/placeholder state initially.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 9: SUMMARY & ROADMAP CHECKLIST -->
+      <section class="slide" id="slide-9" style="justify-content: center; align-items: center; text-align: center;">
+        <div style="max-width: 680px; background: var(--surface-card); border: var(--border-bold); border-radius: var(--radius-xl); padding: 3rem 2rem; box-shadow: var(--shadow-sticker);">
+          <div class="kicker">Spec Presentation End</div>
+          
+          <h2 class="display" style="font-size:2rem; margin-bottom:1rem; color:var(--heat-red);">Ready to Complete Wireframe v2?</h2>
+          
+          <p style="font-size:0.95rem; line-height:1.5; color:var(--ink-muted); margin-bottom:1.5rem;">
+            You now have a clear roadmap to complete the Stage 0b interaction frames. Keep copy locked, maintain the 3-tier accent budget, and wire the spec footers!
+          </p>
+
+          <div style="background:var(--paper-cream); border:var(--border-default); padding:1rem; border-radius:var(--radius-lg); text-align:left; margin-bottom:1.5rem; font-size:0.8rem; line-height:1.4;">
+            <strong>Your Next Actions:</strong>
+            <ul style="margin-left:1.25rem; margin-top:0.25rem;">
+              <li>Flesh out <code>order-wireframe-v2.html</code> &amp; <code>contact-wireframe-v2.html</code> first.</li>
+              <li>Verify hamburger drawer lockups and validation classes.</li>
+              <li>Append the required exit checklists in the <code>.spec-footer</code> block.</li>
+            </ul>
+          </div>
+
+          <button class="btn-nav" style="background:var(--accent-mustard); font-size:0.85rem;" onclick="goToSlide(0)">
+            🔄 Restart Presentation
+          </button>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- BOTTOM CONTROL BAR -->
+  <footer class="deck-controls">
+    <div class="nav-buttons">
+      <button class="btn-nav" id="prev-btn" onclick="prevSlide()">← Prev</button>
+      <button class="btn-nav" id="next-btn" onclick="nextSlide()">Next →</button>
+    </div>
+    
+    <div class="progress-track">
+      <div class="progress-bar" id="deck-progress"></div>
+    </div>
+
+    <div style="display:flex; align-items:center; gap:1.5rem;">
+      <div class="slide-indicator" id="deck-indicator">Slide 1 of 9</div>
+      <div class="nav-tip">Use Spacebar or ← / → key to browse</div>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE PRESENTATION LOGIC -->
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const sidebarButtons = document.querySelectorAll('.sidebar-btn');
+    const progressBar = document.getElementById('deck-progress');
+    const slideIndicator = document.getElementById('deck-indicator');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    // Suffix Rotate animation variables
+    let rotatorInterval = null;
+    let isReducedMotion = false;
+
+    // Viewport Text simulator data
+    function setViewportText(breakpoint, text, buttonEl) {
+      document.getElementById('viewport-spec-text').innerHTML = `<strong>Breakpoint ${breakpoint}:</strong> ${text}`;
+      const parent = buttonEl.parentElement;
+      parent.querySelectorAll('.matrix-btn').forEach(btn => btn.classList.remove('active'));
+      buttonEl.classList.add('active');
+    }
+
+    // Status grid cycle
+    const statusCycle = ['not started', 'scaffold', 'in review', 'done', 'approved'];
+    function cycleStatus(element) {
+      let currentVal = element.textContent.trim().toLowerCase();
+      let currentIndex = statusCycle.indexOf(currentVal);
+      let nextIndex = (currentIndex + 1) % statusCycle.length;
+      let nextVal = statusCycle[nextIndex];
+      
+      element.textContent = nextVal;
+      element.className = `status-pill ${nextVal.replace(' ', '-')}`;
+    }
+
+    // Slide switching
+    function goToSlide(index) {
+      if (index < 0 || index >= slides.length) return;
+      
+      slides[currentSlide].classList.remove('active');
+      sidebarButtons[currentSlide].classList.remove('active');
+      
+      currentSlide = index;
+      
+      slides[currentSlide].classList.add('active');
+      sidebarButtons[currentSlide].classList.add('active');
+
+      // Update footer UI
+      slideIndicator.textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
+      progressBar.style.width = `${((currentSlide) / (slides.length - 1)) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+
+      // Handle specific slide initializations
+      if (currentSlide === 2) {
+        // Rotating Suffix demo
+        initRotator();
+      } else {
+        stopRotator();
+      }
+
+      if (currentSlide === 3) {
+        // Behavior Simulator initial view
+        resetSimulation();
+      }
+
+      if (currentSlide === 5) {
+        // Page matrix initial view
+        document.querySelector('.matrix-btn').click();
+      }
+    }
+
+    function nextSlide() {
+      goToSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentSlide - 1);
+    }
+
+    // Keyboard handlers
+    document.addEventListener('keydown', (e) => {
+      // Don't intercept typing if fields are focused
+      if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+        return;
+      }
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+        e.preventDefault();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+        e.preventDefault();
+      }
+    });
+
+    // Swatch Pantry Inspector
+    function selectSwatch(id, hex, token, desc) {
+      const inspector = document.getElementById('swatch-inspector');
+      inspector.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+          <h3 class="display" style="font-size:1.15rem; color:var(--heat-red);">${token}</h3>
+          <span style="font-family:var(--font-mono); font-size:0.75rem; background:rgba(0,0,0,0.06); padding:0.1rem 0.4rem; border:1px solid #000; border-radius:4px;">${hex}</span>
+        </div>
+        <p style="font-size:0.85rem; line-height:1.45;">${desc}</p>
+      `;
+    }
+
+    // Suffix Rotator Simulator logic
+    const suffixWords = ["portfolios", "landing pages"];
+    let rotatorWordIndex = 0;
+
+    function initRotator() {
+      stopRotator();
+      if (isReducedMotion) {
+        setStaticRotatorText();
+        return;
+      }
+      
+      const target = document.getElementById('rotator-target');
+      if (!target) return;
+      target.textContent = suffixWords[rotatorWordIndex];
+      target.style.opacity = 1;
+
+      rotatorInterval = setInterval(() => {
+        rotateWordStep();
+      }, 4000);
+    }
+
+    function rotateWordStep() {
+      const target = document.getElementById('rotator-target');
+      if (!target) return;
+
+      // Fade out
+      target.style.opacity = 0;
+      
+      setTimeout(() => {
+        rotatorWordIndex = (rotatorWordIndex + 1) % suffixWords.length;
+        target.textContent = suffixWords[rotatorWordIndex];
+        // Fade in
+        target.style.opacity = 1;
+      }, 400); // matching 400ms fade duration
+    }
+
+    function forceRotateWord() {
+      if (isReducedMotion) return;
+      rotateWordStep();
+      // Reset timer
+      clearInterval(rotatorInterval);
+      rotatorInterval = setInterval(() => {
+        rotateWordStep();
+      }, 4000);
+    }
+
+    function stopRotator() {
+      if (rotatorInterval) {
+        clearInterval(rotatorInterval);
+        rotatorInterval = null;
+      }
+    }
+
+    function setStaticRotatorText() {
+      const target = document.getElementById('rotator-target');
+      const headline = document.getElementById('demo-headline');
+      if (headline) {
+        headline.innerHTML = `The kitchen for mouth-watering <span style="border-bottom:4px solid var(--accent-mustard);">portfolios and landing pages</span>`;
+      }
+    }
+
+    function toggleReducedMotion() {
+      const statusSpan = document.getElementById('motion-status');
+      const pill = document.getElementById('toggle-motion');
+      isReducedMotion = !isReducedMotion;
+
+      if (isReducedMotion) {
+        statusSpan.textContent = "ON";
+        pill.classList.add('active');
+        stopRotator();
+        setStaticRotatorText();
+      } else {
+        statusSpan.textContent = "OFF";
+        pill.classList.remove('active');
+        const headline = document.getElementById('demo-headline');
+        if (headline) {
+          headline.innerHTML = `The kitchen for mouth-watering <span class="rotate-word" id="rotator-target">portfolios</span>`;
+        }
+        initRotator();
+      }
+    }
+
+    // Pipeline stages database
+    const pipeData = {
+      v1: {
+        title: "Wireframe v1: Structure &amp; Section Order",
+        sub: "Format: Grayscale dual static frames (1200px + 375px)",
+        locked: "Section order, anchor structures, verbatim copy lines from markdown briefs, dual-frame layouts, and base CTA directions (e.g. order flow redirecting to /order).",
+        deferred: "All color variables, font families, scrolling states (sticky headers, drop blur), animation crossfades, form validation styles, accordion toggling."
+      },
+      v2: {
+        title: "Wireframe v2: Interaction &amp; Token Wiring",
+        sub: "Format: Responsive scrollable HTML with Studio Kitchen tokens",
+        locked: "Colors (cream/ink/heat), font families (Fredoka, Caveat, Inter, Mono), nav scroll shrinks, hamburger mobile drawers, crossfades, button press translations, form states (success/error border highlights).",
+        deferred: "Final hero artwork illustrations (uses cardboard mock placeholder), Spline 3D graphics, advanced GSAP/ScrollTrigger timeline animations, case study photo assets."
+      },
+      v3: {
+        title: "Wireframe v3: Build-Ready Annotations",
+        sub: "Format: Approved v2 copies with visible label overlays",
+        locked: "Overlay tags on section borders, specific font tokens mapped (e.g., font.display), spacing variables annotated (e.g., section-v-desktop), component borders labeled, sign-off registers.",
+        deferred: "No new layout changes allowed! v3 acts purely as an annotation review layer to prevent developer guesswork."
+      },
+      midfi: {
+        title: "Mid-Fi Code: Next.js React Build",
+        sub: "Format: React pages under app/ router",
+        locked: "Building page skeletons, navbar, footers, styling base sections with CSS variables + Tailwind matching tokens exactly, basic accordion states.",
+        deferred: "Spline 3D canvas rendering, live Calendly booking scheduling, Resend/Supabase form posting integrations, testimonials indexes."
+      }
+    };
+
+    function setPipelineStage(stage, cardEl) {
+      document.querySelectorAll('.pipeline-card').forEach(card => card.classList.remove('active'));
+      cardEl.classList.add('active');
+
+      const data = pipeData[stage];
+      document.getElementById('pipe-stage-title').innerHTML = data.title;
+      document.getElementById('pipe-stage-subtitle').textContent = data.sub;
+      document.getElementById('pipe-stage-locked').textContent = data.locked;
+      document.getElementById('pipe-stage-deferred').textContent = data.deferred;
+    }
+
+    // Simulation selector logic
+    function activateSimulation(simId, btnEl) {
+      document.querySelectorAll('.sim-btn').forEach(btn => btn.classList.remove('active'));
+      btnEl.classList.add('active');
+
+      const canvas = document.getElementById('sim-canvas');
+      const specTitle = document.getElementById('sim-spec-title');
+      const specDesc = document.getElementById('sim-spec-desc');
+      const specSource = document.getElementById('sim-spec-source');
+
+      // Clear previous simulation contents
+      canvas.innerHTML = '';
+      canvas.className = 'sim-viewport';
+
+      if (simId === 'nav-scroll') {
+        specTitle.textContent = "1. Nav Scroll Shrink & Blur";
+        specDesc.textContent = "Starts transparent/minimal over red hero. After ~64px scroll, nav receives cream background, 12px backdrop blur, 2px black bottom border, height shrinks 64px → 56px.";
+        specSource.textContent = "Source: v2-annotation-spec.md §1 · shared-chrome-spec.md";
+        
+        canvas.innerHTML = `
+          <div class="sim-nav-header" id="demo-nav-header" style="background:transparent;">
+            <span class="sim-logo" id="demo-logo-span" style="color:var(--ink-white);">JAWAD</span>
+            <div class="sim-menu-links" id="demo-menu-links" style="color:var(--ink-white);">
+              <span>Work</span> · <span>Services</span>
+            </div>
+            <button class="sim-nav-cta">Chat chef</button>
+          </div>
+          <div style="text-align:center; padding-top:40px; z-index:1;">
+            <p style="font-size:0.8rem; font-weight:bold; margin-bottom:0.5rem;">Scroll simulation</p>
+            <button class="btn-nav" style="font-size:0.75rem; padding:0.3rem 0.85rem;" onclick="toggleSimScroll()">Toggle Scroll State</button>
+          </div>
+        `;
+        canvas.classList.add('red-grid');
+      }
+
+      if (simId === 'logo-swap') {
+        specTitle.textContent = "2. Logo Surface Swap";
+        specDesc.textContent = "On transparent red hero nav, displays white outline lockup logo ('jawad-design-lockup-nav.svg'). On cream scrolled nav, displays black lockup logo ('jawad-design-lockup-black.svg').";
+        specSource.textContent = "Source: v2-annotation-spec.md §2 · shared-chrome-spec.md";
+
+        canvas.innerHTML = `
+          <div style="display:flex; flex-direction:column; gap:1.25rem; align-items:center;">
+            <div style="background:var(--heat-red); padding:1rem; border:2px solid #000; border-radius:8px; display:flex; flex-direction:column; align-items:center; gap:0.25rem;">
+              <span class="kicker" style="color:#000;">Red Hero (Transparent Nav)</span>
+              <div style="font-family:var(--font-display); font-weight:bold; color:var(--ink-white); border:2px solid var(--ink-white); padding:0.2rem 0.6rem; font-size:0.85rem; border-radius:4px;">
+                JAWAD DESIGN [White SVG]
+              </div>
+            </div>
+            <div style="background:var(--paper-cream); padding:1rem; border:2px solid #000; border-radius:8px; display:flex; flex-direction:column; align-items:center; gap:0.25rem;">
+              <span class="kicker">Cream Nav (Scrolled State)</span>
+              <div style="font-family:var(--font-display); font-weight:bold; color:var(--ink-black); border:2px solid var(--ink-black); padding:0.2rem 0.6rem; font-size:0.85rem; border-radius:4px;">
+                JAWAD DESIGN [Black SVG]
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      if (simId === 'mobile-drawer') {
+        specTitle.textContent = "3. Mobile Drawer Navigation";
+        specDesc.textContent = "Mobile hamburger clicks open full-height panel from right. 'Chat to the chef' is the first interactive element, with Escape key closing the panel and locking body overflow.";
+        specSource.textContent = "Source: v2-annotation-spec.md §3 · shared-chrome-spec.md";
+
+        canvas.innerHTML = `
+          <div class="sim-drawer-overlay" id="demo-overlay" onclick="toggleSimDrawer()"></div>
+          <div class="sim-drawer-panel" id="demo-drawer-panel">
+            <button class="drawer-close-btn" onclick="toggleSimDrawer()">ESC [x]</button>
+            <button class="sim-nav-cta" style="width:100%; margin-top:0.25rem;">Chat chef →</button>
+            <div style="display:flex; flex-direction:column; gap:0.5rem; font-family:var(--font-display); font-size:0.75rem; font-weight:600; margin-top:0.5rem;">
+              <span style="border-bottom:1px solid #ccc; padding-bottom:0.2rem;">Work</span>
+              <span style="border-bottom:1px solid #ccc; padding-bottom:0.2rem;">Services</span>
+              <span style="border-bottom:1px solid #ccc; padding-bottom:0.2rem;">Contact</span>
+            </div>
+          </div>
+          <button class="btn-nav" style="font-size:0.8rem; padding:0.4rem 1rem; z-index:2;" onclick="toggleSimDrawer()">Toggle Drawer Menu</button>
+        `;
+      }
+
+      if (simId === 'suffix-rotation') {
+        specTitle.textContent = "4. Suffix Rotator Crossfade";
+        specDesc.textContent = "Holds suffix text for ~4000ms before crossfading over 400ms opacity transition. Bailees out to static combined text on prefers-reduced-motion.";
+        specSource.textContent = "Source: v2-annotation-spec.md §5 · studio-kitchen-hero-prototype.html";
+
+        canvas.innerHTML = `
+          <div style="text-align:center;">
+            <p class="sim-rotator-text">
+              The kitchen for mouth-watering<br/>
+              <span class="sim-rotator-word" id="sim-rot-word">portfolios</span>
+            </p>
+            <div style="margin-top:1.5rem; display:flex; gap:0.5rem; justify-content:center;">
+              <button class="btn-nav" style="font-size:0.7rem; padding:0.25rem 0.65rem;" onclick="cycleSimRotator()">Cycle Word</button>
+            </div>
+          </div>
+        `;
+      }
+
+      if (simId === 'button-press') {
+        specTitle.textContent = "5. Button Press Physics";
+        specDesc.textContent = "Pill radius, 3px border, sticker offset shadow. Hover translates (1px, 1px) and active press translates (4px, 4px), removing shadow and offsetting focus-visible borders.";
+        specSource.textContent = "Source: v2-annotation-spec.md §6 · shared-chrome-spec.md";
+
+        canvas.innerHTML = `
+          <div style="display:flex; flex-direction:column; align-items:center; gap:0.75rem;">
+            <button class="sim-chunky-btn" id="chunky-sandbox">PLACE YOUR ORDER</button>
+            <p style="font-size:0.7rem; color:var(--ink-muted); text-align:center;">Click button to feel chunky physical offset shadow compression.</p>
+          </div>
+        `;
+      }
+
+      if (simId === 'form-states') {
+        specTitle.textContent = "6. Form Field Validation States";
+        specDesc.textContent = "Demonstrate error state (must use semantic border-color #EF4444) and success state (border-color #22C55E). No database posts required for Wireframe v2.";
+        specSource.textContent = "Source: v2-annotation-spec.md §13 · order-wireframe-v1.md";
+
+        canvas.innerHTML = `
+          <div style="display:flex; flex-direction:column; gap:0.75rem;">
+            <div class="sim-field" id="sim-field-el">
+              <label style="font-weight:bold; font-family:var(--font-display);">Email address *</label>
+              <input class="sim-input" type="text" placeholder="chef@studiokitchen.com" id="sim-field-input" value="invalid-email-format">
+              <span class="sim-error-msg" id="sim-field-msg">Please enter a valid email address.</span>
+            </div>
+            <div style="display:flex; gap:0.5rem;">
+              <button class="matrix-btn" style="font-size:0.65rem; padding:0.2rem 0.4rem;" onclick="setFormState('error')">Error State</button>
+              <button class="matrix-btn" style="font-size:0.65rem; padding:0.2rem 0.4rem;" onclick="setFormState('success')">Success State</button>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function toggleSimScroll() {
+      const header = document.getElementById('demo-nav-header');
+      const logo = document.getElementById('demo-logo-span');
+      if (header) {
+        header.classList.toggle('is-scrolled');
+        if (header.classList.contains('is-scrolled')) {
+          logo.textContent = "JAWAD [Scrolled black]";
+        } else {
+          logo.textContent = "JAWAD [Transparent white]";
+        }
+      }
+    }
+
+    function toggleSimDrawer() {
+      const overlay = document.getElementById('demo-overlay');
+      const panel = document.getElementById('demo-drawer-panel');
+      if (overlay && panel) {
+        overlay.classList.toggle('is-open');
+        panel.classList.toggle('is-open');
+      }
+    }
+
+    const simSuffixes = ["portfolios", "landing pages", "brands"];
+    let simSuffixIndex = 0;
+    function cycleSimRotator() {
+      const word = document.getElementById('sim-rot-word');
+      if (!word) return;
+      word.style.opacity = 0;
+      setTimeout(() => {
+        simSuffixIndex = (simSuffixIndex + 1) % simSuffixes.length;
+        word.textContent = simSuffixes[simSuffixIndex];
+        word.style.opacity = 1;
+      }, 200);
+    }
+
+    function setFormState(state) {
+      const field = document.getElementById('sim-field-el');
+      const input = document.getElementById('sim-field-input');
+      const msg = document.getElementById('sim-field-msg');
+      if (!field || !input || !msg) return;
+
+      field.className = `sim-field ${state}`;
+      if (state === 'error') {
+        input.value = "invalid-email-format";
+        msg.textContent = "Please enter a valid email address.";
+        msg.className = "sim-error-msg";
+      } else {
+        input.value = "chef@studiokitchen.com";
+        msg.textContent = "✓ Email address verified.";
+        msg.className = "sim-success-msg";
+      }
+    }
+
+    function resetSimulation() {
+      const firstBtn = document.querySelector('.sim-btn');
+      if (firstBtn) firstBtn.click();
+    }
+
+    // Page route wireframes database
+    const routeWireStrips = {
+      home: {
+        title: "/ Homepage Layout",
+        anchors: "ID: #hero · #trust · #why-order · #work · #process · #tools · #cta",
+        purpose: "Qualified conversion structure. Directs scrollers through trust credibility signals into live works, detailed processes, and order paths.",
+        scope: "Contains the rotating headline hero, three clickable target segment tiles, Option B work grid layout, and tilted reservation poster CTA.",
+        layout: [
+          { name: "Global Nav (Transparent Header)", isRed: false, id: "nav" },
+          { name: "Poster Hero (Mouth-Watering Head)", isRed: true, id: "#hero" },
+          { name: "Trust Strip (Copy-Only)", isRed: false, id: "#trust" },
+          { name: "Why Order (3 Teaser Segment Tiles)", isRed: false, id: "#why-order" },
+          { name: "Selected Work (Option B 1+1 Grid)", isRed: false, id: "#work" },
+          { name: "Recipe Process timeline (5 steps)", isRed: false, id: "#process" },
+          { name: "Ingredients Grid (8 Tools)", isRed: false, id: "#tools" },
+          { name: "Reservation Poster (Ready to Order)", isRed: true, id: "#cta" },
+          { name: "Global Footer", isRed: false, id: "footer" }
+        ]
+      },
+      order: {
+        title: "/order Page Layout",
+        anchors: "ID: #hero · #form · #socials · #book",
+        purpose: "Cream surface inquiry flow. Acts as the landing area for all Place your order CTA button triggers.",
+        scope: "Low-fi form layout showcasing validation success/error states, client type selector inputs, and Book the chef Calendly scheduler block.",
+        layout: [
+          { name: "Global Nav (Cream Scrolled)", isRed: false, id: "nav" },
+          { name: "Minimal Hero Title Block", isRed: false, id: "#hero" },
+          { name: "Inquiry Questionnaire Form", isRed: false, id: "#form" },
+          { name: "Social Links Grid Block", isRed: false, id: "#socials" },
+          { name: "Calendly Call the Chef block", isRed: false, id: "#book" },
+          { name: "Global Footer", isRed: false, id: "footer" }
+        ]
+      },
+      contact: {
+        title: "/contact Page Layout",
+        anchors: "ID: #hero · #Calendly · #form · #faq",
+        purpose: "Support/Inquiry channel displaying red hero layout similar to homepage elements but contact copy.",
+        scope: "Dual-column layout holding scheduler placeholder, custom brief forms, response promise box, and 4-item accordion FAQs.",
+        layout: [
+          { name: "Global Nav (Transparent Header)", isRed: false, id: "nav" },
+          { name: "Red Poster Contact Hero", isRed: true, id: "#hero" },
+          { name: "Calendly Integration Slot", isRed: false, id: "#Calendly" },
+          { name: "Inquiry Form Block", isRed: false, id: "#form" },
+          { name: "FAQ Accordion (4 items)", isRed: false, id: "#faq" },
+          { name: "Global Footer", isRed: false, id: "footer" }
+        ]
+      },
+      services: {
+        title: "/services Page Layout",
+        anchors: "ID: #why · #portfolio · #landing · #addons · #process · #faq",
+        purpose: "Core package offerings display. Explains the detailed freelancer vs SaaS portfolio designs.",
+        scope: "Cream background hero, package comparison list, price tags, detailed process timelines, and 7-item accordion FAQs.",
+        layout: [
+          { name: "Global Nav (Cream Header)", isRed: false, id: "nav" },
+          { name: "Cream Hero Block", isRed: false, id: "#hero" },
+          { name: "Package Cards (Portfolio vs Landing)", isRed: false, id: "#portfolio" },
+          { name: "Addons Pricing Grid", isRed: false, id: "#addons" },
+          { name: "Recipe Process Timeline", isRed: false, id: "#process" },
+          { name: "FAQ Accordion (7 items)", isRed: false, id: "#faq" },
+          { name: "Reservation Poster CTA", isRed: true, id: "#cta" },
+          { name: "Global Footer", isRed: false, id: "footer" }
+        ]
+      },
+      work: {
+        title: "/work Index Layout",
+        anchors: "ID: #hero · #work · #cta",
+        purpose: "Option B proof showcasing 1 live project + coming soon indicators.",
+        scope: "Simple work index layout with hover outlines, deferred filter headers, and case study routing clicks.",
+        layout: [
+          { name: "Global Nav (Cream Header)", isRed: false, id: "nav" },
+          { name: "Index Title Block", isRed: false, id: "#hero" },
+          { name: "Work Grid (Option B Layout)", isRed: false, id: "#work" },
+          { name: "Tilted Poster CTA", isRed: true, id: "#cta" },
+          { name: "Global Footer", isRed: false, id: "footer" }
+        ]
+      }
+    };
+
+    function selectRouteWire(routeId, btnEl) {
+      const parent = btnEl.parentElement;
+      parent.querySelectorAll('.matrix-btn').forEach(btn => btn.classList.remove('active'));
+      btnEl.classList.add('active');
+
+      const data = routeWireStrips[routeId];
+      document.getElementById('matrix-route-title').textContent = data.title;
+      document.getElementById('matrix-route-anchors').textContent = data.anchors;
+      document.getElementById('matrix-route-purpose').textContent = data.purpose;
+      document.getElementById('matrix-route-scope').textContent = data.scope;
+
+      const canvas = document.getElementById('route-wire-canvas');
+      canvas.innerHTML = '';
+      
+      data.layout.forEach(strip => {
+        const div = document.createElement('div');
+        div.className = `wire-strip ${strip.isRed ? 'red' : ''}`;
+        div.innerHTML = `
+          <span>${strip.name}</span>
+          <span class="wire-strip-id">${strip.id}</span>
+        `;
+        canvas.appendChild(div);
+      });
+    }
+
+    // Interactive Checklist progress logic
+    function toggleChecklistItem(itemEl) {
+      itemEl.classList.toggle('checked');
+      updateChecklistProgress();
+    }
+
+    function updateChecklistProgress() {
+      const total = document.querySelectorAll('.checklist-item').length;
+      const checked = document.querySelectorAll('.checklist-item.checked').length;
+      const pct = total > 0 ? (checked / total) * 100 : 0;
+      
+      document.getElementById('checklist-progress-count').textContent = `${checked} of ${total} completed`;
+      document.getElementById('checklist-progress-bar').style.width = `${pct}%`;
+    }
+
+    function resetChecklist() {
+      document.querySelectorAll('.checklist-item').forEach(item => item.classList.remove('checked'));
+      updateChecklistProgress();
+    }
+
+    // Tabbed Deferrals selector
+    function selectLedgerTab(tabId, btnEl) {
+      const parent = btnEl.parentElement;
+      parent.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      btnEl.classList.add('active');
+
+      const container = parent.parentElement;
+      container.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+      document.getElementById(`ledger-${tabId}`).classList.add('active');
+    }
+
+    // Initialize slide deck on load
+    window.addEventListener('load', () => {
+      goToSlide(0);
+    });
+  </script>
+</body>
+</html>

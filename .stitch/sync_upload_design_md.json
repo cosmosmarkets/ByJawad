@@ -1,0 +1,13 @@
+﻿{
+    "id":  "7d23a265-94f0-4932-a38a-78d18111f36d",
+    "jsonrpc":  "2.0",
+    "result":  {
+                   "content":  [
+                                   {
+                                       "text":  "Request contains an invalid argument.",
+                                       "type":  "text"
+                                   }
+                               ],
+                   "isError":  true
+               }
+}

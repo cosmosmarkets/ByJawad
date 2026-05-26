@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" data-nav-surface="cream">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Journal Index Wireframe v2 — Studio Kitchen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="_chrome.css" />
+  <style>
+    .featured-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: var(--surface-card);
+      border: 3px solid var(--ink-black);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sticker);
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .featured-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--ink-black);
+    }
+    .featured-card__thumb {
+      aspect-ratio: 21 / 9;
+      min-height: 10rem;
+      background: linear-gradient(135deg, var(--heat-red), var(--paper-cream-dark));
+      border-bottom: 2px solid var(--ink-black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+    }
+    .featured-card__body { padding: 1.5rem; }
+    .article-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+    @media (min-width: 900px) {
+      .article-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .article-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: var(--surface-card);
+      border: 2px solid var(--ink-black);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sticker-hover);
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .article-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 var(--ink-black);
+    }
+    .article-card__meta {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 0.5rem;
+    }
+    .article-card__title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+    .newsletter-box {
+      background: var(--surface-card);
+      border: 3px solid var(--ink-black);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sticker);
+      max-width: 32rem;
+    }
+    .newsletter-box input {
+      width: 100%;
+      margin: 0.75rem 0;
+      padding: 0.65rem 0.75rem;
+      border: 2px solid var(--ink-black);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav is-scrolled" id="site-nav" aria-label="Site">
+    <div class="wrap site-nav__inner">
+      <a class="site-nav__logo" href="/"><img id="nav-logo" src="../../brand_assets/logo/jawad-design-lockup-black.svg" alt="Jawad" width="140" height="32" /></a>
+      <ul class="site-nav__links">
+        <li><a href="/work">Work</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/journal">Journal</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <a class="btn btn-white site-nav__cta" href="/order">Chat to the chef</a>
+        <button type="button" class="site-nav__menu-btn" id="menu-open" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer__backdrop" id="menu-backdrop"></div>
+    <div class="mobile-drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
+      <button type="button" class="mobile-drawer__close" id="menu-close" aria-label="Close menu">×</button>
+      <a class="btn btn-white" href="/order" style="width:100%">Chat to the chef</a>
+      <ul class="mobile-drawer__nav">
+        <li><a href="/work">Work</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/journal">Journal</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <main id="main">
+    <header class="page-hero--cream" id="hero">
+      <div class="wrap">
+        <p class="kicker">From the kitchen</p>
+        <h1 class="page-hero__title">Notes on web design, conversion, and the tools I use.</h1>
+        <p class="page-hero__sub">Process articles, case study deep dives, and industry observations.</p>
+        <div class="cta-row">
+          <a class="btn btn-white" href="/work">See what's cooking</a>
+          <a class="btn btn-white" href="/contact#book">Book a Call</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="featured" aria-labelledby="featured-title">
+      <div class="wrap">
+        <p class="kicker">Featured</p>
+        <h2 id="featured-title" class="visually-hidden">Featured article</h2>
+        <a class="featured-card" href="/journal/how-to-build-a-portfolio-website-that-converts">
+          <div class="featured-card__thumb">Featured image</div>
+          <div class="featured-card__body">
+            <p class="kicker">Process · 8 min read</p>
+            <h3 class="display" style="font-size:1.5rem">How to build a portfolio website that gets you hired</h3>
+            <p style="color:var(--ink-muted);margin-top:0.5rem">Long-tail SEO pillar — structure, proof, and CTAs that convert creative traffic.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section section--recessed" id="grid" aria-labelledby="grid-title">
+      <div class="wrap">
+        <p class="kicker">All posts</p>
+        <h2 id="grid-title" class="display section-title">From the pass.</h2>
+        <div class="article-grid">
+          <a class="article-card" href="/journal/how-to-build-a-portfolio-website-that-converts">
+            <p class="article-card__meta">Process · May 2026 · 8 min</p>
+            <p class="article-card__title">How to build a portfolio website that converts</p>
+            <p style="font-size:0.85rem;color:var(--ink-muted)">Proof-first structure for freelancers.</p>
+          </a>
+          <a class="article-card" href="/journal/cursor-claude-web-design-workflow">
+            <p class="article-card__meta">Tools · May 2026 · 6 min</p>
+            <p class="article-card__title">Cursor + Claude for web design workflow</p>
+            <p style="font-size:0.85rem;color:var(--ink-muted)">Tool review — prototype-first delivery.</p>
+          </a>
+          <a class="article-card" href="/journal/by-jawad-case-study-deep-dive">
+            <p class="article-card__meta">Case study · May 2026 · 10 min</p>
+            <p class="article-card__title">By Jawad — case study deep dive</p>
+            <p style="font-size:0.85rem;color:var(--ink-muted)">Cross-link to <code>/work/by-jawad</code>.</p>
+          </a>
+        </div>
+        <p style="margin-top:1rem;font-size:0.85rem;color:var(--ink-muted)">Categories: Process · Case study · Tools · Industry. More articles post-launch.</p>
+      </div>
+    </section>
+
+    <section class="section" id="newsletter" aria-labelledby="newsletter-title">
+      <div class="wrap">
+        <div class="newsletter-box">
+          <p class="kicker">Get the recipe</p>
+          <h2 id="newsletter-title" class="display" style="font-size:1.25rem">Newsletter signup</h2>
+          <p style="color:var(--ink-muted);font-size:0.9rem">Email capture — integration deferred to production.</p>
+          <input type="email" placeholder="you@email.com" autocomplete="email" aria-label="Email" />
+          <button type="button" class="btn btn-white">Subscribe</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="band-cta" id="cta" aria-labelledby="cta-title">
+      <div class="wrap">
+        <p class="kicker">Explore more</p>
+        <h2 id="cta-title" class="display section-title">See the work behind the notes.</h2>
+        <div class="cta-row" style="justify-content:center">
+          <a class="btn btn-white" href="/work">See what's cooking</a>
+          <a class="btn btn-white" href="/contact#book">Book a Call</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <a href="/"><img src="../../brand_assets/logo/jawad-design-lockup-black.svg" alt="Jawad" width="140" height="32" /></a>
+        <p class="footer-tagline">Landing pages and portfolio websites — designed to stand out and convert.</p>
+      </div>
+      <div class="footer-col"><h3>Work</h3><ul class="footer-links"><li><a href="/work">Work index</a></li></ul></div>
+      <div class="footer-col"><h3>Services</h3><ul class="footer-links"><li><a href="/services">Services</a></li></ul></div>
+      <div class="footer-col"><h3>Journal</h3><ul class="footer-links"><li><a href="/journal">Journal</a></li></ul></div>
+      <div class="footer-col"><h3>Connect</h3><ul class="footer-links"><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div>
+    </div>
+    <div class="wrap footer-bottom">© 2026 Jawad Jalal · London, UK</div>
+  </footer>
+
+  <aside class="spec-footer" aria-label="Wireframe v2 annotations">
+    <div class="wrap">
+      <span class="spec-badge">Wireframe v2 · /journal</span>
+      <h2>Behaviors</h2>
+      <ul>
+        <li>Sections: <code>#hero</code> <code>#featured</code> <code>#grid</code> <code>#newsletter</code> <code>#cta</code></li>
+        <li>Seed posts as placeholders — MDX at production</li>
+        <li>Newsletter POST deferred · empty state OK at launch</li>
+        <li>Card hover on featured + grid</li>
+      </ul>
+    </div>
+  </aside>
+
+  <script src="_chrome.js" defer></script>
+</body>
+</html>

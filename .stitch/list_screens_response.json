@@ -1,0 +1,59 @@
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": {
+    "content": [
+      {
+        "text": "{\"screens\":[{\"name\":\"projects/13841983534348291374/screens/4efb81e954b5486d8f320c0bfbefceda\",\"title\":\"Wireframe v1 \u2014 Homepage Structure\",\"screenshot\":{\"name\":\"projects/13841983534348291374/files/2576aaed93534e1986aadd431508b376\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/ADBb0ujRZB-dWTew-nePR7g0ZGGulApe9SZK_lw9LZrX3vmCzar4Sscc1fJr1vUKzTB3Goo3s5VEBMvX8lV7nU762PjCNRr0ZzqsgnJ9WrOSmi8D6UgI0xEEufRylAr7qGel7PyJ9S3i6k7XUsJOCeEEvgAfpxbcIhTfbbprpMhlgCMi40FqBxE2i3i8d4POjV3wRYM-cfn3kixhXqG0KSQ0I6ueYBpNP1r5BQvQWa4QJWhQHP1aNiFgEcTyFgrR\"},\"htmlCode\":{\"name\":\"projects/13841983534348291374/files/1111a115f41443bc90285eefed1c82fd\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzljNjk0MjYzYjk2MTRlZGVhMzk2YjhhMjgyYTVmYzhmEgsSBxCk-4nFyhwYAZIBJAoKcHJvamVjdF9pZBIWQhQxMzg0MTk4MzUzNDM0ODI5MTM3NA&filename=&opi=89354086\",\"mimeType\":\"text/html\"},\"width\":\"2560\",\"height\":\"7046\",\"deviceType\":\"DESKTOP\"},{\"name\":\"projects/13841983534348291374/screens/34514b52317f4549a3db5a415d08c2a5\",\"title\":\"Halftone Texture Pattern\",\"screenshot\":{\"name\":\"projects/13841983534348291374/files/ede81561ba4742efbbae2bf505ec9105\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/ADBb0uhqoXiQCi4nuZpZSh7mEgmEi-iNoJ7AJt_Bwbhu1agNGN8bQdCya1lsY9CqMxv5L93SJdWezvIFbyCmoV_Vlw69u_QFIdIyC8tMu2HJ82zsoggwW9SMSu3dKIVZsnEdScARE7t3X6XvCVMYQfc_uMSniIL9jPCPWsGfajZR3cYFBLCI5tJaiW7WBFtEzN84rHXXCyy4JCsOfGe41faStNMEQnAkCRhumvzHPfFS1xOrguwAdzAftUdQI_2L\"},\"htmlCode\":{\"name\":\"projects/13841983534348291374/files/d8da5732e7094420a6a7b0f3e8940051\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzc1NTgwYzNjZjM2MzQ5NzI4MjQwNWJiZTY4YjBlYzQ4EgsSBxCk-4nFyhwYAZIBJAoKcHJvamVjdF9pZBIWQhQxMzg0MTk4MzUzNDM0ODI5MTM3NA&filename=&opi=89354086\",\"mimeType\":\"image/svg+xml\"},\"width\":\"200\",\"height\":\"200\"},{\"name\":\"projects/13841983534348291374/screens/3717910721571283806\",\"title\":\"DESIGN.md\",\"screenshot\":{},\"htmlCode\":{\"name\":\"projects/13841983534348291374/files/3717910721571282961\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBKOARIhYXBwX2NvbXBhbmlvbl91c2VyX3VwbG9hZGVkX2ZpbGVzGmkKM3VzZXJfdXBsb2FkZWRfaHRtbF8wMDA2NTI2ZTRmNTU3Y2Y2MDVmMTJiODg1MzFiZTYwMBILEgcQpPuJxcocGAGSASQKCnByb2plY3RfaWQSFkIUMTM4NDE5ODM1MzQzNDgyOTEzNzQ&filename=&opi=89354086\",\"mimeType\":\"text/markdown\"},\"width\":\"780\",\"height\":\"1768\"}]}",
+        "type": "text"
+      }
+    ],
+    "structuredContent": {
+      "screens": [
+        {
+          "deviceType": "DESKTOP",
+          "height": "7046",
+          "htmlCode": {
+            "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzljNjk0MjYzYjk2MTRlZGVhMzk2YjhhMjgyYTVmYzhmEgsSBxCk-4nFyhwYAZIBJAoKcHJvamVjdF9pZBIWQhQxMzg0MTk4MzUzNDM0ODI5MTM3NA&filename=&opi=89354086",
+            "mimeType": "text/html",
+            "name": "projects/13841983534348291374/files/1111a115f41443bc90285eefed1c82fd"
+          },
+          "name": "projects/13841983534348291374/screens/4efb81e954b5486d8f320c0bfbefceda",
+          "screenshot": {
+            "downloadUrl": "https://lh3.googleusercontent.com/aida/ADBb0ujRZB-dWTew-nePR7g0ZGGulApe9SZK_lw9LZrX3vmCzar4Sscc1fJr1vUKzTB3Goo3s5VEBMvX8lV7nU762PjCNRr0ZzqsgnJ9WrOSmi8D6UgI0xEEufRylAr7qGel7PyJ9S3i6k7XUsJOCeEEvgAfpxbcIhTfbbprpMhlgCMi40FqBxE2i3i8d4POjV3wRYM-cfn3kixhXqG0KSQ0I6ueYBpNP1r5BQvQWa4QJWhQHP1aNiFgEcTyFgrR",
+            "name": "projects/13841983534348291374/files/2576aaed93534e1986aadd431508b376"
+          },
+          "title": "Wireframe v1 \u2014 Homepage Structure",
+          "width": "2560"
+        },
+        {
+          "height": "200",
+          "htmlCode": {
+            "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzc1NTgwYzNjZjM2MzQ5NzI4MjQwNWJiZTY4YjBlYzQ4EgsSBxCk-4nFyhwYAZIBJAoKcHJvamVjdF9pZBIWQhQxMzg0MTk4MzUzNDM0ODI5MTM3NA&filename=&opi=89354086",
+            "mimeType": "image/svg+xml",
+            "name": "projects/13841983534348291374/files/d8da5732e7094420a6a7b0f3e8940051"
+          },
+          "name": "projects/13841983534348291374/screens/34514b52317f4549a3db5a415d08c2a5",
+          "screenshot": {
+            "downloadUrl": "https://lh3.googleusercontent.com/aida/ADBb0uhqoXiQCi4nuZpZSh7mEgmEi-iNoJ7AJt_Bwbhu1agNGN8bQdCya1lsY9CqMxv5L93SJdWezvIFbyCmoV_Vlw69u_QFIdIyC8tMu2HJ82zsoggwW9SMSu3dKIVZsnEdScARE7t3X6XvCVMYQfc_uMSniIL9jPCPWsGfajZR3cYFBLCI5tJaiW7WBFtEzN84rHXXCyy4JCsOfGe41faStNMEQnAkCRhumvzHPfFS1xOrguwAdzAftUdQI_2L",
+            "name": "projects/13841983534348291374/files/ede81561ba4742efbbae2bf505ec9105"
+          },
+          "title": "Halftone Texture Pattern",
+          "width": "200"
+        },
+        {
+          "height": "1768",
+          "htmlCode": {
+            "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBKOARIhYXBwX2NvbXBhbmlvbl91c2VyX3VwbG9hZGVkX2ZpbGVzGmkKM3VzZXJfdXBsb2FkZWRfaHRtbF8wMDA2NTI2ZTRmNTU3Y2Y2MDVmMTJiODg1MzFiZTYwMBILEgcQpPuJxcocGAGSASQKCnByb2plY3RfaWQSFkIUMTM4NDE5ODM1MzQzNDgyOTEzNzQ&filename=&opi=89354086",
+            "mimeType": "text/markdown",
+            "name": "projects/13841983534348291374/files/3717910721571282961"
+          },
+          "name": "projects/13841983534348291374/screens/3717910721571283806",
+          "screenshot": {},
+          "title": "DESIGN.md",
+          "width": "780"
+        }
+      ]
+    }
+  }
+}

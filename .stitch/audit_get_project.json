@@ -1,0 +1,56 @@
+﻿{
+    "id":  1,
+    "jsonrpc":  "2.0",
+    "result":  {
+                   "content":  [
+                                   {
+                                       "text":  "{\"name\":\"projects/13841983534348291374\",\"title\":\"ByJawad Design System\",\"visibility\":\"PRIVATE\",\"createTime\":\"2026-05-22T20:59:47.827794Z\",\"updateTime\":\"2026-05-22T21:10:04.900943Z\",\"projectType\":\"TEXT_TO_UI_PRO\",\"thumbnailScreenshot\":{\"name\":\"projects/13841983534348291374/files/ede81561ba4742efbbae2bf505ec9105\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/ADBb0uhqoXiQCi4nuZpZSh7mEgmEi-iNoJ7AJt_Bwbhu1agNGN8bQdCya1lsY9CqMxv5L93SJdWezvIFbyCmoV_Vlw69u_QFIdIyC8tMu2HJ82zsoggwW9SMSu3dKIVZsnEdScARE7t3X6XvCVMYQfc_uMSniIL9jPCPWsGfajZR3cYFBLCI5tJaiW7WBFtEzN84rHXXCyy4JCsOfGe41faStNMEQnAkCRhumvzHPfFS1xOrguwAdzAftUdQI_2L\"},\"origin\":\"STITCH\",\"deviceType\":\"DESKTOP\",\"designTheme\":{},\"screenInstances\":[{\"id\":\"34514b52317f4549a3db5a415d08c2a5\",\"sourceScreen\":\"projects/13841983534348291374/screens/34514b52317f4549a3db5a415d08c2a5\",\"y\":2024,\"width\":200,\"height\":200},{\"id\":\"assets-42fae84c0a4d41349e183123ec8705a1-1779483740990\",\"x\":844,\"width\":960,\"height\":540,\"sourceAsset\":\"assets/42fae84c0a4d41349e183123ec8705a1\",\"type\":\"DESIGN_SYSTEM_INSTANCE\"},{\"id\":\"efa14966-6f56-4cbe-b9bf-a1062475ae30\",\"sourceScreen\":\"projects/13841983534348291374/screens/3717910721571283806\",\"width\":780,\"height\":1768,\"type\":\"SCREEN_INSTANCE\"}],\"metadata\":{\"userRole\":\"OWNER\"}}",
+                                       "type":  "text"
+                                   }
+                               ],
+                   "structuredContent":  {
+                                             "createTime":  "2026-05-22T20:59:47.827794Z",
+                                             "designTheme":  {
+
+                                                             },
+                                             "deviceType":  "DESKTOP",
+                                             "metadata":  {
+                                                              "userRole":  "OWNER"
+                                                          },
+                                             "name":  "projects/13841983534348291374",
+                                             "origin":  "STITCH",
+                                             "projectType":  "TEXT_TO_UI_PRO",
+                                             "screenInstances":  [
+                                                                     {
+                                                                         "height":  200,
+                                                                         "id":  "34514b52317f4549a3db5a415d08c2a5",
+                                                                         "sourceScreen":  "projects/13841983534348291374/screens/34514b52317f4549a3db5a415d08c2a5",
+                                                                         "width":  200,
+                                                                         "y":  2024
+                                                                     },
+                                                                     {
+                                                                         "height":  540,
+                                                                         "id":  "assets-42fae84c0a4d41349e183123ec8705a1-1779483740990",
+                                                                         "sourceAsset":  "assets/42fae84c0a4d41349e183123ec8705a1",
+                                                                         "type":  "DESIGN_SYSTEM_INSTANCE",
+                                                                         "width":  960,
+                                                                         "x":  844
+                                                                     },
+                                                                     {
+                                                                         "height":  1768,
+                                                                         "id":  "efa14966-6f56-4cbe-b9bf-a1062475ae30",
+                                                                         "sourceScreen":  "projects/13841983534348291374/screens/3717910721571283806",
+                                                                         "type":  "SCREEN_INSTANCE",
+                                                                         "width":  780
+                                                                     }
+                                                                 ],
+                                             "thumbnailScreenshot":  {
+                                                                         "downloadUrl":  "https://lh3.googleusercontent.com/aida/ADBb0uhqoXiQCi4nuZpZSh7mEgmEi-iNoJ7AJt_Bwbhu1agNGN8bQdCya1lsY9CqMxv5L93SJdWezvIFbyCmoV_Vlw69u_QFIdIyC8tMu2HJ82zsoggwW9SMSu3dKIVZsnEdScARE7t3X6XvCVMYQfc_uMSniIL9jPCPWsGfajZR3cYFBLCI5tJaiW7WBFtEzN84rHXXCyy4JCsOfGe41faStNMEQnAkCRhumvzHPfFS1xOrguwAdzAftUdQI_2L",
+                                                                         "name":  "projects/13841983534348291374/files/ede81561ba4742efbbae2bf505ec9105"
+                                                                     },
+                                             "title":  "ByJawad Design System",
+                                             "updateTime":  "2026-05-22T21:10:04.900943Z",
+                                             "visibility":  "PRIVATE"
+                                         }
+               }
+}

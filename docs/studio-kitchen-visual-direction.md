@@ -37,13 +37,14 @@ flowchart TB
   subgraph homepage [Homepage scroll]
     hero[Hero RED]
     trust[Trust CREAM]
-    dishes[My dishes CREAM]
+    whyOrder[Why order INK]
+    dishes[My dishes INK]
     recipe[The recipe CREAM]
     ingredients[My ingredients CREAM]
     poster[Reservation poster RED tilted]
     footer[Footer CREAM]
   end
-  hero --> trust --> dishes --> recipe --> ingredients --> poster --> footer
+  hero --> trust --> whyOrder --> dishes --> recipe --> ingredients --> poster --> footer
 ```
 
 | Route | Hero surface |
@@ -146,9 +147,10 @@ JetBrains+Mono:wght@400;500
 | Section | Surface | Heading font | Notes |
 |---------|---------|--------------|-------|
 | Nav | Transparent on red → cream on scroll | Fredoka wordmark | Book a Call always visible |
-| Hero | Red | Fredoka H1 black | Mustard + white CTAs; kitchen illustration right (TBD) |
+| Hero | Red | Fredoka mega type + Caveat accent on *mouth-watering* | Centered poster stack; mustard + white CTAs; **no hero illustration** |
 | Trust | Cream | Inter | Copy-only strip |
-| `#work` | Cream | Fredoka **My dishes** | Kicker: From the pass |
+| `#why-order` | Ink (`#121212`) | Fredoka · glass tiles | Kicker: Why order? |
+| `#work` | Ink | Fredoka **My dishes** | Kicker: From the pass · horizontal rail |
 | `#process` | Cream | Fredoka **Five courses. Five days.** | Recipe connector line |
 | `#tools` | Cream | Fredoka **My ingredients** | Kicker: The pantry |
 | `#cta` | Red poster | Caveat + Fredoka caps | Tilted band |
@@ -160,9 +162,9 @@ JetBrains+Mono:wght@400;500
 
 | Use | Style |
 |-----|--------|
-| Hero (right column) | Black line art, 3–4px stroke, flat fills only for hair/shadow |
+| Hero | **Typography only** — no illustration column (Steak-style centered mega type) |
 | Process steps | Simple icons (prep, taste, plate, oven, serve) |
-| Poster accent | Hand signing / plate — optional |
+| Poster accent | Hand signing / plate — optional on `#cta` only |
 | Work cards | **Screenshots only** — no food illustration over proof |
 
 **Motifs:** hands plating, laptop on counter, simple bowl/plate icons — not literal food photography.

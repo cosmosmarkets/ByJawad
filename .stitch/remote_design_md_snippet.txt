@@ -1,0 +1,28 @@
+the harshness of the brutalist typography.
+
+- **Sharp (0px):** Use for full-bleed images and section backgrounds.
+- **Soft (8px):** The standard for buttons and small input fields.
+- **Large (16px - 24px):** Reserved for core content containers like project cards or profile tiles.
+- **Full (999px):** Used exclusively for badges or specific technical status indicators (pills).
+
+## Components
+
+### Buttons
+- **Primary:** Fill `primary` (#FAFAFA), text `ink-black` (#000000). 8px (rounded-md) radius. Bold, high-contrast.
+- **Ghost:** Border `secondary` (#A3A3A3), text `primary`. On hover, the border becomes `primary`.
+
+### Cards & Tiles
+- **Surface:** `#000000` background with a subtle `tertiary` (#737373) border.
+- **Texture:** Apply a halftone pattern (10% opacity) to image thumbnails within cards.
+- **Radius:** 16px (rounded-lg) to provide a distinct, framed appearance.
+
+### Form Fields
+- **Input:** 8px radius, black background, `tertiary` (#737373) border. Focus state should use a sharp `primary` (#FAFAFA) border.
+- **Typography:** Placeholder text uses `secondary` (#A3A3A3) in Public Sans 14px.
+
+### Navigation
+- **Sticky Header:** Uses `surface-overlay` with a 12px backdrop blur and a bottom border of `border-subtle`.
+- **Links:** Default state is `secondary`. Active or hover states transition to `primary`.
+
+### Kickers (Mission Labels)
+- **Style:** Use `Public Sans`, 12px, Uppercase. Often preceded by a small geometric icon or a vertical line to denote a "Mission Log" entry.

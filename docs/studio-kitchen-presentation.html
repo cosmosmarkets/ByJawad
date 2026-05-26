@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Kitchen — Design & Wireframe Spec Presentation</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  
+  <style>
+    :root {
+      --paper-cream: #FCEAD4;
+      --paper-cream-dark: #F5DFC4;
+      --surface-card: #FFFFFF;
+      --ink-black: #000000;
+      --ink-muted: #5C4A3A;
+      --ink-subtle: #8B7355;
+      --ink-white: #FFFFFF;
+      --heat-red: #E63946;
+      --heat-red-dark: #C1121F;
+      --accent-mustard: #F4B942;
+      --accent-mustard-hover: #F7C948;
+      --accent-mustard-active: #EAB308;
+      
+      --border-default: 2px solid var(--ink-black);
+      --border-bold: 3px solid var(--ink-black);
+      --shadow-sticker: 4px 4px 0 var(--ink-black);
+      --shadow-sticker-hover: 2px 2px 0 var(--ink-black);
+      --shadow-poster: 8px 8px 0 var(--ink-black);
+      
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --radius-pill: 9999px;
+      
+      --font-display: 'Fredoka', system-ui, sans-serif;
+      --font-script: 'Caveat', cursive;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink-black);
+      background: var(--paper-cream-dark);
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Presentation Layout */
+    header.deck-header {
+      background: var(--paper-cream);
+      border-bottom: var(--border-default);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .deck-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .deck-logo span {
+      background: var(--heat-red);
+      color: var(--ink-white);
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      border: 1px solid var(--ink-black);
+    }
+
+    .deck-title-mini {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+    }
+
+    .main-container {
+      flex: 1;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Slide Deck */
+    .slides-wrapper {
+      flex: 1;
+      position: relative;
+      background: var(--paper-cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      padding: 3rem;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.98) translateY(10px);
+      transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow-y: auto;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1) translateY(0);
+    }
+
+    /* Typography */
+    h1.slide-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 3px dashed var(--ink-muted);
+      padding-bottom: 0.5rem;
+    }
+
+    h1.slide-title .slide-num {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      background: var(--ink-black);
+      color: var(--paper-cream);
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-pill);
+    }
+
+    .lead-text {
+      font-size: 1.1rem;
+      color: var(--ink-muted);
+      max-width: 800px;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .kicker {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .text-script {
+      font-family: var(--font-script);
+      font-weight: 700;
+      color: var(--ink-white);
+      -webkit-text-stroke: 1.5px var(--ink-black);
+      paint-order: stroke fill;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    }
+
+    /* Red Grid Pattern Class */
+    .red-grid {
+      background-color: var(--heat-red);
+      background-image:
+        linear-gradient(rgba(193, 18, 31, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(193, 18, 31, 0.3) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Side Control Panel */
+    .deck-controls {
+      background: var(--paper-cream);
+      border-top: var(--border-default);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .btn-nav {
+      background: var(--surface-card);
+      border: var(--border-default);
+      color: var(--ink-black);
+      padding: 0.5rem 1.25rem;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      box-shadow: 2px 2px 0 var(--ink-black);
+      transition: transform 100ms, box-shadow 100ms;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .btn-nav:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 var(--ink-black);
+    }
+
+    .btn-nav:active {
+      transform: translate(2px, 2px);
+      box-shadow: none;
+    }
+
+    .btn-nav:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 8px;
+      background: rgba(0,0,0,0.1);
+      margin: 0 2rem;
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background: var(--heat-red);
+      width: 0%;
+      transition: width 300ms ease;
+    }
+
+    .slide-indicator {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Swatches Grid */
+    .swatches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .swatch-card {
+      background: var(--surface-card);
+      border: var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: 0.5rem;
+      cursor: pointer;
+      transition: transform 150ms ease, box-shadow 150ms ease;
+    }
+
+    .swatch-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sticker);
+    }
+
+    .swatch-color {
+      height: 80px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(0,0,0,0.1);
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .swatch-info {
+      padding: 0.25rem;
+    }
+
+    .swatch-name {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+
+    .swatch-hex {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+    }
+
+    .swatch-role {
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      line-height: 1.3;
+    }
+
+    /* Modal dialog style overlay on side */
+    .token-details-panel {
+      border: var(--border-default);
+      background: var(--surface-card);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sticker);
+      margin-top: 1rem;
+    }
+
+    /* Typography Specimens */
+    .type-specimen-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .type-specimen-card {
+      background: var(--surface-card);
+      border: var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+
+    /* Interactive Rotator Demo */
+    .rotator-demo-box {
+      border: var(--border-bold);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-sticker);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .rotator-heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .rotate-word {
+      display: inline-block;
+      min-width: 9ch;
+      transition: opacity 400ms ease;
+      color: var(--ink-black);
+      border-bottom: 4px solid var(--accent-mustard);
+    }
+
+    .btn-chunky {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-pill);
+      border: var(--border-bold);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 150ms ease, box-shadow 150ms ease;
+    }
+
+    .btn-mustard {
+      background: var(--accent-mustard);
+      color: var(--ink-black);
+      box-shadow: var(--shadow-sticker);
+    }
+    
+    .btn-mustard:hover {
+      background: var(--accent-mustard-hover);
+      transform: translate(1px, 1px);
+      box-shadow: var(--shadow-sticker-hover);
+    }
+    
+    .btn-mustard:active {
+      background: var(--accent-mustard-active);
+      transform: translate(4px, 4px);
+      box-shadow: none;
+    }
+
+    .btn-white {
+      background: var(--surface-card);
+      color: var(--ink-black);
+      box-shadow: var(--shadow-sticker);
+    }
+
+    .btn-white:hover {
+      transform: translate(1px, 1px);
+      box-shadow: var(--shadow-sticker-hover);
+    }
+
+    .btn-white:active {
+      transform: translate(4px, 4px);
+      box-shadow: none;
+    }
+
+    /* Suffix Suffix Config Panel */
+    .demo-controls-row {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .toggle-pill {
+      background: var(--surface-card);
+      border: var(--border-default);
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: bold;
+    }
+
+    .toggle-pill.active {
+      background: var(--ink-black);
+      color: var(--paper-cream);
+    }
+
+    .toggle-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--ink-muted);
+      display: inline-block;
+    }
+
+    .toggle-pill.active .toggle-dot {
+      background: var(--accent-mustard);
+    }
+
+    /* Wireframe Spec Layout (Split View) */
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      height: calc(100% - 4.5rem);
+      min-height: 0;
+    }
+
+    .scroll-mockup-pane {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0,0,0,0.03);
+      border: var(--border-default);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    /* Custom Browser Mockup */
+    .browser-frame {
+      width: 100%;
+      height: 100%;
+      background: var(--surface-card);
+      border: var(--border-bold);
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sticker);
+      overflow: hidden;
+    }
+
+    .browser-header {
+      background: #EAEAEA;
+      border-bottom: var(--border-default);
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .dot-button {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #888;
+      border: 1px solid #000;
+    }
+
+    .browser-address {
+      flex: 1;
+      background: #FFF;
+      border: 1px solid #000;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 0.2rem 0.5rem;
+      color: var(--ink-muted);
+    }
+
+    .browser-viewport {
+      flex: 1;
+      overflow-y: auto;
+      background: var(--paper-cream);
+      padding: 0.75rem;
+      scroll-behavior: smooth;
+    }
+
+    /* Wireframe Section Block */
+    .wire-section-block {
+      border: 2px dashed #888;
+      background: rgba(0,0,0,0.02);
+      border-radius: var(--radius-md);
+      padding: 0.75rem;
+      margin-bottom: 0.75rem;
+      position: relative;
+      cursor: pointer;
+      transition: all 150ms;
+    }
+
+    .wire-section-block:hover {
+      border-color: var(--ink-black);
+      background: rgba(0,0,0,0.04);
+      transform: translateX(2px);
+    }
+
+    .wire-section-block.active {
+      border-color: var(--ink-black);
+      border-style: solid;
+      background: var(--surface-card);
+      box-shadow: var(--shadow-sticker);
+    }
+
+    .wire-section-block.red-grid-wire {
+      border-color: var(--heat-red);
+      background-color: rgba(230, 57, 70, 0.05);
+    }
+
+    .wire-section-block.red-grid-wire.active {
+      background-color: var(--heat-red);
+      background-image:
+        linear-gradient(rgba(193, 18, 31, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(193, 18, 31, 0.2) 1px, transparent 1px);
+      background-size: 16px 16px;
+      border-color: var(--ink-black);
+    }
+
+    .section-block-title {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section-block-id {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--ink-muted);
+    }
+
+    .wire-section-block.active .section-block-id {
+      color: var(--ink-black);
+    }
+
+    .exit-badge {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      font-weight: bold;
+      padding: 0.1rem 0.35rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--ink-black);
+      text-transform: uppercase;
+    }
+
+    .risk-high { background: var(--heat-red); color: var(--ink-white); }
+    .risk-medium { background: var(--accent-mustard); color: var(--ink-black); }
+    .risk-low { background: #56AE57; color: var(--ink-white); }
+    .risk-moderate { background: #A0C3D2; color: var(--ink-black); }
+
+    .wire-section-block.active.red-grid-wire .section-block-title,
+    .wire-section-block.active.red-grid-wire .wire-summary {
+      color: var(--ink-black);
+    }
+
+    .wire-summary {
+      font-size: 0.7rem;
+      margin-top: 0.25rem;
+      color: var(--ink-muted);
+      line-height: 1.3;
+    }
+
+    /* Detail View for Wireframe */
+    .detail-spec-pane {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      overflow-y: auto;
+      height: 100%;
+    }
+
+    .spec-card {
+      background: var(--surface-card);
+      border: var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      box-shadow: 3px 3px 0 var(--ink-black);
+    }
+
+    .spec-group {
+      margin-bottom: 0.75rem;
+    }
+
+    .spec-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      margin-bottom: 0.15rem;
+      text-transform: uppercase;
+    }
+
+    .spec-value {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Component Specs Dashboard */
+    .comp-dashboard {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 1.5rem;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .comp-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      overflow-y: auto;
+    }
+
+    .comp-menu-btn {
+      background: var(--surface-card);
+      border: var(--border-default);
+      padding: 0.65rem 1rem;
+      border-radius: var(--radius-md);
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: all 150ms;
+      box-shadow: 2px 2px 0 var(--ink-black);
+    }
+
+    .comp-menu-btn:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 var(--ink-black);
+    }
+
+    .comp-menu-btn.active {
+      background: var(--ink-black);
+      color: var(--paper-cream);
+      box-shadow: none;
+      transform: none;
+    }
+
+    .comp-content-pane {
+      background: var(--surface-card);
+      border: var(--border-bold);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sticker);
+      overflow-y: auto;
+      height: 100%;
+    }
+
+    .token-pill {
+      display: inline-block;
+      background: var(--paper-cream);
+      border: 1px solid var(--ink-black);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.15rem 0.4rem;
+      border-radius: var(--radius-sm);
+      margin: 0.15rem;
+    }
+
+    .token-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .token-table th, .token-table td {
+      border: 1px solid rgba(0,0,0,0.15);
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+      font-size: 0.85rem;
+    }
+
+    .token-table th {
+      background: var(--paper-cream);
+      font-family: var(--font-display);
+      font-weight: 600;
+    }
+
+    .token-table td code {
+      font-family: var(--font-mono);
+      background: #F4F4F4;
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+    }
+
+    /* CTA Conversion Path Interactive */
+    .paths-container {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 1.5rem;
+      height: 100%;
+    }
+
+    .path-select-btn {
+      background: var(--surface-card);
+      border: var(--border-default);
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      text-align: left;
+      margin-bottom: 0.5rem;
+      transition: all 150ms;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 2px 2px 0 var(--ink-black);
+    }
+
+    .path-select-btn:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 var(--ink-black);
+    }
+
+    .path-select-btn.active {
+      border-color: var(--ink-black);
+      background: var(--accent-mustard);
+      transform: none;
+      box-shadow: none;
+    }
+
+    .path-select-btn-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .path-select-btn-desc {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      margin-top: 0.15rem;
+      line-height: 1.3;
+    }
+
+    .path-select-btn.active .path-select-btn-desc {
+      color: var(--ink-black);
+      opacity: 0.8;
+    }
+
+    .flow-viewer {
+      background: var(--surface-card);
+      border: var(--border-bold);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sticker);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .flow-steps {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+
+    .flow-step-node {
+      background: var(--paper-cream);
+      border: var(--border-default);
+      border-radius: var(--radius-md);
+      padding: 0.5rem 1rem;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      position: relative;
+      opacity: 0.4;
+      transform: scale(0.95);
+      transition: all 300ms ease;
+    }
+
+    .flow-step-node.active {
+      opacity: 1;
+      transform: scale(1.05);
+      box-shadow: var(--shadow-sticker);
+      background: var(--surface-card);
+      border-color: var(--ink-black);
+    }
+
+    .flow-step-node.active.red-node {
+      background: var(--heat-red);
+      color: var(--ink-white);
+      border-color: var(--ink-black);
+    }
+
+    .flow-step-arrow {
+      font-weight: bold;
+      color: var(--ink-muted);
+      opacity: 0.4;
+      transition: opacity 300ms ease;
+    }
+
+    .flow-step-arrow.active {
+      opacity: 1;
+      color: var(--heat-red);
+    }
+
+    .flow-explanation {
+      background: var(--paper-cream);
+      border-left: 4px solid var(--heat-red);
+      padding: 1rem;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    /* Checkbox list */
+    .checklist-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .checklist-box {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--ink-black);
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: var(--surface-card);
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+
+    .checklist-box.checked::after {
+      content: "✓";
+      color: var(--heat-red);
+    }
+
+    /* Quick Swatch Display on Title Slide */
+    .mini-swatch-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .mini-swatch {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1.5px solid var(--ink-black);
+    }
+
+    /* Grid layout for Specs slide */
+    .grid-specimen {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .dish-card-specimen {
+      background: var(--surface-card);
+      border: var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      position: relative;
+    }
+
+    .dish-thumb-specimen {
+      aspect-ratio: 16/10;
+      background: var(--paper-cream);
+      border: var(--border-default);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .poster-specimen {
+      background: var(--heat-red);
+      border: var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      color: var(--ink-white);
+      text-align: center;
+      box-shadow: 4px 4px 0 var(--ink-black);
+    }
+
+    /* Help tooltips */
+    .nav-tip {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      text-align: right;
+    }
+
+    /* Fade-in for slides content */
+    .slide-content-fade {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 400ms 200ms ease, transform 400ms 200ms ease;
+    }
+
+    .slide.active .slide-content-fade {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Interactive Swatch Details Tooltip Box */
+    .swatch-detail-box {
+      border: var(--border-default);
+      background: var(--paper-cream);
+      border-radius: var(--radius-md);
+      padding: 0.75rem;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      display: none;
+      margin-top: 1rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .split-layout, .type-specimen-grid, .comp-dashboard, .paths-container {
+        grid-template-columns: 1fr;
+        height: auto;
+        overflow-y: visible;
+      }
+      body {
+        overflow-y: auto;
+        height: auto;
+      }
+      .slide {
+        position: relative;
+        height: auto;
+        opacity: 0;
+        display: none;
+        padding: 1.5rem;
+      }
+      .slide.active {
+        opacity: 1;
+        display: flex;
+      }
+      .main-container {
+        height: auto;
+        overflow: visible;
+      }
+      .slides-wrapper {
+        height: auto;
+      }
+      .scroll-mockup-pane {
+        height: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="deck-header">
+    <div class="deck-logo">
+      Jawad <span>Studio Kitchen</span>
+    </div>
+    <div class="deck-title-mini">
+      Portfolio &amp; Landing Page Spec Deck v1
+    </div>
+  </header>
+
+  <!-- MAIN SLIDES SPACE -->
+  <main class="main-container">
+    <div class="slides-wrapper">
+
+      <!-- SLIDE 1: COVER -->
+      <section class="slide active red-grid" id="slide-1" style="justify-content: center; align-items: center; color: var(--ink-black); text-align: center;">
+        <div style="max-width: 800px; background: var(--paper-cream); border: var(--border-bold); border-radius: var(--radius-xl); padding: 4rem 3rem; box-shadow: var(--shadow-poster); position: relative;" class="slide-content-fade">
+          <div class="kicker" style="margin-bottom: 1rem; font-size: 0.85rem;">Specification Presentation</div>
+          
+          <h1 class="display" style="font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.5rem;">
+            Studio Kitchen<br/>
+            <span style="font-family: var(--font-script); color: var(--heat-red); -webkit-text-stroke: 1.5px var(--ink-black); font-size: clamp(2.5rem, 6vw, 4.5rem);">Design System</span> &amp; Spec
+          </h1>
+          
+          <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem; color: var(--ink-muted); font-weight: 500;">
+            An interactive review of the Homepage Wireframe, Design Tokens, Components, and Conversion Matrix for Jawad Jalal's specialist site.
+          </p>
+
+          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;">
+            <div class="btn-chunky btn-mustard" onclick="nextSlide()" style="font-size: 1rem;">See what's cooking →</div>
+          </div>
+
+          <div class="mini-swatch-row" style="justify-content: center;">
+            <div class="mini-swatch" style="background: var(--heat-red);" title="heat.red (#E63946)"></div>
+            <div class="mini-swatch" style="background: var(--accent-mustard);" title="accent.mustard (#F4B942)"></div>
+            <div class="mini-swatch" style="background: var(--paper-cream);" title="paper.cream (#FCEAD4)"></div>
+            <div class="mini-swatch" style="background: var(--surface-card);" title="surface.card (#FFFFFF)"></div>
+            <div class="mini-swatch" style="background: var(--ink-black);" title="ink.black (#000000)"></div>
+          </div>
+
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted); margin-top: 2rem;">
+            Press SPACEBAR, RIGHT ARROW, or click Nav to advance slides.
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 2: DESIGN TOKEN SYSTEM -->
+      <section class="slide" id="slide-2">
+        <div class="slide-content-fade" style="height: 100%; display: flex; flex-direction: column;">
+          <h1 class="slide-title"><span class="slide-num">02</span> Design Token System &amp; Accent Budget</h1>
+          <p class="lead-text">
+            Studio Kitchen maps visual choices into a three-tiered <strong>Accent Budget</strong> (70/25/5 rule) to maintain clarity, visual punch, and conversion readability.
+          </p>
+
+          <div class="split-layout" style="grid-template-columns: 1.2fr 0.8fr; flex: 1; min-height: 0;">
+            <div style="overflow-y: auto; padding-right: 0.5rem;">
+              <h2 class="display" style="font-size: 1.25rem; margin-bottom: 0.75rem;">Interactive Swatch Pantry</h2>
+              <p style="font-size: 0.85rem; color: var(--ink-muted); margin-bottom: 1rem;">Click any ingredient swatch below to inspect its token name and layout applications:</p>
+              
+              <div class="swatches-grid">
+                <!-- CREAM -->
+                <div class="swatch-card" onclick="selectSwatch('cream', '#FCEAD4', 'color.paper.cream', 'Primary background surface (~70% of canvas). Sets the warm, kitchen-table paper metaphor.')">
+                  <div class="swatch-color" style="background: var(--paper-cream);"></div>
+                  <div class="swatch-info">
+                    <div class="swatch-name">paper.cream</div>
+                    <div class="swatch-hex">#FCEAD4</div>
+                  </div>
+                </div>
+                <!-- WHITE CARD -->
+                <div class="swatch-card" onclick="selectSwatch('white', '#FFFFFF', 'color.surface.card', 'Default card background. Provides high-contrast separation for proof dishes and pantry cards.')">
+                  <div class="swatch-color" style="background: var(--surface-card);"></div>
+                  <div class="swatch-info">
+                    <div class="swatch-name">surface.card</div>
+                    <div class="swatch-hex">#FFFFFF</div>
+                  </div>
+                </div>
+                <!-- INK BLACK -->
+                <div class="swatch-card" onclick="selectSwatch('black', '#000000', 'color.ink.black', 'Primary ink. Headlines, typography, thick 2px-3px borders, and offset shadows. Bold & confident.')">
+                  <div class="swatch-color" style="background: var(--ink-black);"></div>
+                  <div class="swatch-info" style="color: var(--ink-black);">
+                    <div class="swatch-name" style="color: var(--ink-black)">ink.black</div>
+                    <div class="swatch-hex">#000000</div>
+                  </div>
+                </div>
+                <!-- INK MUTED -->
+                <div class="swatch-card" onclick="selectSwatch('muted', '#5C4A3A', 'color.ink.muted', 'Secondary body font on cream pages. Warm dark brown that keeps legibility without harsh black weight.')">
+                  <div class="swatch-color" style="background: var(--ink-muted);"></div>
+                  <div class="swatch-info">
+                    <div class="swatch-name">ink.muted</div>
+                    <div class="swatch-hex">#5C4A3A</div>
+                  </div>
+                </div>
+                <!-- HEAT RED -->
+                <div class="swatch-card" onclick="selectSwatch('red', '#E63946', 'color.heat.red', 'Reserved accent (~5% budget). Hero section and reservation poster background only. Signals conversion areas.')">
+                  <div class="swatch-color" style="background: var(--heat-red);"></div>
+                  <div class="swatch-info">
+                    <div class="swatch-name">heat.red</div>
+                    <div class="swatch-hex">#E63946</div>
+                  </div>
+                </div>
+                <!-- MUSTARD -->
+                <div class="swatch-card" onclick="selectSwatch('mustard', '#F4B942', 'color.accent.mustard', 'High-intent CTA accent. Placed on red grids only to make the main conversion button pop immediately.')">
+                  <div class="swatch-color" style="background: var(--accent-mustard);"></div>
+                  <div class="swatch-info">
+                    <div class="swatch-name">accent.mustard</div>
+                    <div class="swatch-hex">#F4B942</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Selected Swatch Inspector Panel -->
+              <div id="swatch-inspector" class="token-details-panel" style="display: block;">
+                <h3 class="display" id="inspect-title" style="font-size: 1.1rem; color: var(--heat-red); margin-bottom: 0.5rem;">Select an Ingredient</h3>
+                <p style="font-size: 0.85rem; line-height: 1.5;" id="inspect-desc">Click any of the swatches above to read about its token variables and architectural usage.</p>
+              </div>
+            </div>
+
+            <!-- Typography & Rules side -->
+            <div style="display: flex; flex-direction: column; gap: 1rem; overflow-y: auto;">
+              <div class="spec-card">
+                <h3 class="display" style="font-size: 1.1rem; margin-bottom: 0.75rem; border-bottom: 1px solid rgba(0,0,0,0.15); padding-bottom: 0.25rem;">Type Scale Rules</h3>
+                
+                <div style="margin-bottom: 0.75rem;">
+                  <div class="kicker">Display / Headings / CTAs</div>
+                  <div class="display" style="font-size: 1.5rem; font-weight: 700; line-height: 1.1;">Fredoka Bold 700</div>
+                </div>
+
+                <div style="margin-bottom: 0.75rem;">
+                  <div class="kicker">Poster Accent Script Only</div>
+                  <div class="text-script" style="color: var(--ink-black); -webkit-text-stroke: 1px var(--ink-black); font-size: 1.75rem;">Caveat Script 700</div>
+                </div>
+
+                <div style="margin-bottom: 0.75rem;">
+                  <div class="kicker">Body &amp; Form Labels</div>
+                  <div style="font-family: var(--font-body); font-size: 0.95rem; line-height: 1.5;">Inter Regular (400/500/600)</div>
+                </div>
+
+                <div>
+                  <div class="kicker">Kickers &amp; Metadata</div>
+                  <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-muted);">JetBrains Mono 500</div>
+                </div>
+              </div>
+
+              <div class="spec-card">
+                <h3 class="display" style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--heat-red)">Key Motion Rules</h3>
+                <ul style="font-size: 0.85rem; padding-left: 1.25rem; line-height: 1.5;">
+                  <li style="margin-bottom: 0.25rem;">Animate <strong>transform</strong> and <strong>opacity</strong> properties only.</li>
+                  <li style="margin-bottom: 0.25rem;"><strong>Never</strong> use general <code>transition-all</code>. Use targeted transitions.</li>
+                  <li style="margin-bottom: 0.25rem;">Respect <code>prefers-reduced-motion</code>: fall back to static layouts, skip button shifts.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3: THE ROTATING HERO SPEC -->
+      <section class="slide" id="slide-3">
+        <div class="slide-content-fade" style="height: 100%; display: flex; flex-direction: column;">
+          <h1 class="slide-title"><span class="slide-num">03</span> Rotating Suffix Hero Spec</h1>
+          <p class="lead-text">
+            The Hero Section (<code>#hero</code>) sits on a prominent red poster grid. It uses a crossfading word rotation mechanism that falls back gracefully to a static headline on reduced motion.
+          </p>
+
+          <div class="split-layout" style="grid-template-columns: 1.1fr 0.9fr; flex: 1; min-height: 0;">
+            <!-- Live Demo -->
+            <div style="display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <h2 class="display" style="font-size: 1.25rem; margin-bottom: 0.75rem;">Live Suffix Rotator Demo</h2>
+                <p style="font-size: 0.85rem; color: var(--ink-muted); margin-bottom: 1rem;">Experience the rotating word animation and the interactive button pressed states:</p>
+                
+                <div class="rotator-demo-box red-grid">
+                  <p class="mono" style="font-size: 0.7rem; color: var(--ink-black); margin-bottom: 0.5rem; letter-spacing: 0.08em; font-weight: bold;">
+                    PORTFOLIO &amp; LANDING PAGE CHEF
+                  </p>
+                  
+                  <h2 class="display rotator-heading" id="demo-headline">
+                    The kitchen for mouth-watering 
+                    <span class="rotate-word" id="rotator-target">portfolios</span>
+                  </h2>
+                  
+                  <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--ink-black); max-width: 450px;">
+                    I cook portfolio websites and landing pages that taste incredible and convert for creatives, founders, and brands.
+                  </p>
+                  
+                  <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn-chunky btn-mustard">Place your order</button>
+                    <button class="btn-chunky btn-white">See what's cooking</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Controls for demo -->
+              <div class="spec-card" style="margin-top: 0.5rem;">
+                <h4 class="display" style="font-size: 0.95rem; margin-bottom: 0.5rem;">Interactive Simulator Controls</h4>
+                <div class="demo-controls-row">
+                  <div class="toggle-pill" id="toggle-motion" onclick="toggleReducedMotion()">
+                    <span class="toggle-dot"></span> Reduced Motion: <span id="motion-status" style="margin-left: 4px;">OFF</span>
+                  </div>
+                  <div class="toggle-pill" id="force-word" onclick="forceRotateWord()">
+                    🔄 Force Suffix Switch
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Specifications Table -->
+            <div style="overflow-y: auto; padding-right: 0.5rem;">
+              <h2 class="display" style="font-size: 1.25rem; margin-bottom: 0.75rem;">Hero Component Specs</h2>
+              
+              <div class="spec-card">
+                <div class="spec-group">
+                  <div class="spec-label">Hero Background</div>
+                  <div class="spec-value">
+                    <code>color.heat.red</code> (#E63946) with 24px linear grid using dark red overlay (#C1121F) at 35% opacity.
+                  </div>
+                </div>
+                
+                <div class="spec-group">
+                  <div class="spec-label">Rotator Logic (v2)</div>
+                  <div class="spec-value">
+                    Rotates suffix words <code>["portfolios", "landing pages"]</code>. Opacity fades out/in over 400ms, holding for 4000ms.
+                  </div>
+                </div>
+                
+                <div class="spec-group">
+                  <div class="spec-label">Reduced Motion Fallback</div>
+                  <div class="spec-value" style="font-weight: 500;">
+                    "The kitchen for mouth-watering portfolios and landing pages" (combined static headline). Suffix rotation is disabled.
+                  </div>
+                </div>
+
+                <div class="spec-group">
+                  <div class="spec-label">Button Mechanics</div>
+                  <div class="spec-value">
+                    3px black borders. Active click translates button by <code>translate(4px, 4px)</code> and removes offset shadow. Gives a chunky physical feedback.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4: HOMEPAGE STRUCTURE & EXIT-RISK HEATMAP -->
+      <section class="slide" id="slide-4">
+        <div class="slide-content-fade" style="height: 100%; display: flex; flex-direction: column;">
+          <h1 class="slide-title"><span class="slide-num">04</span> Homepage Wireframe v1 &amp; Exit-Risk Heatmap</h1>
+          <p class="lead-text">
+            Scroll order: <code>nav → hero → trust → why-order → work → process → tools → cta → footer</code>. Click each viewport frame section below to see specifications and exit risk drop-off mitigations:
+          </p>
+
+          <div class="split-layout" style="grid-template-columns: 0.9fr 1.1fr; flex: 1; min-height: 0;">
+            <!-- Scroll Mockup Viewer -->
+            <div class="scroll-mockup-pane">
+              <div class="browser-frame">
+                <!-- Browser Bar -->
+                <div class="browser-header">
+                  <div class="dot-button" style="background:#FF605C;"></div>
+                  <div class="dot-button" style="background:#FFBD2E;"></div>
+                  <div class="dot-button" style="background:#27C93F;"></div>
+                  <div class="browser-address">http://byjawad.com/</div>
+                </div>
+                
+                <!-- Scrollable Viewport -->
+                <div class="browser-viewport" id="browser-scroll">
+                  <!-- NAV -->
+                  <div class="wire-section-block active" onclick="activateWireBlock('nav', this)">
+                    <div class="section-block-title">
+                      <span>Header Navigation</span>
+                      <span class="exit-badge risk-low">Low Exit</span>
+                    </div>
+                    <div class="section-block-id">nav</div>
+                    <div class="wire-summary">Logo "Jawad", links, white Book Call button. Sticky.</div>
+                  </div>
+
+                  <!-- HERO -->
+                  <div class="wire-section-block red-grid-wire" onclick="activateWireBlock('hero', this)">
+                    <div class="section-block-title" style="color:var(--ink-black)">
+                      <span>Poster Hero</span>
+                      <span class="exit-badge risk-high">High Exit</span>
+                    </div>
+                    <div class="section-block-id" style="color:var(--ink-black)">#hero</div>
+                    <div class="wire-summary" style="color:var(--ink-black)">Red background. Rotating headline, copy, mustard/white CTAs, grid layout.</div>
+                  </div>
+
+                  <!-- TRUST -->
+                  <div class="wire-section-block" onclick="activateWireBlock('trust', this)">
+                    <div class="section-block-title">
+                      <span>Trust Credibility Strip</span>
+                      <span class="exit-badge risk-low">Low Exit</span>
+                    </div>
+                    <div class="section-block-id">#trust</div>
+                    <div class="wire-summary">Cream. Thin copy-only text band. No logos. Centered.</div>
+                  </div>
+
+                  <!-- WHY ORDER -->
+                  <div class="wire-section-block" onclick="activateWireBlock('why-order', this)">
+                    <div class="section-block-title">
+                      <span>Why Order Teaser</span>
+                      <span class="exit-badge risk-medium">Medium Exit</span>
+                    </div>
+                    <div class="section-block-id">#why-order</div>
+                    <div class="wire-summary">Cream. 3 linked tiles: Creative Freelancer, SaaS, Brands.</div>
+                  </div>
+
+                  <!-- SELECTED WORK -->
+                  <div class="wire-section-block" onclick="activateWireBlock('work', this)">
+                    <div class="section-block-title">
+                      <span>Selected Work (Option B)</span>
+                      <span class="exit-badge risk-high">High Exit</span>
+                    </div>
+                    <div class="section-block-id">#work</div>
+                    <div class="wire-summary">1 live project card (By Jawad) &amp; coming soon panel side-by-side.</div>
+                  </div>
+
+                  <!-- PROCESS -->
+                  <div class="wire-section-block" onclick="activateWireBlock('process', this)">
+                    <div class="section-block-title">
+                      <span>Process Timeline</span>
+                      <span class="exit-badge risk-medium">Med-Low Exit</span>
+                    </div>
+                    <div class="section-block-id">#process</div>
+                    <div class="wire-summary">Cream. 5 course/day steps timeline. Horizontal.</div>
+                  </div>
+
+                  <!-- TOOLS -->
+                  <div class="wire-section-block" onclick="activateWireBlock('tools', this)">
+                    <div class="section-block-title">
+                      <span>Tools Showcase</span>
+                      <span class="exit-badge risk-low">Low Exit</span>
+                    </div>
+                    <div class="section-block-id">#tools</div>
+                    <div class="wire-summary">Cream-dark. 4x2 grid of 8 tools. Grayscale logos.</div>
+                  </div>
+
+                  <!-- CTA -->
+                  <div class="wire-section-block red-grid-wire" onclick="activateWireBlock('cta', this)">
+                    <div class="section-block-title" style="color:var(--ink-black)">
+                      <span>Reservation Poster</span>
+                      <span class="exit-badge risk-low">Low Exit</span>
+                    </div>
+                    <div class="section-block-id" style="color:var(--ink-black)">#cta</div>
+                    <div class="wire-summary" style="color:var(--ink-black)">Tilted red poster. Ready to order, Book call / Start inquiry CTAs.</div>
+                  </div>
+
+                  <!-- FOOTER -->
+                  <div class="wire-section-block" onclick="activateWireBlock('footer', this)">
+                    <div class="section-block-title">
+                      <span>Footer &amp; Heatmap Annotations</span>
+                      <span class="exit-badge risk-moderate">Moderate Exit</span>
+                    </div>
+                    <div class="section-block-id">footer</div>
+                    <div class="wire-summary">Tagline, newsletter, 4 columns, legal, social.</div>
+                  </div>
+                </div>
+
+                <!-- Frame Footer Heatmap Annotation -->
+                <div style="background: var(--ink-black); color: var(--paper-cream); padding: 0.35rem 0.75rem; font-family: var(--font-mono); font-size: 0.6rem; display: flex; justify-content: space-between; align-items: center;">
+                  <span>EXIT RISK INDEX</span>
+                  <span style="display: flex; gap: 0.4rem;">
+                    <span style="display:flex; align-items:center; gap:2px;"><span style="width:6px; height:6px; background:var(--heat-red); border-radius:50%;"></span> High</span>
+                    <span style="display:flex; align-items:center; gap:2px;"><span style="width:6px; height:6px; background:var(--accent-mustard); border-radius:50%;"></span> Med</span>
+                    <span style="display:flex; align-items:center; gap:2px;"><span style="width:6px; height:6px; background:#56AE57; border-radius:50%;"></span> Low</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Detail Pane -->
+            <div class="detail-spec-pane">
+              <div class="spec-card">
+                <h3 class="display" id="wire-title" style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--heat-red);">Header Navigation</h3>
+                <p id="wire-meta" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted); margin-bottom: 0.75rem;">ID: nav · Surface: cream</p>
+                
+                <div class="spec-group">
+                  <div class="spec-label">Section Purpose</div>
+                  <div class="spec-value" id="wire-purpose">Instant orientation, logo branding, and global shortcut navigation.</div>
+                </div>
+
+                <div class="spec-group">
+                  <div class="spec-label">Locked Copy Spec</div>
+                  <div class="spec-value" id="wire-copy">Wordmark logo: "Jawad". Links: Work, Services, About, Journal, Contact. Primary CTA: "Book a Call".</div>
+                </div>
+
+                <div class="spec-group">
+                  <div class="spec-label">Exit Risk Level &amp; Mitigation</div>
+                  <div class="spec-value" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                    <span class="exit-badge" id="wire-risk-badge">Low Exit</span>
+                  </div>
+                  <div class="spec-value" id="wire-mitigation">Low risk. Mitigate by keeping the Book a Call button sticky on scroll and drawer accessible.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: COMPONENT TOKEN SPECIFICATION -->
+      <section class="slide" id="slide-5">
+        <div class="slide-content-fade" style="height: 100%; display: flex; flex-direction: column;">
+          <h1 class="slide-title"><span class="slide-num">05</span> Component Token Specification</h1>
+          <p class="lead-text">
+            Components map layout properties to exact tokens from <code>docs/design-token-system.md</code>. Select a component below to review its tokens:
+          </p>
+
+          <div class="comp-dashboard">
+            <!-- Left Menu -->
+            <div class="comp-menu">
+              <button class="comp-menu-btn active" onclick="showCompSpec('nav', this)">Global Nav (Header)</button>
+              <button class="comp-menu-btn" onclick="showCompSpec('hero', this)">Poster Hero</button>
+              <button class="comp-menu-btn" onclick="showCompSpec('dishes', this)">Dish Cards (Work)</button>
+              <button class="comp-menu-btn" onclick="showCompSpec('timeline', this)">Recipe Timeline</button>
+              <button class="comp-menu-btn" onclick="showCompSpec('ingredients', this)">Ingredient Cards</button>
+              <button class="comp-menu-btn" onclick="showCompSpec('poster', this)">Reservation Poster</button>
+            </div>
+
+            <!-- Right spec sheet -->
+            <div class="comp-content-pane">
+              <div id="comp-spec-details">
+                <!-- Nav spec (default) -->
+                <h3 class="display" style="font-size: 1.3rem; margin-bottom: 0.5rem;">Global Navigation (Header)</h3>
+                <p style="font-size: 0.85rem; color: var(--ink-muted); margin-bottom: 1rem;">Ensures high legibility and sticky transition state.</p>
+                
+                <table class="token-table">
+                  <thead>
+                    <tr>
+                      <th>Property</th>
+                      <th>Token Reference</th>
+                      <th>Value / CSS Specification</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Background</td>
+                      <td><code>color.paper.cream</code></td>
+                      <td><code>#FCEAD4</code> (solid on cream pages, transparent over hero)</td>
+                    </tr>
+                    <tr>
+                      <td>Border bottom</td>
+                      <td><code>color.border.default</code></td>
+                      <td>2px solid <code>#000000</code></td>
+                    </tr>
+                    <tr>
+                      <td>Nav Height</td>
+                      <td><code>space.16</code></td>
+                      <td>64px target height</td>
+                    </tr>
+                    <tr>
+                      <td>Logo Font</td>
+                      <td><code>font.display</code></td>
+                      <td>Fredoka Bold 700, size 1.25rem</td>
+                    </tr>
+                    <tr>
+                      <td>Nav Links Font</td>
+                      <td><code>font.display</code></td>
+                      <td>Fredoka Medium 600, size 0.9rem</td>
+                    </tr>
+                    <tr>
+                      <td>Primary CTA</td>
+                      <td><code>.btn-white</code></td>
+                      <td>White card pill, black border, 2px shadow sticker</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: CTA MATRIX & CONVERSION FLOWS -->
+      <section class="slide" id="slide-6">
+        <div class="slide-content-fade" style="height: 100%; display: flex; flex-direction: column;">
+          <h1 class="slide-title"><span class="slide-num">06</span> CTA Model &amp; Conversion Flows</h1>
+          <p class="lead-text">
+            Sitewide CTAs route visitors efficiently based on intent. <strong>Red surfaces</strong> have high-intent CTAs (Place your order), while <strong>cream surfaces</strong> use global CTAs (Chat to the chef).
+          </p>
+
+          <div class="paths-container">
+            <!-- Left selections -->
+            <div style="display: flex; flex-direction: column; overflow-y: auto;">
+              <h3 class="display" style="font-size: 1.1rem; margin-bottom: 0.75rem;">Conversion Persona</h3>
+              
+              <div class="path-select-btn active" onclick="activatePath('proof', this)">
+                <span class="path-select-btn-title">1. Proof Path (Organic)</span>
+                <span class="path-select-btn-desc">Visitor reviews portfolio proof first, qualifies build quality, then books call.</span>
+              </div>
+
+              <div class="path-select-btn" onclick="activatePath('scroll', this)">
+                <span class="path-select-btn-title">2. Scroll Path (Scroller)</span>
+                <span class="path-select-btn-desc">Visitor bypasses work clicks, reads process &amp; tools, converts at reservation poster.</span>
+              </div>
+
+              <div class="path-select-btn" onclick="activatePath('intent', this)">
+                <span class="path-select-btn-title">3. High Intent Path</span>
+                <span class="path-select-btn-desc">Fast-track action via Hero or Navigation CTA within 5 seconds.</span>
+              </div>
+
+              <div class="path-select-btn" onclick="activatePath('qualification', this)">
+                <span class="path-select-btn-title">4. Qualification Path</span>
+                <span class="path-select-btn-desc">Visitor clicks service package why-tiles to check freelancer vs SaaS suitability.</span>
+              </div>
+            </div>
+
+            <!-- Right Interactive Viewer -->
+            <div class="flow-viewer">
+              <div>
+                <h3 class="display" id="path-title" style="font-size: 1.25rem; color: var(--heat-red);">Proof Path Flow</h3>
+                <p id="path-desc" style="font-size: 0.85rem; color: var(--ink-muted); margin-top: 0.25rem;">
+                  A detailed walk-through of the step-by-step visitor route to qualification.
+                </p>
+
+                <!-- Flow Visualized -->
+                <div class="flow-steps" id="flow-steps-target">
+                  <!-- Will be populated dynamically -->
+                </div>
+              </div>
+
+              <!-- Explanation block -->
+              <div class="flow-explanation" id="path-explanation-box">
+                Visitor scans the red hero and scroll straight to the "My dishes" selected work section. They inspect the "By Jawad" card, click view project, see the case study, and are routed to the contact form.
+              </div>
+
+              <!-- CTA Rules Summary -->
+              <div class="spec-card" style="margin-top: 1rem; padding: 0.75rem 1rem;">
+                <span class="kicker">Important CTA Color Rule</span>
+                <p style="font-size: 0.8rem; line-height: 1.4;">
+                  <strong>Place your order</strong> CTA is restricted to <strong>RED surfaces only</strong> (Hero, reservation poster). Headers and cream strips must use <strong>Chat to the chef</strong> or <strong>Book a Call</strong> with white/black pills.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 7: HANDOFF CHECKLIST & V2 ROADMAP -->
+      <section class="slide" id="slide-7">
+        <div class="slide-content-fade" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h1 class="slide-title"><span class="slide-num">07</span> Wireframe Handoff &amp; v2 Roadmap</h1>
+            <p class="lead-text">
+              The project is pre-build scaffolding. Use the checklist below to verify wireframe exit criteria before implementing the full React site.
+            </p>
+
+            <div class="split-layout" style="grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+              <!-- Checklist -->
+              <div class="spec-card">
+                <h3 class="display" style="font-size: 1.15rem; margin-bottom: 0.75rem; border-bottom: 2px dashed rgba(0,0,0,0.15); padding-bottom: 0.25rem;">
+                  v1 Wireframe Handoff Checklist
+                </h3>
+                
+                <div class="checklist-row">
+                  <div class="checklist-box checked"></div>
+                  <div style="font-size: 0.85rem; line-height: 1.4;">
+                    <strong>Desktop (1200px) &amp; Mobile (375px) layouts</strong> conform to <code>homepage-wireframe-spec.html</code>.
+                  </div>
+                </div>
+
+                <div class="checklist-row">
+                  <div class="checklist-box checked"></div>
+                  <div style="font-size: 0.85rem; line-height: 1.4;">
+                    <strong>Scroll order</strong> locked: <code>nav → hero → trust → why-order → work → process → tools → cta → footer</code>.
+                  </div>
+                </div>
+
+                <div class="checklist-row">
+                  <div class="checklist-box checked"></div>
+                  <div style="font-size: 0.85rem; line-height: 1.4;">
+                    <strong>Option B work</strong> applied: 1 live project card + 1 coming soon card. No mock fillers.
+                  </div>
+                </div>
+
+                <div class="checklist-row">
+                  <div class="checklist-box checked"></div>
+                  <div style="font-size: 0.85rem; line-height: 1.4;">
+                    <strong>CTA destinations match:</strong> Red surfaces link to `/order` (high-intent), nav links to `/order` or Calendly.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Deferred features -->
+              <div class="spec-card" style="background: var(--paper-cream-dark); border-style: dashed;">
+                <h3 class="display" style="font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--heat-red);">
+                  Deferred to Wireframe v2 (Hi-Fi)
+                </h3>
+                
+                <ul style="font-size: 0.85rem; padding-left: 1.25rem; line-height: 1.6;">
+                  <li><strong>Nav scrolling effects:</strong> Shrink and blur transitions on scroll.</li>
+                  <li><strong>Hero suffix rotation:</strong> Crossfade animations (demo on slide 3).</li>
+                  <li><strong>Interactive hovers:</strong> Chunk offset translation shadow on dishes and pantry items.</li>
+                  <li><strong>Real Brand assets:</strong> Monogram logo, custom illustrations, and project screenshots.</li>
+                  <li><strong>Supabase Integration:</strong> Live contact database and Resend email forms.</li>
+                  <li><strong>v2 Testimonials strip:</strong> To be added when 2+ client reviews exist.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 1rem;">
+            <div class="btn-chunky btn-mustard" onclick="changeSlide(0)" style="font-size: 0.9rem;">Back to Beginning</div>
+            <p style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted); margin-top: 0.5rem;">
+              Studio Kitchen v1 Specification · May 2026
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- BOTTOM NAVIGATION CONTROLS -->
+  <footer class="deck-controls">
+    <div class="nav-buttons">
+      <button class="btn-nav" id="btn-prev" onclick="prevSlide()" disabled>← Previous</button>
+      <button class="btn-nav" id="btn-next" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <div class="progress-track">
+      <div class="progress-bar" id="deck-progress"></div>
+    </div>
+
+    <div style="display:flex; align-items:center; gap:1rem;">
+      <div class="slide-indicator" id="slide-indicator">Slide 1 of 7</div>
+      <div class="nav-tip">Use ← / → keys</div>
+    </div>
+  </footer>
+
+  <!-- PRESENTATION JAVASCRIPT -->
+  <script>
+    // State management
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const progressBar = document.getElementById('deck-progress');
+    const indicator = document.getElementById('slide-indicator');
+    const prevBtn = document.getElementById('btn-prev');
+    const nextBtn = document.getElementById('btn-next');
+
+    // Slide transition
+    function changeSlide(index) {
+      if (index < 0 || index >= totalSlides) return;
+      
+      slides[currentSlideIndex].classList.remove('active');
+      currentSlideIndex = index;
+      slides[currentSlideIndex].classList.add('active');
+
+      // Update Controls
+      prevBtn.disabled = currentSlideIndex === 0;
+      nextBtn.disabled = currentSlideIndex === totalSlides - 1;
+
+      // Update Progress
+      const progressPercent = (currentSlideIndex / (totalSlides - 1)) * 100;
+      progressBar.style.width = `${progressPercent}%`;
+
+      // Update Indicator
+      indicator.textContent = `Slide ${currentSlideIndex + 1} of ${totalSlides}`;
+    }
+
+    function nextSlide() {
+      if (currentSlideIndex < totalSlides - 1) {
+        changeSlide(currentSlideIndex + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlideIndex > 0) {
+        changeSlide(currentSlideIndex - 1);
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Space' || e.code === 'Space') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevSlide();
+      }
+    });
+
+    // Swatch selection helper
+    function selectSwatch(id, hex, token, description) {
+      const inspector = document.getElementById('swatch-inspector');
+      const title = document.getElementById('inspect-title');
+      const desc = document.getElementById('inspect-desc');
+      
+      title.textContent = token;
+      desc.innerHTML = `<strong>HEX Code:</strong> <code>${hex}</code><br/><br/>${description}`;
+      
+      // Update styling to reflect selected color
+      inspector.style.borderLeft = `6px solid ${hex}`;
+    }
+
+    // Hero rotating suffix simulation
+    const words = ["portfolios", "landing pages"];
+    let wordIndex = 0;
+    let rotateInterval;
+    let isReducedMotion = false;
+    const rotatorTarget = document.getElementById('rotator-target');
+
+    function startRotator() {
+      if (rotateInterval) clearInterval(rotateInterval);
+      if (isReducedMotion) return;
+
+      rotateInterval = setInterval(() => {
+        rotateWord();
+      }, 4000);
+    }
+
+    function rotateWord() {
+      if (isReducedMotion) return;
+      rotatorTarget.style.opacity = '0';
+      setTimeout(() => {
+        wordIndex = (wordIndex + 1) % words.length;
+        rotatorTarget.textContent = words[wordIndex];
+        rotatorTarget.style.opacity = '1';
+      }, 400);
+    }
+
+    function forceRotateWord() {
+      if (isReducedMotion) return;
+      rotateWord();
+    }
+
+    function toggleReducedMotion() {
+      isReducedMotion = !isReducedMotion;
+      const pill = document.getElementById('toggle-motion');
+      const status = document.getElementById('motion-status');
+      const headline = document.getElementById('demo-headline');
+      
+      if (isReducedMotion) {
+        pill.classList.add('active');
+        status.textContent = "ON";
+        clearInterval(rotateInterval);
+        headline.innerHTML = `The kitchen for mouth-watering <span style="border-bottom: 4px solid var(--accent-mustard)">portfolios and landing pages</span>`;
+      } else {
+        pill.classList.remove('active');
+        status.textContent = "OFF";
+        headline.innerHTML = `The kitchen for mouth-watering <span class="rotate-word" id="rotator-target" style="border-bottom: 4px solid var(--accent-mustard)">portfolios</span>`;
+        // re-grab selector reference since headline innerHTML changed
+        setTimeout(() => {
+          window.rotatorTarget = document.getElementById('rotator-target');
+        }, 50);
+        wordIndex = 0;
+        startRotator();
+      }
+    }
+
+    // Wireframe annotations viewer helper
+    const wireSpecs = {
+      nav: {
+        title: "Header Navigation",
+        meta: "ID: nav · Surface: cream · CTA: Book a Call (White pill)",
+        purpose: "Instant orientation, logo branding, and conversion shortcut access.",
+        copy: "Logo: Wordmark 'Jawad'. Links: Work, Services, About, Journal, Contact. Header CTA: Book a Call → /contact#book",
+        risk: "Low Exit",
+        riskClass: "risk-low",
+        mitigation: "Keep standard links visible on desktop. Keep CTA 'Book a Call' prominent on all viewports, converting directly to the cal/form."
+      },
+      hero: {
+        title: "Section 1: Poster Hero",
+        meta: "ID: #hero · Surface: red-grid · CTA: Place your order (Mustard)",
+        purpose: "3-second viewport landing. Confirms exactly what we build and for whom, with a high-intent conversion action.",
+        copy: "Kicker: Portfolio & landing page studio. Prefix: The kitchen for mouth-watering. Suffix (rotates): portfolios, landing pages. Subhead: I cook portfolio websites and landing pages that taste incredible and convert for creatives, founders, and brands.",
+        risk: "High Exit",
+        riskClass: "risk-high",
+        mitigation: "Bounce is common here. Mitigate by keeping secondary CTA 'See what's cooking' white, redirecting scrollers directly down to the Selected Work proof."
+      },
+      trust: {
+        title: "Section 2: Trust / Credibility Strip",
+        meta: "ID: #trust · Surface: cream · CTA: None",
+        purpose: "Immediate positioning and qualification before displaying proof.",
+        copy: "Block A: I cook · FAST FOOD · Dishes delivered in days not months. Block B: Agency-level · DISHES · at takeaway prices. Footnote: Specialist in portfolios and landing pages only.",
+        risk: "Low Exit",
+        riskClass: "risk-low",
+        mitigation: "Keep it thin, text-only, and fast-scanning. Avoid competitor logos here; tools live in the pantry section."
+      },
+      'why-order': {
+        title: "Section 3: Why Order Teaser",
+        meta: "ID: #why-order · Surface: cream · CTA: Card click",
+        purpose: "Brief audience segmentation (Freelancers vs SaaS founders vs Brands) linking to specific service qualification pages.",
+        copy: "Kicker: Why order? Heading: Different orders, different dishes. Tile 1: The empty plate. Tile 2: One dish, one goal. Tile 3: Front of house. Bridge: See the full menu → /services#why",
+        risk: "Medium Exit",
+        riskClass: "risk-medium",
+        mitigation: "Cards must be visually simple. Make the entire card hoverable with 'cursor: pointer' rather than embedding links inside, encouraging routing."
+      },
+      work: {
+        title: "Section 4: Selected Work",
+        meta: "ID: #work · Surface: cream · CTA: Explore work",
+        purpose: "Paid social proof. Proves premium output capacity.",
+        copy: "Kicker: From the pass. Heading: My dishes. Live Card: By Jawad (Portfolio) - 'The site you're on — Studio Kitchen voice, conversion-first'. Coming soon card: Next out of the kitchen - 'Case studies added as projects ship.' Section CTA: Explore work → /work",
+        risk: "High Exit",
+        riskClass: "risk-high",
+        mitigation: "Option B design uses 1 live card + coming soon. High drop risk if thumbnail is weak. Ensure real interactive case studies and screenshots of 'By Jawad' are stunning."
+      },
+      process: {
+        title: "Section 5: Process Timeline",
+        meta: "ID: #process · Surface: cream · CTA: See full process",
+        purpose: "Reduces delivery timeline anxiety for scrollers.",
+        copy: "Kicker: The recipe. Heading: Five courses. Five days. Steps: 1. Prep the brief, 2. First taste, 3. Plate the design, 4. In the oven, 5. Serve & hand off. Bridge: View Services → /services",
+        risk: "Medium Exit",
+        riskClass: "risk-medium",
+        mitigation: "Desktop uses horizontal connectors, mobile vertical stack. Keep description copy under 120 characters per step to maintain page rhythm."
+      },
+      tools: {
+        title: "Section 6: Tools Showcase",
+        meta: "ID: #tools · Surface: cream-dark · CTA: None",
+        purpose: "Secondary technical credibility. Displays tool assets and strategy stack.",
+        copy: "Kicker: The pantry. Heading: My ingredients. Subhead: AI-assisted precision — human-led strategy and craft. Grid: Cursor, Claude, Figma, Next.js, Tailwind, Spline, GSAP, Supabase.",
+        risk: "Low Exit",
+        riskClass: "risk-low",
+        mitigation: "Grayscale logos prevent visual clutter. Tool list is locked; do not swap items without custom developer consultation."
+      },
+      cta: {
+        title: "Section 7: Final CTA (Poster)",
+        meta: "ID: #cta · Surface: red-grid · CTA: Book a call / Start inquiry",
+        purpose: "Last-viewport pitch. Reservation card styling converts remaining scrollers.",
+        copy: "Script (Caveat): Ready to order? Headline: PLACE YOUR ORDER. Subtitle: Tell me about your project — I'll reply within 24 hours. Primary: Book a Call. Secondary: Start an Inquiry.",
+        risk: "Low Exit",
+        riskClass: "risk-low",
+        mitigation: "Visual tilt (rotate 2deg) and shadow.poster create a physical ticket metaphor. Both buttons lead to `/order` (or contact form anchor) to avoid drop-off."
+      },
+      footer: {
+        title: "Section 8: Global Footer",
+        meta: "ID: footer · Surface: cream · CTA: Email / Newsletter",
+        purpose: "Recovery navigation and secondary newsletter list building.",
+        copy: "Tagline: Landing pages and portfolio websites — designed to stand out and convert. Columns: Work, Services, About, Journal, Connect. Newsletter kicker: Get the recipe. Copyright: © 2026 Jawad Jalal · London, UK",
+        risk: "Moderate Exit",
+        riskClass: "risk-moderate",
+        mitigation: "Exit is natural at the page bottom. Mitigate by providing clear column links for work and services indexes so the session survives."
+      }
+    };
+
+    function activateWireBlock(id, element) {
+      // Remove active classes
+      document.querySelectorAll('.wire-section-block').forEach(b => b.classList.remove('active'));
+      element.classList.add('active');
+
+      // Update specs
+      const spec = wireSpecs[id];
+      document.getElementById('wire-title').textContent = spec.title;
+      document.getElementById('wire-meta').textContent = spec.meta;
+      document.getElementById('wire-purpose').textContent = spec.purpose;
+      document.getElementById('wire-copy').textContent = spec.copy;
+      
+      const badge = document.getElementById('wire-risk-badge');
+      badge.textContent = spec.risk;
+      badge.className = `exit-badge ${spec.riskClass}`;
+      
+      document.getElementById('wire-mitigation').textContent = spec.mitigation;
+    }
+
+    // Component specifications list mapping
+    const compSpecs = {
+      nav: {
+        title: "Global Navigation (Header)",
+        desc: "Sticky navigation bar that changes background style based on viewport scroll position.",
+        tokens: [
+          { prop: "Background", token: "color.paper.cream", val: "#FCEAD4 (Cream page standard; transparent over hero)" },
+          { prop: "Border Bottom", token: "color.border.default", val: "2px solid #000000" },
+          { prop: "Height", token: "space.16", val: "64px height container" },
+          { prop: "Logo Typography", token: "font.display", val: "Fredoka Bold 700 (1.25rem, interim 'Jawad')" },
+          { prop: "Nav Items", token: "font.display", val: "Fredoka 600, color.ink.black" },
+          { prop: "Global CTA", token: "color.surface.card", val: "White secondary pill, 3px border, 2px shadow sticker" }
+        ]
+      },
+      hero: {
+        title: "Poster Hero Section",
+        desc: "High-contrast viewport splash built with the signature Studio Kitchen red poster grid.",
+        tokens: [
+          { prop: "Background", token: "color.heat.red", val: "#E63946 (with dark red grid #C1121F overlay)" },
+          { prop: "Headline", token: "font.display", val: "Fredoka 700 (clamp 2.75rem to 5.5rem, letter-spacing -0.02em)" },
+          { prop: "Audience Chips", token: "font.mono", val: "JetBrains Mono 500, inline list, ink.muted text" },
+          { prop: "Primary Button", token: "accent.mustard", val: "Mustard fill (#F4B942), 3px border, 4px shadow.sticker" },
+          { prop: "Secondary Button", token: "surface.card", val: "White fill (#FFFFFF), 3px border, 4px shadow.sticker" },
+          { prop: "Min-Height", token: "layout.max", val: "90vh min-height for full viewport alignment" }
+        ]
+      },
+      dishes: {
+        title: "Dish Cards (Selected Work)",
+        desc: "Option B launch spec: flat white cards on cream body with a clean border stroke.",
+        tokens: [
+          { prop: "Card Background", token: "color.surface.card", val: "#FFFFFF (White surface)" },
+          { prop: "Card Border", token: "color.border.default", val: "2px solid #000000" },
+          { prop: "Card Radius", token: "radius.lg", val: "16px rounded corners" },
+          { prop: "Card Shadow", token: "none", val: "Flat outline on idle; hover offsets -2px transform + shadow" },
+          { prop: "Kicker Accent", token: "font.mono", val: "'From the pass' - JetBrains Mono, ink.muted text" },
+          { prop: "Headline", token: "font.display", val: "'My dishes' - Fredoka 700 bold" }
+        ]
+      },
+      timeline: {
+        title: "Recipe Timeline (Process)",
+        desc: "5-day roadmap linking prep work to deliverable launch.",
+        tokens: [
+          { prop: "Section bg", token: "color.paper.cream", val: "#FCEAD4 (Warm cream)" },
+          { prop: "Step labels", token: "font.display", val: "Fredoka 600, numbers 1 through 5, inline circles" },
+          { prop: "Timeline connector", token: "color.ink.black", val: "2px solid black linear connector" },
+          { prop: "Day Kickers", token: "font.mono", val: "'DAY 1' to 'DAY 5' in JetBrains Mono 500" },
+          { prop: "Description font", token: "font.body", val: "Inter 400 (ink.muted, max 120 chars for scanner speed)" }
+        ]
+      },
+      ingredients: {
+        title: "Ingredient Cards (Tools)",
+        desc: "Grayscale technical tools grid verifying software execution credibility.",
+        tokens: [
+          { prop: "Section bg", token: "color.paper.cream.dark", val: "#F5DFC4 (Darker cream grid background block)" },
+          { prop: "Card Background", token: "color.surface.card", val: "#FFFFFF card container, radius.lg" },
+          { prop: "Grid layout", token: "layout.max", val: "4x2 desktop grid, 2x4 mobile grid" },
+          { prop: "Labels", token: "font.display", val: "Fredoka 600 bold text" },
+          { prop: "Roles line", token: "font.mono", val: "JetBrains Mono 500, small text in ink.muted" }
+        ]
+      },
+      poster: {
+        title: "Reservation Poster (Final CTA)",
+        desc: "A bold closing card tilted at an angle with a premium poster look.",
+        tokens: [
+          { prop: "Poster background", token: "color.heat.red", val: "#E63946 (red grid poster card)" },
+          { prop: "Poster Tilt", token: "poster-tilt", val: "rotate(2deg) tilt to resemble a kitchen ticket" },
+          { prop: "Poster Shadow", token: "shadow.poster", val: "Hard 8px 8px offset shadow (#000000)" },
+          { prop: "Script Script", token: "font.script", val: "'Ready to order?' in Caveat 700, white with black stroke" },
+          { prop: "Action shout", token: "font.display", val: "'PLACE YOUR ORDER' in Fredoka uppercase bold" },
+          { prop: "CTAs destination", token: "color.accent.mustard", val: "Both pills route to `/order` page anchor" }
+        ]
+      }
+    };
+
+    function showCompSpec(id, button) {
+      // Toggle menu active classes
+      document.querySelectorAll('.comp-menu-btn').forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+
+      const data = compSpecs[id];
+      const target = document.getElementById('comp-spec-details');
+      
+      let rowsHtml = '';
+      data.tokens.forEach(t => {
+        rowsHtml += `
+          <tr>
+            <td>${t.prop}</td>
+            <td><code>${t.token}</code></td>
+            <td>${t.val}</td>
+          </tr>
+        `;
+      });
+
+      target.innerHTML = `
+        <h3 class="display" style="font-size: 1.3rem; margin-bottom: 0.5rem;">${data.title}</h3>
+        <p style="font-size: 0.85rem; color: var(--ink-muted); margin-bottom: 1rem;">${data.desc}</p>
+        
+        <table class="token-table">
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Token Reference</th>
+              <th>Value / CSS Specification</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rowsHtml}
+          </tbody>
+        </table>
+      `;
+    }
+
+    // CTA paths animation logic
+    const paths = {
+      proof: {
+        title: "1. Organic Proof Path",
+        desc: "Qualifies build credentials via case study routing before contact inquiry.",
+        steps: ["#hero (Scan)", "#trust (Scan)", "#work (Card Click)", "/work/by-jawad (Study)", "/order (Inquire)"],
+        explanation: "The default path for design-focused leads. The visitor lands on the red hero, scrolls past trust, is captured by the live screenshot of 'By Jawad' work, reads the conversion-first case study, and navigates to the contact page to start their project."
+      },
+      scroll: {
+        title: "2. Passive Scroll Path",
+        desc: "Visitor scans the entire homepage layout, building trust step-by-step.",
+        steps: ["#hero (Scroll)", "#trust (Scan)", "#why-order (Teaser)", "#work (Scroll)", "#process (Steps)", "#tools (Inspect)", "#cta (Convert)"],
+        explanation: "Common for founders who read process and stack details. They bypass direct work clicks, read the 5-day recipe timeline, review the Cursor/Claude pantry tools, and convert right on the tilted reservation ticket poster CTA at the page footer."
+      },
+      intent: {
+        title: "3. High Intent Path",
+        desc: "Redirects immediately to inquiry form without scrolling page hierarchy.",
+        steps: ["#hero (Place order)", "/order (Form convert)"],
+        explanation: "For warm leads or repeat contacts. Within 5 seconds, they click the primary 'Place your order' mustard CTA on the red hero or navigation header 'Chat to the chef' button, transferring straight to the inquiry calendar booking."
+      },
+      qualification: {
+        title: "4. Services Qualification Path",
+        desc: "Audience segmentation via custom why-tiles to check package fit.",
+        steps: ["#hero (Scroll)", "#why-order (Tile Click)", "/services#why-* (Offer)", "/order (Convert)"],
+        explanation: "For users unsure of their scope. Clicking cards in the 'Why Order' section (Freelancers empty plate, SaaS one-goal, Brands front-of-house) routes them to anchor packages on the Services page before booking."
+      }
+    };
+
+    function activatePath(id, button) {
+      document.querySelectorAll('.path-select-btn').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      const path = paths[id];
+      document.getElementById('path-title').textContent = path.title;
+      document.getElementById('path-desc').textContent = path.desc;
+      document.getElementById('path-explanation-box').textContent = path.explanation;
+
+      // Populate flow nodes
+      const container = document.getElementById('flow-steps-target');
+      container.innerHTML = '';
+
+      path.steps.forEach((step, index) => {
+        // Add step node
+        const node = document.createElement('div');
+        node.className = 'flow-step-node';
+        if (step.startsWith('#hero') || step.startsWith('#cta') || step.startsWith('/order')) {
+          node.className += ' red-node';
+        }
+        node.textContent = step;
+        container.appendChild(node);
+
+        // Add arrow if not last
+        if (index < path.steps.length - 1) {
+          const arrow = document.createElement('span');
+          arrow.className = 'flow-step-arrow';
+          arrow.textContent = '➔';
+          container.appendChild(arrow);
+        }
+      });
+
+      // Animate active steps sequentially
+      setTimeout(() => {
+        const nodes = container.querySelectorAll('.flow-step-node, .flow-step-arrow');
+        nodes.forEach((n, i) => {
+          setTimeout(() => {
+            n.classList.add('active');
+          }, i * 150);
+        });
+      }, 50);
+    }
+
+    // Initialize interactive scripts
+    document.addEventListener('DOMContentLoaded', () => {
+      startRotator();
+      activatePath('proof', document.querySelector('.path-select-btn'));
+      // Initialize first wire block
+      activateWireBlock('nav', document.querySelector('.wire-section-block'));
+    });
+  </script>
+</body>
+</html>

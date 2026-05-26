@@ -82,8 +82,13 @@ Maps portfolio UI components to the **Studio Kitchen** token architecture. Use d
 | `hero.audience` | font | `font.size.small` | Inter, slightly muted |
 | `hero.primaryCta` | class | `.btn-mustard` | Place your order |
 | `hero.secondaryCta` | class | `.btn-white` | See what's cooking |
-| `hero.illustration` | border | `border.width.bold` | White card placeholder until art ships |
-| `hero.layout` | grid | 1.1fr / 0.9fr @ ≥900px | Copy left · illustration right |
+| `hero.poster` | transform | rotate(−6deg) desktop | Flat when `prefers-reduced-motion` |
+| `hero.scriptAccent` | font | `font.script` · mustard on red | *mouth-watering* only |
+| `hero.layout` | stack | centered single column | Mega type poster; **no illustration** |
+| `whyOrder.section` | background | `color.surface.ink` | Full-bleed ink band |
+| `whyOrder.tile` | class | `.card--on-ink` | Glass card; whole-tile link |
+| `work.section` | background | `color.surface.ink` | Continues ink band |
+| `work.rail` | layout | horizontal scroll @ ≥900px | Live card + coming soon |
 
 **Prototype:** [studio-kitchen-hero-prototype.html](./studio-kitchen-hero-prototype.html)
 
@@ -127,12 +132,15 @@ Maps portfolio UI components to the **Studio Kitchen** token architecture. Use d
 | Part | Token |
 |------|-------|
 | background | `color.paper.cream` |
-| primary line | `font.display` · `font.size.h3` · `color.ink.black` |
-| supporting | `font.body` · `color.ink.muted` |
-| alignment | centered |
+| card | `color.surface.card` · `border.width.bold` · `shadow.sticker` |
+| block A/B script | `font.script` · `color.ink.black` |
+| block display | `font.display` · `clamp(1.75rem, 5vw, 3.25rem)` · uppercase |
+| block support | `font.body` · `color.ink.muted` |
+| footnote | `font.body` · `color.ink.muted` · centered below grid |
+| layout | 2-col diagonal offset desktop · stack mobile |
 | padding-y | `space.12` |
 
-Copy-only — no logos in v1.
+Copy-only — no logos in v1. No tilt on trust cards.
 
 ---
 
@@ -263,7 +271,7 @@ No red grid on inner heroes except contact top band.
 - [ ] Replace `globals.css` / `tailwind.config.ts` with tokens from [design-token-system.md](./design-token-system.md)
 - [ ] Hero suffix rotation with reduced-motion fallback
 - [ ] Section IDs: `#work`, `#process`, `#tools`, `#cta` unchanged for IA
-- [ ] Kitchen illustration slot in hero (placeholder until `brand_assets/` art)
+- [x] Hero: centered mega-type poster (no illustration slot)
 
 ---
 

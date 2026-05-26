@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" data-nav-surface="hero">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 Wireframe v3 — Studio Kitchen</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../wireframes-v2/_chrome.css" />
+  <link rel="stylesheet" href="_v3-labels.css" />
+  <style>
+    .error-hero .sub { color: var(--ink-muted); max-width: 28rem; margin: 0 auto 1.5rem; }
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+    }
+    .quick-links a { color: var(--ink-black); }
+  </style>
+</head>
+<body class="show-v3-labels">
+  <nav class="site-nav is-scrolled" id="site-nav" aria-label="Site">
+    <div class="wrap site-nav__inner">
+      <a class="site-nav__logo" href="/"><img id="nav-logo" src="../../brand_assets/logo/jawad-design-lockup-black.svg" alt="Jawad" width="140" height="32" /></a>
+      <ul class="site-nav__links">
+        <li><a href="/work">Work</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/journal">Journal</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <a class="btn btn-white site-nav__cta" href="/order">Chat to the chef</a>
+        <button type="button" class="site-nav__menu-btn" id="menu-open" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer__backdrop" id="menu-backdrop"></div>
+    <div class="mobile-drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
+      <button type="button" class="mobile-drawer__close" id="menu-close" aria-label="Close menu">×</button>
+      <a class="btn btn-white" href="/order" style="width:100%">Chat to the chef</a>
+      <ul class="mobile-drawer__nav">
+        <li><a href="/work">Work</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/journal">Journal</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+      <p class="v3-page-tokens" aria-hidden="true">v3 · /404 · layout-max: 1280px · section-v-desktop: 96px · font.display Fredoka · Toggle labels bottom-right</p>
+  <main id="main">
+    <section class="error-hero red-grid" aria-labelledby="error-title">
+      <div class="wrap">
+        <p class="kicker kicker--on-red">404</p>
+        <h1 id="error-title" class="display">This page isn't on the menu.</h1>
+        <p class="sub">Head back to the kitchen — or place a new order.</p>
+        <div class="cta-row" style="justify-content:center">
+          <a class="btn btn-mustard" href="/">Return home</a>
+          <a class="btn btn-white" href="/work">See what's cooking</a>
+          <a class="btn btn-white" href="/contact">Place your order</a>
+        </div>
+        <nav class="quick-links" aria-label="Quick links">
+          <a href="/services">Services</a>
+          <a href="/about">About</a>
+          <a href="/journal">Journal</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap footer-bottom">© 2026 Jawad Jalal · London, UK</div></footer>
+
+  <aside class="spec-footer" aria-label="Wireframe v3 annotations">
+    <div class="wrap">
+      <span class="spec-badge">Wireframe v3 · /404</span>
+      <table class="v3-token-table">
+        <thead><tr><th>Token</th><th>Value / use</th></tr></thead>
+        <tbody>
+          <tr><td><code>font.display</code></td><td>Fredoka — headings, nav, CTAs</td></tr>
+          <tr><td><code>font.body</code></td><td>Inter — body, forms</td></tr>
+          <tr><td><code>font.mono</code></td><td>JetBrains Mono — kickers (ink.muted)</td></tr>
+          <tr><td><code>font.script</code></td><td>Caveat — poster script only</td></tr>
+          <tr><td><code>layout-max</code></td><td>1280px (<code>--layout-max</code>)</td></tr>
+          <tr><td><code>section-v-desktop</code></td><td>96px vertical rhythm (desktop)</td></tr>
+          <tr><td><code>shadow.sticker</code></td><td>4px 4px 0 ink</td></tr>
+          <tr><td><code>radius.lg</code></td><td>16px cards</td></tr>
+          <tr><td><code>border.width.bold</code></td><td>3px ink borders</td></tr>
+        </tbody>
+      </table>
+      <ul>
+        <li>Mustard <strong>Return home</strong> on red recovery band</li>
+        <li><code>noindex</code> in production metadata</li>
+      </ul>
+      <div class="v3-ledger">
+        <h3>Deferral ledger</h3>
+        <p><strong>Hi-fi (Stage 2):</strong> Hero mega-type poster, hero video, Spline, GSAP scroll scenes, work card secondary image hover (2+ projects), Ken Burns / advanced motion.</p>
+        <p><strong>Production (Stage 3):</strong> Live Calendly/Cal.com, Supabase + Resend, newsletter integration, real tool logos, custom monogram.</p>
+        <p><strong>Post-launch:</strong> Testimonials, additional case studies, journal articles beyond seed set, work filter/tags when N&gt;1.</p>
+      </div>
+      <div class="v3-approval">
+        <h3>v3 approval</h3>
+        <ul>
+          <li><strong>Date:</strong> 2026-05-25</li>
+          <li><strong>Approver:</strong> Jawad Jalal (Studio Kitchen)</li>
+          <li><strong>v2 source:</strong> 404-wireframe-v2.html</li>
+          <li><strong>Open questions:</strong> none</li>
+          <li><strong>Conversion sign-off:</strong> <a href="../homepage-conversion-flow.md">homepage-conversion-flow.md</a> — proof-first funnel approved</li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <script src="../wireframes-v2/_chrome.js" defer></script>
+  <script src="_v3-labels.js" defer></script>
+</body>
+</html>

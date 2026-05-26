@@ -1,0 +1,15 @@
+﻿{
+    "id":  "4b7e564f-8e0c-4bd2-98c7-c1dfbf8f9b2c",
+    "jsonrpc":  "2.0",
+    "result":  {
+                   "content":  [
+                                   {
+                                       "text":  "{\"assetId\":\"7f03b50add5348ff9645cf14f210a458\"}",
+                                       "type":  "text"
+                                   }
+                               ],
+                   "structuredContent":  {
+                                             "assetId":  "7f03b50add5348ff9645cf14f210a458"
+                                         }
+               }
+}

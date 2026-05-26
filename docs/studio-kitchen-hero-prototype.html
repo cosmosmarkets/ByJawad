@@ -35,80 +35,161 @@
       background-size: 24px 24px;
     }
     .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.75rem 1.5rem; border-radius: 9999px; border: 3px solid var(--ink);
+      font-family: Fredoka, sans-serif; font-weight: 600; font-size: 0.95rem;
+      cursor: pointer; text-decoration: none;
+      transition: transform 150ms ease, box-shadow 150ms ease;
+    }
+    .btn-mustard { background: var(--mustard); color: var(--ink); box-shadow: var(--shadow); }
+    .btn-white { background: var(--card); color: var(--ink); box-shadow: var(--shadow); }
+    .btn:hover { transform: translate(1px, 1px); box-shadow: var(--shadow-sm); }
+    .btn:active { transform: translate(4px, 4px); box-shadow: none; }
+    .btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+    .hero {
+      min-height: 90svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 0 5rem;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 12px;
+      transform: translateY(100%);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='12' viewBox='0 0 16 12'%3E%3Cpolygon fill='%23FCEAD4' points='0,0 8,12 16,0'/%3E%3C/svg%3E");
+      background-repeat: repeat-x;
+      background-size: 16px 12px;
+    }
+    .hero-inner { width: 100%; }
+    .hero-poster {
+      transform: rotate(-6deg);
+      margin: 1rem 0 1.25rem;
+    }
+    .hero-headline {
+      font-family: Fredoka, sans-serif;
+      font-weight: 700;
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+    }
+    .hero-headline__prefix {
+      display: block;
+      font-size: clamp(1.25rem, 3vw, 2rem);
+      font-weight: 600;
+    }
+    .hero-headline__script {
+      display: block;
+      font-family: Caveat, cursive;
+      font-size: clamp(2.75rem, 11vw, 6.5rem);
+      color: var(--mustard);
+      -webkit-text-stroke: 2px var(--ink);
+      paint-order: stroke fill;
+      line-height: 1;
+      margin: 0.1em 0;
+    }
+    .hero-rotate-wrap {
+      display: block;
+      font-size: clamp(3rem, 12vw, 7rem);
+      min-height: 1em;
+    }
+    .rotate-word {
+      display: inline-block;
+      min-width: 10ch;
+      transition: opacity 400ms ease;
+    }
+    .hero-sub {
+      margin: 1.25rem auto 0;
+      max-width: 36rem;
+      line-height: 1.65;
+      font-size: 1.05rem;
+    }
+    .hero-audience {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.75rem;
+      justify-content: center;
+      margin-top: 1rem;
+      padding: 0.65rem 1rem;
+      border: 2px solid var(--ink);
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.35);
+      font-family: Fredoka, sans-serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-poster { transform: none; }
+      .rotate-word { transition: none; }
+    }
   </style>
 </head>
 <body>
   <nav aria-label="Site" style="padding:1rem 0;border-bottom:2px solid var(--ink);background:var(--paper-cream)">
     <div class="wrap" style="display:flex;justify-content:space-between;align-items:center">
       <span class="display" style="font-weight:700;font-size:1.25rem">Jawad</span>
-      <a href="#" style="display:inline-flex;padding:0.5rem 1rem;border-radius:9999px;border:3px solid var(--ink);background:var(--card);font-family:Fredoka,sans-serif;font-weight:600;font-size:0.85rem;text-decoration:none;color:var(--ink);box-shadow:var(--shadow-sm)">Book a Call</a>
+      <a href="#" class="btn btn-white" style="font-size:0.85rem;padding:0.5rem 1rem">Chat to the chef</a>
     </div>
   </nav>
 
-  <header class="hero red-grid" id="hero" style="min-height:90vh;display:flex;align-items:center;padding:6rem 0 4rem">
-    <div class="wrap" style="display:grid;grid-template-columns:1fr;gap:2rem;align-items:center;width:100%">
-      <style>
-        @media (min-width: 900px) {
-          .hero-grid { grid-template-columns: 1.1fr 0.9fr !important; }
-        }
-        .btn {
-          display: inline-flex; align-items: center; justify-content: center;
-          padding: 0.75rem 1.5rem; border-radius: 9999px; border: 3px solid var(--ink);
-          font-family: Fredoka, sans-serif; font-weight: 600; font-size: 0.95rem;
-          cursor: pointer; text-decoration: none;
-          transition: transform 150ms ease, box-shadow 150ms ease;
-        }
-        .btn-mustard { background: var(--mustard); color: var(--ink); box-shadow: var(--shadow); }
-        .btn-white { background: var(--card); color: var(--ink); box-shadow: var(--shadow); }
-        .btn:hover { transform: translate(1px, 1px); box-shadow: var(--shadow-sm); }
-        .btn:active { transform: translate(4px, 4px); box-shadow: none; }
-        .btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
-        .rotate-word { display: inline-block; min-width: 9ch; transition: opacity 400ms ease; }
-      </style>
-      <div class="hero-grid" style="display:grid;grid-template-columns:1fr;gap:2rem;align-items:center">
-        <div>
-          <p class="mono" style="margin-bottom:0.5rem">Portfolio &amp; landing page studio</p>
-          <h1 class="display" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;letter-spacing:-0.02em;font-weight:700">
-            The kitchen for mouth-watering
+  <header class="hero red-grid" id="hero">
+    <div class="wrap hero-inner">
+      <p class="mono" style="margin-bottom:0.75rem">Portfolio &amp; landing page studio</p>
+      <div class="hero-poster">
+        <h1 class="hero-headline">
+          <span class="hero-headline__prefix">The kitchen for</span>
+          <span class="hero-headline__script">mouth-watering</span>
+          <span class="hero-rotate-wrap">
             <span class="rotate-word" id="rotate" aria-live="polite">portfolios</span>
-          </h1>
-          <p style="margin-top:1rem;max-width:36rem;line-height:1.6;font-size:1.05rem">
-            I design and build portfolio websites and landing pages that look incredible and convert — for creatives, founders, and brands.
-          </p>
-          <p style="margin-top:0.75rem;font-size:0.875rem;opacity:0.85">
-            Creative freelancers · SaaS founders · Brands &amp; agencies
-          </p>
-          <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.5rem;align-items:center">
-            <a class="btn btn-mustard" href="#">Place your order</a>
-            <a class="btn btn-white" href="#">See what's cooking</a>
-          </div>
-        </div>
-        <div style="aspect-ratio:4/3;border:3px solid var(--ink);border-radius:20px;background:var(--card);display:flex;align-items:center;justify-content:center;font-family:Fredoka;font-size:1.25rem;font-weight:600;box-shadow:var(--shadow)">
-          Kitchen illustration (TBD)
-        </div>
+          </span>
+        </h1>
+      </div>
+      <p class="hero-sub">
+        I cook portfolio websites and landing pages that taste incredible and convert for creatives, founders, and brands.
+      </p>
+      <p class="hero-audience">
+        Creative freelancers · SaaS founders · Brands &amp; agencies
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-mustard" href="#">Place your order</a>
+        <a class="btn btn-white" href="#">See what's cooking</a>
       </div>
     </div>
   </header>
 
   <p style="text-align:center;padding:2rem;font-size:0.875rem;color:#5C4A3A">
-    Hero prototype only — see <a href="design-token-showcase-v3.html">design-token-showcase-v3.html</a> for full page specimens.
+    Hero prototype — centered mega type, no illustration. See
+    <a href="design-token-showcase-v3.html">design-token-showcase-v3.html</a>
   </p>
 
   <script>
     (function () {
-      var words = ["portfolios", "landing pages"];
+      var words = ['portfolios', 'landing pages'];
       var i = 0;
-      var el = document.getElementById("rotate");
-      if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        if (el) el.textContent = "portfolios and landing pages";
+      var el = document.getElementById('rotate');
+      if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        if (el) el.textContent = 'portfolios and landing pages';
         return;
       }
       setInterval(function () {
         i = (i + 1) % words.length;
-        el.style.opacity = "0";
+        el.style.opacity = '0';
         setTimeout(function () {
           el.textContent = words[i];
-          el.style.opacity = "1";
+          el.style.opacity = '1';
         }, 400);
       }, 4000);
     })();

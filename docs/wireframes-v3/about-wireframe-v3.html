@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-nav-surface="cream">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Wireframe v3 — Studio Kitchen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../wireframes-v2/_chrome.css" />
+  <link rel="stylesheet" href="_v3-labels.css" />
+  <style>
+    .story-chapter {
+      border: 3px solid var(--ink-black);
+      border-radius: var(--radius-lg);
+      background: var(--surface-card);
+      box-shadow: var(--shadow-sticker);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .story-chapter h3 { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .story-chapter p { color: var(--ink-muted); font-size: 0.95rem; }
+    .stack-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 900px) {
+      .stack-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .stack-cell {
+      background: var(--surface-card);
+      border: 2px solid var(--ink-black);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      box-shadow: var(--shadow-sticker-hover);
+      font-size: 0.85rem;
+    }
+    .stack-cell strong { display: block; font-family: var(--font-display); margin-bottom: 0.35rem; }
+    .avatar-block {
+      width: 10rem;
+      height: 10rem;
+      border: 3px solid var(--ink-black);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--paper-cream-dark), var(--heat-red));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      box-shadow: var(--shadow-sticker);
+    }
+    .personal-list { color: var(--ink-muted); padding-left: 1.25rem; }
+    .personal-list li { margin-bottom: 0.35rem; }
+  </style>
+</head>
+<body class="show-v3-labels">
+  <nav class="site-nav is-scrolled" id="site-nav" aria-label="Site">
+    <div class="wrap site-nav__inner">
+      <a class="site-nav__logo" href="/"><img id="nav-logo" src="../../brand_assets/logo/jawad-design-lockup-black.svg" alt="Jawad" width="140" height="32" /></a>
+      <ul class="site-nav__links">
+        <li><a href="/work">Work</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/journal">Journal</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <a class="btn btn-white site-nav__cta" href="/order">Chat to the chef</a>
+        <button type="button" class="site-nav__menu-btn" id="menu-open" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer__backdrop" id="menu-backdrop"></div>
+    <div class="mobile-drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
+      <button type="button" class="mobile-drawer__close" id="menu-close" aria-label="Close menu">×</button>
+      <a class="btn btn-white" href="/order" style="width:100%">Chat to the chef</a>
+      <ul class="mobile-drawer__nav">
+        <li><a href="/work">Work</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/journal">Journal</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+      <p class="v3-page-tokens" aria-hidden="true">v3 · /about · layout-max: 1280px · section-v-desktop: 96px · font.display Fredoka · Toggle labels bottom-right</p>
+  <main id="main">
+    <header class="page-hero--cream" id="hero">
+      <div class="wrap">
+        <p class="kicker">Behind the pass</p>
+        <h1 class="page-hero__title">I build portfolios and landing pages that change trajectories.</h1>
+        <p class="page-hero__sub">Freelance web designer in London — specialist in the two pages that matter most.</p>
+        <div class="cta-row">
+          <a class="btn btn-white" href="/contact">Work With Me</a>
+          <a class="btn btn-white" href="/work">See what's cooking</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="story" aria-labelledby="story-title">
+      <div class="wrap">
+        <p class="kicker">The story</p>
+        <h2 id="story-title" class="display section-title">From the first site to Studio Kitchen.</h2>
+        <article class="story-chapter">
+          <h3>The Spark</h3>
+          <p>My dad needed a website for his business. I built it, watched it work, and never looked back.</p>
+        </article>
+        <article class="story-chapter">
+          <h3>The Grind</h3>
+          <p>Years learning conversion, layout, and craft — agency discipline without agency bloat.</p>
+        </article>
+        <article class="story-chapter">
+          <h3>The Pivot</h3>
+          <p>Freelance specialist: portfolios and landing pages only — the two highest-stakes pages on the internet.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--recessed" id="stack" aria-labelledby="stack-title">
+      <div class="wrap">
+        <p class="kicker">The pantry</p>
+        <h2 id="stack-title" class="display section-title">Tools I cook with.</h2>
+        <div class="stack-grid">
+          <div class="stack-cell"><strong>Next.js</strong>Fast, SEO-ready builds</div>
+          <div class="stack-cell"><strong>Figma</strong>Layout and handoff</div>
+          <div class="stack-cell"><strong>Cursor + Claude</strong>Prototype-first speed</div>
+          <div class="stack-cell"><strong>GSAP</strong>Scroll polish (hi-fi)</div>
+          <div class="stack-cell"><strong>Tailwind</strong>Token-aligned styling</div>
+          <div class="stack-cell"><strong>Supabase</strong>Forms (production)</div>
+          <div class="stack-cell"><strong>Framer Motion</strong>UI micro-motion</div>
+          <div class="stack-cell"><strong>Spline</strong>3D accents (deferred)</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process" aria-labelledby="process-title">
+      <div class="wrap">
+        <p class="kicker">How I work</p>
+        <h2 id="process-title" class="display section-title">Vibe-coding workflow.</h2>
+        <p style="color:var(--ink-muted);max-width:36rem;margin-bottom:1rem">Prototype-first, AI-accelerated, human-led strategy — condensed from the five-day kitchen pass.</p>
+        <div class="process-steps" style="display:grid;gap:1rem">
+          <div class="step-card" style="background:var(--surface-card);border:2px solid var(--ink-black);border-radius:var(--radius-lg);padding:1rem;box-shadow:var(--shadow-sticker-hover)">
+            <p class="kicker">Day 1</p>
+            <p class="display" style="font-size:1rem">Brief &amp; positioning</p>
+          </div>
+          <div class="step-card" style="background:var(--surface-card);border:2px solid var(--ink-black);border-radius:var(--radius-lg);padding:1rem;box-shadow:var(--shadow-sticker-hover)">
+            <p class="kicker">Day 2–3</p>
+            <p class="display" style="font-size:1rem">Design &amp; build</p>
+          </div>
+          <div class="step-card" style="background:var(--surface-card);border:2px solid var(--ink-black);border-radius:var(--radius-lg);padding:1rem;box-shadow:var(--shadow-sticker-hover)">
+            <p class="kicker">Day 4</p>
+            <p class="display" style="font-size:1rem">Revisions</p>
+          </div>
+          <div class="step-card" style="background:var(--surface-card);border:2px solid var(--ink-black);border-radius:var(--radius-lg);padding:1rem;box-shadow:var(--shadow-sticker-hover)">
+            <p class="kicker">Day 5</p>
+            <p class="display" style="font-size:1rem">Launch</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--recessed" id="photo" aria-labelledby="photo-title">
+      <div class="wrap" style="display:flex;flex-wrap:wrap;gap:2rem;align-items:center">
+        <div class="avatar-block" aria-hidden="true">Photo</div>
+        <div>
+          <p class="kicker">Face behind the kitchen</p>
+          <h2 id="photo-title" class="display section-title" style="font-size:1.35rem">Jawad Jalal</h2>
+          <p style="color:var(--ink-muted)">Professional or brand-consistent avatar — Studio Kitchen treatment at hi-fi.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="personal" aria-labelledby="personal-title">
+      <div class="wrap">
+        <p class="kicker">Off the clock</p>
+        <h2 id="personal-title" class="display section-title">A little more human.</h2>
+        <ul class="personal-list">
+          <li>London-based · portfolio &amp; landing page specialist</li>
+          <li>Background in marketing, 3D art, and Roblox-era creative tech</li>
+          <li>Obsessed with conversion, typography, and kitchen metaphors</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="band-cta" id="cta" aria-labelledby="cta-title">
+      <div class="wrap">
+        <p class="kicker">Ready to work together?</p>
+        <h2 id="cta-title" class="display section-title">Let's build your next plate.</h2>
+        <div class="cta-row" style="justify-content:center">
+          <a class="btn btn-white" href="/contact">Work With Me</a>
+          <a class="btn btn-white" href="/work">See what's cooking</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <a href="/"><img src="../../brand_assets/logo/jawad-design-lockup-black.svg" alt="Jawad" width="140" height="32" /></a>
+        <p class="footer-tagline">Landing pages and portfolio websites — designed to stand out and convert.</p>
+      </div>
+      <div class="footer-col"><h3>Work</h3><ul class="footer-links"><li><a href="/work">Work index</a></li></ul></div>
+      <div class="footer-col"><h3>Services</h3><ul class="footer-links"><li><a href="/services">Services</a></li></ul></div>
+      <div class="footer-col"><h3>Journal</h3><ul class="footer-links"><li><a href="/journal">Journal</a></li></ul></div>
+      <div class="footer-col"><h3>Connect</h3><ul class="footer-links"><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div>
+    </div>
+    <div class="wrap footer-bottom">© 2026 Jawad Jalal · London, UK</div>
+  </footer>
+
+  <aside class="spec-footer" aria-label="Wireframe v3 annotations">
+    <div class="wrap">
+      <span class="spec-badge">Wireframe v3 · /about</span>
+      <table class="v3-token-table">
+        <thead><tr><th>Token</th><th>Value / use</th></tr></thead>
+        <tbody>
+          <tr><td><code>font.display</code></td><td>Fredoka — headings, nav, CTAs</td></tr>
+          <tr><td><code>font.body</code></td><td>Inter — body, forms</td></tr>
+          <tr><td><code>font.mono</code></td><td>JetBrains Mono — kickers (ink.muted)</td></tr>
+          <tr><td><code>font.script</code></td><td>Caveat — poster script only</td></tr>
+          <tr><td><code>layout-max</code></td><td>1280px (<code>--layout-max</code>)</td></tr>
+          <tr><td><code>section-v-desktop</code></td><td>96px vertical rhythm (desktop)</td></tr>
+          <tr><td><code>shadow.sticker</code></td><td>4px 4px 0 ink</td></tr>
+          <tr><td><code>radius.lg</code></td><td>16px cards</td></tr>
+          <tr><td><code>border.width.bold</code></td><td>3px ink borders</td></tr>
+        </tbody>
+      </table>
+      <h2>Behaviors</h2>
+      <ul>
+        <li>Cream hero · Work With Me → <code>/contact</code></li>
+        <li>Sections: <code>#hero</code> <code>#story</code> <code>#stack</code> <code>#process</code> <code>#photo</code> <code>#personal</code> <code>#cta</code></li>
+        <li>Chat to the chef → <code>/order</code> in nav only</li>
+        <li>Avatar + tool logos deferred to hi-fi / production</li>
+      </ul>
+      <div class="v3-ledger">
+        <h3>Deferral ledger</h3>
+        <p><strong>Hi-fi (Stage 2):</strong> Hero mega-type poster, hero video, Spline, GSAP scroll scenes, work card secondary image hover (2+ projects), Ken Burns / advanced motion.</p>
+        <p><strong>Production (Stage 3):</strong> Live Calendly/Cal.com, Supabase + Resend, newsletter integration, real tool logos, custom monogram.</p>
+        <p><strong>Post-launch:</strong> Testimonials, additional case studies, journal articles beyond seed set, work filter/tags when N&gt;1.</p>
+      </div>
+      <div class="v3-approval">
+        <h3>v3 approval</h3>
+        <ul>
+          <li><strong>Date:</strong> 2026-05-25</li>
+          <li><strong>Approver:</strong> Jawad Jalal (Studio Kitchen)</li>
+          <li><strong>v2 source:</strong> about-wireframe-v2.html</li>
+          <li><strong>Open questions:</strong> none</li>
+          <li><strong>Conversion sign-off:</strong> <a href="../homepage-conversion-flow.md">homepage-conversion-flow.md</a> — proof-first funnel approved</li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <script src="../wireframes-v2/_chrome.js" defer></script>
+  <script src="_v3-labels.js" defer></script>
+</body>
+</html>

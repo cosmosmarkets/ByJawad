@@ -1,7 +1,13 @@
 "use server";
 
 import { Resend } from "resend";
-import { contactFormSchema } from "@/lib/validations/contact";
+
+import { createAdminClient, isSupabaseAdminConfigured } from "@/lib/supabase/admin";
+import {
+  contactFormSchema,
+  formatInquiryEmailBody,
+  formatInquiryEmailSubject,
+} from "@/lib/validations/contact";
 
 export type ContactActionState = {
   success: boolean;
@@ -16,7 +22,9 @@ export async function submitContact(
   const raw = {
     name: formData.get("name"),
     email: formData.get("email"),
-    subject: formData.get("subject") || undefined,
+    project_type: formData.get("project_type"),
+    budget_range: formData.get("budget_range"),
+    timeline: formData.get("timeline"),
     message: formData.get("message"),
   };
 
@@ -30,10 +38,57 @@ export async function submitContact(
     };
   }
 
+  const data = parsed.data;
+  let savedToDb = false;
+
+  if (isSupabaseAdminConfigured()) {
+    try {
+      const supabase = createAdminClient();
+      const { error: dbError } = await supabase.from("inquiries").insert({
+        name: data.name,
+        email: data.email,
+        project_type: data.project_type,
+        budget_range: data.budget_range,
+        timeline: data.timeline,
+        message: data.message,
+        source: "contact_form",
+        status: "new",
+      });
+
+      if (dbError) {
+        console.error("[contact] Supabase insert failed:", dbError.message);
+        return {
+          success: false,
+          message: "Could not save your inquiry. Please try again or email directly.",
+        };
+      }
+
+      savedToDb = true;
+    } catch (err) {
+      console.error("[contact] Supabase client error:", err);
+      return {
+        success: false,
+        message: "Contact storage is not configured. Add Supabase env vars.",
+      };
+    }
+  } else {
+    return {
+      success: false,
+      message: "Contact form is not configured yet. Add Supabase and Resend env vars.",
+    };
+  }
+
   const resendKey = process.env.RESEND_API_KEY;
   const contactEmail = process.env.CONTACT_EMAIL;
 
   if (!resendKey || !contactEmail) {
+    if (savedToDb) {
+      return {
+        success: true,
+        message:
+          "Thanks — your brief was saved. Email notification is not configured yet.",
+      };
+    }
     return {
       success: false,
       message: "Contact form is not configured yet. Add RESEND_API_KEY and CONTACT_EMAIL.",
@@ -41,25 +96,25 @@ export async function submitContact(
   }
 
   const resend = new Resend(resendKey);
-  const { name, email, subject, message } = parsed.data;
-
-  const { error } = await resend.emails.send({
+  const { error: emailError } = await resend.emails.send({
     from: "Portfolio <onboarding@resend.dev>",
     to: contactEmail,
-    replyTo: email,
-    subject: subject ? `[Portfolio] ${subject}` : `[Portfolio] Message from ${name}`,
-    text: `From: ${name} <${email}>\n\n${message}`,
+    replyTo: data.email,
+    subject: formatInquiryEmailSubject(data),
+    text: formatInquiryEmailBody(data),
   });
 
-  if (error) {
+  if (emailError) {
+    console.error("[contact] Resend failed:", emailError.message);
     return {
-      success: false,
-      message: "Failed to send message. Please try again later.",
+      success: true,
+      message:
+        "Thanks — your brief was received. We may follow up shortly (email notification delayed).",
     };
   }
 
   return {
     success: true,
-    message: "Thanks — your message has been sent.",
+    message: "Thanks — your project brief has been sent.",
   };
 }

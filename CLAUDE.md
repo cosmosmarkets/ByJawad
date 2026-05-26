@@ -19,7 +19,7 @@ Planning and strategy are largely complete. Visual/UI build has not started.
 |----------|---------|
 | GitHub repo + Next.js scaffold | Wireframe approval |
 | Studio Kitchen voice + copy framework | Token adoption in CSS/Tailwind |
-| Studio Kitchen visual direction + tokens | Kitchen hero illustration |
+| Studio Kitchen visual direction + tokens | Centered mega-type hero (no illustration) |
 | Locked copy + CTA matrix | Full page implementation |
 | IA + page briefs + launch strategy | Client case studies, testimonials, monogram logo |
 
@@ -79,8 +79,8 @@ Studio Kitchen — cream paper body, red hero + reservation poster bookends, mus
 ```
 Kicker:      Portfolio & landing page studio
 Headline:    The kitchen for mouth-watering [portfolios | landing pages]  (suffix rotates)
-Subheadline: I design and build portfolio websites and landing pages that look
-             incredible and convert — for creatives, founders, and brands.
+Subheadline: I cook portfolio websites and landing pages that taste incredible
+             and convert for creatives, founders, and brands.
 Audience:    Creative freelancers · SaaS founders · Brands & agencies
 Primary:     Place your order      → /contact
 Secondary:   See what's cooking    → /work

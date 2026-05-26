@@ -1,0 +1,151 @@
+{
+  "projectId": "13841983534348291374",
+  "title": "ByJawad Design System",
+  "designSystemAssetId": "0d798752ae524c658bcc9c4c86dfba67",
+  "designSystemAssetIdsLegacy": [
+    "42fae84c0a4d41349e183123ec8705a1",
+    "7f03b50add5348ff9645cf14f210a458"
+  ],
+  "designMdScreenId": "9961806257585751062",
+  "designMdScreenSource": "projects/13841983534348291374/screens/9961806257585751062",
+  "designMdScreensLegacy": [
+    {
+      "id": "3717910721571283806",
+      "note": "superseded by 9961806257585751062"
+    }
+  ],
+  "halftoneScreenId": "34514b52317f4549a3db5a415d08c2a5",
+  "additionalScreens": [
+    {
+      "title": "Wireframe v1 — Homepage Structure",
+      "screenId": "4efb81e954b5486d8f320c0bfbefceda",
+      "sourceScreen": "projects/13841983534348291374/screens/4efb81e954b5486d8f320c0bfbefceda",
+      "note": "Stitch-generated wireframe; not from upload script"
+    }
+  ],
+  "referenceScreens": [
+    {
+      "title": "Ref \u2014 Hero Composition Desktop",
+      "path": "brand_assets/hero/spaceman-grab-poster.webp",
+      "screenId": "11590063287143153626",
+      "screenName": null,
+      "instanceId": "11590063287143153626",
+      "sourceScreen": "projects/13841983534348291374/screens/11590063287143153626"
+    },
+    {
+      "title": "Ref \u2014 Hero Composition Mobile",
+      "path": "brand_assets/hero/spaceman-grab-mobile.webp",
+      "screenId": "9197187020406775298",
+      "screenName": null,
+      "instanceId": "9197187020406775298",
+      "sourceScreen": "projects/13841983534348291374/screens/9197187020406775298"
+    },
+    {
+      "title": "Ref \u2014 Token Showcase",
+      "path": "docs/design-token-showcase.html",
+      "screenId": "5121937767565539832",
+      "screenName": null,
+      "instanceId": "5121937767565539832",
+      "sourceScreen": "projects/13841983534348291374/screens/5121937767565539832"
+    },
+    {
+      "title": "Ref \u2014 Wireframe Homepage",
+      "path": "docs/homepage-wireframe-spec.html",
+      "screenId": "11606412727468559574",
+      "screenName": null,
+      "instanceId": "11606412727468559574",
+      "sourceScreen": "projects/13841983534348291374/screens/11606412727468559574"
+    },
+    {
+      "title": "Ref \u2014 Hero Layer Stack",
+      "path": "docs/hero-prototype.html",
+      "screenId": "6881292744018067455",
+      "screenName": null,
+      "instanceId": "6881292744018067455",
+      "sourceScreen": "projects/13841983534348291374/screens/6881292744018067455"
+    },
+    {
+      "title": "Ref \u2014 Wireframe Contact",
+      "path": "docs/wireframes-v1/contact-wireframe-v1.html",
+      "screenId": "5820715168460347390",
+      "screenName": null,
+      "instanceId": "5820715168460347390",
+      "sourceScreen": "projects/13841983534348291374/screens/5820715168460347390"
+    },
+    {
+      "title": "Ref \u2014 Wireframe Work",
+      "path": "docs/wireframes-v1/work-wireframe-v1.html",
+      "screenId": "13138408087700676340",
+      "screenName": null,
+      "instanceId": "13138408087700676340",
+      "sourceScreen": "projects/13841983534348291374/screens/13138408087700676340"
+    },
+    {
+      "title": "Ref \u2014 Wireframe Services",
+      "path": "docs/wireframes-v1/services-wireframe-v1.html",
+      "screenId": "1785420623956611357",
+      "screenName": null,
+      "instanceId": "1785420623956611357",
+      "sourceScreen": "projects/13841983534348291374/screens/1785420623956611357"
+    },
+    {
+      "title": "Ref \u2014 Wireframe Case Study",
+      "path": "docs/wireframes-v1/case-study-wireframe-v1.html",
+      "screenId": "14417792741772239623",
+      "screenName": null,
+      "instanceId": "14417792741772239623",
+      "sourceScreen": "projects/13841983534348291374/screens/14417792741772239623"
+    },
+    {
+      "title": "Ref \u2014 Wireframe 404",
+      "path": "docs/wireframes-v1/404-wireframe-v1.html",
+      "screenId": "6483456880362563280",
+      "screenName": null,
+      "instanceId": "6483456880362563280",
+      "sourceScreen": "projects/13841983534348291374/screens/6483456880362563280"
+    },
+    {
+      "title": "Ref — Token Showcase v2 Mission Control",
+      "path": "docs/design-token-showcase-v2.html",
+      "screenId": "6458526948468449495",
+      "screenName": null,
+      "instanceId": "6458526948468449495",
+      "sourceScreen": "projects/13841983534348291374/screens/6458526948468449495"
+    }
+  ],
+  "lastSynced": "2026-05-23T12:00:00+00:00",
+  "sourceDocs": [
+    "docs/design-token-system.md",
+    "docs/homepage-content-hierarchy.md",
+    "docs/cta-messaging-matrix.md",
+    "docs/portfolio-component-token-spec.md",
+    "docs/page-briefs.md",
+    "docs/launch-strategy-v1.md",
+    "docs/ia-sitemap.md",
+    "docs/homepage-conversion-flow.md",
+    "docs/seo-page-map.md"
+  ],
+  "localDesignMd": ".stitch/DESIGN.md",
+  "showcaseV2": "docs/design-token-showcase-v2.html",
+  "designSystemVersion": "mission-control-monochrome-v2",
+  "scripts": {
+    "upload": ".stitch/scripts/upload_to_stitch.py",
+    "uploadAll": ".stitch/scripts/upload_all_references.py",
+    "syncDesignSystem": ".stitch/scripts/sync_design_system.py",
+    "stitchMcp": ".stitch/scripts/stitch-mcp.ps1"
+  },
+  "verification": {
+    "designMdScreenHasAntiPatterns": true,
+    "designMdScreenCharCount": 29073,
+    "referenceUploadCount": 11,
+    "canonicalDesignSystem": "assets/0d798752ae524c658bcc9c4c86dfba67",
+    "themeFonts": {
+      "headlineFont": "SPACE_GROTESK",
+      "bodyFont": "INTER",
+      "labelFont": "JETBRAINS_MONO",
+      "roundness": "ROUND_EIGHT",
+      "colorMode": "DARK"
+    },
+    "notes": "v2 Mission Control Monochrome: ink B&W core, spectral cyan telemetry, flare gold primary CTA only. Prefer design-token-showcase-v2.html + DESIGN.md over Material #131313 surfaces."
+  }
+}

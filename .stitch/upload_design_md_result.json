@@ -1,0 +1,34 @@
+﻿{
+  "results": [
+    {
+      "screen": {
+        "htmlCode": {
+          "name": "projects/13841983534348291374/files/9961806257585752975",
+          "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBKOARIhYXBwX2NvbXBhbmlvbl91c2VyX3VwbG9hZGVkX2ZpbGVzGmkKM3VzZXJfdXBsb2FkZWRfaHRtbF8wMDA2NTI2ZjNlODJjYjIyMDM1NmVkN2I0ODA4NzU3ORILEgcQpPuJxcocGAGSASQKCnByb2plY3RfaWQSFkIUMTM4NDE5ODM1MzQzNDgyOTEzNzQ&filename=&opi=96797242",
+          "mimeType": "text/markdown"
+        },
+        "id": "9961806257585751062",
+        "width": "780",
+        "height": "1768",
+        "title": "DESIGN.md",
+        "name": "projects/13841983534348291374/screens/9961806257585751062",
+        "theme": {},
+        "screenType": "DOCUMENT",
+        "isCreatedByClient": true,
+        "screenMetadata": {
+          "status": "COMPLETE",
+          "displayMode": "MARKDOWN"
+        }
+      }
+    }
+  ],
+  "screenInstances": [
+    {
+      "id": "9961806257585751062",
+      "sourceScreen": "projects/13841983534348291374/screens/9961806257585751062",
+      "x": 1904,
+      "width": 390,
+      "height": 884
+    }
+  ]
+}

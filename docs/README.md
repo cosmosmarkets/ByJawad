@@ -24,7 +24,19 @@ Strategy, copy, wireframes, and design references for the portfolio site.
 - [`ia-sitemap.md`](./ia-sitemap.md) — Routes and section maps
 - [`launch-strategy-v1.md`](./launch-strategy-v1.md) — v1 constraints
 - [`design-build-roadmap.md`](./design-build-roadmap.md) — Design pipeline stages
-- [`homepage-wireframe-spec.html`](./homepage-wireframe-spec.html) — Low-fi wireframes
+- [`homepage-wireframe-spec.html`](./homepage-wireframe-spec.html) — Homepage v1 wireframe (structure)
+- [`studio-kitchen-presentation.html`](./studio-kitchen-presentation.html) — Design deck (slide 07: v2 roadmap)
+
+## Wireframes v2 (Stage 0b — in progress)
+
+- [`wireframes-v2/README.md`](./wireframes-v2/README.md) — Hub, route status, review instructions
+- [`wireframes-v2/pipeline-overview.md`](./wireframes-v2/pipeline-overview.md) — v1 → v2 → v3 narrative
+- [`wireframes-v2/v2-annotation-spec.md`](./wireframes-v2/v2-annotation-spec.md) — Behavior catalog
+- [`wireframes-v2/shared-chrome-spec.md`](./wireframes-v2/shared-chrome-spec.md) — Nav, tokens, buttons
+- [`wireframes-v2/page-matrix.md`](./wireframes-v2/page-matrix.md) — Per-route scope
+- [`wireframes-v2/v2-exit-checklist.md`](./wireframes-v2/v2-exit-checklist.md) — Gate to v3
+- [`wireframes-v3/README.md`](./wireframes-v3/README.md) — Stage 0c approved wireframes (10 routes)
+- [`wireframes-v2/v3-handoff-spec.md`](./wireframes-v2/v3-handoff-spec.md) — Stage 0c handoff spec
 
 ## Legacy (superseded — do not implement)
 

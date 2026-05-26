@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": {
+    "content": [
+      {
+        "text": "{\"assetId\":\"0d798752ae524c658bcc9c4c86dfba67\"}",
+        "type": "text"
+      }
+    ],
+    "structuredContent": {
+      "assetId": "0d798752ae524c658bcc9c4c86dfba67"
+    }
+  }
+}

@@ -89,9 +89,12 @@ Wireframe v1 (structure)
 
 **Visual rules for all wireframe passes:**
 
-- Grayscale blocks + accent tier labels (ink / spectral / flare per design-token-system.md v2)
+- v1: Grayscale blocks + structure annotations only
+- v2+: Studio Kitchen tokens from [design-token-system.md](./design-token-system.md) (paper / ink / heat)
 - Locked copy pasted verbatim (no rewrites)
 - Do not add sections not in [ia-sitemap.md](./ia-sitemap.md)
+
+**v2 documentation hub:** [wireframes-v2/README.md](./wireframes-v2/README.md)
 
 ---
 
@@ -117,7 +120,7 @@ Wireframe v1 (structure)
 #### Homepage v1 (locked section order)
 
 ```
-nav -> hero -> trust -> work -> process -> tools -> cta -> footer
+nav -> hero -> trust -> why-order -> work -> process -> tools -> cta -> footer
 ```
 
 **Not on homepage v1 frames:** Services snapshot section · Testimonials.
@@ -141,19 +144,24 @@ nav -> hero -> trust -> work -> process -> tools -> cta -> footer
 - [ ] Homepage proof-first order unchanged
 - [ ] Locked copy pasted from page briefs / CTA matrix (no rewrites)
 - [ ] Global header/footer on every page frame
-- [ ] Hero composition: spaceman right, content left (homepage)
+- [ ] Hero composition: centered mega-type poster on red (homepage — no illustration)
 
 ---
 
 ### Wireframe v2 — Interaction + component pass
 
-**Goal:** Annotate behavior, fields, and states so mid-fi implementation needs no guesswork.
+**Goal:** Styled scrollable HTML with demonstrated behaviors, fields, and states so mid-fi needs no guesswork.
+
+**Documentation (canonical):** [wireframes-v2/README.md](./wireframes-v2/README.md) · [pipeline-overview.md](./wireframes-v2/pipeline-overview.md) · [v2-annotation-spec.md](./wireframes-v2/v2-annotation-spec.md) · [v2-exit-checklist.md](./wireframes-v2/v2-exit-checklist.md)
+
+**Format:** One responsive scrollable HTML page per route (not dual static frames). Review at 375 / 900 / 1200px.
 
 #### Deliverable files (v2)
 
 | Route | Target file |
 |-------|-------------|
 | `/` | `docs/wireframes-v2/homepage-wireframe-v2.html` |
+| `/order` | `docs/wireframes-v2/order-wireframe-v2.html` |
 | `/work` | `docs/wireframes-v2/work-wireframe-v2.html` |
 | `/work/[slug]` | `docs/wireframes-v2/case-study-wireframe-v2.html` |
 | `/services` | `docs/wireframes-v2/services-wireframe-v2.html` |
@@ -165,25 +173,33 @@ nav -> hero -> trust -> work -> process -> tools -> cta -> footer
 
 #### Annotations to add on every v2 frame
 
-| Category | Spec source | What to annotate |
-|----------|-------------|------------------|
-| Nav scroll | [portfolio-component-token-spec.md](./portfolio-component-token-spec.md) §1 | Transparent over hero -> `.nav-blur` on scroll; height shrink |
-| Hero layers | [homepage-hero-interaction-audit.md](./homepage-hero-interaction-audit.md) | L0 poster · L1 orbit (deferred hi-fi) · L2 scrim · L3 copy column |
-| Work cards | [homepage-content-hierarchy.md](./homepage-content-hierarchy.md) | Option B: live card + coming-soon panel; field schema |
-| Process | page-briefs §1.4 | 5 steps; horizontal desktop / vertical mobile; orbit connector |
-| Tools | launch-strategy-v1 | 8 cards 4x2 desktop; 2x4 mobile |
-| CTAs | [cta-messaging-matrix.md](./cta-messaging-matrix.md) | Primary white fill / secondary outline; focus ring |
-| Mobile nav | portfolio-component-token-spec §1 | Hamburger -> drawer; CTA row first |
-| Forms | ia-sitemap Contact | Field types, required flags, validation (semantic colors only) |
-| Exit risk | homepage-content-hierarchy heatmap | Note high-risk zones per section |
+See [v2-annotation-spec.md](./wireframes-v2/v2-annotation-spec.md). Summary:
+
+| Category | Spec source | What to implement |
+|----------|-------------|-------------------|
+| Nav scroll | [shared-chrome-spec.md](./wireframes-v2/shared-chrome-spec.md) | Transparent over red hero → cream blur on scroll; height shrink; logo swap |
+| Hero layers | [studio-kitchen-hero-prototype.html](./studio-kitchen-hero-prototype.html) | L0 red grid · L1 centered poster type · L2 scrim (if needed) · L3 copy stack |
+| Hero suffix | [homepage-wireframe-v1.md](./wireframes-v1/homepage-wireframe-v1.md) | Crossfade portfolios ↔ landing pages; reduced-motion static line |
+| `#why-order` | homepage-wireframe-v1.md | Whole-tile links → `/services#why-*` |
+| Work cards | [homepage-content-hierarchy.md](./homepage-content-hierarchy.md) | Option B; hover; secondary image deferred |
+| Process | page-briefs | 5 steps; horizontal desktop / vertical mobile; connector |
+| Tools | launch-strategy-v1 | 8 cards 4×2 desktop; 2×4 mobile |
+| CTAs | v1 CTA model · [cta-messaging-matrix.md](./cta-messaging-matrix.md) | Mustard on red; Chat to the chef → `/order` in header |
+| Mobile nav | shared-chrome-spec | Hamburger → drawer; Chat to the chef first |
+| Forms | order + contact v1 specs | Field types, required flags, validation (semantic colors) |
+| FAQ accordion | services-wireframe-v1.md | Open/close; one open on mobile |
+| Exit risk | homepage-content-hierarchy heatmap | Spec footer per route |
 
 #### Wireframe v2 exit checklist
 
+Full checklist: [v2-exit-checklist.md](./wireframes-v2/v2-exit-checklist.md). Summary:
+
 - [ ] Developer can implement mid-fi without open interaction questions
-- [ ] Hero approved against [brand_assets/hero/README.md](../brand_assets/hero/README.md)
-- [ ] All CTA labels match CTA matrix
-- [ ] Hover/focus states noted on interactive elements
-- [ ] Mobile drawer behavior documented
+- [ ] Kitchen hero placeholder (not legacy spaceman assets)
+- [ ] All CTA labels match v1 session model (`/order`)
+- [ ] Hover/focus states on interactive elements
+- [ ] Mobile drawer behavior working
+- [ ] Spec footer on every v2 HTML file
 
 ---
 
@@ -191,12 +207,14 @@ nav -> hero -> trust -> work -> process -> tools -> cta -> footer
 
 **Goal:** Final low-fi approval with tokens, anchors, and deferrals explicit.
 
+**Documentation:** [v3-handoff-spec.md](./wireframes-v2/v3-handoff-spec.md)
+
 #### Deliverable files (v3)
 
 Same routes as v2, under `docs/wireframes-v3/`:
 
 - `homepage-wireframe-v3.html` (canonical approved homepage)
-- `work-wireframe-v3.html` through `404-wireframe-v3.html`
+- `order-wireframe-v3.html` through `404-wireframe-v3.html`
 
 Alternatively: promote v2 files in place with a **v3 changelog** block in each HTML footer.
 
@@ -204,26 +222,28 @@ Alternatively: promote v2 files in place with a **v3 changelog** block in each H
 
 | Addition | Source |
 |----------|--------|
-| Section IDs | `#hero`, `#trust`, `#work`, `#process`, `#tools`, `#cta` |
-| Type scale labels | display (Space Grotesk) · body (Inter) · kicker (JetBrains Mono) |
-| Spacing tokens | `layout.section-y`, `space.6` gutter, `layout.content-max` 1280px |
-| Deferred to hi-fi | Spline orbit · hero video · GSAP scroll scenes · Ken Burns |
+| Section IDs | `#hero`, `#trust`, `#why-order`, `#work`, `#process`, `#tools`, `#cta` |
+| Type scale labels | display (Fredoka) · body (Inter) · kicker (JetBrains Mono) · script (Caveat, poster only) |
+| Spacing tokens | `section-v-desktop`, gutter, `content-max` 1280px |
+| Deferred to hi-fi | Hero video · GSAP scroll scenes · Spline |
 | Deferred to production | Calendly live URL · Supabase form · testimonials when 2+ quotes |
 | Conversion sign-off | [homepage-conversion-flow.md](./homepage-conversion-flow.md) |
 
 #### Wireframe v3 exit checklist (sync with page-briefs)
 
-- [ ] Homepage: v1 sections mapped (no testimonials; `#tools` present)
-- [ ] Work: grid + card hover states documented
-- [ ] Case study: 8-block template documented
-- [ ] Services: 2 packages + add-ons + FAQ
-- [ ] About: 6 sections
-- [ ] Journal: index + article template
-- [ ] Contact: Calendly + form layout
-- [ ] 404: recovery layout
-- [ ] Global header/footer on all pages
-- [ ] No open layout questions
-- [ ] Design + content + conversion review complete
+- [x] Homepage: v1 sections mapped (includes `#why-order`; no testimonials; `#tools` present)
+- [x] Work: grid + card hover states documented
+- [x] Case study: 8-block template documented
+- [x] Services: 2 packages + add-ons + FAQ
+- [x] About: 6 sections
+- [x] Journal: index + article template
+- [x] Contact: Calendly + form layout
+- [x] 404: recovery layout
+- [x] Global header/footer on all pages
+- [x] No open layout questions
+- [x] Design + content + conversion review complete
+
+**Authority:** [wireframes-v3/README.md](./wireframes-v3/README.md) · regenerate via `node scripts/promote-wireframes-v3.mjs`
 
 ---
 

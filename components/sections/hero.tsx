@@ -15,8 +15,8 @@ export function Hero() {
             The kitchen for mouth-watering portfolios and landing pages
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/90">
-            I design and build portfolio websites and landing pages that look
-            incredible and convert — for creatives, founders, and brands.
+            I cook portfolio websites and landing pages that taste incredible
+            and convert for creatives, founders, and brands.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link

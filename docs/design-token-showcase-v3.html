@@ -38,17 +38,16 @@
     .kicker { color: var(--muted); margin-bottom: 0.5rem; }
     .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
     section { padding: 4rem 0; }
-    .hero { min-height: 90vh; display: flex; align-items: center; padding: 6rem 0 4rem; }
-    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
-    @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.1fr 0.9fr; } }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.05; letter-spacing: -0.02em; }
-    .rotate-word { display: inline-block; min-width: 9ch; transition: opacity 400ms ease; }
-    .hero-sub { margin-top: 1rem; max-width: 36rem; line-height: 1.6; font-size: 1.05rem; }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; align-items: center; }
-    .illus {
-      aspect-ratio: 4/3; border: 3px solid var(--ink); border-radius: 20px; background: var(--card);
-      display: flex; align-items: center; justify-content: center; font-family: Fredoka; font-size: 1.25rem; box-shadow: var(--shadow);
-    }
+    .hero { min-height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 6rem 0 4rem; }
+    .hero-poster { transform: rotate(-6deg); margin: 1rem 0; }
+    .hero h1 { line-height: 0.92; letter-spacing: -0.03em; }
+    .hero .prefix { display: block; font-size: clamp(1.25rem, 3vw, 2rem); font-weight: 600; }
+    .hero .script-line { display: block; font-family: Caveat, cursive; font-size: clamp(2.75rem, 11vw, 6.5rem); color: var(--mustard); -webkit-text-stroke: 2px var(--ink); paint-order: stroke fill; }
+    .hero .mega { display: block; font-size: clamp(3rem, 12vw, 7rem); min-height: 1em; }
+    .rotate-word { display: inline-block; min-width: 10ch; transition: opacity 400ms ease; }
+    .hero-sub { margin: 1rem auto 0; max-width: 36rem; line-height: 1.6; font-size: 1.05rem; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; align-items: center; justify-content: center; }
+    @media (prefers-reduced-motion: reduce) { .hero-poster { transform: none; } }
     .section-title { font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 1.5rem; }
     .grid-2 { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
     .ingredient { text-align: center; padding: 1rem; }
@@ -78,17 +77,20 @@
   </nav>
 
   <header class="hero red-grid" id="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <p class="mono kicker" style="color:var(--ink)">Portfolio &amp; landing page studio</p>
-        <h1 class="display">The kitchen for mouth-watering <span class="rotate-word" id="rotate" aria-live="polite">portfolios</span></h1>
-        <p class="hero-sub">I design and build portfolio websites and landing pages that look incredible and convert — for creatives, founders, and brands.</p>
-        <div class="cta-row">
-          <a class="btn btn-mustard" href="#">Place your order</a>
-          <a class="btn btn-white" href="#">See what's cooking</a>
-        </div>
+    <div class="wrap">
+      <p class="mono kicker" style="color:var(--ink)">Portfolio &amp; landing page studio</p>
+      <div class="hero-poster">
+        <h1 class="display">
+          <span class="prefix">The kitchen for</span>
+          <span class="script-line">mouth-watering</span>
+          <span class="mega"><span class="rotate-word" id="rotate" aria-live="polite">portfolios</span></span>
+        </h1>
       </div>
-      <div class="illus">Kitchen illustration (TBD)</div>
+      <p class="hero-sub">I cook portfolio websites and landing pages that taste incredible and convert for creatives, founders, and brands.</p>
+      <div class="cta-row">
+        <a class="btn btn-mustard" href="#">Place your order</a>
+        <a class="btn btn-white" href="#">See what's cooking</a>
+      </div>
     </div>
   </header>
 

@@ -19,18 +19,19 @@ Proof-first order is the default for wireframes and build. Do not reorder withou
 | 0     | Navigation     | `nav`             | —        | Must-have  |
 | 1     | Hero           | `hero`            | `#hero`  | Must-have  |
 | 2     | Trust bar      | `trust`           | `#trust` | Must-have  |
-| 3     | Selected work  | `work`            | `#work`  | Must-have  |
-| 4     | Process        | `process`         | `#process` | Must-have |
-| 5     | Tools showcase | `tools`           | `#tools` | Must-have  |
-| 6     | Final CTA      | `cta`             | `#cta`   | Must-have  |
-| 7     | Footer         | `footer`          | —        | Must-have  |
+| 3     | Why order      | `why-order`       | `#why-order` | Must-have |
+| 4     | Selected work  | `work`            | `#work`  | Must-have  |
+| 5     | Process        | `process`         | `#process` | Must-have |
+| 6     | Tools showcase | `tools`           | `#tools` | Must-have  |
+| 7     | Final CTA      | `cta`             | `#cta`   | Must-have  |
+| 8     | Footer         | `footer`          | —        | Must-have  |
 
 **Not on homepage (v1):** Full services snapshot section · Testimonials (deferred v2). Use a text bridge after process: `View Services` → `/services`.
 
 **Funnel sequence for analytics:**
 
 ```
-hero → trust → work → process → tools → cta
+hero → trust → why-order → work → process → tools → cta
 ```
 
 ---
@@ -86,20 +87,20 @@ hero → trust → work → process → tools → cta
 | **Typography** | Fredoka 700 headline (black on red); Inter subhead |
 | **Primary CTA** | Mustard pill — Place your order |
 | **Secondary CTA** | White pill — See what's cooking |
-| **Wireframe** | Full-viewport red hero — copy left, kitchen illustration right (TBD) |
-| **Layout model** | Full-bleed; **left column** = kicker → rotating headline → subhead → audience → CTAs |
-| **Visual hierarchy** | 1) Rotating headline 2) Subheadline + audience 3) Dual CTAs — kicker above headline |
-| **Headline interaction** | Suffix crossfade: `portfolios` ↔ `landing pages` every ~4s; prefix static |
+| **Wireframe** | Full-viewport red hero — **centered poster stack** (Steak-inspired mega type; no hero illustration) |
+| **Layout model** | Full-bleed; **single centered column** = kicker → mega headline block → subhead → audience ribbon → CTAs |
+| **Visual hierarchy** | 1) Mega headline (script accent + rotating suffix) 2) Subheadline + audience 3) Dual CTAs — kicker above headline |
+| **Headline interaction** | Suffix crossfade: `portfolios` ↔ `landing pages` every ~4s; prefix static; optional slight tilt on headline block (desktop only) |
 | **Social proof** | Optional one-line under CTAs; full trust in `#trust` |
 | **Purpose** | 3-second clarity: what you do, who it's for, what to do next |
-| **Priority** | Must-have (copy + red hero + CTAs); kitchen illustration TBD |
-| **Mobile stack** | kicker → headline → subhead → audience → CTAs |
+| **Priority** | Must-have (copy + red hero + CTAs); **no** hero illustration asset in v1 |
+| **Mobile stack** | Same centered stack: kicker → headline → subhead → audience → CTAs |
 | **Exit rate** | **High** — bounce if service type unclear |
 
 #### Reduced motion (`prefers-reduced-motion`)
 
 - Static combined headline: *The kitchen for mouth-watering portfolios and landing pages*
-- No suffix rotation or decorative motion
+- No suffix rotation, hero tilt, or decorative motion
 - Keep all copy and CTAs identical
 
 #### Copy blocks (locked)
@@ -110,7 +111,7 @@ hero → trust → work → process → tools → cta
 | Headline prefix | The kitchen for mouth-watering |
 | Headline variants | portfolios · landing pages (rotate) |
 | Headline (reduced motion) | The kitchen for mouth-watering portfolios and landing pages |
-| Subheadline | I design and build portfolio websites and landing pages that look incredible and convert — for creatives, founders, and brands. |
+| Subheadline | I cook portfolio websites and landing pages that taste incredible and convert for creatives, founders, and brands. |
 | Audience chips | Creative freelancers · SaaS founders · Brands & agencies |
 | Primary CTA | Place your order |
 | Secondary CTA | See what's cooking |
@@ -135,15 +136,22 @@ hero → trust → work → process → tools → cta
 | `audience[]` | string[] | yes (3) |
 | `primaryCta` | `{ label, href }` | yes |
 | `secondaryCta` | `{ label, href }` | yes |
-| `heroImage` | `{ src, srcset, alt }` | yes (TBD Studio Kitchen) |
-| `heroImageMobile` | `{ src, alt }` | yes (TBD) |
 | `trustLine` | string | no |
 
-#### Hero assets
+#### Hero composition (locked)
 
-Kitchen illustration TBD in `brand_assets/`. Legacy spaceman files in `brand_assets/hero/` are **retired**.
+| Element | Spec |
+|---------|------|
+| **Alignment** | Centered horizontally; max readable width on subhead (~36–40rem) |
+| **Type scale** | Display `clamp(3rem, 12vw, 7rem)` on emphasis + rotating suffix; prefix smaller Fredoka |
+| **Script accent** | Caveat on **mouth-watering** only (mustard on red, black stroke) — max one script accent in hero |
+| **Poster tilt** | Headline block ~−6° on desktop; flat when `prefers-reduced-motion` |
+| **Illustration** | **None** in hero — typography is the visual; proof uses screenshots in `#work` |
+| **Bottom edge** | White sawtooth / zigzag into cream `#trust` (optional chrome detail) |
 
-**Prototype:** [studio-kitchen-hero-prototype.html](./studio-kitchen-hero-prototype.html)
+Legacy spaceman files in `brand_assets/hero/` are **retired**. Optional line art may appear on **reservation poster** (`#cta`) only — not in hero.
+
+**Prototype:** [studio-kitchen-hero-prototype.html](./studio-kitchen-hero-prototype.html) · **Reference:** [steak.studio](https://steak.studio) · [wireframes-v2/steak-studio-reference.md](./wireframes-v2/steak-studio-reference.md)
 
 ---
 
@@ -151,38 +159,74 @@ Kitchen illustration TBD in `brand_assets/`. Legacy spaceman files in `brand_ass
 
 | Attribute | Spec |
 |-----------|------|
-| **Wireframe** | `Thin copy-only band — no logos (logos live in #tools)` |
+| **Wireframe** | Dual poster blocks on cream — no logos (logos live in `#tools`) |
 | **Credibility** | Positioning lines only — no project count until real stats exist |
 | **Placement** | Immediately after hero |
-| **Format** | Centered text, single or dual line |
+| **Format** | Two sticker cards; diagonal offset desktop · stacked mobile (Steak display-scale proof strip) |
 | **Purpose** | Instant specialist positioning before work evaluation |
 | **Priority** | Must-have |
-| **Mobile stack** | Same copy, centered |
+| **Mobile stack** | Block A → Block B → footnote |
 | **Exit rate** | Low — passive scan |
 
-#### Copy blocks (locked v1)
+#### Copy blocks (locked)
+
+**Block A — speed**
 
 | Element | Copy |
 |---------|------|
-| Primary line | Same quality every time: strategy, design, build, launch. |
-| Supporting line | Agency-level craft. Days-not-months delivery. Specialist in portfolios and landing pages only. |
+| Script (Caveat) | I cook |
+| Display (Fredoka caps) | FAST FOOD |
+| Support (Inter) | Dishes delivered in days not months. |
 
-**No CTA** in this section. **No logo row** in v1.
+**Block B — quality & value**
+
+| Element | Copy |
+|---------|------|
+| Script (Caveat) | Agency-level |
+| Display (Fredoka caps) | DISHES |
+| Support (Inter) | at takeaway prices. |
+
+**Footnote (below blocks):** Specialist in portfolios and landing pages only.
+
+**No CTA** in this section. **No logo row** in v1. **No tilt** on trust cards (tilt reserved for `#cta` poster).
+
+**Surface:** `paper.cream` · cards: `surface.card` + `border.width.bold` + `shadow.sticker`
 
 #### Component fields
 
 | Field | Type | Required |
 |-------|------|----------|
-| `primaryLine` | string | yes |
-| `supportingLine` | string | yes |
+| `trustBlockA` | `{ script, display, support }` | yes |
+| `trustBlockB` | `{ script, display, support }` | yes |
+| `trustFootnote` | string | yes |
 
 ---
 
-### SECTION 4: SELECTED WORK (`#work`) — Option B
+### SECTION 4: WHY ORDER TEASER (`#why-order`)
 
 | Attribute | Spec |
 |-----------|------|
-| **Wireframe** | `1 live project card + coming-soon panel (desktop side-by-side; mobile stacked)` |
+| **Wireframe** | Three whole-tile links on **ink** band (Steak services-grid analogue) |
+| **Surface** | `surface.ink` (`#121212`) · glass cards `rgba(255,255,255,0.06)` |
+| **Layout** | Asymmetric 3-column desktop (`1.2fr 1fr 1fr`) · stacked mobile |
+| **Purpose** | Qualify audience before proof (`#work`) |
+| **Priority** | Must-have |
+
+**Copy:** See [wireframes-v1/homepage-wireframe-v1.md](./wireframes-v1/homepage-wireframe-v1.md) § Section 3 — Why order teaser.
+
+| CTA | Destination |
+|-----|-------------|
+| Tile links | `/services#why-portfolio` · `/services#why-landing` · `/services#why-brands` |
+| Bridge | See the full menu → `/services#why` |
+
+---
+
+### SECTION 5: SELECTED WORK (`#work`) — Option B
+
+| Attribute | Spec |
+|-----------|------|
+| **Wireframe** | `1 live project card + coming-soon panel · horizontal rail on desktop` |
+| **Surface** | `surface.ink` (continues dark band with `#why-order`; tight top padding) |
 | **Count** | 1 live project at v1 launch |
 | **Layout** | ~60% featured card + coming-soon panel desktop; single column mobile |
 | **Card depth** | Thumbnail + title + type tag + one-line description |
@@ -233,7 +277,7 @@ Kitchen illustration TBD in `brand_assets/`. Legacy spaceman files in `brand_ass
 
 ---
 
-### SECTION 5: PROCESS (`#process`)
+### SECTION 6: PROCESS (`#process`)
 
 | Attribute | Spec |
 |-----------|------|
@@ -277,7 +321,7 @@ Kitchen illustration TBD in `brand_assets/`. Legacy spaceman files in `brand_ass
 
 ---
 
-### SECTION 6: TOOLS SHOWCASE (`#tools`)
+### SECTION 7: TOOLS SHOWCASE (`#tools`)
 
 | Attribute | Spec |
 |-----------|------|
@@ -324,7 +368,7 @@ Kitchen illustration TBD in `brand_assets/`. Legacy spaceman files in `brand_ass
 
 ---
 
-### SECTION 7: FINAL CTA (`#cta`) — Reservation poster
+### SECTION 8: FINAL CTA (`#cta`) — Reservation poster
 
 | Attribute | Spec |
 |-----------|------|
@@ -355,7 +399,7 @@ Kitchen illustration TBD in `brand_assets/`. Legacy spaceman files in `brand_ass
 
 ---
 
-### SECTION 8: FOOTER
+### SECTION 9: FOOTER
 
 | Attribute | Spec |
 |-----------|------|
@@ -438,7 +482,7 @@ Place after `#process`:
 - [ ] Optional: embed Spline `hero.orbitScene` in `hero-prototype.html`
 - [x] v1 work: By Jawad live + coming-soon panel (Option B)
 - [x] Tools section spec + wireframe
-- [x] Trust strip: copy-only (no logos, no project count)
+- [x] Trust strip: dual poster blocks · copy-only (no logos, no project count)
 - [x] Tier 2: pricing, logo interim, launch strategy doc
 - [ ] Phase 2: expand work grid when client case studies exist
 - [ ] v2: testimonials section (2+ real quotes)
@@ -463,4 +507,5 @@ Not on homepage for v1 launch. Add when 2+ authentic client quotes exist.
 |------|--------|
 | May 2026 | Initial hierarchy locked (proof-first) per conversion flow plan |
 | May 2026 | v1 update: Option B work, #tools section, testimonials deferred, slim trust |
+| May 2026 | Trust: dual poster blocks locked (FAST FOOD / DISHES · at takeaway prices) |
 | May 2026 | Studio Kitchen voice lock: hero rotation, kitchen CTAs, section copy |

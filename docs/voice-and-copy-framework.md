@@ -78,7 +78,7 @@ orbit · mission · cosmic · telemetry · launch pad · return to base · featu
 | Headline prefix | The kitchen for mouth-watering |
 | Headline variants (rotate) | portfolios · landing pages |
 | Headline (reduced motion) | The kitchen for mouth-watering portfolios and landing pages |
-| Subheadline | I design and build portfolio websites and landing pages that look incredible and convert — for creatives, founders, and brands. |
+| Subheadline | I cook portfolio websites and landing pages that taste incredible and convert for creatives, founders, and brands. |
 | Audience chips | Creative freelancers · SaaS founders · Brands & agencies |
 | Primary CTA | Place your order |
 | Secondary CTA | See what's cooking |
@@ -109,7 +109,7 @@ orbit · mission · cosmic · telemetry · launch pad · return to base · featu
 
 **SEO:** Crawlable H1 uses static combined line or full text in DOM; animation is progressive enhancement only. See [seo-page-map.md](./seo-page-map.md).
 
-**Visual:** TBD Studio Kitchen illustration system — legacy spaceman/halftone assets deferred. See [homepage-content-hierarchy.md](./homepage-content-hierarchy.md).
+**Visual:** Centered mega-type hero on red (no illustration) — Steak-inspired poster stack. Legacy spaceman/halftone assets retired. See [homepage-content-hierarchy.md](./homepage-content-hierarchy.md).
 
 ---
 
@@ -155,7 +155,7 @@ See [cta-messaging-matrix.md](./cta-messaging-matrix.md) for full blocks.
 
 | Section | Kicker | Heading / primary copy |
 |---------|--------|-------------------------|
-| Trust | — | **Same quality every time:** strategy, design, build, launch. (Supporting: Agency-level craft. Days-not-months delivery. Specialist in portfolios and landing pages only.) |
+| Trust | — | Dual poster blocks: **A** *I cook* · **FAST FOOD** · Dishes delivered in days not months. **B** *Agency-level* · **DISHES** · at takeaway prices. Footnote: Specialist in portfolios and landing pages only. |
 | Work | From the pass | **My dishes** · Live: By Jawad · Coming soon: **Next out of the kitchen** |
 | Process | The recipe | **Five courses. Five days.** |
 | Tools | The pantry | **My ingredients** |
@@ -220,7 +220,7 @@ Visual: tilted red poster band — see [studio-kitchen-visual-direction.md](./st
 
 | Location | Copy |
 |----------|------|
-| Trust strip (homepage) | Same quality every time: strategy, design, build, launch. |
+| Trust strip (homepage) | Block A: I cook · FAST FOOD · Dishes delivered in days not months. Block B: Agency-level · DISHES · at takeaway prices. Footnote: Specialist in portfolios and landing pages only. |
 | Contact promise | I reply within 24 hours. |
 | Calendly sublabel | 15-minute discovery call — no pressure, just clarity. |
 | Form submit button | Send project brief |

@@ -42,6 +42,7 @@ Semantic colors: forms and system feedback only.
 | `color.paper.cream` | `#FCEAD4` | Default page/section bg |
 | `color.paper.cream.dark` | `#F5DFC4` | Alternating section (optional) |
 | `color.surface.card` | `#FFFFFF` | Cards on cream |
+| `color.surface.ink` | `#121212` | Full-bleed ink bands (`#why-order`, `#work`) |
 
 ### Ink
 
@@ -183,6 +184,7 @@ Semantic colors: forms and system feedback only.
 |-----------------|------------|------|
 | Homepage hero | `heat.red` | `ink.black` (headline), Inter subhead |
 | Homepage body | `paper.cream` | `ink.black` / `ink.muted` |
+| Homepage `#why-order`, `#work` | `surface.ink` | `ink.onDark` / `ink.onDark.muted` · glass cards |
 | Homepage `#cta` | `heat.red` poster | script white, shout black |
 | `/contact` hero | `heat.red` | same as homepage hero |
 | Inner page heroes | `paper.cream` | `ink.black` |
@@ -196,7 +198,7 @@ Semantic colors: forms and system feedback only.
 |-----------|------------|
 | Nav | Fredoka logo; ghost/white CTA by scroll surface |
 | Hero | `heat.red` bg; `.btn-mustard` + `.btn-white` |
-| Trust strip | `paper.cream`; Inter centered |
+| Trust strip | `paper.cream`; dual poster cards · Fredoka display + Caveat script |
 | Dish card | `surface.card`, `border.default`, `radius.lg` |
 | Recipe step | icon + Fredoka title + Inter desc |
 | Ingredient card | white card, mono kicker, grayscale logo |
@@ -214,6 +216,9 @@ Full mapping: [portfolio-component-token-spec.md](./portfolio-component-token-sp
   --color-paper-cream: #FCEAD4;
   --color-paper-cream-dark: #F5DFC4;
   --color-surface-card: #FFFFFF;
+  --color-surface-ink: #121212;
+  --color-ink-on-dark: #FFFFFF;
+  --color-ink-on-dark-muted: rgba(252, 234, 212, 0.75);
   --color-ink-black: #000000;
   --color-ink-muted: #5C4A3A;
   --color-ink-white: #FFFFFF;

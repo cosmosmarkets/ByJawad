@@ -60,6 +60,8 @@
     .step-card { padding: 12px; min-height: 80px; border: 1px dashed var(--border); background: #fafafa; }
     .faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
     .faq-item { padding: 12px; border: 1px dashed var(--border); background: #fafafa; }
+    .why-panel { padding: 16px; margin-bottom: 12px; border: 1px dashed var(--annotation); background: #fafafa; }
+    .why-panel .panel-label { font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--accent); }
     .final-cta { padding: 56px 24px; text-align: center; margin-left: 28px; }
     .frame.mobile .final-cta { margin-left: 22px; padding: 40px 16px; }
     .final-cta .cta-row { justify-content: center; }
@@ -76,7 +78,7 @@
   <h1>Services Wireframe v1</h1>
   <p class="meta">
     Route: <code>/services</code> · Pricing: Portfolio £500–£1k · Landing £1k–£3k<br />
-    <a href="../cta-messaging-matrix.md">cta-messaging-matrix.md</a> · <a href="./index.html">← All v1 frames</a>
+    <a href="./services-wireframe-v1.md">services-wireframe-v1.md</a> · <a href="./index.html">← All v1 frames</a>
   </p>
 
   <div class="frames">
@@ -86,24 +88,48 @@
         <div style="position:relative"><div class="section-id">nav</div>
           <header class="nav white">
             <div class="block nav-logo light"><span class="label">Jawad → /</span></div>
-            <nav class="nav-links"><span class="copy">Work</span><span class="copy">About</span><span class="copy bold">Services</span><span class="copy">Journal</span><span class="copy">Contact</span></nav>
-            <div class="block nav-cta dark"><span class="label" style="color:#fff">Book a Call</span></div>
+            <nav class="nav-links"><span class="copy">Work</span><span class="copy bold">Services</span><span class="copy">About</span><span class="copy">Journal</span><span class="copy">Contact</span></nav>
+            <div class="block nav-cta dark"><span class="label" style="color:#fff">Chat to the chef</span></div>
           </header>
         </div>
 
         <div style="position:relative"><div class="section-id">#hero</div>
           <section class="page-hero">
-            <p class="copy" style="color:var(--muted)">Kicker: Mission packages</p>
+            <p class="copy" style="color:var(--muted)">Kicker: The menu</p>
             <p class="copy bold" style="font-size:22px;margin-top:8px">Portfolio and landing page packages, built to convert.</p>
-            <p class="copy" style="margin-top:8px">Clear scope, fast timelines, and cinematic quality — without agency bloat.</p>
+            <p class="copy" style="margin-top:8px">Clear scope, fast timelines, and studio quality craft without agency bloat.</p>
             <div class="cta-row">
-              <div class="block btn primary"><span class="label" style="color:#fff">Book a Call</span></div>
-              <div class="block btn secondary"><span class="label">Start an Inquiry</span></div>
+              <div class="block btn primary"><span class="label" style="color:#fff">Chat to the chef → /order</span></div>
+              <div class="block btn secondary"><span class="label">See what's cooking → /work</span></div>
             </div>
           </section>
         </div>
 
-        <div style="position:relative"><div class="section-id">packages</div>
+        <div style="position:relative"><div class="section-id">#why</div>
+          <section class="section-pad light" style="background:#f4f4f5">
+            <p class="copy" style="color:var(--muted)">Why order?</p>
+            <p class="copy bold" style="font-size:16px">The full menu.</p>
+            <p class="copy" style="margin:8px 0 16px">Same three orders as the homepage. Here is what each one means and which package fits.</p>
+            <div class="why-panel" id="why-portfolio">
+              <p class="panel-label">The empty plate · Creative freelancers</p>
+              <p class="copy">A portfolio website plates your best work so art directors stop scrolling and start hiring.</p>
+              <p class="copy" style="color:var(--annotation);margin-top:8px">See portfolio package → #portfolio</p>
+            </div>
+            <div class="why-panel" id="why-landing">
+              <p class="panel-label">One dish, one goal · SaaS founders</p>
+              <p class="copy">One landing page, one job: explain your product in seconds and turn visitors into demo requests.</p>
+              <p class="copy" style="color:var(--annotation);margin-top:8px">See landing page package → #landing</p>
+            </div>
+            <div class="why-panel" id="why-brands">
+              <p class="panel-label">Front of house · Brands &amp; agencies</p>
+              <p class="copy">A premium first impression, served fast. Look agency level without the long wait.</p>
+              <p class="copy" style="color:var(--annotation);margin-top:8px">Chat to the chef → /order</p>
+            </div>
+            <p class="copy" style="margin-top:12px">Still deciding? Chat to the chef → /order</p>
+          </section>
+        </div>
+
+        <div style="position:relative"><div class="section-id">#portfolio</div>
           <section class="section-pad">
             <div class="packages-row">
               <div class="package-card">
@@ -118,9 +144,9 @@
                   <li>Launch support</li>
                 </ul>
                 <p class="copy bold" style="margin-top:16px">~1 week · £500 – £1,000</p>
-                <div class="block btn secondary" style="margin-top:12px;max-width:160px;height:32px"><span class="label">Start an Inquiry</span></div>
+                <div class="block btn secondary" style="margin-top:12px;max-width:180px;height:32px"><span class="label">Chat to the chef → /order</span></div>
               </div>
-              <div class="package-card">
+              <div class="package-card" id="landing">
                 <p class="copy bold" style="font-size:16px">Landing page package</p>
                 <p class="copy" style="color:var(--muted);margin-top:4px">For: SaaS founders, brands, agencies, product launches</p>
                 <ul>
@@ -131,15 +157,16 @@
                   <li>Fast load + responsive</li>
                 </ul>
                 <p class="copy bold" style="margin-top:16px">3–5 days · £1,000 – £3,000</p>
-                <div class="block btn secondary" style="margin-top:12px;max-width:160px;height:32px"><span class="label">Start an Inquiry</span></div>
+                <div class="block btn secondary" style="margin-top:12px;max-width:180px;height:32px"><span class="label">Chat to the chef → /order</span></div>
               </div>
             </div>
             <p class="pricing-note copy">Starter rates for early clients. Review after first 3 completed projects.</p>
           </section>
         </div>
 
-        <div style="position:relative"><div class="section-id">addons</div>
+        <div style="position:relative"><div class="section-id">#addons</div>
           <section class="section-pad light" style="background:#f4f4f5">
+            <p class="copy" style="color:var(--muted)">Extra toppings</p>
             <p class="copy bold" style="font-size:14px">Add-ons</p>
             <table class="addons-table">
               <thead><tr><th>Add-on</th><th>Description</th></tr></thead>
@@ -156,37 +183,43 @@
 
         <div style="position:relative"><div class="section-id">#process</div>
           <section class="section-pad">
-            <p class="copy bold" style="font-size:14px">From brief to launch in 5 days</p>
-            <p class="copy" style="color:var(--muted)">Same 5-day visual as homepage — horizontal desktop</p>
+            <p class="copy" style="color:var(--muted)">The recipe</p>
+            <p class="copy bold" style="font-size:14px">Five courses. Five days.</p>
             <div class="process-steps">
-              <div class="step-card"><p class="copy bold">Day 1</p><p class="copy">Discovery & strategy</p></div>
-              <div class="step-card"><p class="copy bold">Day 2</p><p class="copy">Wireframe & prototype</p></div>
-              <div class="step-card"><p class="copy bold">Day 3</p><p class="copy">Visual design</p></div>
-              <div class="step-card"><p class="copy bold">Day 4</p><p class="copy">Build & polish</p></div>
-              <div class="step-card"><p class="copy bold">Day 5</p><p class="copy">QA & launch</p></div>
+              <div class="step-card"><p class="copy bold">1</p><p class="copy">Prep the brief</p></div>
+              <div class="step-card"><p class="copy bold">2</p><p class="copy">First taste</p></div>
+              <div class="step-card"><p class="copy bold">3</p><p class="copy">Plate the design</p></div>
+              <div class="step-card"><p class="copy bold">4</p><p class="copy">In the oven</p></div>
+              <div class="step-card"><p class="copy bold">5</p><p class="copy">Serve &amp; hand off</p></div>
             </div>
           </section>
         </div>
 
-        <div style="position:relative"><div class="section-id">faq</div>
+        <div style="position:relative"><div class="section-id">#faq</div>
           <section class="section-pad light" style="background:#f4f4f5">
+            <p class="copy" style="color:var(--muted)">Before you order</p>
             <p class="copy bold" style="font-size:14px">FAQ</p>
             <div class="faq-list">
-              <div class="faq-item"><p class="copy bold">What's included in each package?</p></div>
-              <div class="faq-item"><p class="copy bold">How many revision rounds?</p></div>
-              <div class="faq-item"><p class="copy bold">Do I own the site/code?</p></div>
-              <div class="faq-item"><p class="copy bold">What do you need from me to start?</p></div>
-              <div class="faq-item"><p class="copy bold">Payment structure?</p></div>
-              <div class="faq-item"><p class="copy bold">What if I need more pages later?</p></div>
+              <div class="faq-item"><p class="copy bold">What's included in each package?</p><p class="copy" style="margin-top:6px">Portfolio: discovery, design, case study slots, build, SEO, launch. Landing: brief, one page, copy/CTA, analytics-ready build. Add-ons quoted separately.</p></div>
+              <div class="faq-item"><p class="copy bold">How many revision rounds?</p><p class="copy" style="margin-top:6px">Two structured rounds after first taste (wireframe/prototype, then design). Small launch tweaks included.</p></div>
+              <div class="faq-item"><p class="copy bold">Do I own the site and code?</p><p class="copy" style="margin-top:6px">Yes, when paid in full. Handover on launch. Hosting and domain stay in your accounts.</p></div>
+              <div class="faq-item"><p class="copy bold">What do you need from me to start?</p><p class="copy" style="margin-top:6px">Brief, audience, timeline, budget band, references. Chat to the chef on /order if unsure.</p></div>
+              <div class="faq-item"><p class="copy bold">How does payment work?</p><p class="copy" style="margin-top:6px">50% to book, 50% before launch. Bank transfer. Starter rates for early clients.</p></div>
+              <div class="faq-item"><p class="copy bold">What if I need more pages later?</p><p class="copy" style="margin-top:6px">Scoped as phase two or new package. Blog, extra case studies, second landing page quoted clearly.</p></div>
+              <div class="faq-item"><p class="copy bold">Which package should I pick?</p><p class="copy" style="margin-top:6px">Portfolio for hireability. Landing for one conversion job. Unsure? Chat to the chef → /order.</p></div>
             </div>
+            <p class="copy" style="margin-top:16px">Still have questions? Chat to the chef → /order</p>
           </section>
         </div>
 
         <div style="position:relative"><div class="section-id">#cta</div>
           <section class="final-cta cta-band">
+            <p class="copy" style="color:var(--muted)">Ready to order?</p>
+            <p class="copy bold" style="font-size:16px">Tell me what you are building.</p>
+            <p class="copy" style="margin:8px 0 16px">I reply within 24 hours.</p>
             <div class="cta-row">
-              <div class="block btn primary"><span class="label" style="color:#fff">Book a Call</span></div>
-              <div class="block btn secondary"><span class="label">Start an Inquiry</span></div>
+              <div class="block btn primary"><span class="label" style="color:#fff">Chat to the chef → /order</span></div>
+              <div class="block btn secondary"><span class="label">See what's cooking → /work</span></div>
             </div>
           </section>
         </div>
@@ -214,22 +247,25 @@
         </div>
         <div style="position:relative"><div class="section-id">#hero</div>
           <section class="page-hero">
-            <p class="copy" style="color:var(--muted)">Mission packages</p>
+            <p class="copy" style="color:var(--muted)">The menu</p>
             <p class="copy bold" style="font-size:16px">Portfolio and landing page packages, built to convert.</p>
             <div class="cta-row"><div class="block btn primary"></div><div class="block btn secondary"></div></div>
           </section>
         </div>
-        <div style="position:relative"><div class="section-id">packages</div>
+        <div style="position:relative"><div class="section-id">#why</div>
+          <section class="section-pad light" style="background:#f4f4f5"><p class="copy bold">The full menu · 3 panels stacked</p></section>
+        </div>
+        <div style="position:relative"><div class="section-id">#portfolio</div>
           <section class="section-pad">
             <div class="package-card"><p class="copy bold">Portfolio · £500–1k</p></div>
             <div class="package-card" style="margin-top:12px"><p class="copy bold">Landing · £1k–3k</p></div>
           </section>
         </div>
         <div style="position:relative"><div class="section-id">#process</div>
-          <section class="section-pad"><p class="copy bold">5 days — vertical</p><div class="process-steps"><div class="step-card"></div><div class="step-card"></div></div></section>
+          <section class="section-pad"><p class="copy bold">Five courses · vertical</p><div class="process-steps"><div class="step-card"></div><div class="step-card"></div></div></section>
         </div>
-        <div style="position:relative"><div class="section-id">faq</div>
-          <section class="section-pad light" style="background:#f4f4f5"><p class="copy bold">FAQ ×6 stacked</p></section>
+        <div style="position:relative"><div class="section-id">#faq</div>
+          <section class="section-pad light" style="background:#f4f4f5"><p class="copy bold">FAQ ×7 with answers</p></section>
         </div>
         <div style="position:relative"><div class="section-id">#cta</div>
           <section class="final-cta cta-band"><div class="cta-row"><div class="block btn primary"></div><div class="block btn secondary"></div></div></section>
@@ -241,6 +277,6 @@
     </div>
   </div>
 
-  <div class="legend"><h2>Legend</h2><ul><li>#process anchor matches homepage bridge → /services#process</li></ul></div>
+  <div class="legend"><h2>Legend</h2><ul><li>Canonical copy: <a href="./services-wireframe-v1.md">services-wireframe-v1.md</a></li><li>#why deep links from homepage #why-order tiles</li><li>#process anchor → /services#process</li></ul></div>
 </body>
 </html>

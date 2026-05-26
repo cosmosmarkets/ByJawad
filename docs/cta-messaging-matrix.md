@@ -55,7 +55,7 @@ Sitewide actions are split into **persistent** (always available) and **contextu
 | Kicker | Portfolio & landing page studio |
 | Headline | The kitchen for mouth-watering **[portfolios \| landing pages]** (suffix rotates; see voice doc) |
 | Headline (reduced motion) | The kitchen for mouth-watering portfolios and landing pages |
-| Subheadline | I design and build portfolio websites and landing pages that look incredible and convert — for creatives, founders, and brands. |
+| Subheadline | I cook portfolio websites and landing pages that taste incredible and convert for creatives, founders, and brands. |
 | Primary CTA | Place your order |
 | Secondary CTA | See what's cooking |
 
@@ -185,7 +185,7 @@ Swap subheadline or CTA supporting line by traffic source; keep headline stable.
 
 | Location | Copy |
 |----------|------|
-| Trust strip (homepage) | Same quality every time: strategy, design, build, launch. |
+| Trust strip (homepage) | Block A: I cook · FAST FOOD · Dishes delivered in days not months. Block B: Agency-level · DISHES · at takeaway prices. Footnote: Specialist in portfolios and landing pages only. |
 | Contact promise | I reply within 24 hours. |
 | Calendly sublabel | 15-minute discovery call — no pressure, just clarity. |
 | Form submit button | Send project brief |

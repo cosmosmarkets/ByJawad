@@ -1,0 +1,141 @@
+/**
+ * Wireframe v3 — approval overlay labels
+ * Toggle: body.show-v3-labels (default on in v3 files)
+ */
+
+.v3-toolbar {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: min(22rem, calc(100vw - 2rem));
+}
+
+.v3-toolbar button {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.45rem 0.65rem;
+  border: 2px solid var(--ink-black);
+  border-radius: var(--radius-pill);
+  background: var(--accent-mustard);
+  color: var(--ink-black);
+  cursor: pointer;
+  box-shadow: var(--shadow-sticker);
+}
+
+.v3-toolbar button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink-black);
+}
+
+.v3-toolbar button:focus-visible {
+  outline: 3px solid var(--heat-red);
+  outline-offset: 2px;
+}
+
+.v3-page-tokens {
+  display: none;
+  position: sticky;
+  top: var(--nav-height-scrolled);
+  z-index: 50;
+  margin: 0;
+  padding: 0.5rem var(--gutter);
+  background: rgba(0, 0, 0, 0.92);
+  color: var(--ink-white);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  border-bottom: 2px solid var(--accent-mustard);
+}
+
+body.show-v3-labels .v3-page-tokens {
+  display: block;
+}
+
+body.show-v3-labels main [id].v3-labeled,
+body.show-v3-labels main header[id],
+body.show-v3-labels main section[id],
+body.show-v3-labels main article[id] {
+  position: relative;
+}
+
+.v3-label {
+  display: none;
+  position: absolute;
+  top: 0.35rem;
+  left: 0.35rem;
+  z-index: 20;
+  pointer-events: none;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  background: var(--ink-black);
+  color: var(--accent-mustard);
+  border: 1px solid var(--accent-mustard);
+  line-height: 1.3;
+  max-width: calc(100% - 1rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body.show-v3-labels .v3-label {
+  display: block;
+}
+
+.v3-label--token {
+  top: auto;
+  bottom: 0.35rem;
+  left: auto;
+  right: 0.35rem;
+  background: var(--heat-red);
+  color: var(--ink-white);
+  border-color: var(--ink-black);
+  max-width: 14rem;
+  white-space: normal;
+}
+
+.spec-footer .v3-ledger,
+.spec-footer .v3-approval {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--ink-muted);
+}
+
+.spec-footer .v3-ledger h3,
+.spec-footer .v3-approval h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.spec-footer table.v3-token-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.spec-footer table.v3-token-table th,
+.spec-footer table.v3-token-table td {
+  border: 1px solid var(--ink-muted);
+  padding: 0.4rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.spec-footer table.v3-token-table th {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  background: var(--paper-cream-dark);
+}
